@@ -24,9 +24,11 @@ finns, exempelvis en releasegren/tagg. Arkiverat webbpaket finns som Actions-art
 i 14 dagar. Publicera bara en vald testversion åt gången och behåll samma origin
 för webbläsarens lokala sparning. Ett domänbyte överför inte automatiskt sparfiler.
 
-Lokalt testat: fyra paketeringstester samt Chrome-start utan profilparameter;
-kampanj 1.4.1-dev startar med 0 konsolfel/varningar. GitHub-körningens resultat
-ska kontrolleras separat före delning av den publicerade länken.
+Verifierat 2026-10-24: fyra paketeringstester, full regression i en ren GitHub-runner
+och lyckad [första publicering](https://github.com/adellestrand/GemTD/actions/runs/40124814499).
+Publika `build.json` motsvarar commit `0166e336a70cea15b189f56f11a159fb9fac2950`.
+Chrome startar kampanj 1.4.1-dev från den publika adressen utan profilparameter;
+fem placeringar och vågstart har testats med 0 konsolfel/varningar.
 
 ## Leaderboard – rekommenderad nästa etapp, ännu inte aktiverad
 

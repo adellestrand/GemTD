@@ -10,7 +10,7 @@ spelbar och automatiskt verifierad. Mänskliga kampanjtester och slutbalansering
 
 ## Dela webbversionen
 
-Planerad betaadress: [GemTD Solo på GitHub Pages](https://adellestrand.github.io/GemTD/).
+Spela och dela: [GemTD Solo på GitHub Pages](https://adellestrand.github.io/GemTD/).
 Publicering startas manuellt under **Actions → Publish web beta → Run workflow**.
 Workflow kör tester och exporterar innan sidan ersätts. Den publika länken väljer
 kampanjen direkt. `build.json` visar vilken commit och innehållsversion som körs.

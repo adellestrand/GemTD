@@ -21,7 +21,7 @@ Aktivera **Run → Solo campaign · 100 waves** eller öppna `http://127.0.0.1:8
 - Vågor 35/36/38 kan välja sina alternativa enheter. Prövningarna återanvänder 1–50 med två reproducerbara slumpförmågor, källans HP-regler och 1,8× hastighet.
 - Varje avklarad grundvåg 1–50 ger en MVP-nivå till det mest skadegörande berättigade tornet. Tio nivåer ger +100 % skada och en +100 %-aura till andra torn inom 290 källenheter. Samlad MVP-bonus har +500 % tak. Kombinationer för över materialens nivåer med tak tio. Prövningar ger inga nya nivåer.
 - Natural Emerald kopierar upp till tre olika förmågor från kvarvarande torn inom 220 källenheter vid skapandet. Guardian Stone rullar sin attack från källans begränsade normalfördelning; resultat och RNG kan återspelas.
-- Stentavlor lämnar markvägen öppen. Receptet öppnar den valda materialrutan; övriga förbrukade material blir sten. Välj tavlan och **Move path trap** under byggfasen. Tre lika i en rak linje uppgraderas automatiskt vid mitten, även diagonalt. Start-/målhörnen är skyddade. Räckvidd för utlösning är en ruta och cooldown tio sekunder.
+- Stentavlor lämnar markvägen öppen. Receptet öppnar den valda materialrutan; övriga förbrukade material blir sten. Välj tavlan och **Move path trap** under byggfasen. Två lika traps var som helst på brädet slås automatiskt ihop till nästa nivå (brons → silver → guld) på den nyaste trappens ruta; den andra rutan blir fri (användarbeslut 2026-10-24, avviker från Dotas tre i rak linje). Start-/målhörnen är skyddade. Räckvidd för utlösning är en ruta och cooldown tio sekunder.
 
 ## Balansreferens och avvikelser
 
@@ -58,7 +58,7 @@ För granskning: spela samma seed igen, jämför boss-/luftvågor och kopiera **
 2. Placera fem gems på giltiga rutor. Välj och kombinera de två Diamond I till Diamond II. Övriga färska gems blir sten och striden startar. Kontrollera paus/2× och markvägens kontrollpunkter.
 3. Öppna **Waves** under strid och inspektera våg 8, boss 10 och prövning 100 utan att ändra den pågående vågen. Dialogen pausar; stängning återställer tidigare hastighet.
 4. Efter en avklarad våg: kontrollera faktisk guldinkomst, kills/leaks och MVP. Öppna **Run summary**, kopiera rapporten och ladda om sidan. Omladdning startar vid byggfasens sparpunkt, inte mitt i den avbrutna striden.
-5. Sök i **Recipes** efter ett torn eller `secret`. Följ material över flera byggfaser. För en stentavla: skapa på en tillåten materialruta, välj **Move path trap**, flytta under byggfasen och kontrollera att markvägen är öppen. Tre lika tavlor i linje uppgraderar mitten.
+5. Sök i **Recipes** efter ett torn eller `secret`. Följ material över flera byggfaser. För en stentavla: skapa på en tillåten materialruta, välj **Move path trap**, flytta under byggfasen och kontrollera att markvägen är öppen. Två lika tavlor var som helst på brädet uppgraderas.
 6. Prova samma seed igen och anteckna vilken våg, luft-/marktyp eller effekt som blev svår eller svårläst. Gemplacering och tornval påverkar utfallet; samma seed garanterar inte samma omgång om handlingarna skiljer sig.
 
 7. Efter besegrad grundboss: kontrollera +150 sparad rabatt och oförändrat bossguld. Gör ett manuellt oddsinköp och kontrollera det reducerade priset samt eventuell kvarvarande rabatt. Ladda om i nästa byggfas och kontrollera saldot.

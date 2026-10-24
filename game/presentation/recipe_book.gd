@@ -370,7 +370,7 @@ func show_detail(recipe: String) -> void:
 	var stats = ""
 	if not is_trap(recipe) and float(data.get("damage",0)) > 0:
 		stats = "\n\n%.0f damage · %.2fs / attack · range %.1f · %s" % [float(data.damage),float(data.interval),float(data.range),"ground + air" if str(data.get("targets","")) == "both" else "ground only"]
-	var trap_rules = "\n\nTraps consume their gems and open the material cell. They never block enemies, trigger within one cell (10s cooldown), and three equal traps in a straight line upgrade at the centre." if is_trap(recipe) else ""
+	var trap_rules = "\n\nTraps consume their gems and open the material cell. They never block enemies, trigger within one cell (10s cooldown), and two equal traps anywhere on the board merge into the next grade." if is_trap(recipe) else ""
 	detail_text.text = summary_for(recipe)+"\n\n"+effect+stats+trap_rules
 	var parts: PackedStringArray = []
 	for ingredient in GemCatalog.recipe(recipe).ingredients:

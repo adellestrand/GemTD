@@ -79,10 +79,11 @@ func run_checks() -> void:
 	var state = GemRun.new(42)
 	state.board.cells.clear()
 	state.board.rebuild()
-	state.board.slabs = {at-Vector2i(1,0):"youbushiban",at:"youbushiban",at+Vector2i(1,0):"youbushiban"}
+	state.board.slabs = {at:"youbushiban",at+Vector2i(5,3):"youbushiban",at+Vector2i(2,0):"zhangqishiban"}
 	var route = state.board.ground_route.duplicate()
 	state.upgrade_slabs()
-	check(state.board.slabs.size() == 1 and state.board.slabs[at] == "youbushiban_yin" and route == state.board.ground_route,"three equal path traps upgrade at the center without blocking the route")
+	check(state.board.slabs.size() == 2 and state.board.slabs[at] == "youbushiban_yin" and state.board.slabs[at+Vector2i(2,0)] == "zhangqishiban" and route == state.board.ground_route,"two equal path traps anywhere merge without blocking the route; other kinds stay")
+	state.board.slabs.erase(at+Vector2i(2,0))
 	check(state.move_slab(at,at+Vector2i(0,2)) and not state.place(at+Vector2i(0,2)),"moving a trap preserves the build phase and prevents a gem overlapping it")
 	state.adjust_streak(101)
 	check(state.enemy_count == 12 and state.streak == 1,"success streak raises enemy count one per 50 points")

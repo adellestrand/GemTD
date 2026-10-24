@@ -125,9 +125,11 @@ func run_checks() -> void:
 	var rng_before = state.rng.state
 	check(not state.move_slab(at,Vector2i(4,4)) and state.board.slabs.has(at) and state.rng.state == rng_before,"protected start corner rejects trap movement atomically")
 	for source in GemCatalog.DATA.slab_upgrades:
-		state.board.slabs = {at-Vector2i(1,1):source,at:source,at+Vector2i(1,1):source}
-		state.upgrade_slabs()
-		check(state.board.slabs.size() == 1 and state.board.slabs[at] == GemCatalog.DATA.slab_upgrades[source],"diagonal automatic trap upgrade: "+source)
+		state.board.slabs = {at-Vector2i(4,6):source,at:source}
+		check(state.upgrade_slabs(at) == at and state.board.slabs.size() == 1 and state.board.slabs[at] == GemCatalog.DATA.slab_upgrades[source],"distant pair upgrades at the tracked trap: "+source)
+	state.board.slabs = {at-Vector2i(4,6):"youbushiban",at:"youbushiban",at+Vector2i(3,3):"youbushiban",at+Vector2i(6,0):"youbushiban_yin"}
+	state.upgrade_slabs(at)
+	check(state.board.slabs.size() == 2 and state.board.slabs[at] == "youbushiban_jin" and state.board.slabs.values().has("youbushiban"),"merges cascade to gold and an odd trap stays")
 	state = GemRun.new(42)
 	state.board.cells[at] = gem("emerald",3)
 	state.board.cells[at+Vector2i(3,0)] = gem("opal",3)

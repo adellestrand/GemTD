@@ -406,21 +406,26 @@ func adjust_streak(amount: float) -> void:
 		streak += 50
 		enemy_count = maxi(5,enemy_count-1)
 
+# User-ordered deviation from Dota (three in a straight line): any two equal
+# traps anywhere on the board merge. The tracked (newest) trap keeps its cell,
+# otherwise the first in row order; the other trap's cell becomes free.
 func upgrade_slabs(tracked: Vector2i = Vector2i(-1,-1)) -> Vector2i:
 	var again = true
 	while again:
 		again = false
 		var positions = board.slabs.keys()
 		positions.sort_custom(func(a,b): return a.y*37+a.x < b.y*37+b.x)
+		if positions.has(tracked):
+			positions.erase(tracked)
+			positions.push_front(tracked)
 		for p in positions:
 			var kind: String = board.slabs[p]
 			if not GemCatalog.DATA.get("slab_upgrades",{}).has(kind): continue
-			for delta in [Vector2i(1,0),Vector2i(0,1),Vector2i(1,1),Vector2i(1,-1)]:
-				if board.slabs.get(p+delta,"") == kind and board.slabs.get(p-delta,"") == kind:
-					if tracked in [p,p+delta,p-delta]: tracked = p
-					board.slabs.erase(p+delta)
-					board.slabs.erase(p-delta)
+			for q in positions:
+				if q != p and board.slabs[q] == kind:
+					board.slabs.erase(q)
 					board.slabs[p] = GemCatalog.DATA.slab_upgrades[kind]
+					if tracked == q: tracked = p
 					again = true
 					break
 			if again: break
@@ -437,7 +442,7 @@ func move_slab(from: Vector2i, to: Vector2i) -> bool:
 		pending_trap = upgrade_slabs(to if pending_trap == from else pending_trap)
 	else:
 		upgrade_slabs()
-	message = "Path trap moved. Click Start wave when ready." if awaiting_trap_placement else "Path trap moved. Three equal traps in a line upgrade automatically."
+	message = "Path trap moved. Click Start wave when ready." if awaiting_trap_placement else "Path trap moved. Two equal traps upgrade automatically."
 	changed.emit()
 	return true
 

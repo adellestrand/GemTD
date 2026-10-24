@@ -49,9 +49,8 @@ func run_checks() -> void:
 	check(state.combine(RECIPE,AT) and state.start_wave() and state.board.slabs.has(AT),"player may keep the original trap position")
 	state = GemRun.new(42)
 	prepare(state)
-	state.board.slabs[AT-Vector2i(1,0)] = "youbushiban"
-	state.board.slabs[AT-Vector2i(2,0)] = "youbushiban"
-	check(state.combine(RECIPE,AT) and state.pending_trap == AT-Vector2i(1,0) and state.board.slabs[state.pending_trap] == "youbushiban_yin","creation tracks an automatically merged trap at another centre")
+	state.board.slabs[Vector2i(25,12)] = "youbushiban"
+	check(state.combine(RECIPE,AT) and state.pending_trap == AT and state.board.slabs[AT] == "youbushiban_yin" and not state.board.slabs.has(Vector2i(25,12)),"new trap merges with an equal trap elsewhere and keeps its own cell")
 	check(state.move_slab(state.pending_trap,DEST),"automatically upgraded new trap can also move immediately")
 	state = GemRun.new(42)
 	prepare(state)

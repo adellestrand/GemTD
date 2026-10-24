@@ -4,6 +4,7 @@ extends RefCounted
 # Short-lived visual events only. No RNG, damage, targeting or saved state.
 var events: Array[Dictionary] = []
 var flashes: Dictionary = {}
+var ability_pulses: Dictionary = {}
 var clock = 0.0
 
 func settings() -> Dictionary:
@@ -12,11 +13,14 @@ func settings() -> Dictionary:
 func clear() -> void:
 	events.clear()
 	flashes.clear()
+	ability_pulses.clear()
 	clock = 0.0
 
 func advance(dt: float) -> void:
 	clock += maxf(0,dt)
 	events = events.filter(func(e): return clock-e.start < e.duration)
+	for key in ability_pulses.keys():
+		if clock >= float(ability_pulses[key]): ability_pulses.erase(key)
 	for id in flashes.keys():
 		if clock >= float(flashes[id]):
 			flashes.erase(id)
@@ -62,16 +66,20 @@ func draw_projectiles(canvas: CanvasItem, projectiles: Array[Dictionary], origin
 	if not bool(settings().get("enabled",true)): return
 	var limit = maxi(1,int(settings().get("max_events",240)))
 	for projectile in projectiles.slice(0,limit):
-		var profile: Dictionary = settings().get("shots",{}).get(projectile.kind,{})
+		var profile: Dictionary = GemAbilityArt.profiles.get("towers",{}).get(projectile.kind,settings().get("shots",{}).get(projectile.kind,{}))
 		var style = str(profile.get("style","bolt"))
-		var color: Color = projectile.color
+		var color = Color(profile.get("color",projectile.color.to_html()))
 		var position: Vector2 = origin+projectile.pos*unit-Vector2(0,unit*.3)
 		var direction: Vector2 = (projectile.pos-projectile.previous).normalized()
 		if direction == Vector2.ZERO: direction = (projectile.target.pos-projectile.pos).normalized()
 		var width = maxf(1,unit*.055)
 		var length = unit*(.55 if style == "beam" else .28)
 		canvas.draw_line(position-direction*length,position,Color(color,.7),width*(2 if style == "ember" else 1))
-		canvas.draw_rect(Rect2(position-Vector2.ONE*width,Vector2.ONE*width*2),color.lightened(.4))
+		if style == "shard":
+			var normal = direction.orthogonal()*width*1.5
+			canvas.draw_colored_polygon(PackedVector2Array([position+direction*width*2,position+normal,position-direction*width*2,position-normal]),color.lightened(.4))
+		else:
+			canvas.draw_rect(Rect2(position-Vector2.ONE*width,Vector2.ONE*width*2),color.lightened(.4))
 
 func draw(canvas: CanvasItem, origin: Vector2, unit: float, font: Font) -> void:
 	for event in events:
@@ -79,6 +87,9 @@ func draw(canvas: CanvasItem, origin: Vector2, unit: float, font: Font) -> void:
 		var color: Color = event.color
 		color.a *= 1.0-t
 		var p: Vector2 = origin+event.pos*unit
+		if str(event.kind).begins_with("ability_"):
+			GemAbilityArt.draw_event(canvas,event,t,origin,unit)
+			continue
 		match event.kind:
 			"shot":
 				var start = p-Vector2(0,unit*float(event.height))
@@ -103,6 +114,10 @@ func draw(canvas: CanvasItem, origin: Vector2, unit: float, font: Font) -> void:
 					var direction = Vector2.RIGHT.rotated(i*TAU/4+.25)
 					var spark = p+direction*radius
 					canvas.draw_rect(Rect2(spark,Vector2.ONE*maxf(1,unit*.07)),color)
+			"ghost":
+				# defeated enemy: rises a little, flattens and fades (presentation only)
+				var ghost = Color(1.6,1.5,1.3,(1.0-t)*.85)
+				GemArt.draw(canvas,str(event.art),p-Vector2(0,unit*.35*t),unit,bool(event.flip),ghost,Vector2(1.0+.15*t,1.0-.45*t))
 			"ring":
 				canvas.draw_arc(p,unit*float(event.get("radius",.7))*(.3+.7*t),0,TAU,32,color,maxf(1,unit*.04))
 			"text":

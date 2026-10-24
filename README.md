@@ -1,91 +1,168 @@
 # GemTD Solo
 
-En spelbar, fristående Godot-prototyp inspirerad av Dota 2 GemTD. Bygg en labyrint, placera fem slumpade gems och välj ett torn att behålla. Slutvalet startar vågen direkt.
+Fristående solospel inspirerat av Dota 2 GemTD. Bygg en labyrint, placera fem
+slumpade gems och välj torn att behålla och kombinera. Godot 4.7.2, GDScript
+och pixelgrafik; samma projekt för Windows och webb.
 
-37×37 rutor och sju kontrollpunkter. Kampanjprofilen har åtta grundtyper med sex kvaliteter, 50 grundvågor plus 50 prövningar, 59 receptalternativ och 24 stentavlor. Mark/luft, receptsökning, målprioritet, gemchansköp, MVP-progression, rivning, paus, dubbel hastighet, zoom, ljud och lokala sparpunkter ingår. Den äldre tiovågsprofilen finns kvar som jämförelse.
+**Aktuell utvecklingsversion: 1.4.1-dev · innehållsversion 10.** Kampanjen är
+spelbar och automatiskt verifierad. Mänskliga kampanjtester och slutbalansering
+återstår; full likhet med Dotas motor är inte uppmätt.
 
-**Version 1.0.0 är paketerad för lokal granskning:** `builds/release/GemTD-1.0.0-local-review.zip`. Packa upp och starta `Windows/GemTD.exe`, eller `Web/Start-Web.cmd` (Python behövs för webbservern). Se [testguiden](docs/testguide-v1.md), [release notes](docs/release-notes-v1.md) och [balansunderlaget](docs/balance-v1.md). Originalets torn-/fiendegrundvärden är kontrollerade; ekonomi och vågföljd är tiovågsanpassningar. Full skadeparitet och mänsklig balansgranskning återstår.
+## Innehåll
 
-**Aktuell kampanj:** [spela 1.3.0-dev](http://127.0.0.1:8060/?profile=campaign), eller välj **Run → Solo campaign · 100 waves**. Native: `tools/run.ps1 -Campaign`. Skott följer nu målen med riktig flygtid; skada och träffeffekter sker vid träff. Strid och tornpanel använder samma tak på 700 total attackhastighet. Tre uttryckliga PRD-händelser använder utjämnad slump. Version 1.3 lägger till stridsdiagnostik, rättade auraklockor och utbytbara kartmärken för kvaliteter, specialtorn, stentavlor och fiendetillstånd. Se [femstegsundersökningen](docs/investigation-five-steps.md). Varje besegrad grundboss ger 150 sparad rabatt på manuella gemchansköp; guld och grundpriser behålls. Se [kampanjens innehåll, tester och avvikelser](docs/campaign-review.md). Mänsklig balansgranskning och faktisk jämförelse med Dota-motorn återstår.
+- 37×37 rutor, sju kontrollpunkter, 50 grundvågor och 50 prövningsvågor.
+- Åtta gemtyper med sex kvaliteter, 43 kombinationstorn, 59 receptalternativ och
+  24 stentavlor inklusive uppgraderingar.
+- Källbaserade torn-/fiendevärden, adaptivt fiendeantal, alternativa fiender och
+  bossar, verklig projektilflygtid, skadetyper, försvar, mark/luft och MVP.
+- Gift, splash, multiskott, stun, förstening, auror och trapförmågor.
+- Manuella gemchansköp med 150 sparad rabatt per besegrad grundboss.
+- Fem tornflyttar **per hel omgång** under byggfasen, inklusive byte med sten.
+- Receptbok med Locate/Track, vågöversikt, labyrintförslag, målprioritet, paus,
+  2× hastighet, zoom, ljud, seeds och återspelbara testrapporter.
+- Egna bilder för alla 43 kombinationstorn, animerade fiender och effekter som
+  följer verkliga träffar, skadetick och tillstånd.
+- Tornpanel med stödpåverkad skada/DPS, separata auravärden och listan
+  **AFFECTING THIS TOWER** för MVP, stödkällor och tillfälliga effekter.
+- MVP 10 med guldkrona, räckviddsring och markering av berörda torn.
 
-Separat kampanjpaket: `builds/release/GemTD-campaign-1.3.0-dev.zip`. Packa upp och starta **Windows/Start-Campaign.cmd** eller **Web/Start-Web.cmd**. Paketeraren kontrollerar CRC och SHA-256. Äldre 1.0-, 1.2.0-, 1.2.1- och 1.2.2-paket bevaras. Nya kampanjen använder en egen v7-sparfil; gamla sparpunkter migreras inte till ändrade stridsregler.
-
-Den tidigare **1.1.0-dev** med sex kvaliteter och Jade kan fortfarande provas med `tools/run.ps1 -ExpandedGems` eller `?profile=expanded-gems`. Alla profiler har separata sparfiler. [Grafikgranskningen](docs/graphics-review-campaign.md) beskriver nästa steg för identitet och animationer.
-
-## Starta på Windows
+## Starta från källkod
 
 Kräver Windows x64, Python 3.10+ och PowerShell. Kör från repots rot:
 
 ```powershell
 powershell -ExecutionPolicy Bypass -File tools/bootstrap.ps1
-powershell -ExecutionPolicy Bypass -File tools/run.ps1
+powershell -ExecutionPolicy Bypass -File tools/run.ps1 -Campaign
 ```
 
-Bootstrap hämtar **Godot 4.7.2-stable** och exportmallar från den officiella releasen och kontrollerar fasta SHA-256-värden. Verktygen ligger i gitignorerade `.tools/`. Använd `-SkipTemplates` om du bara vill köra projektet och hoppa över den stora mallhämtningen.
+Bootstrap hämtar **Godot 4.7.2-stable** och exportmallar från den officiella
+releasen med fasta SHA-256-kontroller. Verktygen placeras i `.tools/`.
+`-SkipTemplates` hoppar över exportmallarna om du bara vill köra från källkod.
+Öppna editorn med `python tools/godot.py --editor --path .`.
 
-Godot-editorn kan öppna `project.godot`. Den portabla editorn startas med `python tools/godot.py --editor --path .`.
-
-## Exportera och spela i webbläsaren
+## Exportera och spela
 
 ```powershell
-powershell -ExecutionPolicy Bypass -File tools/export.ps1
-powershell -ExecutionPolicy Bypass -File tools/run.ps1 -Web
+powershell -ExecutionPolicy Bypass -File tools/export.ps1 -Release
+powershell -ExecutionPolicy Bypass -File tools/run.ps1 -Web -Campaign
 ```
 
-Öppna [http://127.0.0.1:8060](http://127.0.0.1:8060). Webbexporten använder WebGL 2 och en tråd utan krav på COOP/COEP-headers. Öppna genom webbservern; dubbelklicka inte på HTML-filen.
+Öppna [kampanjen](http://127.0.0.1:8060/?profile=campaign). Webben använder WebGL 2
+och en tråd utan krav på COOP/COEP-headers. Öppna genom webbservern, inte genom
+att dubbelklicka på HTML-filen.
 
-Windows-exporten finns i `builds/windows/GemTD.exe`. Behåll `GemTD.pck` bredvid exe-filen. Ingen publik uppladdning görs.
+Exporterna skapas i `builds/windows/` och `builds/web/`. Behåll `GemTD.pck` bredvid
+`GemTD.exe`. Välj kampanj via Run-menyn eller starta Windows-exporten med:
 
-## Ändra och granska grafik
+```powershell
+builds/windows/GemTD.exe -- --campaign
+```
 
-[Grafikförhandsvisning i webbläsaren](http://127.0.0.1:8060/?view=art) samlar torn, kvaliteter och fiender. **Board scale** visar bilder i spelstorlek; **Combat & motion** visar levande skott-, träff- och rörelseloopar med paus. Lokalt öppnas samma vy med `powershell -ExecutionPolicy Bypass -File tools/art_preview.ps1` (lägg till `-Motion` för levande effekter direkt).
-
-Bilder, storlekar, ankare, färger och kopplingar ändras i `assets/graphics/manifest.json`; gränssnittets utseende ligger i `assets/graphics/ui_theme.tres`. Både spriteark och separata PNG-filer stöds, även en egen bild för en enda kvalitetsnivå. Se [instruktioner och exempel](docs/graphics.md).
-
-Även rörelse och stridseffekter styrs från manifestet. Paus och 2× följer simuleringen. Attackljudet är separat och begränsat i frekvens. Se [utforskande speltest med 20 vanliga omgångar](docs/playtest-report.md) för första underlaget om senare vågor; inga balansvärden har ändrats utifrån det.
+`.tools/`, `builds/` och `output/` följer inte med i Git. En ny klon behöver
+bootstrap/import och export enligt ovan. En GitHub-push publicerar inga spelbyggen.
 
 ## Spela
 
-1. Klicka fem lediga rutor. Varje godkänd placering avslöjar en gem. Nya placeringar är bindande.
-2. Välj en ny gem och **Keep**, kombinera två/fyra lika eller skapa ett recept med nya material. Valet startar striden direkt; resterna blir stenar.
-3. Mellan vågorna kan du riva stenar/äldre torn gratis och kombinera äldre material utan att förbruka rundans tornval.
+1. Under grundvågornas byggfas placerar du fem gems och avslöjar deras typer och
+   kvaliteter. Placeringarna är bindande.
+2. Behåll en ny gem, uppgradera lika gems, nedgradera en gem eller skapa en
+   kombination. Tornvalet startar striden och gör övriga nya gems till sten.
+   Traprecept med nya gems ger ett placeringssteg före **Start wave**.
+3. Äldre material kan kombineras utan att förbruka rundans tornval. Äldre vanliga
+   torn kan även kombineras under strid. Traprecept, trapflytt, tornflytt och
+   rivning görs före strid.
+4. Prövningarna 51–100 ger inga nya gems eller byggfaser. Nästa våg startar efter
+   tre simulerade sekunder; paus fryser nedräkningen. Gemchansköp stängs efter 50.
 
-De fem små knapparna ovanför spelplanen väljer rundans avslöjade gems. Peka på en tom ruta för att se giltighet och förhandsvisad markrutt. Peka på ett byggval för att se material, resultatplats och vad som blir sten innan du klickar. Otillgängliga val förklarar varför. Omgångens seed visas längst ned för återkoppling och reproduktion.
+Mest skadegörande berättigade torn får en MVP-nivå efter varje avklarad grundvåg:
++10% egen skada per nivå. MVP 10 ger dessutom +100% skada till andra torn inom
+290/128 rutor. Samlad MVP-bonus har +500%-tak. Maxade torn undantas från nya
+MVP-belöningar; kombinationer för över nivåer med tak tio.
 
-Tornpanelen visar vald kvalitets effekt, aktuell attackhastighet inklusive Aquamarine-/Opal-bonusar, räckvidd och tillåtna mål. **Attack DPS** gäller grundattack mot ett mål före försvar; gift, splash och extra mål redovisas separat. Asteriated Ruby visar i stället aurans tickskada och DPS. Peka på Keep/Combine/recept för resultatets värden och jämförelse. Den förhandsvisningen räknar bort stöd från gems som blir stenar, medan tornpanelen visar den nuvarande spelplanen.
-
-Efter en våg visas dess besegrade fiender, läckor och förlorade liv under spelplanen. Sammanfattningen gäller senaste vågen i den aktuella körningen; återladdning återställer byggsparpunkten och visar inte en tidigare sessions sammanfattning.
-
-**Recipes** visar porträtt, exakta kvaliteter och antal ägda/saknade ingredienser. **Locate on board** väljer och centrerar en ägd gem; upprepning växlar mellan matchande gems. **Track on board** fäster ett recept med markeringar och löpande ingrediensräkning. Avsluta med **Unpin** under spelplanen. Dessa val kombinerar inga torn. Receptboken pausar striden och återställer tidigare pausläge när den stängs.
-
-**Waves** visar profilens samtliga vågor, 100 i kampanjen, med porträtt, mark/luft, liv, hastighet, försvar, belöningar och läckkostnad. Välj en våg för att se hur dess grundförsvar påverkar en träff på 100 rå skada och hur många av dina torn som kan välja dess måltyp. Nya gems räknas separat från behållna torn. Översikten pausar striden och återställer tidigare pausläge när den stängs. Inspektion startar eller byter ingen våg.
-
-Kombinationens resultat hamnar på den valda materialrutan. Gemchanser kan köpas även under strid. Bossläcka innebär omedelbar förlust.
+Bossläcka innebär omedelbar förlust. Efter 180 sekunders strid utlöses berserk:
+fiender får +100% rörelsehastighet och magiimmunitet under resten av vågen.
+Se [mekanikuppdateringen](docs/mechanics-update-1.4.md),
+[tornflyttarna](docs/tower-relocation.md) och [kampanjgranskningen](docs/campaign-review.md).
 
 | Styrning | Funktion |
 | --- | --- |
-| Vänsterklick | Placera eller välj |
-| Mushjul / mittersta musknappen + dra | Zoom / panorera |
+| Vänsterklick | Placera eller välj; inspektera påverkan i sidopanelen |
+| Mushjul | Zoom |
+| Höger-/mittenknapp + dra, WASD eller piltangenter | Panorera |
 | F / R | Anpassa kameran / visa stridsrutter |
 | Mellanslag / 1 / 2 / M | Paus / normal / dubbel hastighet / mute |
-| Run-menyn | Samma/ny seed, byggsparpunkt, eget seed och kopierbar testrapport |
+| F11 | Helskärm |
+| Run-menyn | Profil, omstart, seed, sparpunkt, rapport och visningsinställningar |
 
-Sparning sker vid **början av byggfasen**, inte mitt i strid. Webben sparar per lokal webbadress i webbläsarens IndexedDB. Direktstartad Windows-export använder Godots `user://` under AppData; utvecklingsskripten isolerar sin sparning i `.tools/userdata/`.
+**Recipes** visar ingredienser, Locate och Track. **Waves** visar fiendestatistik
+och progression. **Mazes** visar labyrintförslag. Översikterna pausar striden och
+återställer föregående pausläge när de stängs.
 
-## Tester och projektunderlag
+Attack-DPS gäller vanliga primärträffar före försvar; kritiska träffar, gift,
+splash och extra mål redovisas separat. Rena skadeauror visar tickskada,
+intervall, DPS per fiende och auraradie. Hybrider visar attack och skadeauror
+separat. [Skadevisning och MVP-markeringar](docs/quality-pass-stats-mvp.md).
+
+Sparning sker i början av byggfasen och mellan prövningsvågorna. Omladdning
+återgår till senaste sparpunkten, inte till en pågående strid. Kampanjen använder
+`run_campaign_v10.json`; äldre innehållsversioner migreras inte. Webben sparar per
+origin i IndexedDB. Windows använder Godots `user://` under AppData;
+utvecklingsskripten isolerar sina sparfiler i `.tools/userdata/`.
+
+## Grafik
+
+[Grafikverkstaden](http://127.0.0.1:8060/?view=art&profile=campaign) visar bilder,
+spelstorlek, rörelse och läsbarhet. [Abilities](http://127.0.0.1:8060/?view=art&profile=campaign&abilities=1)
+visar alla 43 kombinationstorn med riktiga förmågekörningar mot tåliga
+testfiender. Det är en visuell demonstration, inte ett balansprov. Space pausar.
+
+`assets/graphics/manifest.json` styr bilder, ankare, storlekar och kopplingar.
+`ability-effects.json` styr effektfärger och projektilprofiler; `ui_theme.tres`
+styr gränssnittet. Tornen centreras i sin ruta med maximal bildstorlek 0,94 rutor.
+Separata versionsmärkta bilder gör det enkelt att byta ett torn åt gången.
+
+Se [grafikflödet](docs/graphics.md), [tornbilderna](docs/special-towers-art-v1.md),
+[förmågeeffekterna](docs/special-tower-effects.md) och [effektinspektionen](docs/tower-effects-inspection.md).
+Färdiga bilder och animationsremsor ingår. För att återskapa grafik med `tools/art/`
+behövs även Pillow/NumPy och för pxl-animationer separat
+[claude-pxl](https://github.com/crsolver/claude-pxl) samt Node ≥22.18.
+Ange miljövariabeln `PXL` som sökväg till dess `bin/pxl.js`. Lokala
+skillinstallationer och arbetskopior under `.claude/` följer inte med i Git
+och behövs inte för att spela.
+
+## Tester
 
 ```powershell
-powershell -ExecutionPolicy Bypass -File tools/test.ps1
-# Efter export: kontrollera även den fristående Windows-filen
+python tools/check.py
+# Efter export: prova även den fristående Windows-filen
 powershell -ExecutionPolicy Bypass -File tools/test.ps1 -Exports
-# Rendera Windows-exporten och verifiera att ljud genereras
-python tools/smoke_windows.py
+# Verklig Windows-rendering och verifierat attackljud
+python tools/smoke_windows.py --campaign --attack
+# Alla kampanjtorn vid fyra cellstorlekar
+python tools/godot.py --headless --path . --script res://tests/check_cell_fit.gd -- --campaign --smoke
 ```
 
-- [Utveckling, arkitektur och verktygsval](docs/development.md)
-- [Faktiska testresultat](docs/teststatus.md)
-- [Källor och avvikelser](docs/referensinventering.md)
-- [Prototypplan](docs/prototypplan.md) och [de 61 besluten](docs/prototyp-beslutsunderlag.md)
+Den ordinarie sviten innehåller mekanik, projektiler, skada, reproducerbarhet,
+tornflytt, förmågeeffekter och UI. Senaste verifieringen passerar hela sviten,
+inklusive 17 kvalitetskontroller, 208 effektkontroller och 12 kontroller av
+mottagna effekter. Separat kampanjkontroll passerar 372 layoutfall. Windows har
+renderats och webben startats i Chrome utan konsolfel eller varningar.
+Automatiska kontroller bevisar inte mänsklig vinstchans.
+
+## Underlag och äldre versioner
+
+- [Utveckling och arkitektur](docs/development.md)
+- [Kampanjens innehåll, referenser och begränsningar](docs/campaign-review.md)
+- [Prototypplan](docs/prototypplan.md) och [bekräftade beslut](docs/prototyp-beslutsunderlag.md)
 - [Grafisk stilreferens](docs/referenser/pixelgrafik.png)
 
-Spelet använder egen kod, egna genererade bilder och syntetiska ljudeffekter. Dota-installation krävs inte för att köra eller bygga. Referenspaketets Lua och spelgrafik följer inte med i projektet.
+Den äldre tiovågsprofilen startas utan `-Campaign`. Den utökade gemprofilen väljs
+med `-ExpandedGems` eller `?profile=expanded-gems`. Historiska lokala paket för
+1.0.0 och kampanj 1.2.x/1.3.0 är äldre ögonblicksbilder; de innehåller inte
+ändringarna i den här utvecklingsversionen.
+
+Spelet använder egen kod, egna genererade bilder, syntetiska ljudeffekter och
+typsnitt med licenser i `assets/fonts/OFL.txt`. Dota-installation krävs inte för
+att köra eller exportera spelet. Referenspaketets Lua, modeller och texturer
+distribueras inte. Vissa verktyg för att återskapa referensdata kräver separat
+tillgång till det granskade lokala paketet.

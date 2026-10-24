@@ -11,6 +11,8 @@ var phase_label: Label
 var message_label: Label
 var selected_label: Label
 var detail_label: Label
+var affecting_effects: RichTextLabel
+var effects_selection = Vector2i(-1,-1)
 var selected_portrait: TextureRect
 var enemy_portrait: TextureRect
 var odds_label: Label
@@ -20,6 +22,9 @@ var upgrade_two: Button
 var upgrade_four: Button
 var demolish_button: Button
 var move_trap_button: Button
+var move_tower_button: Button
+var start_trap_wave_button: Button
+var downgrade_button: Button
 var moving_trap = Vector2i(-1,-1)
 var quality_button: Button
 var priority: OptionButton
@@ -40,6 +45,10 @@ var saved_volume = 0.35
 var volume_slider: HSlider
 var smoke = false
 var recipe_book: GemRecipeBook
+var maze_book: GemMazeBook
+var maze_button: LinkButton
+# Last maze tip shown, so G can bring it back after hiding.
+var last_maze_tip = ""
 var wave_book: GemWaveBook
 var summary_dialog: GemRunSummary
 var seed_dialog: GemSeedDialog
@@ -58,6 +67,9 @@ var round_cells: Array[Vector2i] = []
 var hover_hint: Label
 var active_preview: Dictionary = {}
 var footer_label: Label
+var lives_value: Label
+var gold_value: Label
+var wave_value: Label
 var started_wave: Dictionary = {}
 var last_wave_report = ""
 
@@ -72,11 +84,18 @@ func _ready() -> void:
 		get_tree().change_scene_to_file.call_deferred("res://game/art_gallery.tscn")
 		return
 	smoke = "--smoke" in OS.get_cmdline_user_args()
+	# Fill any screen shape instead of letterboxing the 1360x900 design size.
+	# One 16:9 design space (1600x900) scaled sharply to 1080p (1.2x), 1440p (1.6x) and 4K (2.4x).
+	get_tree().root.content_scale_size = Vector2i(1600,900)
+	get_tree().root.content_scale_aspect = Window.CONTENT_SCALE_ASPECT_EXPAND
 	build_theme()
 	build_ui()
+	update_map_area.call_deferred()
 	audio = GemAudio.new()
 	add_child(audio)
 	load_settings()
+	if not smoke and not OS.has_feature("web") and DisplayServer.get_name() != "headless":
+		apply_display("1080p" if "--windowed" in OS.get_cmdline_user_args() else display_mode)
 	var restored = GemSave.read_snapshot() if not smoke else {}
 	new_run(20261023 if smoke else int(Time.get_unix_time_from_system()), restored)
 	if smoke:
@@ -113,31 +132,228 @@ func portrait_in(parent: Node, minimum: Vector2) -> TextureRect:
 	parent.add_child(image)
 	return image
 
+const ICON_HEART = [".oo.oo.","orRorro","orrrrro",".orrro.","..oro..","...o..."]
+const ICON_COIN = [".ooo.","oyYyo","oyyyo","oyyDo",".ooo."]
+const ICON_WAVE = ["o......","oggg...","ogggggo","oggggg.","oggg...","o......","o......"]
+
+func pixel_icon(rows: Array, palette: Dictionary, scale: int = 3) -> TextureRect:
+	var img = Image.create(rows[0].length(), rows.size(), false, Image.FORMAT_RGBA8)
+	for y in range(rows.size()):
+		for x in range(rows[y].length()):
+			var ch: String = rows[y][x]
+			if palette.has(ch):
+				img.set_pixel(x, y, Color(palette[ch]))
+	var rect = TextureRect.new()
+	rect.texture = ImageTexture.create_from_image(img)
+	rect.custom_minimum_size = Vector2(img.get_width(), img.get_height())*scale
+	rect.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+	rect.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
+	rect.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
+	rect.size_flags_vertical = Control.SIZE_SHRINK_CENTER
+	return rect
+
+func styled(node: Control, variation: String) -> Control:
+	node.theme_type_variation = variation
+	return node
+
+func card_in(parent: Node) -> VBoxContainer:
+	var card = PanelContainer.new()
+	card.theme_type_variation = "Card"
+	parent.add_child(card)
+	var box = VBoxContainer.new()
+	box.add_theme_constant_override("separation",8)
+	card.add_child(box)
+	return box
+
+func stat_in(parent: Node, icon: TextureRect, caption: String) -> Label:
+	var group = HBoxContainer.new()
+	group.add_theme_constant_override("separation",8)
+	parent.add_child(group)
+	if icon != null:
+		group.add_child(icon)
+	var texts = VBoxContainer.new()
+	texts.add_theme_constant_override("separation",-2)
+	group.add_child(texts)
+	var value = styled(label_in(texts,"",19),"StatValue") as Label
+	value.remove_theme_font_size_override("font_size")
+	styled(label_in(texts,caption,11),"MutedLabel")
+	return value
+
+const ICON_PAUSE = ["xx.xx","xx.xx","xx.xx","xx.xx","xx.xx"]
+const ICON_PLAY = ["x....","xxx..","xxxxx","xxx..","x...."]
+const QUALITY_TINTS = ["b9c2c9","7fd08c","6aaee8","b58cf0","f0a64e","ef6a5a"]
+
+var wave_chips: HFlowContainer
+var wave_name: Label
+var wave_rewards: Label
+var wave_traits: Label
+var gem_chips: HFlowContainer
+var gem_tiles: Dictionary = {}
+var gem_tile_grid: GridContainer
+var gem_effect: Label
+var odds_bar: HBoxContainer
+var odds_legend: HFlowContainer
+var odds_discount: Label
+var tray_hint: Label
+var chip_cache: Dictionary = {}
+var dim: ColorRect
+var display_mode = "fullscreen"
+var last_window_mode = "1080p"
+const WINDOW_SIZES = {"1080p":Vector2i(1920,1080),"1440p":Vector2i(2560,1440),"2160p":Vector2i(3840,2160)}
+var action_panel: Control
+
+func glyph(rows: Array, color: Color, scale: int = 2) -> ImageTexture:
+	var img = Image.create(rows[0].length()*scale,rows.size()*scale,false,Image.FORMAT_RGBA8)
+	for y in range(rows.size()):
+		for x in range(rows[y].length()):
+			if rows[y][x] == "x":
+				for dy in range(scale):
+					for dx in range(scale):
+						img.set_pixel(x*scale+dx,y*scale+dy,color)
+	return ImageTexture.create_from_image(img)
+
+func chip_in(parent: Node, text: String, tint: Color = Color("cfd3c8")) -> Label:
+	var chip = PanelContainer.new()
+	chip.theme_type_variation = "Chip"
+	parent.add_child(chip)
+	var l = styled(Label.new(),"ChipLabel") as Label
+	l.text = text
+	l.add_theme_color_override("font_color",tint)
+	chip.add_child(l)
+	return l
+
+# Rebuild a chip row only when its content changed (refresh_ui runs five times a second).
+func set_chips(row: Control, entries: Array) -> void:
+	var key = JSON.stringify(entries)
+	if chip_cache.get(row.get_instance_id(),"") == key:
+		return
+	chip_cache[row.get_instance_id()] = key
+	for child in row.get_children():
+		child.queue_free()
+	for entry in entries:
+		chip_in(row,str(entry[0]),Color(str(entry[1])) if entry.size() > 1 else Color("cfd3c8"))
+
+func tile_in(parent: Node, caption: String) -> Dictionary:
+	var tile = PanelContainer.new()
+	tile.theme_type_variation = "Tile"
+	tile.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	parent.add_child(tile)
+	var box = VBoxContainer.new()
+	box.add_theme_constant_override("separation",-1)
+	tile.add_child(box)
+	var cap = styled(label_in(box,caption.to_upper(),10),"MutedLabel") as Label
+	cap.add_theme_font_size_override("font_size",10)
+	var value = styled(label_in(box,"–",18),"TileValue") as Label
+	value.remove_theme_font_size_override("font_size")
+	return {"tile":tile,"caption":cap,"value":value}
+
+func framed_portrait(parent: Node, minimum: Vector2) -> TextureRect:
+	var frame = PanelContainer.new()
+	frame.theme_type_variation = "Portrait"
+	frame.size_flags_vertical = Control.SIZE_SHRINK_BEGIN
+	parent.add_child(frame)
+	return portrait_in(frame,minimum)
+
+func divider(parent: Node) -> void:
+	var line = ColorRect.new()
+	line.color = Color("2b3843")
+	line.custom_minimum_size = Vector2(1,30)
+	line.size_flags_vertical = Control.SIZE_SHRINK_CENTER
+	parent.add_child(line)
+
 func build_ui() -> void:
-	var background = ColorRect.new()
-	background.color = GemArt.color("ui_background")
-	background.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
-	add_child(background)
-	var margin = MarginContainer.new()
-	margin.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
-	for side in ["left","right","top","bottom"]:
-		margin.add_theme_constant_override("margin_"+side,16)
-	add_child(margin)
+	# The map fills the whole window; every panel below is an overlay on top of it.
+	board_view = GemBoardView.new()
+	board_view.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+	board_view.cell_clicked.connect(on_cell_clicked)
+	board_view.hover_changed.connect(func(_p): refresh_hover_hint())
+	add_child(board_view)
 	var root = VBoxContainer.new()
-	margin.add_child(root)
+	root.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+	root.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	root.add_theme_constant_override("separation",0)
+	add_child(root)
+	# --- top bar: identity, the numbers that matter, time controls, books and menu
+	var bar = PanelContainer.new()
+	bar.theme_type_variation = "Bar"
+	root.add_child(bar)
 	var header = HBoxContainer.new()
-	root.add_child(header)
+	header.add_theme_constant_override("separation",14)
+	bar.add_child(header)
 	var brand = VBoxContainer.new()
-	brand.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	brand.add_theme_constant_override("separation",-4)
 	header.add_child(brand)
-	label_in(brand,"G E M T D",30).add_theme_color_override("font_color",GemArt.color("ui_accent"))
-	label_in(brand,"SOLO  /  THE SEVEN CHECKPOINTS",12).add_theme_color_override("font_color",GemArt.color("ui_muted"))
-	status_label = label_in(header,"",18)
-	button_in(header,"Waves",show_waves)
-	button_in(header,"Recipes",show_recipes)
-	button_in(header,"Help",show_help)
+	var title = styled(label_in(brand,"GemTD",24),"BrandLabel") as Label
+	title.remove_theme_font_size_override("font_size")
+	styled(label_in(brand,"Solo · the seven checkpoints",11),"MutedLabel")
+	var spacer_left = Control.new()
+	spacer_left.custom_minimum_size.x = 12
+	header.add_child(spacer_left)
+	var hud = PanelContainer.new()
+	hud.theme_type_variation = "Hud"
+	hud.size_flags_vertical = Control.SIZE_SHRINK_CENTER
+	header.add_child(hud)
+	var hud_row = HBoxContainer.new()
+	hud_row.add_theme_constant_override("separation",18)
+	hud.add_child(hud_row)
+	lives_value = stat_in(hud_row,pixel_icon(ICON_HEART,{"o":"3a0a10","r":"e0384a","R":"ff9a9a"}),"lives")
+	divider(hud_row)
+	gold_value = stat_in(hud_row,pixel_icon(ICON_COIN,{"o":"4a3008","y":"e8b62c","Y":"fff088","D":"ad7810"},4),"gold")
+	divider(hud_row)
+	wave_value = stat_in(hud_row,pixel_icon(ICON_WAVE,{"o":"8e9aa3","g":"b8863b"}),"wave")
+	var badge = PanelContainer.new()
+	badge.theme_type_variation = "Badge"
+	badge.size_flags_vertical = Control.SIZE_SHRINK_CENTER
+	header.add_child(badge)
+	phase_label = styled(label_in(badge,"",15),"BadgeLabel") as Label
+	phase_label.remove_theme_font_size_override("font_size")
+	status_label = label_in(header,"",12)
+	status_label.visible = false
+	var spacer = Control.new()
+	spacer.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	header.add_child(spacer)
+	var sound_row = HBoxContainer.new()
+	sound_row.add_theme_constant_override("separation",6)
+	sound_row.size_flags_vertical = Control.SIZE_SHRINK_CENTER
+	header.add_child(sound_row)
+	volume_slider = HSlider.new()
+	volume_slider.min_value = 0
+	volume_slider.max_value = 1
+	volume_slider.step = .05
+	volume_slider.value = .35
+	volume_slider.custom_minimum_size.x = 84
+	volume_slider.size_flags_vertical = Control.SIZE_SHRINK_CENTER
+	volume_slider.tooltip_text = "Sound effects volume"
+	volume_slider.value_changed.connect(func(value):
+		if audio != null:
+			audio.volume = value
+			saved_volume = value
+			muted = false
+			save_settings()
+	)
+	sound_row.add_child(volume_slider)
+	styled(button_in(sound_row,"Mute  M",toggle_mute),"ToolButton")
+	var time_group = HBoxContainer.new()
+	time_group.add_theme_constant_override("separation",4)
+	header.add_child(time_group)
+	pause_button = styled(button_in(time_group,"Pause [Space]",toggle_pause),"ToolButton") as Button
+	pause_button.icon = glyph(ICON_PAUSE,Color("e8c46a"))
+	pause_button.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
+	speed_button = styled(button_in(time_group,"1×",toggle_speed),"ToolButton") as Button
+	speed_button.custom_minimum_size.x = 44
+	var nav = HBoxContainer.new()
+	nav.add_theme_constant_override("separation",4)
+	header.add_child(nav)
+	styled(button_in(nav,"Waves",show_waves),"ToolButton")
+	styled(button_in(nav,"Recipes",show_recipes),"ToolButton")
+	styled(button_in(nav,"Mazes",show_mazes),"ToolButton").tooltip_text = "Maze tips: named layouts to follow while building (G shows/hides the guide)."
+	styled(button_in(nav,"Help",show_help),"ToolButton")
+	var full_button = styled(button_in(nav,"",toggle_fullscreen),"ToolButton") as Button
+	full_button.icon = glyph(["xx.xx","x...x",".....","x...x","xx.xx"],Color("e8c46a"),3)
+	full_button.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
+	full_button.tooltip_text = "Full screen on/off (F11)"
 	var restart = MenuButton.new()
-	restart.text = "Run"
+	restart.text = "Run  ▾"
 	restart.get_popup().add_item("Same seed",0)
 	restart.get_popup().add_item("New seed",1)
 	restart.get_popup().add_item("Resume build checkpoint",2)
@@ -148,8 +364,17 @@ func build_ui() -> void:
 	restart.get_popup().add_item("Solo campaign · 100 waves",10)
 	restart.get_popup().add_item("Review 1.0 · 10 waves",11)
 	restart.get_popup().add_item("Expanded gems · 10 waves",12)
+	if not OS.has_feature("web"):
+		restart.get_popup().add_separator("Display")
+		restart.get_popup().add_item("Full screen (native resolution)   F11",20)
+		restart.get_popup().add_item("Window 1920 × 1080 (1080p)",21)
+		restart.get_popup().add_item("Window 2560 × 1440 (1440p)",22)
+		restart.get_popup().add_item("Window 3840 × 2160 (4K)",23)
 	restart.get_popup().id_pressed.connect(func(id):
-		if id in [10,11,12]:
+		if id in [20,21,22,23]:
+			apply_display({20:"fullscreen",21:"1080p",22:"1440p",23:"2160p"}[id])
+			save_settings()
+		elif id in [10,11,12]:
 			persist_review()
 			var profile = {10:"campaign",11:"review-v1",12:"expanded-gems"}[id]
 			if OS.has_feature("web"):
@@ -167,111 +392,224 @@ func build_ui() -> void:
 			new_run(run.initial_seed if id == 0 else int(Time.get_unix_time_from_system()*1000.0))
 	)
 	header.add_child(restart)
+	# --- body: the board gets all remaining height; the sidebar is a fixed column
+	var body_margin = MarginContainer.new()
+	body_margin.size_flags_vertical = Control.SIZE_EXPAND_FILL
+	body_margin.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	for side in ["left","right","top","bottom"]:
+		body_margin.add_theme_constant_override("margin_"+side,10)
+	root.add_child(body_margin)
 	var body = HBoxContainer.new()
-	body.size_flags_vertical = Control.SIZE_EXPAND_FILL
-	root.add_child(body)
-	var field_panel = PanelContainer.new()
-	field_panel.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-	body.add_child(field_panel)
+	body.add_theme_constant_override("separation",12)
+	body.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	body_margin.add_child(body)
 	var field_box = VBoxContainer.new()
-	field_panel.add_child(field_box)
-	var field_header = HBoxContainer.new()
-	field_box.add_child(field_header)
-	phase_label = label_in(field_header,"",16)
-	phase_label.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	field_box.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	field_box.add_theme_constant_override("separation",8)
+	field_box.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	body.add_child(field_box)
+	var field_row = HBoxContainer.new()
+	field_row.size_flags_vertical = Control.SIZE_EXPAND_FILL
+	field_row.add_theme_constant_override("separation",8)
+	field_row.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	field_box.add_child(field_row)
+	# left of the board: the jeweller's tray holding this round's five gems
+	var left_dock = VBoxContainer.new()
+	left_dock.custom_minimum_size.x = 84
+	left_dock.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	field_row.add_child(left_dock)
+	var tray_panel = PanelContainer.new()
+	tray_panel.theme_type_variation = "Tray"
+	tray_panel.size_flags_horizontal = Control.SIZE_SHRINK_CENTER
+	left_dock.add_child(tray_panel)
 	round_tray = HBoxContainer.new()
-	round_tray.add_theme_constant_override("separation",3)
-	field_header.add_child(round_tray)
+	tray_panel.add_child(round_tray)
+	var tray_column = VBoxContainer.new()
+	tray_column.add_theme_constant_override("separation",6)
+	round_tray.add_child(tray_column)
+	tray_hint = styled(label_in(tray_column,"THIS ROUND",10),"MutedLabel") as Label
+	tray_hint.add_theme_font_size_override("font_size",10)
+	tray_hint.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	for i in range(5):
 		var slot = Button.new()
-		slot.custom_minimum_size = Vector2(36,36)
+		slot.theme_type_variation = "SlotButton"
+		slot.custom_minimum_size = Vector2(62,62)
 		slot.expand_icon = true
 		slot.icon_alignment = HORIZONTAL_ALIGNMENT_CENTER
-		slot.add_theme_constant_override("icon_max_width",24)
+		slot.add_theme_constant_override("icon_max_width",46)
 		slot.toggle_mode = true
 		slot.focus_mode = Control.FOCUS_NONE
+		slot.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
 		slot.pressed.connect(func():
 			if i < round_cells.size():
 				on_cell_clicked(round_cells[i])
 		)
 		round_slots.append(slot)
-		round_tray.add_child(slot)
-	pause_button = button_in(field_header,"Pause [Space]",toggle_pause)
-	speed_button = button_in(field_header,"1×",toggle_speed)
-	button_in(field_header,"Routes",func(): board_view.show_routes = not board_view.show_routes)
-	button_in(field_header,"Fit [F]",func(): board_view.fit_board())
-	board_view = GemBoardView.new()
-	board_view.size_flags_vertical = Control.SIZE_EXPAND_FILL
-	board_view.custom_minimum_size = Vector2(400,400)
-	board_view.cell_clicked.connect(on_cell_clicked)
-	board_view.hover_changed.connect(func(_p): refresh_hover_hint())
-	field_box.add_child(board_view)
-	var legend = HBoxContainer.new()
-	field_box.add_child(legend)
-	label_in(legend,"— Ground",13).add_theme_color_override("font_color",Color("95d7ad"))
-	label_in(legend,"- - Air",13).add_theme_color_override("font_color",Color("9bc6ec"))
-	label_in(legend,"— Preview",12).add_theme_color_override("font_color",GemArt.color("route_preview"))
-	hover_hint = label_in(legend,"",12)
-	hover_hint.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+		tray_column.add_child(slot)
+	round_tray.visibility_changed.connect(func():
+		tray_panel.visible = round_tray.visible
+		left_dock.visible = round_tray.visible
+	)
+	var field = Control.new()
+	field.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	field.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	field.custom_minimum_size = Vector2(300,300)
+	field_row.add_child(field)
+	# The clear map area depends only on the window size and the fixed overlay widths,
+	# never on text inside the panels, so hovering or new messages cannot move the map.
+	get_viewport().size_changed.connect(update_map_area)
+	bar.resized.connect(update_map_area)
+	# under the board: what just happened (log strip) and the map controls
+	var info_row = HBoxContainer.new()
+	info_row.add_theme_constant_override("separation",10)
+	info_row.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	field_box.add_child(info_row)
+	var log_panel = PanelContainer.new()
+	log_panel.theme_type_variation = "Log"
+	log_panel.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	log_panel.custom_minimum_size.y = 46
+	log_panel.clip_contents = true
+	info_row.add_child(log_panel)
+	var log_row = HBoxContainer.new()
+	log_row.add_theme_constant_override("separation",14)
+	log_panel.add_child(log_row)
+	message_label = label_in(log_row,"",14)
+	message_label.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	message_label.size_flags_vertical = Control.SIZE_SHRINK_CENTER
+	message_label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	message_label.max_lines_visible = 2
+	hover_hint = label_in(log_row,"",12)
+	hover_hint.custom_minimum_size.x = 170
+	hover_hint.size_flags_vertical = Control.SIZE_SHRINK_CENTER
+	hover_hint.horizontal_alignment = HORIZONTAL_ALIGNMENT_RIGHT
 	hover_hint.clip_text = true
+	hover_hint.text_overrun_behavior = TextServer.OVERRUN_TRIM_ELLIPSIS
 	tracking_button = LinkButton.new()
 	tracking_button.add_theme_font_size_override("font_size",12)
 	tracking_button.pressed.connect(func(): track_recipe(""))
 	tracking_button.tooltip_text = "Stop highlighting this recipe's ingredients."
-	legend.add_child(tracking_button)
-	var camera_hint = label_in(legend,"Wheel: zoom  ·  Middle drag: pan",12)
-	camera_hint.horizontal_alignment = HORIZONTAL_ALIGNMENT_RIGHT
-	var sidebar = PanelContainer.new()
-	sidebar.custom_minimum_size.x = 330
+	log_row.add_child(tracking_button)
+	maze_button = LinkButton.new()
+	maze_button.add_theme_font_size_override("font_size",12)
+	maze_button.add_theme_color_override("font_color",GemMazeBook.guide_color())
+	maze_button.pressed.connect(func(): choose_maze_tip(""))
+	maze_button.tooltip_text = "Hide the maze guide on the board (G)."
+	log_row.add_child(maze_button)
+	var map_panel = PanelContainer.new()
+	map_panel.theme_type_variation = "Log"
+	info_row.add_child(map_panel)
+	var map_tools = HBoxContainer.new()
+	map_tools.add_theme_constant_override("separation",8)
+	map_panel.add_child(map_tools)
+	var legend = HBoxContainer.new()
+	legend.add_theme_constant_override("separation",8)
+	legend.size_flags_vertical = Control.SIZE_SHRINK_CENTER
+	legend.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	map_tools.add_child(legend)
+	label_in(legend,"— Ground",12).add_theme_color_override("font_color",Color("95d7ad"))
+	label_in(legend,"- - Air",12).add_theme_color_override("font_color",Color("9bc6ec"))
+	label_in(legend,"— Preview",12).add_theme_color_override("font_color",GemArt.color("route_preview"))
+	var routes_button = styled(button_in(map_tools,"Routes  R",func(): board_view.show_routes = not board_view.show_routes),"ToolButton") as Button
+	routes_button.tooltip_text = "Show or hide the ground and air routes."
+	var fit_button = styled(button_in(map_tools,"Fit  F",func(): board_view.fit_board()),"ToolButton") as Button
+	fit_button.tooltip_text = "Centre the map at the closest zoom-out. Wheel zooms; right- or middle-drag, arrow keys or WASD pan."
+	# --- sidebar: wave, selection, decisions, odds, settings
+	var sidebar = ScrollContainer.new()
+	sidebar.custom_minimum_size.x = 372
+	sidebar.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
 	body.add_child(sidebar)
-	var scroll = ScrollContainer.new()
-	scroll.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
-	sidebar.add_child(scroll)
 	var info = VBoxContainer.new()
 	info.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-	scroll.add_child(info)
-	result_box = VBoxContainer.new()
-	info.add_child(result_box)
-	result_title = label_in(result_box,"",24)
+	info.add_theme_constant_override("separation",8)
+	sidebar.add_child(info)
+	result_box = card_in(info)
+	result_title = styled(label_in(result_box,"",24),"TitleLabel") as Label
 	result_stats = label_in(result_box,"",14)
 	result_stats.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
-	button_in(result_box,"Retry same seed",func(): new_run(run.initial_seed))
+	styled(button_in(result_box,"Retry same seed",func(): new_run(run.initial_seed)),"HeroButton")
 	button_in(result_box,"New run",func(): new_run(int(Time.get_unix_time_from_system()*1000.0)))
 	button_in(result_box,"Run summary & test report",show_summary)
-	result_box.add_child(HSeparator.new())
-	wave_heading = label_in(info,"THE NEXT WAVE",12)
-	wave_heading.add_theme_color_override("font_color",GemArt.color("ui_section"))
+	result_box.visibility_changed.connect(func(): result_box.get_parent().visible = result_box.visible)
+	# wave card: portrait, name, property chips, rewards
+	var wave_card = card_in(info)
+	wave_card.add_theme_constant_override("separation",6)
+	wave_heading = styled(label_in(wave_card,"THE NEXT WAVE",15),"SectionLabel") as Label
+	wave_heading.remove_theme_font_size_override("font_size")
 	var enemy_card = HBoxContainer.new()
-	info.add_child(enemy_card)
-	enemy_portrait = portrait_in(enemy_card,Vector2(70,82))
-	wave_label = label_in(enemy_card,"",14)
-	wave_label.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-	wave_label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
-	combat_progress = label_in(info,"",12)
+	enemy_card.add_theme_constant_override("separation",12)
+	wave_card.add_child(enemy_card)
+	enemy_portrait = framed_portrait(enemy_card,Vector2(64,64))
+	var enemy_text = VBoxContainer.new()
+	enemy_text.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	enemy_text.add_theme_constant_override("separation",4)
+	enemy_card.add_child(enemy_text)
+	wave_name = styled(label_in(enemy_text,"",20),"TitleLabel") as Label
+	wave_name.remove_theme_font_size_override("font_size")
+	wave_name.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	wave_rewards = label_in(enemy_text,"",13)
+	wave_rewards.add_theme_color_override("font_color",Color("e8c46a"))
+	wave_chips = HFlowContainer.new()
+	wave_chips.add_theme_constant_override("h_separation",5)
+	wave_chips.add_theme_constant_override("v_separation",5)
+	wave_card.add_child(wave_chips)
+	wave_traits = styled(label_in(wave_card,"",12),"MutedLabel") as Label
+	wave_traits.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	wave_label = label_in(wave_card,"",13)
+	wave_label.visible = false
+	combat_progress = styled(label_in(wave_card,"",12),"MutedLabel") as Label
 	wave_progress = ProgressBar.new()
 	wave_progress.show_percentage = false
-	wave_progress.custom_minimum_size.y = 8
-	info.add_child(wave_progress)
-	boss_label = label_in(info,"",14)
+	wave_progress.custom_minimum_size.y = 10
+	wave_card.add_child(wave_progress)
+	boss_label = label_in(wave_card,"",14)
 	boss_health = ProgressBar.new()
 	boss_health.theme_type_variation = "BossHealth"
 	boss_health.show_percentage = false
-	boss_health.custom_minimum_size.y = 16
-	info.add_child(boss_health)
-	info.add_child(HSeparator.new())
-	label_in(info,"GEM QUALITY",12).add_theme_color_override("font_color",GemArt.color("ui_section"))
-	odds_label = label_in(info,"")
-	quality_button = button_in(info,"",func(): run.buy_quality())
-	info.add_child(HSeparator.new())
+	boss_health.custom_minimum_size.y = 14
+	wave_card.add_child(boss_health)
+	# selected gem card: portrait + identity, four stat tiles, effect text, targeting
+	var gem_card = card_in(info)
+	gem_card.add_theme_constant_override("separation",8)
 	var selected_card = HBoxContainer.new()
-	info.add_child(selected_card)
-	selected_portrait = portrait_in(selected_card,Vector2(78,88))
-	selected_label = label_in(selected_card,"Select a gem",20)
+	selected_card.add_theme_constant_override("separation",12)
+	gem_card.add_child(selected_card)
+	selected_portrait = framed_portrait(selected_card,Vector2(64,72))
+	var gem_text = VBoxContainer.new()
+	gem_text.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	gem_text.size_flags_vertical = Control.SIZE_SHRINK_CENTER
+	gem_text.add_theme_constant_override("separation",5)
+	selected_card.add_child(gem_text)
+	selected_label = styled(label_in(gem_text,"Select a gem",22),"TitleLabel") as Label
+	selected_label.remove_theme_font_size_override("font_size")
 	selected_label.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	selected_label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	gem_chips = HFlowContainer.new()
+	gem_chips.add_theme_constant_override("h_separation",5)
+	gem_chips.add_theme_constant_override("v_separation",5)
+	gem_text.add_child(gem_chips)
+	gem_tile_grid = GridContainer.new()
+	gem_tile_grid.columns = 4
+	gem_tile_grid.add_theme_constant_override("h_separation",6)
+	gem_card.add_child(gem_tile_grid)
+	for key in [["damage","Damage"],["speed","Attack"],["dps","DPS"],["range","Range"]]:
+		gem_tiles[key[0]] = tile_in(gem_tile_grid,key[1])
+	gem_effect = label_in(gem_card,"",13)
+	gem_effect.add_theme_color_override("font_color",Color("c6cabd"))
+	gem_effect.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	gem_effect.max_lines_visible = 4
+	gem_effect.text_overrun_behavior = TextServer.OVERRUN_TRIM_ELLIPSIS
+	affecting_effects = RichTextLabel.new()
+	affecting_effects.custom_minimum_size = Vector2(0,100)
+	affecting_effects.add_theme_font_size_override("normal_font_size",12)
+	affecting_effects.scroll_active = true
+	affecting_effects.selection_enabled = true
+	affecting_effects.visible = false
+	gem_card.add_child(affecting_effects)
+	# The full text stays available (tooltips, accessibility, tests); the tiles show the same values.
 	detail_label = GemTooltips.InfoLabel.new()
-	detail_label.add_theme_font_size_override("font_size",14)
-	info.add_child(detail_label)
+	detail_label.add_theme_font_size_override("font_size",13)
+	gem_card.add_child(detail_label)
+	detail_label.visible = false
 	detail_label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	detail_label.mouse_filter = Control.MOUSE_FILTER_PASS
 	priority = OptionButton.new()
@@ -280,56 +618,99 @@ func build_ui() -> void:
 	priority.item_selected.connect(func(index):
 		run.set_priority(selection,GemCatalog.PRIORITIES[index])
 	)
-	info.add_child(priority)
-	keep_button = button_in(info,"Keep selected & start wave",func(): run.keep(selection))
-	upgrade_two = button_in(info,"Combine 2: +1 quality & start",func(): run.upgrade(selection,2))
-	upgrade_four = button_in(info,"Combine 4: +2 quality & start",func(): run.upgrade(selection,4))
-	demolish_button = button_in(info,"Demolish selected",func(): run.demolish(selection))
-	move_trap_button = button_in(info,"Move path trap",func():
-		moving_trap = selection
-		run.message = "Click an empty cell to move this path trap. Click the same trap to cancel."
-		refresh_ui()
-	)
-	wire_preview(keep_button,{"type":"keep"})
-	wire_preview(upgrade_two,{"type":"upgrade","count":2})
-	wire_preview(upgrade_four,{"type":"upgrade","count":4})
-	wire_preview(demolish_button,{"type":"demolish"})
+	gem_card.add_child(priority)
+	# decisions: one clear primary action, combinations beneath it
+	var action_card = card_in(info)
+	action_panel = action_card.get_parent()
+	action_card.add_theme_constant_override("separation",6)
+	styled(label_in(action_card,"YOUR TOWER CHOICE",11),"MutedLabel")
+	keep_button = styled(button_in(action_card,"Keep selected & start wave",func(): run.keep(selection)),"HeroButton") as Button
+	start_trap_wave_button = styled(button_in(action_card,"Start wave",func():
+		moving_trap = Vector2i(-1,-1)
+		run.start_wave()
+	),"HeroButton") as Button
+	var combine_row = HBoxContainer.new()
+	combine_row.add_theme_constant_override("separation",6)
+	action_card.add_child(combine_row)
+	upgrade_two = styled(button_in(combine_row,"Combine 2 · +1 quality",func(): run.upgrade(selection,2)),"AccentButton") as Button
+	upgrade_four = styled(button_in(combine_row,"Combine 4 · +2 quality",func(): run.upgrade(selection,4)),"AccentButton") as Button
+	upgrade_two.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	upgrade_four.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	downgrade_button = styled(button_in(action_card,"Downgrade randomly & start",func(): run.downgrade(selection)),"AccentButton") as Button
+	wire_preview(downgrade_button,{"type":"downgrade"})
 	recipes_box = VBoxContainer.new()
-	info.add_child(recipes_box)
+	recipes_box.add_theme_constant_override("separation",6)
+	action_card.add_child(recipes_box)
 	for recipe in GemCatalog.recipes():
-		var old_button = button_in(recipes_box,"Create "+GemCatalog.recipe_title(recipe)+" · old only",func(): run.combine(recipe,selection,true))
-		var final_button = button_in(recipes_box,"Create "+GemCatalog.recipe_title(recipe)+" & start",func(): run.combine(recipe,selection))
+		var old_button = styled(button_in(recipes_box,"Create "+GemCatalog.recipe_title(recipe)+" · old only",func(): run.combine(recipe,selection,true)),"AccentButton") as Button
+		var is_trap = GemCatalog.stats({"kind":GemCatalog.recipe_result(recipe),"tier":1}).get("slab",false)
+		var final_button = styled(button_in(recipes_box,"Create "+GemCatalog.recipe_title(recipe)+(" & position" if is_trap else " & start"),func(): run.combine(recipe,selection)),"HeroButton") as Button
 		old_button.visible = false
 		final_button.visible = false
 		wire_preview(old_button,{"type":"recipe","recipe":recipe,"old_only":true})
 		wire_preview(final_button,{"type":"recipe","recipe":recipe,"old_only":false})
 		recipe_buttons[recipe] = {"old": old_button,"final": final_button}
-	info.add_child(HSeparator.new())
-	label_in(info,"SOUND",12).add_theme_color_override("font_color",GemArt.color("ui_section"))
-	volume_slider = HSlider.new()
-	volume_slider.min_value = 0
-	volume_slider.max_value = 1
-	volume_slider.step = .05
-	volume_slider.value = .35
-	volume_slider.custom_minimum_size.x = 120
-	volume_slider.tooltip_text = "Sound effects volume"
-	volume_slider.value_changed.connect(func(value):
-		if audio != null:
-			audio.volume = value
-			saved_volume = value
-			muted = false
-			save_settings()
+	var minor_actions = HBoxContainer.new()
+	minor_actions.add_theme_constant_override("separation",6)
+	action_card.add_child(minor_actions)
+	demolish_button = styled(button_in(minor_actions,"Demolish selected",func(): run.demolish(selection)),"DangerButton") as Button
+	demolish_button.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	move_trap_button = button_in(minor_actions,"Move path trap",func():
+		cancel_tower_move()
+		moving_trap = selection
+		run.message = "Click an empty cell to move this path trap. Click the same trap to cancel."
+		refresh_ui()
 	)
-	info.add_child(volume_slider)
-	button_in(info,"Mute / unmute [M]",toggle_mute)
-	save_label = label_in(info,"",11)
+	move_trap_button.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	move_tower_button = styled(button_in(action_card,"Move tower",func():
+		if board_view.guide.moving_tower != Vector2i(-1,-1):
+			cancel_tower_move()
+			run.message = "Tower move cancelled. No move used."
+		elif run.tower_move_source_error(selection).is_empty():
+			moving_trap = Vector2i(-1,-1)
+			board_view.guide.moving_tower = selection
+			board_view.guide.invalidate()
+			run.message = "Click an empty cell or a stone. Stone swaps to the old cell. Escape or click this tower to cancel."
+		refresh_ui()
+	),"AccentButton") as Button
+	wire_preview(keep_button,{"type":"keep"})
+	wire_preview(upgrade_two,{"type":"upgrade","count":2})
+	wire_preview(upgrade_four,{"type":"upgrade","count":4})
+	wire_preview(demolish_button,{"type":"demolish"})
+	# quality odds as a stacked bar with a legend
+	var odds_card = card_in(info)
+	odds_card.add_theme_constant_override("separation",6)
+	styled(label_in(odds_card,"Gem quality odds",15),"SectionLabel").remove_theme_font_size_override("font_size")
+	odds_bar = HBoxContainer.new()
+	odds_bar.add_theme_constant_override("separation",2)
+	odds_bar.custom_minimum_size.y = 8
+	odds_card.add_child(odds_bar)
+	odds_legend = HFlowContainer.new()
+	odds_legend.add_theme_constant_override("h_separation",5)
+	odds_legend.add_theme_constant_override("v_separation",5)
+	odds_card.add_child(odds_legend)
+	odds_label = label_in(odds_card,"",13)
+	odds_label.visible = false
+	odds_discount = styled(label_in(odds_card,"",12),"MutedLabel") as Label
+	odds_discount.visible = false
+	quality_button = styled(button_in(odds_card,"",func(): run.buy_quality()),"AccentButton") as Button
+	var settings_panel = PanelContainer.new()
+	settings_panel.theme_type_variation = "Log"
+	info.add_child(settings_panel)
+	var settings = VBoxContainer.new()
+	settings.add_theme_constant_override("separation",2)
+	settings_panel.add_child(settings)
+	save_label = styled(label_in(settings,"",11),"MutedLabel") as Label
 	save_label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
-	save_label.add_theme_color_override("font_color",Color("819a95"))
-	message_label = label_in(root,"",15)
-	message_label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
-	message_label.custom_minimum_size.y = 36
-	footer_label = label_in(root,"",11)
-	footer_label.add_theme_color_override("font_color",GemArt.color("ui_footer"))
+	footer_label = styled(label_in(settings,"",11),"MutedLabel") as Label
+	footer_label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	footer_label.add_theme_color_override("font_color",Color("5d6a73"))
+	dim = ColorRect.new()
+	dim.color = Color(0.03,0.05,0.07,0.62)
+	dim.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+	dim.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	dim.visible = false
+	add_child(dim)
 	recipe_popup = AcceptDialog.new()
 	recipe_popup.title = "Recipe book"
 	recipe_popup.min_size = Vector2i(660,570)
@@ -345,6 +726,10 @@ func build_ui() -> void:
 	connect_modal_pause(recipe_book)
 	recipe_book.locate_requested.connect(locate_ingredient)
 	recipe_book.track_requested.connect(track_recipe)
+	maze_book = GemMazeBook.new()
+	add_child(maze_book)
+	connect_modal_pause(maze_book)
+	maze_book.tip_chosen.connect(choose_maze_tip)
 	wave_book = GemWaveBook.new()
 	add_child(wave_book)
 	connect_modal_pause(wave_book)
@@ -356,15 +741,30 @@ func build_ui() -> void:
 	connect_modal_pause(seed_dialog)
 	seed_dialog.seed_requested.connect(func(value): new_run(value))
 
+func update_map_area() -> void:
+	if board_view == null:
+		return
+	var top = 62.0
+	for child in get_children():
+		if child is VBoxContainer and child.get_child_count() > 0 and child.get_child(0) is PanelContainer:
+			top = maxf(top,(child.get_child(0) as Control).size.y+10.0)
+	var left = 10.0+84.0+8.0
+	var right = 10.0+372.0+12.0
+	var bottom = 10.0+46.0+8.0
+	board_view.safe_rect = Rect2(Vector2(left,top),Vector2(maxf(200,size.x-left-right),maxf(200,size.y-top-bottom)))
+	board_view.queue_redraw()
+
 func connect_modal_pause(dialog: Window) -> void:
 	var restore = {"paused":false}
 	dialog.about_to_popup.connect(func():
+		if dim != null: dim.visible = true
 		restore.paused = paused
 		paused = true
 		refresh_ui()
 	)
 	dialog.visibility_changed.connect(func():
 		if not dialog.visible:
+			if dim != null: dim.visible = [recipe_popup,recipe_book,maze_book,wave_book,summary_dialog,seed_dialog].any(func(d): return d != null and d != dialog and d.visible)
 			paused = bool(restore.paused)
 			refresh_ui()
 	)
@@ -375,6 +775,7 @@ func new_run(seed_value: int, restore_data: Dictionary = {}) -> void:
 	hide_other_dialogs()
 	recipe_popup.hide()
 	recipe_book.reset()
+	maze_book.reset()
 	wave_book.reset()
 	paused = false
 	accumulator = 0
@@ -390,7 +791,10 @@ func new_run(seed_value: int, restore_data: Dictionary = {}) -> void:
 	combat = GemCampaignCombat.new(run) if GemCatalog.campaign() else GemCombat.new(run)
 	journal = GemReviewJournal.new()
 	journal.reset(run,did_restore)
-	run.action_recorded.connect(func(entry): journal.record(entry,combat))
+	run.action_recorded.connect(func(entry):
+		journal.record(entry,combat)
+		if entry.action in ["keep","upgrade","downgrade","recipe"]: active_preview = {}
+	)
 	run.changed.connect(func():
 		board_view.sync_board()
 		refresh_ui()
@@ -409,10 +813,11 @@ func new_run(seed_value: int, restore_data: Dictionary = {}) -> void:
 		var campaign = combat as GemCampaignCombat
 		campaign.projectile_launched.connect(board_view.add_projectile_launch)
 		campaign.projectile_launched.connect(audio.play_attack)
-	combat.damaged.connect(board_view.effects.damaged)
+		campaign.ability_visual.connect(board_view.ability_happened)
+	combat.damaged.connect(board_view.enemy_damaged)
 	combat.evaded.connect(board_view.effects.evaded)
 	combat.escaped.connect(board_view.effects.escaped)
-	combat.area_attack.connect(board_view.effects.area)
+	combat.area_attack.connect(board_view.add_area_attack)
 	board_view.run = run
 	board_view.combat = combat
 	board_view.selected = selection
@@ -422,6 +827,17 @@ func new_run(seed_value: int, restore_data: Dictionary = {}) -> void:
 	refresh_ui()
 
 func on_cell_clicked(p: Vector2i) -> void:
+	var from = board_view.guide.moving_tower
+	if from != Vector2i(-1,-1):
+		if p == from:
+			cancel_tower_move()
+			run.message = "Tower move cancelled. No move used."
+		elif run.move_tower(from,p):
+			cancel_tower_move()
+			selection = p
+			board_view.selected = p
+		refresh_ui()
+		return
 	if moving_trap != Vector2i(-1,-1):
 		if p == moving_trap or run.move_slab(moving_trap,p):
 			moving_trap = Vector2i(-1,-1)
@@ -435,6 +851,10 @@ func on_cell_clicked(p: Vector2i) -> void:
 		if not run.place(p):
 			board_view.effects.add("ring",Vector2(p)+Vector2(.5,.5),GemArt.color("placement_blocked"),.45,{"radius":.65})
 	refresh_ui()
+
+func cancel_tower_move() -> void:
+	board_view.guide.moving_tower = Vector2i(-1,-1)
+	board_view.guide.invalidate()
 
 func wire_preview(button: Button, request: Dictionary) -> void:
 	button.mouse_entered.connect(func():
@@ -459,7 +879,7 @@ func wire_preview(button: Button, request: Dictionary) -> void:
 func refresh_action_preview() -> void:
 	if run == null:
 		return
-	if run.phase != "build":
+	if run.phase != "build" and not (GemCatalog.campaign() and run.phase == "combat" and active_preview.get("type","") == "recipe"):
 		active_preview = {}
 	board_view.action_plan = {} if active_preview.is_empty() else board_view.guide.action(active_preview,selection)
 	message_label.text = base_message() if active_preview.is_empty() else str(board_view.action_plan.message)
@@ -496,40 +916,61 @@ func update_action_button(button: Button, request: Dictionary) -> void:
 func refresh_ui() -> void:
 	if run == null:
 		return
+	if board_view.guide.moving_tower != Vector2i(-1,-1) and not run.tower_move_source_error(board_view.guide.moving_tower).is_empty(): cancel_tower_move()
+	if run.awaiting_trap_placement and not run.board.slabs.has(selection):
+		selection = run.pending_trap
+		board_view.selected = selection
 	update_wave_report()
 	status_label.text = "Lives %d    Gold %d    Wave %d / %d" % [run.lives,run.gold,run.wave,GemCatalog.wave_count()]
-	footer_label.text = "GEMTD SOLO %s   ·   %d gem types / %d qualities / %d waves   ·   Seed %d" % [GemRelease.version(),GemCatalog.TYPES.size(),GemCatalog.quality_limit(GemCatalog.TYPES[0]),GemCatalog.wave_count(),run.initial_seed]
+	lives_value.text = str(run.lives)
+	gold_value.text = str(run.gold)
+	wave_value.text = "%d / %d" % [run.wave,GemCatalog.wave_count()]
+	footer_label.text = "GemTD Solo %s  ·  %d gem types, %d qualities, %d waves  ·  seed %d" % [GemRelease.version(),GemCatalog.TYPES.size(),GemCatalog.quality_limit(GemCatalog.TYPES[0]),GemCatalog.wave_count(),run.initial_seed]
 	var terminal = run.phase in ["won","lost"]
 	result_box.visible = terminal
 	if terminal:
 		result_title.text = "VICTORY" if run.phase == "won" else "DEFEAT"
 		result_title.add_theme_color_override("font_color",GemArt.color("ui_accent"))
 		result_stats.text = "Wave %d / %d · %d lives\n%d defeated · %d leaked\nSeed %d" % [run.wave,GemCatalog.wave_count(),run.lives,run.kills,run.leaks,run.initial_seed]
+	var maze = board_view.maze_progress
+	maze_button.visible = not maze.is_empty()
+	if not maze.is_empty():
+		maze_button.text = "Maze: %s %d/%d · Hide (G)" % [GemMazeTips.tip(board_view.maze_tip).name,maze.done.size(),maze.total]
 	var tracking = board_view.tracking_progress
 	tracking_button.visible = not tracking.is_empty()
 	if not tracking.is_empty():
 		tracking_button.text = "%s %d/%d · Unpin" % [GemCatalog.recipe_title(board_view.tracked_recipe),tracking.collected,tracking.total]
-	phase_label.text = {"build":"BUILD  ·  %d / 5 placed" % run.placed,"combat":"COMBAT","won":"VICTORY","lost":"DEFEAT"}[run.phase]
-	if run.phase == "combat":
-		phase_label.text += "  ·  PAUSED" if paused else "  ·  %d×" % speed
+	phase_label.text = {"build":"Build  %d of 5" % run.placed,"intermission":"Next trial in %.1fs" % run.trial_wait,"combat":"Combat","won":"Victory","lost":"Defeat"}[run.phase]
+	if run.awaiting_trap_placement: phase_label.text = "Position trap"
+	if run.phase in ["combat","intermission"]:
+		phase_label.text += "  paused" if paused else "  %d×" % speed
 	var w = combat.wave_data if GemCatalog.campaign() and run.phase == "combat" else GemCatalog.wave(run.wave)
 	if GemCatalog.campaign() and run.phase == "build" and not w.boss:
 		w = w.duplicate(true)
 		w.count = run.enemy_count
-	wave_heading.text = {"build":"THE NEXT WAVE","combat":"CURRENT WAVE","won":"FINAL WAVE","lost":"LAST WAVE"}[run.phase]
+	wave_heading.text = {"build":"THE NEXT WAVE","intermission":"NEXT TRIAL · NO NEW GEMS","combat":"CURRENT WAVE","won":"FINAL WAVE","lost":"LAST WAVE"}[run.phase]
 	enemy_portrait.texture = GemArt.texture(GemArt.sprite_id("enemies",w.source_id))
 	wave_label.text = GemWaveGuide.brief(w,run.wave)
+	refresh_wave_card(w)
 	refresh_combat_progress(w)
 	var odds: Array = GemCatalog.DATA.quality_odds[run.quality]
 	odds_label.text = GemCatalog.odds_text(odds)
 	var odds_maxed = run.quality >= GemCatalog.max_quality_upgrade()
 	quality_button.text = "Improve odds · %d gold" % run.quality_price() if not odds_maxed else "Quality odds maximized"
 	quality_button.disabled = odds_maxed or run.phase in ["won","lost"] or (not odds_maxed and run.gold < run.quality_price())
+	if GemCatalog.campaign() and run.wave > 50:
+		quality_button.text = "Trials · no new gems"
+		quality_button.disabled = true
 	quality_button.tooltip_text = "All available odds upgrades purchased." if odds_maxed else "Affects future placements only. Need %d gold; have %d." % [run.quality_price(),run.gold]
 	if GemCatalog.campaign() and not odds_maxed:
 		odds_label.text += "\nBoss discount saved: %d gold" % run.quality_discount
 		quality_button.tooltip_text += "\nBase price %d; saved discount %d. Defeat bosses 10/20/30/40/50 for +150 discount. Unused discount carries to the next purchase." % [int(GemCatalog.DATA.quality_costs[run.quality]),run.quality_discount]
+	refresh_odds(odds)
+	save_label.visible = not save_label.text.is_empty()
+	odds_discount.text = "Boss discount saved: %d gold" % run.quality_discount
+	odds_discount.visible = GemCatalog.campaign() and not odds_maxed
 	message_label.text = run.message
+	pause_button.icon = glyph(ICON_PLAY if paused else ICON_PAUSE,Color("e8c46a"))
 	pause_button.text = "Resume [Space]" if paused else "Pause [Space]"
 	pause_button.disabled = terminal
 	speed_button.disabled = terminal
@@ -540,25 +981,43 @@ func refresh_ui() -> void:
 	move_trap_button.disabled = run.phase != "build"
 	detail_label.tooltip_text = GemTowerInfo.DPS_NOTE if not gem.is_empty() and gem.get("kind","stone") != "stone" else ""
 	selected_portrait.texture = GemArt.texture("checkpoint") if gem.is_empty() else GemArt.texture(GemArt.sprite_id("gems",gem.kind,int(gem.tier)))
-	priority.visible = not terminal and not gem.is_empty() and not run.board.slabs.has(selection) and gem.get("kind", "stone") not in ["stone","asteriated_ruby"]
+	priority.visible = not terminal and not gem.is_empty() and not run.board.slabs.has(selection) and gem.get("kind", "stone") != "stone" and not GemTowerInfo.profile(gem,selection,run.board.cells,combat).get("aura",false)
 	selected_label.text = GemCatalog.title(gem) if not gem.is_empty() else "Place a gem" if run.phase == "build" and run.placed < 5 else "Select a gem"
 	if not gem.is_empty() and GemReadability.DATA.special_codes.has(gem.kind): selected_label.tooltip_text = "Map badge: "+GemReadability.tower_label(gem)
 	else: selected_label.tooltip_text = ""
 	if gem.is_empty():
 		if run.phase == "combat":
-			detail_label.text = "Select a tower to inspect its effects and targeting.\n\nBoard changes are available in the next build phase."
+			detail_label.text = "Select an older tower to inspect its effects or combine an available recipe.\n\nNew gems and demolition are locked during combat." if GemCatalog.campaign() else "Select a tower to inspect its effects and targeting.\n\nBoard changes are available in the next build phase."
 		elif terminal:
 			detail_label.text = "Use the result controls to play again, or open the run summary to review this session."
 		else:
-			detail_label.text = "Select a new gem for your final choice. Keep / Combine starts combat immediately." if run.placed == 5 else "Click an empty cell to place. New gems glow until your final choice.\n\nThe final Keep / Combine starts combat immediately."
+			detail_label.text = "Select a new gem for your final choice. Tower choices start combat; traps can be positioned first." if run.placed == 5 else "Click an empty cell to place. New gems glow until your final choice.\n\nTower choices start combat. Traps can be positioned first."
 	else:
-		detail_label.text = str(GemCatalog.stats(gem).effect) if gem.kind == "stone" else ("NEW THIS ROUND\n" if gem.fresh else "")+GemTowerInfo.describe(GemTowerInfo.profile(gem,selection,run.board.cells))
+		detail_label.text = str(GemCatalog.stats(gem).effect) if gem.kind == "stone" else ("NEW THIS ROUND\n" if gem.fresh else "")+GemTowerInfo.describe(GemTowerInfo.profile(gem,selection,run.board.cells,combat))
 		priority.select(maxi(0,GemCatalog.PRIORITIES.find(gem.priority)))
+	refresh_gem_card(gem,terminal)
+	action_panel.visible = run.phase == "build" or (GemCatalog.campaign() and run.phase == "combat")
+	start_trap_wave_button.visible = run.awaiting_trap_placement
+	keep_button.visible = run.phase == "build" and not run.awaiting_trap_placement
+	upgrade_two.visible = keep_button.visible
+	upgrade_four.visible = keep_button.visible
+	demolish_button.visible = keep_button.visible
+	if GemCatalog.campaign() and not gem.is_empty() and not gem.get("fresh",false):
+		keep_button.visible = false
+		upgrade_two.visible = false
+		upgrade_four.visible = false
+	downgrade_button.visible = GemCatalog.campaign() and keep_button.visible
+	update_action_button(downgrade_button,{"type":"downgrade"})
 	update_action_button(keep_button,{"type":"keep"})
 	update_action_button(upgrade_two,{"type":"upgrade","count":2})
 	update_action_button(upgrade_four,{"type":"upgrade","count":4})
 	update_action_button(demolish_button,{"type":"demolish"})
-	round_tray.visible = run.phase == "build"
+	move_tower_button.visible = GemCatalog.campaign() and run.phase == "build" and not gem.is_empty() and gem.kind != "stone" and not run.board.slabs.has(selection)
+	var move_error = run.tower_move_source_error(selection) if GemCatalog.campaign() else ""
+	move_tower_button.disabled = not move_error.is_empty()
+	move_tower_button.text = "Cancel tower move · %d left" % run.tower_moves_left if board_view.guide.moving_tower != Vector2i(-1,-1) else "Move tower · %d / %d left this run" % [run.tower_moves_left,int(GemCatalog.DATA.get("mechanics",{}).get("tower_moves_per_run",5))]
+	move_tower_button.tooltip_text = move_error if not move_error.is_empty() else "Move to an empty cell or swap with a stone. Uses one of five moves for this entire run. Tower quality, MVP, abilities and targeting are preserved."
+	round_tray.visible = run.phase == "build" and not run.awaiting_trap_placement
 	round_cells = run.fresh_cells()
 	for i in range(5):
 		var slot = round_slots[i]
@@ -583,16 +1042,111 @@ func refresh_ui() -> void:
 	refresh_action_preview()
 	board_view.queue_redraw()
 
+func refresh_wave_card(w: Dictionary) -> void:
+	wave_name.text = str(w.name).left(1).to_upper()+str(w.name).substr(1)
+	wave_rewards.text = "Kills +%d gold · Clear +%d" % [int(w.reward),int(w.completion)]
+	var leak = "instant defeat" if w.boss else "%d life%s" % [int(w.leak),"" if int(w.leak) == 1 else "s"]
+	if GemCatalog.campaign() and not w.boss and w.has("leak_max"):
+		leak = "%d–%d lives" % [int(w.leak),int(w.leak_max)]
+	var entries = [
+		["%d × %s" % [int(w.count),"Air" if w.air else "Ground"],"9bc6ec" if w.air else "95d7ad"],
+		["HP %s" % String.num(float(w.hp),2)],
+		["Armor %.0f" % float(w.armor)],
+		["Magic %+.0f%%" % (float(w.magic_resist)*100)],
+		["Leak: "+leak,"ef9a8a" if w.boss else "cfd3c8"],
+	]
+	if float(w.get("evasion",0)) > 0:
+		entries.append(["Evasion %.0f%%" % (float(w.evasion)*100),"e8c46a"])
+	set_chips(wave_chips,entries)
+	var traits = GemWaveGuide.campaign_traits(w) if GemCatalog.campaign() else ""
+	if GemCatalog.campaign() and GemCatalog.boss_discount_for_wave(run.wave) > 0:
+		traits = ("Boss defeat: +150 saved gem discount\n"+traits).strip_edges()
+	wave_traits.text = traits
+	wave_traits.visible = not traits.is_empty()
+
+func refresh_odds(odds: Array) -> void:
+	var key = JSON.stringify(odds)
+	if chip_cache.get("odds","") == key:
+		return
+	chip_cache["odds"] = key
+	for child in odds_bar.get_children():
+		child.queue_free()
+	for child in odds_legend.get_children():
+		child.queue_free()
+	for i in range(odds.size()):
+		var weight = float(odds[i])
+		if weight <= 0:
+			continue
+		var segment = ColorRect.new()
+		segment.color = Color(QUALITY_TINTS[mini(i,QUALITY_TINTS.size()-1)])
+		segment.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+		segment.size_flags_stretch_ratio = weight
+		odds_bar.add_child(segment)
+		chip_in(odds_legend,"%s  %d%%" % [GemCatalog.quality_name(i+1),int(weight)],Color(QUALITY_TINTS[mini(i,QUALITY_TINTS.size()-1)]))
+
+func refresh_gem_card(gem: Dictionary, terminal: bool) -> void:
+	var is_stone = gem.is_empty() or gem.get("kind","stone") == "stone" or run.board.slabs.has(selection)
+	affecting_effects.visible = not is_stone
+	gem_effect.tooltip_text = ""
+	if not is_stone:
+		var effects_text = GemTowerEffects.text(gem,selection,run.board.cells,combat)
+		if affecting_effects.text != effects_text or effects_selection != selection:
+			var scroll = affecting_effects.get_v_scroll_bar().value if effects_selection == selection else 0.0
+			affecting_effects.text = effects_text
+			affecting_effects.get_v_scroll_bar().set_deferred("value",scroll)
+		effects_selection = selection
+	else:
+		effects_selection = Vector2i(-1,-1)
+	var info = {} if gem.is_empty() or run.board.slabs.has(selection) else GemTowerInfo.profile(gem,selection,run.board.cells,combat)
+	gem_tile_grid.visible = not info.is_empty()
+	var entries = []
+	if not gem.is_empty() and not terminal:
+		if gem.get("fresh",false) and not run.board.slabs.has(selection):
+			entries.append(["NEW THIS ROUND","e8c46a"])
+		if not info.is_empty():
+			entries.append([str(info.targets),"95d7ad" if str(info.targets) == "Ground only" else "9bc6ec"])
+			if gem.has("tier") and gem.kind != "asteriated_ruby":
+				entries.append(["Quality "+GemCatalog.quality_name(int(gem.tier)),QUALITY_TINTS[mini(int(gem.tier)-1,QUALITY_TINTS.size()-1)]])
+	set_chips(gem_chips,entries)
+	if info.is_empty():
+		gem_effect.text = ""
+		if not gem.is_empty() and not run.board.slabs.has(selection):
+			gem_effect.text = str(GemCatalog.stats(gem).effect) if gem.kind == "stone" else ""
+		else:
+			gem_effect.text = detail_label.text
+		gem_effect.visible = not gem_effect.text.is_empty()
+		return
+	gem_tiles.damage.caption.text = ("MAGIC" if info.aura else "PHYSICAL")
+	gem_tiles.damage.value.text = str(snappedf(info.damage,.01))
+	gem_tiles.speed.caption.text = "TICK" if info.aura else "ATTACK"
+	gem_tiles.range.caption.text = "AURA RADIUS" if info.aura else "RANGE"
+	gem_tiles.speed.value.text = "%.2fs" % float(info.interval)
+	gem_tiles.dps.caption.text = "AURA DPS" if info.aura else "ATTACK DPS"
+	gem_tiles.dps.value.text = "%.1f" % info.dps
+	gem_tiles.range.value.text = "%.1f" % info.range
+	var blocks = GemTowerInfo.describe(info).split("\n\n")
+	var lines = blocks[0].split("\n")
+	var notes: PackedStringArray = lines.slice(2 if info.aura else 3)
+	var tail: PackedStringArray = blocks.slice(1)
+	gem_effect.text = "\n".join(notes)+("\n" if not notes.is_empty() and not tail.is_empty() else "")+"\n\n".join(tail)
+	gem_effect.text = gem_effect.text.strip_edges()
+	gem_effect.tooltip_text = gem_effect.text
+	gem_effect.visible = not gem_effect.text.is_empty()
+
 func _process(dt: float) -> void:
 	if run == null:
 		return
-	var was_combat = run.phase == "combat"
+	var was_combat = run.phase in ["combat","intermission"]
 	if was_combat and not paused:
 		accumulator += minf(dt,.25)*speed
-		while accumulator >= 1.0/30.0 and run.phase == "combat":
+		while accumulator >= 1.0/30.0 and run.phase in ["combat","intermission"]:
+			board_view.capture_positions()
 			board_view.advance_visuals(1.0/30.0)
 			combat.tick(1.0/30.0)
-			accumulator -= 1.0/30.0
+			accumulator = maxf(0,accumulator-1.0/30.0)
+		# Draw enemies between the last two simulation steps for smooth 60+ fps movement.
+		board_view.tick_alpha = clampf(accumulator*30.0,0.0,1.0)
+		board_view.queue_redraw()
 	if not was_combat and not paused:
 		board_view.advance_visuals(dt)
 	ui_clock += dt
@@ -613,13 +1167,15 @@ func refresh_combat_progress(wave: Dictionary) -> void:
 	wave_progress.value = clampi(resolved,0,int(wave.count))
 	var alive = combat.enemies.filter(func(enemy): return GemCombat.alive(enemy))
 	combat_progress.text = "Resolved %d / %d · Alive %d · Incoming %d" % [resolved,int(wave.count),alive.size(),maxi(0,int(wave.count)-combat.spawned)]
+	if GemCatalog.campaign():
+		combat_progress.text += "\nBERSERK · +100% speed · magic immune" if combat.berserk else "\nBerserk in %.0fs · +100%% speed and magic immunity" % maxf(0,float(GemCatalog.DATA.mechanics.berserk_seconds)-combat.elapsed)
 	if boss_label.visible:
-		boss_health.max_value = float(wave.hp)
+		boss_health.max_value = float(wave.hp) if alive.is_empty() else float(alive[0].hp_max)
 		boss_health.value = float(wave.hp) if alive.is_empty() else float(alive[0].hp)
 		boss_label.text = "Boss health: %.0f / %.0f" % [boss_health.value,boss_health.max_value]
 
 func hide_other_dialogs(except: Window = null) -> void:
-	for dialog in [recipe_popup,recipe_book,wave_book,summary_dialog,seed_dialog]:
+	for dialog in [recipe_popup,recipe_book,maze_book,wave_book,summary_dialog,seed_dialog]:
 		if dialog != null and dialog != except:
 			dialog.hide()
 
@@ -647,8 +1203,8 @@ func _input(event: InputEvent) -> void:
 	# Space belongs to pause before a focused Button can also activate on
 	# key release. Text fields and modal windows retain their own keyboard UI.
 	if not event is InputEventKey or event.keycode != KEY_SPACE: return
-	if run == null or run.phase not in ["build","combat"]: return
-	for dialog in [recipe_popup,recipe_book,wave_book,summary_dialog,seed_dialog]:
+	if run == null or run.phase not in ["build","combat","intermission"]: return
+	for dialog in [recipe_popup,recipe_book,maze_book,wave_book,summary_dialog,seed_dialog]:
 		if dialog != null and dialog.visible: return
 	var focus = get_viewport().gui_get_focus_owner()
 	if focus is LineEdit or focus is TextEdit: return
@@ -658,12 +1214,44 @@ func _input(event: InputEvent) -> void:
 func _unhandled_key_input(event: InputEvent) -> void:
 	if event is InputEventKey and event.pressed and not event.echo:
 		match event.keycode:
+			KEY_ESCAPE:
+				if board_view.guide.moving_tower != Vector2i(-1,-1):
+					cancel_tower_move()
+					run.message = "Tower move cancelled. No move used."
 			KEY_F: board_view.fit_board()
+			KEY_F11: toggle_fullscreen()
 			KEY_M: toggle_mute()
 			KEY_R: board_view.show_routes = not board_view.show_routes
+			KEY_G: choose_maze_tip("" if not board_view.maze_tip.is_empty() else last_maze_tip)
 			KEY_1: speed = 1
 			KEY_2: speed = 2
 		refresh_ui()
+
+func toggle_fullscreen() -> void:
+	if OS.has_feature("web"):
+		var full = DisplayServer.window_get_mode() in [DisplayServer.WINDOW_MODE_FULLSCREEN,DisplayServer.WINDOW_MODE_EXCLUSIVE_FULLSCREEN]
+		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED if full else DisplayServer.WINDOW_MODE_FULLSCREEN)
+		return
+	apply_display(last_window_mode if display_mode == "fullscreen" else "fullscreen")
+	save_settings()
+
+# Full screen uses the monitor's own resolution; windows use exact 1080p / 1440p / 4K sizes
+# (shrunk to fit if the monitor is smaller). The UI scales with the window either way.
+func apply_display(mode: String) -> void:
+	display_mode = mode if mode == "fullscreen" or WINDOW_SIZES.has(mode) else "fullscreen"
+	if display_mode == "fullscreen":
+		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
+		return
+	last_window_mode = display_mode
+	DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
+	var usable = DisplayServer.screen_get_usable_rect(DisplayServer.window_get_current_screen())
+	var wanted: Vector2i = WINDOW_SIZES[display_mode]
+	if usable.size.x > 0 and (wanted.x > usable.size.x or wanted.y > usable.size.y):
+		var fit = minf(float(usable.size.x)/wanted.x,float(usable.size.y-40)/wanted.y)
+		wanted = Vector2i(Vector2(wanted)*fit)
+	DisplayServer.window_set_size(wanted)
+	if usable.size.x > 0:
+		DisplayServer.window_set_position(usable.position+(usable.size-wanted)/2)
 
 func toggle_pause() -> void:
 	paused = not paused
@@ -681,7 +1269,7 @@ func toggle_mute() -> void:
 func save_checkpoint() -> void:
 	last_snapshot = run.snapshot().duplicate(true)
 	var error = OK if smoke else GemSave.write_snapshot(last_snapshot)
-	save_label.text = "Seed %d\nBuild checkpoint saved locally." % run.initial_seed if error == OK else "Checkpoint could not be saved: "+error_string(error)
+	save_label.text = "Seed %d\n%s checkpoint saved locally." % [run.initial_seed,"Trial" if run.wave > 50 and GemCatalog.campaign() else "Build"] if error == OK else "Checkpoint could not be saved: "+error_string(error)
 
 func save_settings() -> void:
 	if smoke:
@@ -689,6 +1277,8 @@ func save_settings() -> void:
 	var config = ConfigFile.new()
 	config.set_value("audio","volume",saved_volume)
 	config.set_value("audio","muted",muted)
+	config.set_value("display","mode",display_mode)
+	config.set_value("display","window",last_window_mode)
 	config.save("user://settings.cfg")
 
 func load_settings() -> void:
@@ -696,6 +1286,8 @@ func load_settings() -> void:
 	if not smoke and config.load("user://settings.cfg") == OK:
 		saved_volume = clampf(float(config.get_value("audio","volume",.35)),0,1)
 		muted = bool(config.get_value("audio","muted",false))
+		display_mode = str(config.get_value("display","mode","fullscreen"))
+		last_window_mode = str(config.get_value("display","window","1080p"))
 	volume_slider.set_value_no_signal(saved_volume)
 	audio.volume = 0 if muted else saved_volume
 
@@ -704,6 +1296,19 @@ func show_recipes() -> void:
 		return
 	hide_other_dialogs(recipe_book)
 	recipe_book.open_for(run,board_view.tracked_recipe)
+
+func show_mazes() -> void:
+	if maze_book.visible:
+		return
+	hide_other_dialogs(maze_book)
+	maze_book.open_for(run,board_view.maze_tip)
+
+func choose_maze_tip(id: String) -> void:
+	if not id.is_empty():
+		last_maze_tip = id
+	board_view.set_maze_tip(id)
+	maze_book.hide()
+	refresh_ui()
 
 func show_waves() -> void:
 	if wave_book.visible:
@@ -730,11 +1335,14 @@ func show_help() -> void:
 		return
 	hide_other_dialogs(recipe_popup)
 	recipe_popup.title = "How to play"
-	recipe_text.text = "[font_size=24][color=#e4d4a4]Build a maze. Keep one gem.[/color][/font_size]\n\n1. Click five empty cells. Each placement reveals a random gem. Invalid placements consume nothing.\n\n2. Select one new gem and Keep, combine two/four identical new gems, or use a special recipe. This final choice starts combat immediately.\n\n3. The other new gems become stones. During the next build phase, demolish stones or older towers freely. New placements cannot be undone.\n\nGround enemies follow all seven checkpoints and cannot cut diagonal corners. Flying enemies follow straight lines between the same checkpoints.\n\nBuy better gem odds with gold at any time. Changes affect future placements. Diamond and Ruby attack ground only in this solo version.\n\n[b]Controls[/b]\nWheel: zoom · Middle drag: pan · F: fit · R: routes\nSpace: pause · 1 / 2: speed · M: mute\nSelect any tower to change First / Last / Strongest / Nearest targeting.\n\n[font_size=18][color=#e4d4a4]Win condition[/color][/font_size]\nSurvive ten waves and kill the final boss. A boss leak is an immediate defeat. Ordinary leak costs are shown in wave information.\n\nThe beginning of each build phase is saved locally. Reload resumes that checkpoint, not a battle in progress. The Run menu offers the same seed, a new seed or a seed you enter. Run summary provides a test report.\n\nVersion 1.0 is ready for local review. Tower and enemy base values follow the reviewed Dota 2 snapshot; the ten-wave economy is adapted. See the reference notes for remaining engine differences."
+	recipe_text.text = "[font_size=24][color=#e4d4a4]Build a maze. Keep one gem.[/color][/font_size]\n\n1. Click five empty cells. Each placement reveals a random gem. Invalid placements consume nothing.\n\n2. Select one new gem and Keep, combine two/four identical new gems, or use a special recipe. This final choice starts combat immediately.\n\n3. The other new gems become stones. During the next build phase, demolish stones or older towers freely. New placements cannot be undone.\n\nGround enemies follow all seven checkpoints and cannot cut diagonal corners. Flying enemies follow straight lines between the same checkpoints.\n\nBuy better gem odds with gold at any time. Changes affect future placements. Diamond and Ruby attack ground only in this solo version.\n\n[b]Controls[/b]\nWheel: zoom · Middle drag: pan · F: fit · R: routes · G: maze guide\nSpace: pause · 1 / 2: speed · M: mute\nSelect any tower to change First / Last / Strongest / Nearest targeting.\n\n[font_size=18][color=#e4d4a4]Win condition[/color][/font_size]\nSurvive ten waves and kill the final boss. A boss leak is an immediate defeat. Ordinary leak costs are shown in wave information.\n\nThe beginning of each build phase is saved locally. Reload resumes that checkpoint, not a battle in progress. The Run menu offers the same seed, a new seed or a seed you enter. Run summary provides a test report.\n\nVersion 1.0 is ready for local review. Tower and enemy base values follow the reviewed Dota 2 snapshot; the ten-wave economy is adapted. See the reference notes for remaining engine differences."
 	if GemCatalog.expanded_gems():
 		recipe_text.text = recipe_text.text.replace("Version 1.0 is ready for local review.","Version 1.1.0-dev is a development profile. It currently adds six gem qualities and Jade to the ten-wave review game.")
 		recipe_text.text += "\n\n"+str(GemCatalog.DATA.balance_note)
 	if GemCatalog.campaign():
 		recipe_text.text = recipe_text.text.replace("Survive ten waves","Survive 50 base waves and 50 trial waves").replace("Version 1.0 is ready for local review.","Solo campaign development build.")
+		recipe_text.text += "\n\n[b]Tower relocation[/b]\nYou have five tower moves for the entire run, shared by all towers. During building, select an older tower and Move tower, then click an empty cell or a stone. A stone swaps to the old tower cell; an empty destination leaves the old cell empty. The whole checkpoint route must stay open. New unselected gems, combat, trial intervals and the final trap-placement step cannot use tower moves. Escape or clicking the source cancels for free. Invalid moves consume nothing. Tower quality, MVP, copied abilities, rolled attack and targeting stay with the tower. Trap movement does not spend these five moves."
+		recipe_text.text = recipe_text.text.replace("Board changes are available in the next build phase.","Older tower recipes remain available during combat.")
+		recipe_text.text += "\n\n[b]Campaign rules[/b]\nAfter five placements, a new gem of quality II or higher may be downgraded randomly as your final choice. The button shows its odds. This starts combat and turns other new gems into stones. Older tower recipes can also be combined during combat; no new placements or demolition are allowed then. Create and move path traps before combat. A trap recipe using new gems lets you position the trap before clicking Start wave.\n\nAfter wave 50 there are no new gems or building rounds. Trials start automatically after a 3-second interval; pause to review. Trial kills give 5 base gold; odds purchases close because no future gems are placed.\n\nAfter 180 seconds of simulated combat, berserk grants enemies +100% movement speed and magic immunity. The wave panel shows the countdown. Lanes may have alternate enemies and bosses, with calendar choices saved for this run."
 		recipe_text.text += "\n\n[b]Map marks[/b]\nRoman badges identify gem quality. Special tower abbreviations appear when zoomed in or selected. A gold cross marks MVP progress. Trap symbols identify their effect; one/two/three edge marks mean bronze/silver/gold. Enemy marks show petrification (diamond), stun (cross), refraction (box), invisibility (eye), damage over time (dot and bar), slow (zigzag), armor reduction (V), or magic immunity (crossed box). Undetected invisible enemies are faint and cannot be targeted.\n\n[b]Gem purchases[/b]\nDefeating a base boss (waves 10/20/30/40/50) grants 150 saved discount for future odds purchases. Gold rewards stay the same. Purchases are manual; unused discount carries to the next purchase. Trial bosses grant no discount.\n\n[b]Path traps[/b]\nTrap recipes consume their listed gems and open the selected material cell. Traps do not block enemies. Select a trap and Move path trap during building. Three equal traps in a straight line upgrade automatically at the center. Traps trigger when an enemy comes within one cell, with a 10s cooldown.\n\n"+str(GemCatalog.DATA.balance_note)
 	recipe_popup.popup_centered(Vector2i(730,690))

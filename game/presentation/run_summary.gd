@@ -56,9 +56,10 @@ func open_report(report: Dictionary) -> void:
 	report_text.text = JSON.stringify(report,"  ")
 	tabs.current_tab = 0
 	status.text = "Include this report with feedback to share the seed, choices and wave outcomes."
-	var outcome = {"won":"VICTORY","lost":"DEFEAT","build":"BUILD PHASE","combat":"BATTLE IN PROGRESS"}.get(report.outcome,"RUN SUMMARY")
+	var outcome = {"won":"VICTORY","lost":"DEFEAT","build":"BUILD PHASE","intermission":"BETWEEN TRIALS · NO NEW GEMS","combat":"BATTLE IN PROGRESS"}.get(report.outcome,"RUN SUMMARY")
 	summary.text = "[font_size=26][color=#e4d4a4]%s[/color][/font_size]\n\nVersion %s · %s\nSeed %s · Wave %d / %d\n%d lives · %d gold · %d defeated · %d leaked\n\n" % [outcome,report.game_version,report.balance_profile,report.seed,int(report.wave),int(report.get("wave_count",10)),int(report.lives),int(report.gold),int(report.kills),int(report.leaks)]
 	if report.has("quality_discount"): summary.text += "Saved gem discount: %d gold\n\n" % int(report.quality_discount)
+	if report.has("tower_moves_left"): summary.text += "Tower moves left this run: %d / 5\n\n" % int(report.tower_moves_left)
 	if report.resumed_from_checkpoint:
 		summary.text += "This session resumed at build phase %d. Earlier actions are outside this session report.\n\n" % int(report.starting_checkpoint.wave)
 	summary.text += "[table=5][cell]Wave[/cell][cell]Result[/cell][cell]Defeated[/cell][cell]Leaked[/cell][cell]Time[/cell]"

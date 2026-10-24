@@ -7,7 +7,7 @@ static func status(state: GemRun, index: int) -> String:
 		return "Cleared"
 	if index > state.wave:
 		return "Not reached" if state.phase == "lost" else "Upcoming"
-	return {"build":"Next","combat":"Fighting","won":"Victory","lost":"Defeat"}.get(state.phase,"")
+	return {"build":"Next","intermission":"Next trial · no new gems","combat":"Fighting","won":"Victory","lost":"Defeat"}.get(state.phase,"")
 
 static func coverage(state: GemRun, air: bool) -> Dictionary:
 	var result = {"kept":0,"kept_total":0,"fresh":0,"fresh_total":0}
@@ -31,6 +31,11 @@ static func inspect(state: GemRun, index: int) -> Dictionary:
 		return {}
 	var wave: Dictionary = GemCatalog.DATA.waves[index-1].duplicate(true)
 	if GemCatalog.campaign():
+		var base = (index-1)%50+1
+		if state.wave_choices.has(str(base)):
+			for option in GemCatalog.DATA.wave_alternatives.get(str(base),[]):
+				if option.source_id == state.wave_choices[str(base)]:
+					for key in ["name","source_id","hp","speed","armor","magic_resist","air","ancient","abilities","variants"]: wave[key] = option[key].duplicate(true) if option[key] is Array else option[key]
 		wave.magic_immune = "enemy_momian" in wave.abilities
 		wave.physical_multiplier = .25 if "enemy_wumian" in wave.abilities else 1.0
 		wave.evasion = .5 if "guai_shanbi" in wave.abilities else 0.0
@@ -46,7 +51,7 @@ static func campaign_traits(wave: Dictionary) -> String:
 	var lines: PackedStringArray = []
 	for ability in wave.get("abilities",[]):
 		if names.has(ability): lines.append(names[ability])
-	if wave.get("trial",false): lines.append("Trial: two seeded random abilities; ×1.8 speed. Health varies with the rolled abilities.")
+	if wave.get("trial",false): lines.append("Trial: no new gems or building rounds; two seeded random abilities; ×1.8 speed. Health varies with the rolled abilities.")
 	if not wave.get("variants",[]).is_empty(): lines.append("50% alternate courier variant per spawn.")
 	return "\n".join(lines)
 

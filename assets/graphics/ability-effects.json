@@ -1,0 +1,386 @@
+{
+  "version": 1,
+  "max_fields": 48,
+  "colors": {
+    "fire": "#ff963d",
+    "poison": "#91e34c",
+    "frost": "#8ee4ff",
+    "fracture": "#e6b778",
+    "stone": "#b2b6a5",
+    "shield": "#b7a4ff",
+    "support": "#efcf76",
+    "lightning": "#b2d0ff",
+    "critical": "#ffb1e8",
+    "blast": "#ffc37a",
+    "stun": "#fff191"
+  },
+  "towers": {
+    "aijijin": {
+      "style": "bolt",
+      "color": "#e6b778",
+      "abilities": [
+        "tower_jin2",
+        "tower_tanlan",
+        "tower_attack4"
+      ]
+    },
+    "silver": {
+      "style": "shard",
+      "color": "#8ee4ff",
+      "abilities": [
+        "tower_slow2"
+      ]
+    },
+    "baiyinqishi": {
+      "style": "shard",
+      "color": "#8ee4ff",
+      "abilities": [
+        "tower_jianshe3",
+        "tower_slow3"
+      ]
+    },
+    "feicuimoxiang": {
+      "style": "bolt",
+      "color": "#e6b778",
+      "abilities": [
+        "tower_10jiyun",
+        "tower_jin",
+        "tower_shihua_new",
+        "tower_attack4"
+      ]
+    },
+    "fenhongzuanshi": {
+      "style": "shard",
+      "color": "#ffb1e8",
+      "abilities": [
+        "tower_baoji1",
+        "tower_attack3"
+      ]
+    },
+    "furongshi": {
+      "style": "shard",
+      "color": "#8ee4ff",
+      "abilities": [
+        "tower_zheyi"
+      ]
+    },
+    "geluanshi": {
+      "style": "shard",
+      "color": "#8ee4ff",
+      "abilities": [
+        "tower_bixi2",
+        "tower_jianjia6",
+        "tower_zheyi3",
+        "e10013"
+      ]
+    },
+    "gudaidejixueshi": {
+      "style": "ember",
+      "color": "#ff963d",
+      "abilities": [
+        "tower_chazhuangshandian",
+        "tower_huiyao2"
+      ]
+    },
+    "haibao": {
+      "style": "shard",
+      "color": "#8ee4ff",
+      "abilities": [
+        "tower_lanbaoshi",
+        "tower_chain_frost"
+      ]
+    },
+    "haiyangqingyu": {
+      "style": "ember",
+      "color": "#91e34c",
+      "abilities": [
+        "tower_shechengguanghuan",
+        "tower_du5"
+      ]
+    },
+    "heianfeicui": {
+      "style": "bolt",
+      "color": "#efcf76",
+      "abilities": [
+        "tower_10jiyun"
+      ]
+    },
+    "heisemaoyanshi": {
+      "style": "bolt",
+      "color": "#efcf76",
+      "abilities": [
+        "tower_speed_aura5",
+        "tower_true_sight",
+        "tower_maoyan"
+      ]
+    },
+    "heiwangzihuangguanhongbaoshi": {
+      "style": "ember",
+      "color": "#ff963d",
+      "abilities": [
+        "e10002",
+        "tower_chazhuangshandian",
+        "tower_huiyao3",
+        "tower_du6"
+      ]
+    },
+    "heiyaoshi": {
+      "style": "shard",
+      "color": "#8ee4ff",
+      "abilities": [
+        "tower_attack6",
+        "tower_jianshe5",
+        "tower_slow5",
+        "e10011"
+      ]
+    },
+    "hongshanhu": {
+      "style": "bolt",
+      "color": "#efcf76",
+      "abilities": [
+        "tower_speed_aura5",
+        "tower_speed_aura4",
+        "tower_true_sight",
+        "tower_maoyan",
+        "tower_chenmoguanghuan"
+      ]
+    },
+    "huaguoshanxiandan": {
+      "style": "ember",
+      "color": "#91e34c",
+      "abilities": [
+        "tower_du5",
+        "tower_shechengguanghuan",
+        "tower_jingzhun",
+        "tower_attack4"
+      ]
+    },
+    "huangcailanbaoshi": {
+      "style": "shard",
+      "color": "#8ee4ff",
+      "abilities": [
+        "tower_lanbaoshi"
+      ]
+    },
+    "huguoshenyishi": {
+      "style": "shard",
+      "color": "#8ee4ff",
+      "abilities": [
+        "tower_zheyi3",
+        "tower_ranjin",
+        "e10006"
+      ]
+    },
+    "jin": {
+      "style": "bolt",
+      "color": "#e6b778",
+      "abilities": [
+        "tower_jin"
+      ]
+    },
+    "jingangshikulinan": {
+      "style": "shard",
+      "color": "#ffb1e8",
+      "abilities": [
+        "tower_jingzhun",
+        "tower_shechengguanghuan",
+        "tower_attack6",
+        "tower_baoji1",
+        "e10005"
+      ]
+    },
+    "jingxindiaozhuodepalayibabixi": {
+      "style": "bolt",
+      "color": "#e6b778",
+      "abilities": [
+        "tower_10jiyun",
+        "tower_bixi2"
+      ]
+    },
+    "jixiangdezhongguoyu": {
+      "style": "ember",
+      "color": "#91e34c",
+      "abilities": [
+        "tower_du5",
+        "tower_huichun_aura",
+        "tower_zheyi",
+        "tower_attack4"
+      ]
+    },
+    "jixueshi": {
+      "style": "beam",
+      "color": "#b2d0ff",
+      "abilities": [
+        "tower_shandianlian"
+      ]
+    },
+    "juxingfenhongzuanshi": {
+      "style": "shard",
+      "color": "#ffb1e8",
+      "abilities": [
+        "tower_jianshe3",
+        "tower_baoji1",
+        "tower_attack4",
+        "tower_slow3"
+      ]
+    },
+    "keyinuoerguangmingzhishan": {
+      "style": "shard",
+      "color": "#ffb1e8",
+      "abilities": [
+        "e301",
+        "tower_slow3",
+        "tower_jianshe4",
+        "tower_baoji1",
+        "tower_attack6",
+        "tower_jianjia6"
+      ]
+    },
+    "malachite": {
+      "style": "shard",
+      "color": "#91e34c",
+      "abilities": [
+        "tower_fenliejian"
+      ]
+    },
+    "manao": {
+      "style": "shard",
+      "color": "#91e34c",
+      "abilities": [
+        "tower_attack5",
+        "tower_fenliejian_xianyan",
+        "e10012"
+      ]
+    },
+    "mirendeqingjinshi": {
+      "style": "shard",
+      "color": "#8ee4ff",
+      "abilities": [
+        "tower_zheyi2"
+      ]
+    },
+    "palayibabixi": {
+      "style": "bolt",
+      "color": "#e6b778",
+      "abilities": [
+        "tower_bixi"
+      ]
+    },
+    "ranshaozhishi": {
+      "style": "ember",
+      "color": "#ff963d",
+      "abilities": [
+        "tower_huiyao3",
+        "e10010"
+      ]
+    },
+    "shenhaizhenzhu": {
+      "style": "bolt",
+      "color": "#efcf76",
+      "abilities": [
+        "tower_chenmoguanghuan"
+      ]
+    },
+    "shuaibiankaipayou": {
+      "style": "shard",
+      "color": "#91e34c",
+      "abilities": [
+        "tower_attack5",
+        "tower_fenliejian_you",
+        "e10003"
+      ]
+    },
+    "sililankazhixing": {
+      "style": "ember",
+      "color": "#91e34c",
+      "abilities": [
+        "tower_du6",
+        "tower_jianjia6",
+        "tower_bixi2",
+        "tower_jihan",
+        "e10004"
+      ]
+    },
+    "tianranzumulv": {
+      "style": "bolt",
+      "color": "#efcf76",
+      "abilities": []
+    },
+    "xiameishi": {
+      "style": "beam",
+      "color": "#b2d0ff",
+      "abilities": [
+        "tower_aojiao",
+        "tower_shandianlian",
+        "tower_chazhuangshandian",
+        "e10008",
+        "tower_attack6"
+      ]
+    },
+    "xianyandekongqueshi": {
+      "style": "shard",
+      "color": "#91e34c",
+      "abilities": [
+        "tower_fenliejian_xianyan"
+      ]
+    },
+    "asteriated_ruby": {
+      "style": "ember",
+      "color": "#ff963d",
+      "abilities": [
+        "tower_huiyao"
+      ]
+    },
+    "xingguanglanbaoshi": {
+      "style": "shard",
+      "color": "#8ee4ff",
+      "abilities": [
+        "tower_true_sight",
+        "tower_speed_aura6",
+        "tower_slow6",
+        "tower_lanbaoshi2",
+        "e10001"
+      ]
+    },
+    "xuehonghuoshan": {
+      "style": "ember",
+      "color": "#ff963d",
+      "abilities": [
+        "tower_huiyao2"
+      ]
+    },
+    "yijiazhishi": {
+      "style": "bolt",
+      "color": "#efcf76",
+      "abilities": [
+        "tower_chenmoguanghuan",
+        "tower_maoyan",
+        "tower_speed_aura_guichu",
+        "tower_true_sight",
+        "e10009"
+      ]
+    },
+    "you235": {
+      "style": "shard",
+      "color": "#91e34c",
+      "abilities": [
+        "tower_fenliejian_you",
+        "tower_attack4"
+      ]
+    },
+    "you238": {
+      "style": "shard",
+      "color": "#91e34c",
+      "abilities": [
+        "tower_fenliejian_you"
+      ]
+    },
+    "jade": {
+      "style": "ember",
+      "color": "#91e34c",
+      "abilities": [
+        "tower_du4"
+      ]
+    }
+  }
+}

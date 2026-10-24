@@ -1,5 +1,11 @@
 # GemTD – aktuell prototypplan
 
+Aktuell uppföljning: **1.4.1-dev**, innehållsversion **10**, med [fem tornflyttar per hel omgång](tower-relocation.md). Tidigare leveransbeskrivningar nedan bevaras.
+
+Senaste uppföljning: **1.4.0-dev**, innehållsversion **9**. De fyra beställda mekanikstegen är implementerade; se [nya regler och verifiering](mechanics-update-1.4.md). Särskilt gäller inga nya gems efter våg 50 och äldre tornkombinationer under strid. Historiska leveransbeskrivningar nedan bevaras.
+
+Uppföljning 2026-10-24, 1.3.1-dev: traprecept med nya gems får ett placeringssteg före striden. Tornvalet förbrukas när receptet skapas; spelaren flyttar trappen och väljer sedan **Start wave**. Innehållsversion 8 separerar de ändrade reglernas sparning från äldre utgåvor. Gamla-material-recept fortsätter fungera under vanlig byggfas.
+
 Datum: 2026-10-23. Underlag: användarens 61 interaktiva beslut i [beslutsloggen](prototyp-beslutsunderlag.md).
 
 **Senaste leverans 2026-10-24:** kampanj 1.3.0-dev innehåller 50 grundvågor och prövningar 51–100, sex gemkvaliteter, 59 receptalternativ och 24 stentavlor. Implementation och automatiserade kontroller för de fem beställda stegen är genomförda. Mänskligt referensspeltest och slutbalansering återstår; en automatisk genomgång ersätter inte dessa. Se [kampanjgranskningen](campaign-review.md) och [grafikgranskningen](graphics-review-campaign.md). Den äldre planen nedan beskriver tiovågsprototypen.

@@ -7,6 +7,7 @@ from pathlib import Path
 import json
 import re
 from reference_data import parse_kv
+from build_full_reference import table, unit_facts
 
 ROOT = Path(__file__).resolve().parents[1]
 REF = ROOT/'.tools/reference'
@@ -213,6 +214,7 @@ def build():
                            source_id=source_id,color='#83d6b0',damage=v.get('AttackDamageMin',0),
                            interval=v.get('AttackRate',1),range=v.get('AttackRange',0)/128,targets='both',
                            projectile_speed=v['ProjectileSpeed']/128,
+                           ranged=fact['attack_capabilities']=='DOTA_UNIT_CAP_RANGED_ATTACK',
                            abilities=ids,slab=bool(fact.get('activated_ability')),
                            effect='; '.join(ids).replace('tower_','').replace('_',' '))
         if source_id == 'gemtd_tianranzumulv':
@@ -230,6 +232,7 @@ def build():
             raw=raw_units[level['source_id']]
             ids=[raw[f] for f in raw if re.fullmatch('Ability\\d+',f) and raw[f]]
             level['abilities']=ids
+            level['ranged']=raw.get('AttackCapabilities')=='DOTA_UNIT_CAP_RANGED_ATTACK'
             level['projectile_speed']=next(t['values']['ProjectileSpeed'] for t in source['base_towers'] if t['source_id']==level['source_id'])/128
             for ability in ids:
                 compiled.setdefault(ability,compile_ability(ability))
@@ -246,7 +249,7 @@ def build():
                     air='FLY' in fact['movement'],boss=base%10==0,ancient=fact['ancient'],
                     count=1 if base%10==0 else 10,leak=100 if base%10==0 else 1,
                     leak_max=100 if base%10==0 else 3+4*((index-1)//10),
-                    reward=150 if base%10==0 else 5+5*((base-1)//10),
+                    reward=5 if index>50 else 150 if base%10==0 else 5+5*((base-1)//10),
                     completion=0,spawn_interval=1.0,evasion=0,
                     abilities=list(dict.fromkeys(fact['abilities']+fact.get('added_abilities',[]))),variants=[],trial=index>50)
     for index in range(1,101):
@@ -254,8 +257,20 @@ def build():
         wave=enemy(fact,index)
         wave['variants']=[enemy(v,index) for v in fact.get('variants',[])]
         waves.append(wave)
+    alternatives = {}
+    for fact in source['alternate_waves']:
+        index = fact['index']-100
+        value = enemy(fact,index)
+        value['abilities'] = list(dict.fromkeys(value['abilities']+source['waves'][index-1]['added_abilities']))
+        alternatives[str(index)] = [value]
+    boss_ids = {20:['gemtd_yuediyang_boss'],30:['gemtd_zard_boss_fly'],40:['gemtd_gugubiao_boss_fly'],50:['gemtd_roushan_boss_fly_jin','gemtd_roushan_boss_fly_bojin']}
+    for index,ids in boss_ids.items():
+        alternatives[str(index)] = [enemy(dict(**unit_facts(key,raw_units),added_abilities=source['waves'][index-1]['added_abilities']),index) for key in ids]
+    stealable = source['progression']['stealable_abilities']
     random_models={key:dict(**fact,coefficient=prd_coefficient(fact['chance'])) for key,fact in source['random_events'].items()}
-    payload=dict(version=7,profile='full-solo-dev',gems=gems,specials=specials,recipes=recipes,random_models=random_models,
+    payload=dict(version=10,profile='full-solo-dev',gems=gems,specials=specials,recipes=recipes,random_models=random_models,
+                 mechanics=dict(tower_moves_per_run=5,stealable_abilities=stealable,downgrade_weights={'2':[100],'3':[34,66],'4':[20,30,50],'5':[10,15,25,50],'6':[20,20,20,20,20]},berserk_seconds=180,berserk_move_percent=100,trial_intermission_seconds=3),
+                 wave_alternatives=alternatives,
                  combat=dict(minimum_movement_speed=100,checkpoint_radius=64/128,detection_radius_fallback=900/128,default_aura_linger=.5,base_attack_speed=100,minimum_attack_speed=20,maximum_attack_speed=700,
                              attack_speed_reference='Valve gameplay update 7.20: total maximum attack speed 700; standalone adopts this documented default, not an in-match GemTD measurement.',
                              projectiles='tracking; source ProjectileSpeed / 128 cells per second; damage and on-hit at impact'),

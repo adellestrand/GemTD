@@ -10,6 +10,14 @@ if __name__ == '__main__':
     rows = []
     campaign = '--campaign' in sys.argv
     folder = ROOT/('output/campaign-playtest' if campaign else 'output/v1-playtest')
+    destination = ROOT/('docs/reports/campaign-replays.json' if campaign else 'docs/reports/replay-verification-v1.json')
+    for argument in sys.argv[1:]:
+        for prefix in ['--folder=','--result=']:
+            if argument.startswith(prefix):
+                path = (ROOT/argument.removeprefix(prefix)).resolve()
+                if not path.is_relative_to(ROOT): raise SystemExit('Report paths must remain inside this repository.')
+                if prefix == '--folder=': folder = path
+                else: destination = path
     for report in sorted(folder.glob('*-*.json')):
         process = subprocess.run([str(ENGINE),'--headless','--path','.',
                                   '--script','res://tools/replay_review.gd','--',
@@ -24,6 +32,5 @@ if __name__ == '__main__':
         print(report.name, result, flush=True)
     if not rows:
         raise SystemExit('No playtest reports found.')
-    destination = ROOT/('docs/reports/campaign-replays.json' if campaign else 'docs/reports/replay-verification-v1.json')
     destination.write_text(json.dumps(dict(reports=rows,all_passed=all(row['ok'] for row in rows)),indent=2)+'\n',encoding='utf8')
     raise SystemExit(not all(row['ok'] for row in rows))

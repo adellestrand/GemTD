@@ -5,9 +5,11 @@ extends RefCounted
 var run: GemRun
 var cached_cell = Vector2i(-99,-99)
 var cached_placement: Dictionary = {}
+var moving_tower = Vector2i(-1,-1)
 
 func bind(state: GemRun) -> void:
 	run = state
+	moving_tower = Vector2i(-1,-1)
 	invalidate()
 
 func invalidate() -> void:
@@ -18,6 +20,14 @@ func placement(p: Vector2i) -> Dictionary:
 	var result = {"status":"idle","message":"","route":PackedVector2Array()}
 	if run == null or not run.board.inside(p):
 		return result
+	if moving_tower != Vector2i(-1,-1):
+		if cached_placement.is_empty() or cached_cell != p:
+			cached_placement = run.tower_move_preview(moving_tower,p)
+			cached_cell = p
+		result.status = "place" if str(cached_placement.error).is_empty() else "blocked"
+		result.message = "Move here · stone swaps to the old cell · uses 1 of %d moves left" % run.tower_moves_left if result.status == "place" else str(cached_placement.error)
+		result.route = cached_placement.route
+		return result
 	if run.board.cells.has(p):
 		result.message = "Select "+GemCatalog.title(run.board.cells[p])
 		return result
@@ -25,7 +35,7 @@ func placement(p: Vector2i) -> Dictionary:
 		result.message = "Board locked during combat." if run.phase == "combat" else "Use Restart for a new run."
 		return result
 	if run.placed >= 5:
-		result.message = "Five placed. Select a new gem for your final choice."
+		result.message = "Move your trap, then click Start wave." if run.awaiting_trap_placement else "Five placed. Select a new gem for your final choice."
 		return result
 	if cached_placement.is_empty() or cached_cell != p:
 		cached_placement = run.board.placement_preview(p)
@@ -36,10 +46,19 @@ func placement(p: Vector2i) -> Dictionary:
 	return result
 
 func action(request: Dictionary, p: Vector2i) -> Dictionary:
-	if run == null or run.phase != "build":
+	if run == null or (run.phase != "build" and not (GemCatalog.campaign() and run.phase == "combat" and request.get("type","") == "recipe")):
 		return denied("Building actions are available during the build phase.")
+	if run.awaiting_trap_placement:
+		return denied("Your tower choice is final. Move your trap, then click Start wave.")
 	var kind = str(request.get("type",""))
 	var gem: Dictionary = run.board.cells.get(p,{})
+	if kind == "downgrade":
+		if not GemCatalog.campaign() or run.placed != 5 or not gem.get("fresh",false) or int(gem.get("tier",1)) < 2:
+			return denied("Place five gems, then choose a new gem of quality II or higher.")
+		var weights: Array = GemCatalog.DATA.mechanics.downgrade_weights[str(int(gem.tier))]
+		var odds: Array[String] = []
+		for i in range(weights.size()): odds.append("%s: %d%%" % [GemCatalog.quality_name(i+1),int(weights[i])])
+		return {"valid":true,"materials":[p],"stones":run.fresh_cells().filter(func(q): return q != p),"removed":[],"result_at":p,"result":{},"starts":true,"message":"Keep this gem at a random lower quality. "+", ".join(odds)+". Other new gems become stones; starts the wave."}
 	if kind in ["keep","upgrade"]:
 		if gem.is_empty() or not gem.get("fresh",false):
 			return denied("Select a new gem from this round.")
@@ -62,12 +81,14 @@ func action(request: Dictionary, p: Vector2i) -> Dictionary:
 	if kind == "recipe":
 		var recipe = str(request.get("recipe",""))
 		if GemCatalog.stats({"kind":GemCatalog.recipe_result(recipe),"tier":1}).get("slab",false):
+			if run.phase == "combat": return denied("Create path traps before combat; older tower recipes are available now.")
 			var error = run.slab_error(p,true)
 			if not error.is_empty(): return denied(error)
 		var materials = run.recipe_materials(recipe,p,bool(request.get("old_only",false)))
 		if materials.is_empty():
 			return denied("Missing recipe materials. Select one of its material cells.")
 		var starts = materials.any(func(q): return run.board.cells[q].fresh)
+		if starts and run.phase != "build": return denied("Only older tower materials may be combined during combat.")
 		if starts and run.placed != 5:
 			return denied("Place all five gems before combining new materials.")
 		var result = {"kind":GemCatalog.recipe_result(recipe),"tier":1,"fresh":false,"priority":"First"}
@@ -99,5 +120,8 @@ func plan(materials: Array, p: Vector2i, result: Dictionary, starts: bool) -> Di
 			if q != p and not stones.has(q):
 				stones.append(q)
 	var message = "Result: "+GemCatalog.title(result)+" at the selected cell. "
-	message += "Other new gems become stones; wave starts immediately." if starts else "Only older materials used; your new tower choice remains."
+	if starts and GemCatalog.stats(result).get("slab",false):
+		message += "Other new gems become stones. Position your trap, then click Start wave."
+	else:
+		message += "Other new gems become stones; wave starts immediately." if starts else "Replaces older towers during combat; enemies and wave time continue." if run.phase == "combat" else "Only older materials used; your new tower choice remains."
 	return {"valid":true,"materials":materials,"stones":stones,"removed":[],"result_at":p,"result":result,"starts":starts,"message":message}

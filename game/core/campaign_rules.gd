@@ -1,6 +1,20 @@
 class_name GemCampaignRules
 extends RefCounted
 
+static func steal_pool(at: Vector2i, cells: Dictionary) -> Array:
+	var result: Array = []
+	var allowed: Array = GemCatalog.DATA.mechanics.stealable_abilities
+	for p in cells:
+		var gem: Dictionary = cells[p]
+		if p == at or gem.kind in ["stone","tianranzumulv"] or Vector2(p).distance_to(Vector2(at)) > 220.0/128.0: continue
+		var stats: Dictionary = GemCatalog.stats(gem)
+		if not stats.get("ranged",false): continue
+		var ids: Array = stats.get("abilities",[]).duplicate()
+		ids.append_array(gem.get("stolen_abilities",[]))
+		for id in allowed:
+			if id in ids: result.append(id)
+	return result
+
 # Pure content queries shared by the campaign simulation and inspection UI.
 static func actions(gem: Dictionary) -> Array:
 	var result: Array = []

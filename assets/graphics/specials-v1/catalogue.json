@@ -1,0 +1,1034 @@
+{
+  "aijijin": {
+    "name": "Egypt Gold",
+    "source_id": "gemtd_aijijin",
+    "sheet": 1,
+    "cell": 0,
+    "source_box": [
+      34,
+      27,
+      281,
+      388
+    ],
+    "previous_binding": {
+      "default": "aquamarine_3_v2"
+    },
+    "pixels": [
+      41,
+      59
+    ],
+    "grid": [
+      6.0,
+      1.0,
+      5.0
+    ]
+  },
+  "silver": {
+    "name": "Silver",
+    "source_id": "gemtd_baiyin",
+    "sheet": 1,
+    "cell": 1,
+    "source_box": [
+      353,
+      27,
+      588,
+      388
+    ],
+    "previous_binding": {
+      "default": "silver"
+    },
+    "pixels": [
+      38,
+      59
+    ],
+    "grid": [
+      6.0,
+      3.5,
+      5.0
+    ]
+  },
+  "baiyinqishi": {
+    "name": "Silver Knight",
+    "source_id": "gemtd_baiyinqishi",
+    "sheet": 1,
+    "cell": 2,
+    "source_box": [
+      669,
+      27,
+      902,
+      388
+    ],
+    "previous_binding": {
+      "default": "sapphire_3_v2"
+    },
+    "pixels": [
+      38,
+      57
+    ],
+    "grid": [
+      6.0,
+      1.0,
+      1.5
+    ]
+  },
+  "feicuimoxiang": {
+    "name": "Emerald Golem",
+    "source_id": "gemtd_feicuimoxiang",
+    "sheet": 1,
+    "cell": 3,
+    "source_box": [
+      962,
+      27,
+      1234,
+      388
+    ],
+    "previous_binding": {
+      "default": "aquamarine_3_v2"
+    },
+    "pixels": [
+      45,
+      58
+    ],
+    "grid": [
+      6.0,
+      1.0,
+      5.0
+    ]
+  },
+  "fenhongzuanshi": {
+    "name": "Pink Diamond",
+    "source_id": "gemtd_fenhongzuanshi",
+    "sheet": 1,
+    "cell": 4,
+    "source_box": [
+      37,
+      413,
+      276,
+      778
+    ],
+    "previous_binding": {
+      "default": "diamond_3_v2"
+    },
+    "pixels": [
+      39,
+      60
+    ],
+    "grid": [
+      6.0,
+      1.0,
+      1.0
+    ]
+  },
+  "furongshi": {
+    "name": "Quartz",
+    "source_id": "gemtd_furongshi",
+    "sheet": 1,
+    "cell": 5,
+    "source_box": [
+      344,
+      413,
+      594,
+      778
+    ],
+    "previous_binding": {
+      "default": "aquamarine_3_v2"
+    },
+    "pixels": [
+      41,
+      56
+    ],
+    "grid": [
+      6.0,
+      1.0,
+      5.0
+    ]
+  },
+  "geluanshi": {
+    "name": "Geluan Stone",
+    "source_id": "gemtd_geluanshi",
+    "sheet": 1,
+    "cell": 6,
+    "source_box": [
+      659,
+      413,
+      904,
+      778
+    ],
+    "previous_binding": {
+      "default": "amethyst_3_v2"
+    },
+    "pixels": [
+      40,
+      60
+    ],
+    "grid": [
+      6.0,
+      0.0,
+      3.5
+    ]
+  },
+  "gudaidejixueshi": {
+    "name": "Antique Bloodstone",
+    "source_id": "gemtd_gudaidejixueshi",
+    "sheet": 1,
+    "cell": 7,
+    "source_box": [
+      970,
+      413,
+      1227,
+      778
+    ],
+    "previous_binding": {
+      "default": "ruby_3_v2"
+    },
+    "pixels": [
+      42,
+      59
+    ],
+    "grid": [
+      6.0,
+      5.0,
+      3.5
+    ]
+  },
+  "haibao": {
+    "name": "Sea Jewel",
+    "source_id": "gemtd_haibao",
+    "sheet": 1,
+    "cell": 8,
+    "source_box": [
+      19,
+      790,
+      293,
+      1189
+    ],
+    "previous_binding": {
+      "default": "aquamarine_3_v2"
+    },
+    "pixels": [
+      45,
+      61
+    ],
+    "grid": [
+      6.0,
+      3.0,
+      1.0
+    ]
+  },
+  "haiyangqingyu": {
+    "name": "Ocean Jade",
+    "source_id": "gemtd_haiyangqingyu",
+    "sheet": 1,
+    "cell": 9,
+    "source_box": [
+      345,
+      790,
+      593,
+      1189
+    ],
+    "previous_binding": {
+      "default": "emerald_3_v2"
+    },
+    "pixels": [
+      40,
+      65
+    ],
+    "grid": [
+      6.0,
+      3.0,
+      3.5
+    ]
+  },
+  "heianfeicui": {
+    "name": "Dark Emerald",
+    "source_id": "gemtd_heianfeicui",
+    "sheet": 1,
+    "cell": 10,
+    "source_box": [
+      647,
+      790,
+      918,
+      1189
+    ],
+    "previous_binding": {
+      "default": "aquamarine_3_v2"
+    },
+    "pixels": [
+      44,
+      64
+    ],
+    "grid": [
+      6.0,
+      3.5,
+      3.5
+    ]
+  },
+  "heisemaoyanshi": {
+    "name": "Chrysoberyl Cat'S Eye",
+    "source_id": "gemtd_heisemaoyanshi",
+    "sheet": 1,
+    "cell": 11,
+    "source_box": [
+      974,
+      790,
+      1227,
+      1189
+    ],
+    "previous_binding": {
+      "default": "opal_3_v2"
+    },
+    "pixels": [
+      41,
+      60
+    ],
+    "grid": [
+      6.0,
+      5.0,
+      3.5
+    ]
+  },
+  "heiwangzihuangguanhongbaoshi": {
+    "name": "Black Prince's Ruby",
+    "source_id": "gemtd_heiwangzihuangguanhongbaoshi",
+    "sheet": 2,
+    "cell": 0,
+    "source_box": [
+      47,
+      36,
+      283,
+      386
+    ],
+    "previous_binding": {
+      "default": "emerald_3_v2"
+    },
+    "pixels": [
+      38,
+      56
+    ],
+    "grid": [
+      6.0,
+      5.0,
+      0.0
+    ]
+  },
+  "heiyaoshi": {
+    "name": "Obsidian",
+    "source_id": "gemtd_heiyaoshi",
+    "sheet": 2,
+    "cell": 1,
+    "source_box": [
+      350,
+      36,
+      600,
+      386
+    ],
+    "previous_binding": {
+      "default": "sapphire_3_v2"
+    },
+    "pixels": [
+      41,
+      57
+    ],
+    "grid": [
+      6.0,
+      3.0,
+      0.0
+    ]
+  },
+  "hongshanhu": {
+    "name": "Red Coral",
+    "source_id": "gemtd_hongshanhu",
+    "sheet": 2,
+    "cell": 2,
+    "source_box": [
+      662,
+      36,
+      908,
+      386
+    ],
+    "previous_binding": {
+      "default": "opal_3_v2"
+    },
+    "pixels": [
+      40,
+      57
+    ],
+    "grid": [
+      6.0,
+      5.0,
+      3.0
+    ]
+  },
+  "huaguoshanxiandan": {
+    "name": "Huaguo Elixir",
+    "source_id": "gemtd_huaguoshanxiandan",
+    "sheet": 2,
+    "cell": 3,
+    "source_box": [
+      972,
+      36,
+      1211,
+      386
+    ],
+    "previous_binding": {
+      "default": "emerald_3_v2"
+    },
+    "pixels": [
+      39,
+      56
+    ],
+    "grid": [
+      6.0,
+      3.5,
+      3.0
+    ]
+  },
+  "huangcailanbaoshi": {
+    "name": "Yellow Sapphire",
+    "source_id": "gemtd_huangcailanbaoshi",
+    "sheet": 2,
+    "cell": 4,
+    "source_box": [
+      39,
+      413,
+      297,
+      782
+    ],
+    "previous_binding": {
+      "default": "aquamarine_3_v2"
+    },
+    "pixels": [
+      42,
+      61
+    ],
+    "grid": [
+      6.0,
+      1.5,
+      3.0
+    ]
+  },
+  "huguoshenyishi": {
+    "name": "Guardian Stone",
+    "source_id": "gemtd_huguoshenyishi",
+    "sheet": 2,
+    "cell": 5,
+    "source_box": [
+      357,
+      413,
+      596,
+      782
+    ],
+    "previous_binding": {
+      "default": "aquamarine_3_v2"
+    },
+    "pixels": [
+      39,
+      60
+    ],
+    "grid": [
+      6.0,
+      3.5,
+      1.5
+    ]
+  },
+  "jin": {
+    "name": "Gold",
+    "source_id": "gemtd_jin",
+    "sheet": 2,
+    "cell": 6,
+    "source_box": [
+      658,
+      413,
+      916,
+      782
+    ],
+    "previous_binding": {
+      "default": "aquamarine_3_v2"
+    },
+    "pixels": [
+      42,
+      57
+    ],
+    "grid": [
+      6.0,
+      1.0,
+      1.0
+    ]
+  },
+  "jingangshikulinan": {
+    "name": "Cullinan Diamond",
+    "source_id": "gemtd_jingangshikulinan",
+    "sheet": 2,
+    "cell": 7,
+    "source_box": [
+      974,
+      413,
+      1215,
+      782
+    ],
+    "previous_binding": {
+      "default": "diamond_3_v2"
+    },
+    "pixels": [
+      40,
+      61
+    ],
+    "grid": [
+      6.0,
+      1.0,
+      3.0
+    ]
+  },
+  "jingxindiaozhuodepalayibabixi": {
+    "name": "Elaborately Carved Tourmaline",
+    "source_id": "gemtd_jingxindiaozhuodepalayibabixi",
+    "sheet": 2,
+    "cell": 8,
+    "source_box": [
+      39,
+      797,
+      291,
+      1187
+    ],
+    "previous_binding": {
+      "default": "amethyst_3_v2"
+    },
+    "pixels": [
+      41,
+      62
+    ],
+    "grid": [
+      6.0,
+      1.0,
+      1.5
+    ]
+  },
+  "jixiangdezhongguoyu": {
+    "name": "Lucky Chinese Jade",
+    "source_id": "gemtd_jixiangdezhongguoyu",
+    "sheet": 2,
+    "cell": 9,
+    "source_box": [
+      348,
+      797,
+      609,
+      1187
+    ],
+    "previous_binding": {
+      "default": "emerald_3_v2"
+    },
+    "pixels": [
+      42,
+      64
+    ],
+    "grid": [
+      6.0,
+      3.5,
+      5.0
+    ]
+  },
+  "jixueshi": {
+    "name": "Bloodstone",
+    "source_id": "gemtd_jixueshi",
+    "sheet": 2,
+    "cell": 10,
+    "source_box": [
+      656,
+      797,
+      918,
+      1187
+    ],
+    "previous_binding": {
+      "default": "aquamarine_3_v2"
+    },
+    "pixels": [
+      43,
+      59
+    ],
+    "grid": [
+      6.0,
+      1.5,
+      5.0
+    ]
+  },
+  "juxingfenhongzuanshi": {
+    "name": "Huge Pink Diamond",
+    "source_id": "gemtd_juxingfenhongzuanshi",
+    "sheet": 2,
+    "cell": 11,
+    "source_box": [
+      969,
+      797,
+      1223,
+      1187
+    ],
+    "previous_binding": {
+      "default": "sapphire_3_v2"
+    },
+    "pixels": [
+      41,
+      62
+    ],
+    "grid": [
+      6.0,
+      3.0,
+      1.5
+    ]
+  },
+  "keyinuoerguangmingzhishan": {
+    "name": "Koh-i-Noor",
+    "source_id": "gemtd_keyinuoerguangmingzhishan",
+    "sheet": 3,
+    "cell": 0,
+    "source_box": [
+      32,
+      34,
+      282,
+      405
+    ],
+    "previous_binding": {
+      "default": "sapphire_3_v2"
+    },
+    "pixels": [
+      41,
+      61
+    ],
+    "grid": [
+      6.0,
+      0.0,
+      3.0
+    ]
+  },
+  "malachite": {
+    "name": "Malachite",
+    "source_id": "gemtd_kongqueshi",
+    "sheet": 3,
+    "cell": 1,
+    "source_box": [
+      328,
+      34,
+      612,
+      405
+    ],
+    "previous_binding": {
+      "default": "malachite"
+    },
+    "pixels": [
+      46,
+      59
+    ],
+    "grid": [
+      6.0,
+      3.0,
+      0.0
+    ]
+  },
+  "manao": {
+    "name": "Agate",
+    "source_id": "gemtd_manao",
+    "sheet": 3,
+    "cell": 2,
+    "source_box": [
+      658,
+      34,
+      909,
+      405
+    ],
+    "previous_binding": {
+      "default": "topaz_3_v2"
+    },
+    "pixels": [
+      41,
+      59
+    ],
+    "grid": [
+      6.0,
+      1.0,
+      0.0
+    ]
+  },
+  "mirendeqingjinshi": {
+    "name": "Charming Lazurite",
+    "source_id": "gemtd_mirendeqingjinshi",
+    "sheet": 3,
+    "cell": 3,
+    "source_box": [
+      971,
+      34,
+      1222,
+      405
+    ],
+    "previous_binding": {
+      "default": "aquamarine_3_v2"
+    },
+    "pixels": [
+      41,
+      61
+    ],
+    "grid": [
+      6.0,
+      0.0,
+      0.0
+    ]
+  },
+  "palayibabixi": {
+    "name": "Paraiba Tourmaline",
+    "source_id": "gemtd_palayibabixi",
+    "sheet": 3,
+    "cell": 4,
+    "source_box": [
+      31,
+      427,
+      284,
+      796
+    ],
+    "previous_binding": {
+      "default": "amethyst_3_v2"
+    },
+    "pixels": [
+      41,
+      60
+    ],
+    "grid": [
+      6.0,
+      5.0,
+      3.0
+    ]
+  },
+  "ranshaozhishi": {
+    "name": "Burning Stone",
+    "source_id": "gemtd_ranshaozhishi",
+    "sheet": 3,
+    "cell": 5,
+    "source_box": [
+      339,
+      427,
+      598,
+      796
+    ],
+    "previous_binding": {
+      "default": "ruby_3_v2"
+    },
+    "pixels": [
+      42,
+      60
+    ],
+    "grid": [
+      6.0,
+      3.0,
+      3.5
+    ]
+  },
+  "shenhaizhenzhu": {
+    "name": "Deep Sea Pearl",
+    "source_id": "gemtd_shenhaizhenzhu",
+    "sheet": 3,
+    "cell": 6,
+    "source_box": [
+      651,
+      427,
+      923,
+      796
+    ],
+    "previous_binding": {
+      "default": "aquamarine_3_v2"
+    },
+    "pixels": [
+      44,
+      61
+    ],
+    "grid": [
+      6.0,
+      5.0,
+      1.0
+    ]
+  },
+  "shuaibiankaipayou": {
+    "name": "Depleted Uranium",
+    "source_id": "gemtd_shuaibiankaipayou",
+    "sheet": 3,
+    "cell": 7,
+    "source_box": [
+      968,
+      427,
+      1222,
+      796
+    ],
+    "previous_binding": {
+      "default": "topaz_3_v2"
+    },
+    "pixels": [
+      42,
+      60
+    ],
+    "grid": [
+      6.0,
+      1.0,
+      3.5
+    ]
+  },
+  "sililankazhixing": {
+    "name": "Star of Sri Lanka",
+    "source_id": "gemtd_sililankazhixing",
+    "sheet": 3,
+    "cell": 8,
+    "source_box": [
+      25,
+      804,
+      288,
+      1197
+    ],
+    "previous_binding": {
+      "default": "emerald_3_v2"
+    },
+    "pixels": [
+      43,
+      64
+    ],
+    "grid": [
+      6.0,
+      1.5,
+      0.0
+    ]
+  },
+  "tianranzumulv": {
+    "name": "Natural Emerald",
+    "source_id": "gemtd_tianranzumulv",
+    "sheet": 3,
+    "cell": 9,
+    "source_box": [
+      340,
+      804,
+      605,
+      1197
+    ],
+    "previous_binding": {
+      "default": "aquamarine_3_v2"
+    },
+    "pixels": [
+      43,
+      65
+    ],
+    "grid": [
+      6.0,
+      1.5,
+      0.0
+    ]
+  },
+  "xiameishi": {
+    "name": "Sunstone",
+    "source_id": "gemtd_xiameishi",
+    "sheet": 3,
+    "cell": 10,
+    "source_box": [
+      646,
+      804,
+      921,
+      1197
+    ],
+    "previous_binding": {
+      "default": "aquamarine_3_v2"
+    },
+    "pixels": [
+      45,
+      64
+    ],
+    "grid": [
+      6.0,
+      1.0,
+      1.5
+    ]
+  },
+  "xianyandekongqueshi": {
+    "name": "Vivid Malachite",
+    "source_id": "gemtd_xianyandekongqueshi",
+    "sheet": 3,
+    "cell": 11,
+    "source_box": [
+      952,
+      804,
+      1236,
+      1197
+    ],
+    "previous_binding": {
+      "default": "topaz_3_v2"
+    },
+    "pixels": [
+      47,
+      65
+    ],
+    "grid": [
+      6.0,
+      1.5,
+      0.0
+    ]
+  },
+  "asteriated_ruby": {
+    "name": "Asteriated Ruby",
+    "source_id": "gemtd_xingcaihongbaoshi",
+    "sheet": 4,
+    "cell": 0,
+    "source_box": [
+      53,
+      34,
+      324,
+      385
+    ],
+    "previous_binding": {
+      "default": "asteriated_ruby"
+    },
+    "pixels": [
+      44,
+      58
+    ],
+    "grid": [
+      6.0,
+      3.5,
+      0.0
+    ]
+  },
+  "xingguanglanbaoshi": {
+    "name": "Star Sapphire",
+    "source_id": "gemtd_xingguanglanbaoshi",
+    "sheet": 4,
+    "cell": 1,
+    "source_box": [
+      407,
+      34,
+      676,
+      385
+    ],
+    "previous_binding": {
+      "default": "sapphire_3_v2"
+    },
+    "pixels": [
+      44,
+      58
+    ],
+    "grid": [
+      6.0,
+      1.5,
+      0.0
+    ]
+  },
+  "xuehonghuoshan": {
+    "name": "Volcano",
+    "source_id": "gemtd_xuehonghuoshan",
+    "sheet": 4,
+    "cell": 2,
+    "source_box": [
+      762,
+      34,
+      1045,
+      385
+    ],
+    "previous_binding": {
+      "default": "ruby_3_v2"
+    },
+    "pixels": [
+      46,
+      57
+    ],
+    "grid": [
+      6.0,
+      5.0,
+      1.0
+    ]
+  },
+  "yijiazhishi": {
+    "name": "Armor Stone",
+    "source_id": "gemtd_yijiazhishi",
+    "sheet": 4,
+    "cell": 3,
+    "source_box": [
+      1128,
+      34,
+      1392,
+      385
+    ],
+    "previous_binding": {
+      "default": "opal_3_v2"
+    },
+    "pixels": [
+      44,
+      58
+    ],
+    "grid": [
+      6.0,
+      0.0,
+      1.5
+    ]
+  },
+  "you235": {
+    "name": "Uranium-235",
+    "source_id": "gemtd_you235",
+    "sheet": 4,
+    "cell": 4,
+    "source_box": [
+      50,
+      399,
+      334,
+      747
+    ],
+    "previous_binding": {
+      "default": "topaz_3_v2"
+    },
+    "pixels": [
+      46,
+      57
+    ],
+    "grid": [
+      6.0,
+      3.5,
+      3.0
+    ]
+  },
+  "you238": {
+    "name": "Uranium-238",
+    "source_id": "gemtd_you238",
+    "sheet": 4,
+    "cell": 5,
+    "source_box": [
+      401,
+      399,
+      687,
+      747
+    ],
+    "previous_binding": {
+      "default": "topaz_3_v2"
+    },
+    "pixels": [
+      47,
+      57
+    ],
+    "grid": [
+      6.0,
+      1.5,
+      0.0
+    ]
+  },
+  "jade": {
+    "name": "Jade",
+    "source_id": "gemtd_yu",
+    "sheet": 4,
+    "cell": 6,
+    "source_box": [
+      765,
+      399,
+      1040,
+      747
+    ],
+    "previous_binding": {
+      "default": "emerald_3_v2"
+    },
+    "pixels": [
+      45,
+      57
+    ],
+    "grid": [
+      6.0,
+      1.0,
+      3.0
+    ]
+  }
+}

@@ -21,7 +21,9 @@ static func tower(canvas: CanvasItem, center: Vector2, pixels: float, gem: Dicti
 	if gem.kind == "stone": return
 	var special = DATA.special_codes.has(gem.kind)
 	if not special or pixels >= float(DATA.special_min_cell_size) or selected:
-		badge(canvas,center+Vector2(0,.42)*pixels,tower_label(gem),Color("edd17d") if special else Color(DATA.quality_colors[clampi(int(gem.tier)-1,0,5)]),pixels)
+		# keep the badge inside the tower's own cell: its bottom edge sits on the cell's bottom edge
+		var badge_height = float(clampi(roundi(pixels*.3),8,13)+3)
+		badge(canvas,center+Vector2(0,pixels*.5-badge_height*.5),tower_label(gem),Color("edd17d") if special else Color(DATA.quality_colors[clampi(int(gem.tier)-1,0,5)]),pixels)
 	elif special:
 		canvas.draw_colored_polygon(PackedVector2Array([center+Vector2(0,.23)*pixels,center+Vector2(.18,.4)*pixels,center+Vector2(0,.57)*pixels,center+Vector2(-.18,.4)*pixels]),Color("e1c787"))
 	if int(gem.get("mvp",0)) > 0:

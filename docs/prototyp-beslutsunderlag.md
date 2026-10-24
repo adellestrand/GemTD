@@ -114,4 +114,10 @@ Se [balansundersökningen](balance-research-campaign.md) för källor, den dokum
 
 ## Fem undersökningar – genomförandemandat 2026-10-24
 
+Senare användarbeställning: **fem tornflyttar per hel spelomgång**, även till stenrutor. I 1.4.1-dev flyttas behållna torn under vanlig byggfas. Tom destination lämnar ursprungsrutan tom; sten byter plats med tornet. Nyplaceringar får inte flyttas, giltig väg krävs, ogiltig/avbruten flytt kostar inget. Kvoten delas mellan torn och återställs inte vid nästa våg. Se [tornflyttar](tower-relocation.md). Trapflytt är fortsatt separat.
+
+Användaren har därefter beställt alla fyra rekommendationerna i mekanikgranskningens svar. I 1.4.0-dev rättas läckserien/Emerald, slumpmässig nedgradering införs, prövningarna får inga nya byggomgångar och äldre tornrecept tillåts under strid. Detta utökar beslut 11/61 för kampanjens äldre tornrecept. Berserk och källbaserade alternativa vågor/bossar införs. Manuella oddsinköp/bossrabatt i grundomgången och omedelbar förlust vid bossläcka behålls. Se [genomförandet](mechanics-update-1.4.md).
+
+Efterföljande användarbeslut: **nyskapade traps ska kunna flyttas samma runda**. Implementerat i 1.3.1-dev med innehållsversion 8: ett recept som förbrukar nya gems låser tornvalet och gör övriga nya gems till sten, men väntar med striden. Flytta trappen eller behåll platsen, välj sedan **Start wave**. Inga fler placeringar, rivningar eller kombinationer tillåts under placeringssteget. Recept med bara äldre material behåller vanligt byggflöde. Automatisk trapuppgradering och separat vågstart omfattas av tester och återspelning.
+
 Användaren beställer samtliga fem rekommenderade steg i ordning: bossdiagnostik, rörelse/räckvidd, förmågesamverkan, sent spel/prestanda och grafikens läsbarhet. Codex får fatta rutin- och balansbeslut för ett roligt, balanserat spel; endast viktiga vägval ska stämmas av. Undersökningens beslut och begränsningar dokumenteras i investigation-five-steps.md. Ingen generell HP-/skadeändring införs utan ett konstaterat problem; konstaterad aura-tickskuld rättas och dess balanspåverkan redovisas.

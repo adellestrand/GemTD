@@ -9,7 +9,7 @@ func run_checks() -> void:
 		check(not combat.run.award_boss_discount() and combat.run.quality_discount == 150 and combat.run.gold == 150,"dead boss and repeated award cannot pay twice: "+str(index))
 	var combat = fixture("diamond",1,60)
 	combat.deal(combat.enemies[0],1e15,"pure")
-	check(combat.run.gold == 150 and combat.run.quality_discount == 0,"trial boss keeps gold but grants no base-boss discount")
+	check(combat.run.gold == 5 and combat.run.quality_discount == 0,"trial boss follows source trial gold and grants no base-boss discount")
 	combat = fixture("diamond",1,10)
 	combat.run.leaked(100,true)
 	check(combat.run.quality_discount == 0 and combat.run.discounted_bosses.is_empty(),"escaped boss grants no discount")

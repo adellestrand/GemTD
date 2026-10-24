@@ -19,7 +19,7 @@ static func replay(report: Dictionary) -> Dictionary:
 		if not entry is Dictionary or not entry.has_all(["action","wave","phase","tick"]):
 			error = "Malformed action."
 			break
-		while state.phase == "combat" and (entry.phase == "build" or roundi(combat.elapsed*30) < int(entry.tick)) and ticks < tick_limit:
+		while state.phase in ["combat","intermission"] and (state.wave < int(entry.wave) or (state.wave == int(entry.wave) and (state.phase != entry.phase or phase_tick(state,combat) < int(entry.tick)))) and ticks < tick_limit:
 			combat.tick(1.0/30.0)
 			ticks += 1
 		if ticks >= tick_limit or state.phase != entry.phase or state.wave != int(entry.wave):
@@ -41,7 +41,14 @@ static func replay(report: Dictionary) -> Dictionary:
 			"move_slab":
 				if entry.get("to") is Array and entry.to.size() == 2:
 					accepted = state.move_slab(p,Vector2i(int(entry.to[0]),int(entry.to[1])))
+			"move_tower":
+				if entry.get("to") is Array and entry.to.size() == 2:
+					accepted = state.move_tower(p,Vector2i(int(entry.to[0]),int(entry.to[1])))
 			"keep": accepted = state.keep(p)
+			"downgrade":
+				accepted = state.downgrade(p)
+				if accepted: accepted = int(state.board.cells[p].tier) == int(entry.get("tier",-1))
+			"start_wave": accepted = state.start_wave()
 			"upgrade": accepted = state.upgrade(p,int(entry.get("count",0)))
 			"recipe": accepted = state.combine(str(entry.get("recipe","")),p,bool(entry.get("old_only",false)))
 			"quality":
@@ -53,10 +60,10 @@ static func replay(report: Dictionary) -> Dictionary:
 			error = "Rejected action or mismatched reveal: "+str(entry.action)
 			break
 	if error.is_empty():
-		var target_tick = -1
-		if report.get("outcome","") == "combat" and report.get("waves",[]) is Array and not report.waves.is_empty():
+		var target_tick = int(report.get("phase_tick",-1))
+		if target_tick < 0 and report.get("outcome","") == "combat" and report.get("waves",[]) is Array and not report.waves.is_empty():
 			target_tick = roundi(float(report.waves.back().seconds)*30)
-		while state.phase == "combat" and (target_tick < 0 or roundi(combat.elapsed*30) < target_tick) and ticks < tick_limit:
+		while state.phase in ["combat","intermission"] and (state.wave < int(report.get("wave",0)) or state.phase != report.get("outcome","") or (target_tick >= 0 and phase_tick(state,combat) < target_tick)) and ticks < tick_limit:
 			combat.tick(1.0/30.0)
 			ticks += 1
 		for key in ["wave","lives","gold","kills","leaks"]:
@@ -64,9 +71,15 @@ static func replay(report: Dictionary) -> Dictionary:
 				error = "Final value mismatch: "+key
 		if state.phase != report.get("outcome","") or not same_board(state.board,report.get("board",[])):
 			error = "Final phase or board does not match."
+		if state.awaiting_trap_placement != bool(report.get("awaiting_trap_placement",false)):
+			error = "Final trap placement state does not match."
 		if GemCatalog.campaign() and not same_slabs(state.board.slabs,report.get("slabs",[])):
 			error = "Final traps do not match."
 		if GemCatalog.campaign() and (int(report.get("enemy_count",0)) != state.enemy_count or not is_equal_approx(float(report.get("streak",999)),state.streak)): error = "Final campaign streak does not match."
+		if GemCatalog.campaign() and report.get("wave_choices",{}) != state.wave_choices: error = "Final wave variants do not match."
+		if GemCatalog.campaign():
+			var moves: Variant = report.get("tower_moves_left",null)
+			if not (moves is int or moves is float) or float(moves) != float(state.tower_moves_left): error = "Final tower moves do not match."
 		if GemCatalog.campaign():
 			var discount = report.get("quality_discount",null)
 			if not (discount is int or discount is float) or float(discount) != float(state.quality_discount) or not same_bosses(state.discounted_bosses,report.get("discounted_bosses",null)): error = "Final boss discount does not match."
@@ -77,6 +90,10 @@ static func replay(report: Dictionary) -> Dictionary:
 				if JSON.parse_string(JSON.stringify(actual)) != row.diagnostics: error = "Combat diagnostics do not match."
 	state.combat_started.disconnect(combat.start)
 	return {"ok":error.is_empty(),"error":error,"ticks":ticks,"outcome":state.phase,"wave":state.wave,"lives":state.lives}
+
+static func phase_tick(state: GemRun, combat: GemCombat) -> int:
+	if state.phase == "intermission": return roundi((float(GemCatalog.DATA.mechanics.trial_intermission_seconds)-state.trial_wait)*30)
+	return roundi(combat.elapsed*30) if state.phase == "combat" else 0
 
 static func same_bosses(actual: Array[int], expected: Variant) -> bool:
 	if not expected is Array or expected.size() != actual.size(): return false

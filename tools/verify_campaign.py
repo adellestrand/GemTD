@@ -20,6 +20,11 @@ def verify():
     equal('recipe alternatives',len(c['recipes']),59)
     equal('special units',len(c['specials']),67)
     equal('original starting lives',c['starting_lives'],100)
+    equal('Natural Emerald source allowlist',c['mechanics']['stealable_abilities'],f['progression']['stealable_abilities'])
+    equal('source downgrade weights',c['mechanics']['downgrade_weights'],{'2':[100],'3':[34,66],'4':[20,30,50],'5':[10,15,25,50],'6':[20,20,20,20,20]})
+    equal('solo source berserk time',c['mechanics']['berserk_seconds'],180)
+    equal('source berserk movement bonus',c['mechanics']['berserk_move_percent'],100)
+    equal('approved relocation budget per run',c['mechanics']['tower_moves_per_run'],5)
     equal('documented standard total attack speed cap',c['combat']['maximum_attack_speed'],700)
     equal('base attack speed',c['combat']['base_attack_speed'],100)
     equal('explicit source PRD events',set(c['random_models']),set(f['random_events']))
@@ -65,6 +70,15 @@ def verify():
         equal(f'wave {i} trial flag',w['trial'],i>50)
         equal(f'wave {i} boss flag',w['boss'],i%10==0)
         equal(f'wave {i} abilities',w['abilities'],list(dict.fromkeys(original['abilities']+original['added_abilities'])))
+        equal(f'wave {i} reward',w['reward'],5 if i>50 else 150 if i%10==0 else 5+5*((i-1)//10))
+    for fact in f['alternate_waves']:
+        index=fact['index']-100
+        alternate=c['wave_alternatives'][str(index)][0]
+        equal(f'alternate {index} id',alternate['source_id'],fact['source_id'])
+        equal(f'alternate {index} HP',alternate['hp'],fact['values']['StatusHealth']*.69)
+        equal(f'alternate {index} movement',alternate['speed'],fact['values']['MovementSpeed']*.69/128)
+        equal(f'alternate {index} armor',alternate['armor'],fact['values']['ArmorPhysical'])
+        equal(f'alternate {index} magic resist',alternate['magic_resist'],fact['values']['MagicalResistance']/100)
     equal('slab upgrade graph',c['slab_upgrades'],{result_units[r['source']]:result_units[r['result']] for r in f['slab_upgrades']})
     equal('trial ability pool',c['trial_pool'],f['progression']['trial_ability_pool'])
     equal('manual odds prices from XP differences',c['quality_costs'],[b-a for a,b in zip(c['economy']['source_xp_thresholds'],c['economy']['source_xp_thresholds'][1:])])

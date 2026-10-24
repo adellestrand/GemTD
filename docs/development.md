@@ -2,6 +2,8 @@
 
 ## Teknisk grund
 
+Trapuppföljning 1.3.1-dev: `python tools/godot.py --headless --path . --script res://tests/check_trap_placement.gd -- --campaign --smoke` provar 21 fall för nya/gamla receptmaterial, förbrukat tornval, ogiltig flytt, automatisk uppgradering vid annan mittruta, frivillig flytt, explicit vågstart, UI och oberoende rapportåterspelning. Ordinarie `python tools/check.py` inkluderar testet. Webb/Windows är återexporterade; Windows grafik/ljud och webbstarter i Chrome kontrollerades. Innehållsversion 8 använder en ny byggsparfil; omladdning återgår som tidigare till byggfasens början, även under trapplacering.
+
 Godot **4.7.2-stable**, GDScript och Compatibility-renderaren. Samma projekt exporteras till Windows x64 och WebGL 2. Webben använder en tråd. C#, native extensions och externa servrar behövs inte för prototypen.
 
 Motor och mallar installeras i `.tools/`. Bootstrap kontrollerar fasta SHA-256-värden från den officiella releasen. `tools/godot.py` ger endast barnprocessen en lokal APPDATA-sökväg; Windows inställningar och föräldraprocessens miljö ändras inte. Direktstartad exe och vanlig Godot-editor använder annars Godots normala användardata.

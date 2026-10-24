@@ -1,5 +1,11 @@
 # Kampanj 1.3.0-dev – lokal granskning
 
+Senaste uppföljning: **1.4.1-dev**, innehållsversion **10**, lägger till [fem tornflyttar per omgång](tower-relocation.md). Alla 1.4-mekaniker nedan behålls.
+
+Aktuell uppföljning: **1.4.0-dev**, innehållsversion **9**. [Mekanikuppdateringen](mechanics-update-1.4.md) ersätter äldre beskrivningar av prövningarnas byggfaser, belöningar och Emeralds urval. Nedgradering, läckserie, kombinationer av äldre torn under strid, berserk och alternativa vågor/bossar ingår. Äldre leveranser bevaras.
+
+Uppföljning **1.3.1-dev**, innehållsversion **8**: nyskapade traps som använder nya gems får flyttas innan striden startas med **Start wave**. Tornvalet är redan förbrukat; övriga nya gems blir sten och fler byggval är låsta. Traps som skapas med bara äldre material kan som tidigare flyttas under den vanliga byggfasen. Sparning använder `run_campaign_v8.json`; tidigare granskningspaket och sparfiler bevaras. Texten nedan beskriver grundutgåvan 1.3.0-dev.
+
 Denna uppföljning till 1.2.2-dev genomför de fem beställda undersökningarna: bossdiagnostik, rörelse/räckvidd, förmågesamverkan, sena vågor/prestanda och grafikens läsbarhet. Fiendeauror har 0,5 s efterverkan och en utgången aura återstartar sin intervallklocka vid återinträde. Stridsrapporter visar effektiv skada, överflödig skada, missar, blockerade skadehändelser, förkastade projektiler och bossens skjutfönster. Kartmärkena ligger i separat grafikdata. Tornskada, fiende-HP, recept, guldbelöningar, bossrabatt och inköpens grundpriser behålls. Äldre granskningspaket bevaras.
 
 ## Omfattning

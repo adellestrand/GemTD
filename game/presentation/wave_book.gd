@@ -127,6 +127,12 @@ func select_wave(index: int) -> void:
 	text_label(details,"%d × %s · %.2f HP each\nSpeed %.2f cells/s · Spawn every %.2fs" % [int(wave.count),"Air" if wave.air else "Ground",float(wave.hp),float(wave.speed),float(wave.spawn_interval)],14)
 	text_label(details,str(info.route),14)
 	if GemCatalog.campaign():
+		var base = (index-1)%50+1
+		var alternatives: Array = GemCatalog.DATA.wave_alternatives.get(str(base),[])
+		if not alternatives.is_empty():
+			var labels: Array[String] = []
+			for option in alternatives: labels.append(str(option.name))
+			text_label(details,"Possible wave alternatives: "+", ".join(labels)+". Chosen variants persist into trials; calendar uses the run's saved start date.",12)
 		if GemCatalog.boss_discount_for_wave(index) > 0: text_label(details,"Boss defeat: +150 saved discount for manual gem odds purchases.",13)
 		text_label(details,GemWaveGuide.campaign_traits(wave),13)
 		text_label(details,"Enemy count adapts to the run's streak. Trial HP shown above is the base before trial scaling and random abilities." if wave.trial else "Enemy count adapts to the run's streak.",12)

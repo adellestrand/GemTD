@@ -12,6 +12,8 @@ func _ready() -> void:
 	build()
 	if "--motion" in OS.get_cmdline_user_args():
 		tabs.current_tab = 3
+	if "--abilities" in OS.get_cmdline_user_args() or (OS.has_feature("web") and bool(JavaScriptBridge.eval("new URLSearchParams(window.location.search).get('abilities') === '1'"))):
+		tabs.current_tab = tabs.get_tab_count()-1
 
 func _unhandled_key_input(event: InputEvent) -> void:
 	if event is InputEventKey and event.pressed and not event.echo and event.keycode == KEY_SPACE:
@@ -106,6 +108,17 @@ func build() -> void:
 		sample.pixels = scale_value
 		sample.custom_minimum_size = Vector2(480,440)
 		frame.add_child(sample)
+	if GemCatalog.campaign():
+		var abilities = tab_grid("Abilities",4)
+		for kind in GemCatalog.DATA.specials:
+			if GemCatalog.DATA.specials[kind].get("slab",false): continue
+			var frame = card(abilities,GemCatalog.DATA.specials[kind].name)
+			var live = GemAbilityPreview.new()
+			live.kind = kind
+			live.custom_minimum_size = Vector2(260,180)
+			live.playing = not preview_paused
+			frame.add_child(live)
+			live_previews.append(live)
 	var errors = GemArt.validation_errors()
 	if errors.is_empty():
 		message.text += "  ·  All bindings valid"
@@ -215,7 +228,8 @@ class LivePreview extends Control:
 			GemArt.draw(self,GemArt.sprite_id("gems",gem_kind,3),Vector2(1.2,3.1)*UNIT,UNIT)
 		var motion = GemArt.enemy_motion(enemy_id,elapsed*1.6,elapsed,0,air)
 		var tint = Color(1.45,1.35,1.15) if effects.flashes.has(0) else Color.WHITE
-		GemArt.draw(self,enemy_id,feet+motion.offset*UNIT,UNIT,false,tint,motion.scale,float(motion.rotation))
+		var frame = GemArt.enemy_frame(enemy_id,elapsed*1.6,elapsed,0,air)
+		GemArt.draw(self,enemy_id,feet+motion.offset*UNIT,UNIT,false,tint,motion.scale,float(motion.rotation),frame)
 		effects.draw(self,Vector2.ZERO,UNIT,ThemeDB.fallback_font)
 
 class ClarityPreview extends Control:

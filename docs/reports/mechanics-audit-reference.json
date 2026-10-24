@@ -1,0 +1,35 @@
+{
+  "installed_source_sha256": {
+    "mode.lua": "8b478303a9704e4806f0576722ebca67c79ee19bbcc4c0b0b88cbdaf7c5ce644",
+    "units.txt": "19af24c6a0a1151965d9ab8d1962344893ef924954eca179156da91efa7a060e",
+    "abilities.txt": "1c46eaa37834bb53be854ffa35c720bd8b53bc614385fcd0488c4e49add250f4"
+  },
+  "baseline_reference_date": "2026-08-01",
+  "tables_unchanged": {
+    "guai": true,
+    "guai_ability": true,
+    "guai_50_ability": true,
+    "gemtd_merge": true,
+    "gemtd_merge_secret": true,
+    "gemtd_merge_shiban": true,
+    "gemtd_merge_shiban_update": true,
+    "gem_gailv": true,
+    "stealable_ability_pool": true
+  },
+  "unit_definitions_checked": 185,
+  "changed_units": [],
+  "ability_definitions_checked": 109,
+  "changed_abilities": [],
+  "natural_emerald_pool": {
+    "source_count": 72,
+    "source_not_in_current_donors": [
+      "tower_5shihua",
+      "tower_attack7",
+      "tower_fenzheng"
+    ],
+    "current_donor_ids_outside_source_allowlist": [
+      "tower_true_sight"
+    ]
+  },
+  "limits": "Static source comparison. Does not verify live Dota engine order, external native modifiers, runtime server data or human balance."
+}

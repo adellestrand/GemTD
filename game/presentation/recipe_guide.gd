@@ -7,7 +7,11 @@ static func progress(state: GemRun, recipe: String) -> Dictionary:
 		return {}
 	var data = requirements_progress(state,GemCatalog.recipe(recipe).ingredients)
 	data.recipe = recipe
-	if state.phase != "build":
+	if state.awaiting_trap_placement:
+		data.message = "Your tower choice is final. Position your trap, then click Start wave."
+	elif state.phase == "combat" and GemCatalog.campaign():
+		data.message = "Older tower recipes can be combined during combat. Path traps must be created before combat."
+	elif state.phase != "build":
 		data.message = "Combine during the build phase. You can still locate ingredients."
 	elif not data.complete:
 		data.message = "%d of %d ingredients found. Missing gems must match the exact quality." % [data.collected,data.total]
@@ -16,7 +20,8 @@ static func progress(state: GemRun, recipe: String) -> Dictionary:
 	elif state.placed < 5:
 		data.message = "All ingredients found. Place all five gems before using new materials."
 	else:
-		data.message = "Ready with new materials. Combining is your final choice and starts the wave."
+		var trap = GemCatalog.stats({"kind":GemCatalog.recipe_result(recipe),"tier":1}).get("slab",false)
+		data.message = "Ready with new materials. Create the trap, position it, then click Start wave." if trap else "Ready with new materials. Combining is your final choice and starts the wave."
 	return data
 
 static func requirements_progress(state: GemRun, requirements: Array) -> Dictionary:

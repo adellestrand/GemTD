@@ -120,6 +120,7 @@ def build():
                                    trials_random_abilities=2, solo_hp_multiplier=.69,
                                    solo_speed_multiplier=.69, source_starting_lives=100,
                                    source_default_wave_count=10,
+                                   stealable_abilities=re.findall(r'"([^"]+)"', table(text,'stealable_ability_pool')),
                                    trial_ability_pool=re.findall(r'"([^"]+)"', table(text, 'guai_50_ability'))),
                   base_towers=towers, special_towers=specials, recipes=recipes, random_events=random_events,
                   slab_upgrades=upgrades, quality_odds=quality_odds, waves=waves,

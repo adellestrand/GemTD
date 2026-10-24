@@ -22,7 +22,7 @@ func record(entry: Dictionary, combat: GemCombat) -> void:
 		truncated = true
 		return
 	var item = entry.duplicate(true)
-	item.tick = roundi(combat.elapsed*30) if entry.phase == "combat" else 0
+	item.tick = GemReviewReplay.phase_tick(combat.run,combat)
 	item.order = actions.size()+1
 	actions.append(item)
 
@@ -57,4 +57,8 @@ func export_report(state: GemRun, combat: GemCombat) -> Dictionary:
 		"outcome":state.phase,"wave":state.wave,"wave_count":GemCatalog.wave_count(),"lives":state.lives,"gold":state.gold,"kills":state.kills,"leaks":state.leaks,
 		"actions_truncated":truncated,"actions":actions.duplicate(true),"waves":history,"board":state.board.serialize(),"slabs":state.serialize_slabs(),"streak":state.streak,"enemy_count":state.enemy_count}
 	if GemCatalog.campaign(): result.merge({"quality_discount":state.quality_discount,"discounted_bosses":state.discounted_bosses.duplicate()})
+	result.awaiting_trap_placement = state.awaiting_trap_placement
+	result.phase_tick = GemReviewReplay.phase_tick(state,combat)
+	if GemCatalog.campaign(): result.wave_choices = state.wave_choices.duplicate()
+	if GemCatalog.campaign(): result.tower_moves_left = state.tower_moves_left
 	return result

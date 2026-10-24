@@ -2,6 +2,8 @@ class_name GemCampaignCombat
 extends GemCombat
 
 signal projectile_launched(from: Vector2, to: Vector2, color: Color)
+# Resolved presentation notifications; listeners never determine combat outcomes.
+signal ability_visual(event: Dictionary)
 var projectiles: Array[Dictionary] = []
 var towers: Dictionary = {}
 var statuses: Dictionary = {}
@@ -21,6 +23,8 @@ var detection_sources: Array[Dictionary] = []
 var stepping = false
 var cache_aura_queries = true
 var aura_revision = 0
+var known_tower_revision = -1
+var berserk = false
 
 func start() -> void:
 	super.start()
@@ -34,19 +38,69 @@ func start() -> void:
 	fields.clear()
 	wave_damage.clear()
 	last_mvp = ""
-	audit.reset(run,air if wave_data.air else ground)
+	berserk = false
 	wave_data = wave_data.duplicate(true)
+	select_wave_variant()
+	audit.reset(run,air if wave_data.air else ground)
 	if not wave_data.boss: wave_data.count = run.enemy_count
+	sync_towers()
+
+func select_wave_variant() -> void:
+	var base = (run.wave-1)%50+1
+	var options: Array = GemCatalog.DATA.wave_alternatives.get(str(base),[])
+	if not run.wave_choices.has(str(base)):
+		var chosen: String = wave_data.source_id
+		if not options.is_empty() and run.wave <= 50:
+			if base % 10 != 0:
+				if run.combat_rng.randi_range(1,2) == 1: chosen = options[0].source_id
+			elif base == 20:
+				var day = int(run.reference_calendar.day)
+				var days = [31,28,31,30,31,30,31,31,30,31,30,31][int(run.reference_calendar.month)-1]
+				if day < days and (run.combat_rng.randi_range(1,100) > 90 or day > 20): chosen = options[0].source_id
+			elif base in [30,40]:
+				if run.combat_rng.randi_range(1,100) > 90: chosen = options[0].source_id
+			elif base == 50:
+				if run.combat_rng.randi_range(1,100) > 80: chosen = options[0].source_id
+				if run.combat_rng.randi_range(1,100) > 90: chosen = options[1].source_id
+		run.wave_choices[str(base)] = chosen
+	for option in options:
+		if option.source_id == run.wave_choices[str(base)]:
+			for key in ["name","source_id","hp","speed","armor","magic_resist","air","ancient","abilities","variants"]: wave_data[key] = option[key].duplicate(true) if option[key] is Array else option[key]
+
+func sync_towers() -> void:
+	var previous = towers
+	towers = {}
+	enemy_aura_sources.clear()
+	detection_sources.clear()
+	var replaced: Array = []
+	for p in previous:
+		if not run.board.cells.has(p) or not is_same(previous[p].get("gem_ref",{}),run.board.cells[p]):
+			replaced.append(p)
+			cooldowns.erase(p)
+			wave_damage.erase(p)
+	for projectile in projectiles.duplicate():
+		if projectile.source in replaced:
+			audit.impact(projectile.source,"discarded")
+			projectiles.erase(projectile)
 	for p in run.board.cells:
 		var gem: Dictionary = run.board.cells[p]
 		if gem.kind != "stone":
 			var support = GemCampaignRules.support(p,run.board.cells)
 			var innate = float(GemCampaignRules.passive(gem).get("attack_speed",0))
 			towers[p] = {"actions":GemCampaignRules.actions(gem),"stats":GemCatalog.stats(gem),"support":support,"disabled":0.0,"buffs":{},"range":float(GemCatalog.stats(gem).range)+float(support.get("range_bonus",0))/128.0,"interval":float(GemCampaignRules.timing_from_bonus(float(GemCatalog.stats(gem).interval),innate+float(support.get("attack_speed",0))).interval)}
+			towers[p].gem_ref = gem
+			if previous.has(p) and p not in replaced:
+				for key in ["disabled","buffs","hostile_disarm_until"]:
+					if previous[p].has(key): towers[p][key] = previous[p][key]
+			if not audit.rows.has(p): audit.add_source(p,GemCatalog.title(gem))
+			elif p in replaced: audit.rows[p].name += " → "+GemCatalog.title(gem)
 			for action in towers[p].actions:
 				if action.type == "enemy_aura": enemy_aura_sources.append({"source":p,"effect":action})
 				if action.type == "support" and action.properties.get("true_sight",false): detection_sources.append({"pos":Vector2(p)+Vector2(.5,.5),"radius":action.radius})
 			towers[p].mvp_bonus = GemCampaignRules.mvp_bonus(gem,p,run.board.cells)
+	known_tower_revision = run.tower_revision
+	aura_revision += 1
+	for e in enemies: e.defense_dirty = true
 
 func spawn_enemy() -> void:
 	super.spawn_enemy()
@@ -71,15 +125,29 @@ func spawn_enemy() -> void:
 	e.leak = run.combat_rng.randi_range(int(e.leak),int(e.leak_max))
 	e.merge({"base_armor":e.armor,"base_magic":e.magic_resist,"mods":{},"ability_clock":0.0,"refraction":0,"refraction_until":0.0,"refraction_ready":0.0,"blink_ready":0.0,"wind_until":0.0,"checkpoint":1,"cleanse_damage":0.0,"last_damage":0.0,"defense_dirty":true})
 	e.evasion = .5 if "guai_shanbi" in e.abilities else 0.0
-	e.magic_immune = "enemy_momian" in e.abilities
+	e.magic_immune = berserk or "enemy_momian" in e.abilities
 	e.physical_multiplier = .25 if "enemy_wumian" in e.abilities else 1.0
 	e.invisible = "riki_permanent_invisibility" in e.abilities
 
 func tick(dt: float) -> void:
+	if run.phase == "intermission":
+		run.trial_wait = maxf(0,run.trial_wait-dt)
+		if run.trial_wait <= .000001:
+			run.trial_wait = 0.0
+			run.begin_combat()
+		return
 	if run.phase != "combat": return
+	if run.tower_revision != known_tower_revision: sync_towers()
 	stepping = true
 	aura_revision += 1
 	elapsed += dt
+	if not berserk and elapsed > float(GemCatalog.DATA.mechanics.berserk_seconds)+.000001:
+		berserk = true
+		for e in enemies:
+			e.magic_immune = true
+			e.defense_dirty = true
+		run.message = "BERSERK: enemies gain +100% movement speed and magic immunity."
+		run.changed.emit()
 	spawn_clock -= dt
 	if spawned < int(wave_data.count) and spawn_clock <= 0:
 		spawn_enemy()
@@ -181,6 +249,7 @@ func refresh_aura_memory(e: Dictionary) -> void:
 func enemy_properties(e: Dictionary) -> Dictionary:
 	refresh_aura_memory(e)
 	var result: Dictionary = e.aura_properties.duplicate()
+	if berserk: result.move_percent = float(result.get("move_percent",0))+float(GemCatalog.DATA.mechanics.berserk_move_percent)
 	for key in e.mods.keys():
 		var mod: Dictionary = e.mods[key]
 		if float(mod.until) <= elapsed:
@@ -202,7 +271,7 @@ func update_enemy(e: Dictionary, dt: float) -> void:
 		if mod.has("damage"):
 			while e.mods.has(key) and float(mod.next) <= minf(elapsed,float(mod.until))+.000001:
 				attacker = mod.source
-				deal(e,float(mod.damage),mod.damage_type)
+				deal_visual(e,float(mod.damage),mod.damage_type,"dot",mod)
 				mod.next += float(mod.interval)
 	refresh_defenses(e)
 	for key in e.aura_memory.keys():
@@ -211,7 +280,7 @@ func update_enemy(e: Dictionary, dt: float) -> void:
 		if effect.has("damage"):
 			while alive(e) and float(aura.next) <= minf(elapsed,float(aura.until))+.000001:
 				attacker = aura.source
-				deal(e,float(effect.damage),effect.damage_type)
+				deal_visual(e,float(effect.damage),effect.damage_type,"aura",effect)
 				aura.next += float(effect.interval)
 		if float(aura.until) <= elapsed: e.aura_memory.erase(key)
 	var properties: Dictionary = e.current_properties
@@ -355,12 +424,12 @@ func impact_projectile(projectile: Dictionary) -> void:
 	attacker = projectile.source
 	if not projectile.primary:
 		audit.impact(attacker,"landed")
-		deal(enemy,float(projectile.damage),"physical")
+		deal_visual(enemy,float(projectile.damage),"physical","impact",{})
 		return
 	var hit = projectile.cannot_miss or run.combat_rng.randf() >= float(enemy.evasion)
 	if hit:
 		audit.impact(attacker,"landed")
-		deal(enemy,float(projectile.damage),"physical")
+		deal_visual(enemy,float(projectile.damage),"physical","critical" if float(projectile.damage) > float(projectile.raw) else "impact",{})
 		# Landing effects may still splash nearby enemies after a lethal hit.
 		for effect in towers[attacker].actions: on_hit(attacker,effect,enemy,float(projectile.raw))
 	else:
@@ -380,18 +449,18 @@ func on_hit(p: Vector2i, effect: Dictionary, enemy: Dictionary, raw: float) -> v
 			if not enemy.magic_immune: add_modifier(enemy,{"id":effect.id,"duration":effect.duration,"properties":{"stunned":true}},p)
 		"splash","burst":
 			for other in area(enemy.pos,float(effect.radius)):
-				deal(other,raw*float(effect.get("fraction",effect.get("multiplier",1))),effect.get("damage_type","pure"))
+				deal_visual(other,raw*float(effect.get("fraction",effect.get("multiplier",1))),effect.get("damage_type","pure"),"splash",effect)
 			area_attack.emit(enemy.pos,float(effect.radius))
 		"chain":
 			delayed.append({"at":elapsed,"type":"chain","source":p,"target":enemy,"effect":effect,"left":int(effect.count),"visited":[]})
 		"shock":
-			deal(enemy,float(effect.damage),"magical")
+			deal_visual(enemy,float(effect.damage),"magical","shock",effect)
 			var targets = area(enemy.pos,float(effect.radius))
 			targets = targets.filter(func(e): return e.id != enemy.id and not e.magic_immune and (not e.invisible or detected(e)))
 			targets.sort_custom(func(a,b): return a.pos.distance_squared_to(enemy.pos) > b.pos.distance_squared_to(enemy.pos))
 			for other in targets.slice(0,int(effect.count)-1):
 				shot.emit(Vector2(p)+Vector2(.5,.5),other.pos,GemCatalog.color_of(run.board.cells[p]))
-				deal(other,float(effect.damage),"magical")
+				deal_visual(other,float(effect.damage),"magical","shock",effect)
 		"petrify":
 			var key = str(p)+"/gaze"
 			if elapsed >= float(aura_clocks.get(key,0)):
@@ -417,6 +486,7 @@ func add_modifier(e: Dictionary, effect: Dictionary, p: Vector2i) -> void:
 	if effect.has("damage"): value.merge({"damage":effect.damage,"damage_type":effect.damage_type,"interval":effect.interval,"next":elapsed+float(effect.interval)})
 	e.mods[key] = value
 	e.defense_dirty = true
+	ability_visual.emit({"type":"modifier","source":p,"pos":e.pos,"target":int(e.id),"effect":effect.duplicate(true)})
 
 func execute_delayed(event: Dictionary) -> void:
 	attacker = event.source
@@ -430,7 +500,7 @@ func execute_delayed(event: Dictionary) -> void:
 	var target: Dictionary = event.target
 	var effect: Dictionary = event.effect
 	if alive(target):
-		deal(target,float(effect.get("damage",0)),"magical")
+		deal_visual(target,float(effect.get("damage",0)),"magical","chain",effect,event.get("visual_from",Vector2(event.source)+Vector2(.5,.5)))
 		if effect.get("mode","") == "cask": add_modifier(target,{"id":effect.id,"duration":effect.duration,"properties":{"stunned":true}},event.source)
 		if effect.type == "slab_echo":
 			add_modifier(target,{"id":effect.id,"duration":effect.duration,"properties":effect.properties},event.source)
@@ -444,6 +514,7 @@ func execute_delayed(event: Dictionary) -> void:
 	if candidates.is_empty(): return
 	candidates.sort_custom(func(a,b): return a.pos.distance_squared_to(target.pos) < b.pos.distance_squared_to(target.pos))
 	event.target = candidates[0]
+	event.visual_from = target.pos
 	event.at = elapsed+float(effect.get("interval",.2))
 	delayed.append(event)
 
@@ -479,6 +550,13 @@ func process_slab(p: Vector2i, kind: String) -> void:
 			if echo.type == "slab_echo" and Vector2(q).distance_to(center-Vector2(.5,.5)) <= float(echo.radius) and run.combat_rng.randf() < [.15,.30,.60][int(effect.stage)-1]:
 				delayed.append({"at":elapsed,"type":"chain","source":q,"target":trigger[0],"effect":echo,"left":int(echo.bounces),"visited":[]})
 				return
+
+func deal_visual(enemy: Dictionary, raw: float, damage_type: String, kind: String, effect: Dictionary, from: Vector2 = Vector2.INF) -> void:
+	var before = float(enemy.hp)
+	deal(enemy,raw,damage_type)
+	var amount = before-float(enemy.hp)
+	if amount > 0:
+		ability_visual.emit({"type":kind,"source":attacker,"pos":enemy.pos,"target":int(enemy.id),"amount":amount,"effect":effect.duplicate(true),"from":Vector2(attacker)+Vector2(.5,.5) if from == Vector2.INF else from})
 
 func deal(enemy: Dictionary, raw: float, damage_type: String) -> void:
 	if not alive(enemy): return

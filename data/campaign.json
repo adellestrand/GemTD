@@ -1,5 +1,5 @@
 {
-  "version": 7,
+  "version": 10,
   "profile": "full-solo-dev",
   "gems": {
     "sapphire": {
@@ -16,6 +16,7 @@
           "abilities": [
             "tower_slow1"
           ],
+          "ranged": true,
           "projectile_speed": 23.4375
         },
         {
@@ -27,6 +28,7 @@
           "abilities": [
             "tower_slow2"
           ],
+          "ranged": true,
           "projectile_speed": 23.4375
         },
         {
@@ -38,6 +40,7 @@
           "abilities": [
             "tower_slow3"
           ],
+          "ranged": true,
           "projectile_speed": 23.4375
         },
         {
@@ -49,6 +52,7 @@
           "abilities": [
             "tower_slow4"
           ],
+          "ranged": true,
           "projectile_speed": 23.4375
         },
         {
@@ -60,6 +64,7 @@
           "abilities": [
             "tower_slow5"
           ],
+          "ranged": true,
           "projectile_speed": 23.4375
         },
         {
@@ -71,6 +76,7 @@
           "abilities": [
             "tower_slow6"
           ],
+          "ranged": true,
           "projectile_speed": 23.4375
         }
       ],
@@ -88,6 +94,7 @@
           "range": 3.90625,
           "source_ability": "",
           "abilities": [],
+          "ranged": true,
           "projectile_speed": 23.4375
         },
         {
@@ -97,6 +104,7 @@
           "range": 3.90625,
           "source_ability": "",
           "abilities": [],
+          "ranged": true,
           "projectile_speed": 23.4375
         },
         {
@@ -106,6 +114,7 @@
           "range": 3.90625,
           "source_ability": "",
           "abilities": [],
+          "ranged": true,
           "projectile_speed": 23.4375
         },
         {
@@ -117,6 +126,7 @@
           "abilities": [
             "tower_attack1"
           ],
+          "ranged": true,
           "projectile_speed": 23.4375
         },
         {
@@ -128,6 +138,7 @@
           "abilities": [
             "tower_attack2"
           ],
+          "ranged": true,
           "projectile_speed": 23.4375
         },
         {
@@ -139,6 +150,7 @@
           "abilities": [
             "tower_attack5"
           ],
+          "ranged": true,
           "projectile_speed": 23.4375
         }
       ],
@@ -158,6 +170,7 @@
           "abilities": [
             "tower_speed1"
           ],
+          "ranged": true,
           "projectile_speed": 23.4375
         },
         {
@@ -169,6 +182,7 @@
           "abilities": [
             "tower_speed1"
           ],
+          "ranged": true,
           "projectile_speed": 23.4375
         },
         {
@@ -180,6 +194,7 @@
           "abilities": [
             "tower_speed1"
           ],
+          "ranged": true,
           "projectile_speed": 23.4375
         },
         {
@@ -191,6 +206,7 @@
           "abilities": [
             "tower_speed1"
           ],
+          "ranged": true,
           "projectile_speed": 23.4375
         },
         {
@@ -202,6 +218,7 @@
           "abilities": [
             "tower_speed1"
           ],
+          "ranged": true,
           "projectile_speed": 23.4375
         },
         {
@@ -213,6 +230,7 @@
           "abilities": [
             "tower_speed2"
           ],
+          "ranged": true,
           "projectile_speed": 23.4375
         }
       ],
@@ -233,6 +251,7 @@
             "tower_true_sight",
             "tower_speed_aura1"
           ],
+          "ranged": true,
           "projectile_speed": 23.4375
         },
         {
@@ -245,6 +264,7 @@
             "tower_true_sight",
             "tower_speed_aura2"
           ],
+          "ranged": true,
           "projectile_speed": 23.4375
         },
         {
@@ -257,6 +277,7 @@
             "tower_true_sight",
             "tower_speed_aura3"
           ],
+          "ranged": true,
           "projectile_speed": 23.4375
         },
         {
@@ -269,6 +290,7 @@
             "tower_true_sight",
             "tower_speed_aura4"
           ],
+          "ranged": true,
           "projectile_speed": 23.4375
         },
         {
@@ -281,6 +303,7 @@
             "tower_true_sight",
             "tower_speed_aura5"
           ],
+          "ranged": true,
           "projectile_speed": 23.4375
         },
         {
@@ -293,6 +316,7 @@
             "tower_true_sight",
             "tower_speed_aura6"
           ],
+          "ranged": true,
           "projectile_speed": 23.4375
         }
       ],
@@ -312,6 +336,7 @@
           "abilities": [
             "tower_du1"
           ],
+          "ranged": true,
           "projectile_speed": 23.4375
         },
         {
@@ -323,6 +348,7 @@
           "abilities": [
             "tower_du2"
           ],
+          "ranged": true,
           "projectile_speed": 23.4375
         },
         {
@@ -334,6 +360,7 @@
           "abilities": [
             "tower_du3"
           ],
+          "ranged": true,
           "projectile_speed": 23.4375
         },
         {
@@ -345,6 +372,7 @@
           "abilities": [
             "tower_du4"
           ],
+          "ranged": true,
           "projectile_speed": 23.4375
         },
         {
@@ -356,6 +384,7 @@
           "abilities": [
             "tower_du5"
           ],
+          "ranged": true,
           "projectile_speed": 23.4375
         },
         {
@@ -367,6 +396,7 @@
           "abilities": [
             "tower_du6"
           ],
+          "ranged": true,
           "projectile_speed": 23.4375
         }
       ],
@@ -386,6 +416,7 @@
           "abilities": [
             "tower_fenliejian"
           ],
+          "ranged": true,
           "projectile_speed": 23.4375
         },
         {
@@ -397,6 +428,7 @@
           "abilities": [
             "tower_fenliejian"
           ],
+          "ranged": true,
           "projectile_speed": 23.4375
         },
         {
@@ -408,6 +440,7 @@
           "abilities": [
             "tower_fenliejian"
           ],
+          "ranged": true,
           "projectile_speed": 23.4375
         },
         {
@@ -419,6 +452,7 @@
           "abilities": [
             "tower_fenliejian"
           ],
+          "ranged": true,
           "projectile_speed": 23.4375
         },
         {
@@ -430,6 +464,7 @@
           "abilities": [
             "tower_fenliejian"
           ],
+          "ranged": true,
           "projectile_speed": 23.4375
         },
         {
@@ -441,6 +476,7 @@
           "abilities": [
             "tower_fenliejian"
           ],
+          "ranged": true,
           "projectile_speed": 23.4375
         }
       ],
@@ -460,6 +496,7 @@
           "abilities": [
             "tower_jianshe1"
           ],
+          "ranged": true,
           "projectile_speed": 23.4375
         },
         {
@@ -471,6 +508,7 @@
           "abilities": [
             "tower_jianshe2"
           ],
+          "ranged": true,
           "projectile_speed": 23.4375
         },
         {
@@ -482,6 +520,7 @@
           "abilities": [
             "tower_jianshe3"
           ],
+          "ranged": true,
           "projectile_speed": 23.4375
         },
         {
@@ -493,6 +532,7 @@
           "abilities": [
             "tower_jianshe4"
           ],
+          "ranged": true,
           "projectile_speed": 23.4375
         },
         {
@@ -504,6 +544,7 @@
           "abilities": [
             "tower_jianshe5"
           ],
+          "ranged": true,
           "projectile_speed": 23.4375
         },
         {
@@ -515,6 +556,7 @@
           "abilities": [
             "tower_jianshe6"
           ],
+          "ranged": true,
           "projectile_speed": 23.4375
         }
       ],
@@ -534,6 +576,7 @@
           "abilities": [
             "tower_jianjia1"
           ],
+          "ranged": true,
           "projectile_speed": 23.4375
         },
         {
@@ -545,6 +588,7 @@
           "abilities": [
             "tower_jianjia2"
           ],
+          "ranged": true,
           "projectile_speed": 23.4375
         },
         {
@@ -556,6 +600,7 @@
           "abilities": [
             "tower_jianjia3"
           ],
+          "ranged": true,
           "projectile_speed": 23.4375
         },
         {
@@ -567,6 +612,7 @@
           "abilities": [
             "tower_jianjia4"
           ],
+          "ranged": true,
           "projectile_speed": 23.4375
         },
         {
@@ -578,6 +624,7 @@
           "abilities": [
             "tower_jianjia5"
           ],
+          "ranged": true,
           "projectile_speed": 23.4375
         },
         {
@@ -589,6 +636,7 @@
           "abilities": [
             "tower_jianjia6"
           ],
+          "ranged": true,
           "projectile_speed": 23.4375
         }
       ],
@@ -605,6 +653,7 @@
       "range": 5.46875,
       "targets": "both",
       "projectile_speed": 15.625,
+      "ranged": true,
       "abilities": [
         "tower_jin2",
         "tower_tanlan",
@@ -622,6 +671,7 @@
       "range": 4.6875,
       "targets": "both",
       "projectile_speed": 23.4375,
+      "ranged": true,
       "abilities": [
         "tower_slow2"
       ],
@@ -637,6 +687,7 @@
       "range": 6.25,
       "targets": "both",
       "projectile_speed": 23.4375,
+      "ranged": true,
       "abilities": [
         "tower_jianshe3",
         "tower_slow3"
@@ -653,6 +704,7 @@
       "range": 5.46875,
       "targets": "both",
       "projectile_speed": 23.4375,
+      "ranged": true,
       "abilities": [
         "tower_10jiyun",
         "tower_jin",
@@ -671,6 +723,7 @@
       "range": 6.25,
       "targets": "both",
       "projectile_speed": 23.4375,
+      "ranged": true,
       "abilities": [
         "tower_baoji1",
         "tower_attack3"
@@ -687,6 +740,7 @@
       "range": 3.90625,
       "targets": "both",
       "projectile_speed": 23.4375,
+      "ranged": true,
       "abilities": [
         "tower_zheyi"
       ],
@@ -702,6 +756,7 @@
       "range": 6.25,
       "targets": "both",
       "projectile_speed": 23.4375,
+      "ranged": true,
       "abilities": [
         "tower_bixi2",
         "tower_jianjia6",
@@ -720,6 +775,7 @@
       "range": 6.25,
       "targets": "both",
       "projectile_speed": 23.4375,
+      "ranged": true,
       "abilities": [
         "tower_chazhuangshandian",
         "tower_huiyao2"
@@ -736,6 +792,7 @@
       "range": 3.90625,
       "targets": "both",
       "projectile_speed": 23.4375,
+      "ranged": true,
       "abilities": [
         "tower_lanbaoshi",
         "tower_chain_frost"
@@ -752,6 +809,7 @@
       "range": 6.25,
       "targets": "both",
       "projectile_speed": 23.4375,
+      "ranged": true,
       "abilities": [
         "tower_shechengguanghuan",
         "tower_du5"
@@ -768,6 +826,7 @@
       "range": 0.0,
       "targets": "both",
       "projectile_speed": 23.4375,
+      "ranged": false,
       "abilities": [
         "new_haojiao"
       ],
@@ -783,6 +842,7 @@
       "range": 0.0,
       "targets": "both",
       "projectile_speed": 23.4375,
+      "ranged": false,
       "abilities": [
         "new_haojiao3"
       ],
@@ -798,6 +858,7 @@
       "range": 0.0,
       "targets": "both",
       "projectile_speed": 23.4375,
+      "ranged": false,
       "abilities": [
         "new_haojiao2"
       ],
@@ -813,6 +874,7 @@
       "range": 5.46875,
       "targets": "both",
       "projectile_speed": 23.4375,
+      "ranged": true,
       "abilities": [
         "tower_10jiyun"
       ],
@@ -828,6 +890,7 @@
       "range": 3.90625,
       "targets": "both",
       "projectile_speed": 23.4375,
+      "ranged": true,
       "abilities": [
         "tower_speed_aura5",
         "tower_true_sight",
@@ -845,6 +908,7 @@
       "range": 6.25,
       "targets": "both",
       "projectile_speed": 23.4375,
+      "ranged": true,
       "abilities": [
         "e10002",
         "tower_chazhuangshandian",
@@ -863,6 +927,7 @@
       "range": 12.5,
       "targets": "both",
       "projectile_speed": 23.4375,
+      "ranged": true,
       "abilities": [
         "tower_attack6",
         "tower_jianshe5",
@@ -881,6 +946,7 @@
       "range": 0.0,
       "targets": "both",
       "projectile_speed": 23.4375,
+      "ranged": false,
       "abilities": [
         "new_torrent"
       ],
@@ -896,6 +962,7 @@
       "range": 0.0,
       "targets": "both",
       "projectile_speed": 23.4375,
+      "ranged": false,
       "abilities": [
         "new_torrent3"
       ],
@@ -911,6 +978,7 @@
       "range": 0.0,
       "targets": "both",
       "projectile_speed": 23.4375,
+      "ranged": false,
       "abilities": [
         "new_torrent2"
       ],
@@ -926,6 +994,7 @@
       "range": 3.90625,
       "targets": "both",
       "projectile_speed": 23.4375,
+      "ranged": true,
       "abilities": [
         "tower_speed_aura5",
         "tower_speed_aura4",
@@ -945,6 +1014,7 @@
       "range": 7.8125,
       "targets": "both",
       "projectile_speed": 23.4375,
+      "ranged": true,
       "abilities": [
         "tower_du5",
         "tower_shechengguanghuan",
@@ -963,6 +1033,7 @@
       "range": 4.6875,
       "targets": "both",
       "projectile_speed": 23.4375,
+      "ranged": true,
       "abilities": [
         "tower_lanbaoshi"
       ],
@@ -978,6 +1049,7 @@
       "range": 6.25,
       "targets": "both",
       "projectile_speed": 23.4375,
+      "ranged": true,
       "abilities": [
         "tower_zheyi3",
         "tower_ranjin",
@@ -1001,6 +1073,7 @@
       "range": 4.6875,
       "targets": "both",
       "projectile_speed": 23.4375,
+      "ranged": true,
       "abilities": [
         "tower_jin"
       ],
@@ -1016,6 +1089,7 @@
       "range": 9.375,
       "targets": "both",
       "projectile_speed": 23.4375,
+      "ranged": true,
       "abilities": [
         "tower_jingzhun",
         "tower_shechengguanghuan",
@@ -1035,6 +1109,7 @@
       "range": 5.46875,
       "targets": "both",
       "projectile_speed": 23.4375,
+      "ranged": true,
       "abilities": [
         "tower_10jiyun",
         "tower_bixi2"
@@ -1051,6 +1126,7 @@
       "range": 7.03125,
       "targets": "both",
       "projectile_speed": 23.4375,
+      "ranged": true,
       "abilities": [
         "tower_du5",
         "tower_huichun_aura",
@@ -1069,6 +1145,7 @@
       "range": 5.46875,
       "targets": "both",
       "projectile_speed": 23.4375,
+      "ranged": true,
       "abilities": [
         "tower_shandianlian"
       ],
@@ -1084,6 +1161,7 @@
       "range": 8.59375,
       "targets": "both",
       "projectile_speed": 23.4375,
+      "ranged": true,
       "abilities": [
         "tower_jianshe3",
         "tower_baoji1",
@@ -1102,6 +1180,7 @@
       "range": 7.8125,
       "targets": "both",
       "projectile_speed": 23.4375,
+      "ranged": true,
       "abilities": [
         "e301",
         "tower_slow3",
@@ -1122,6 +1201,7 @@
       "range": 0.0,
       "targets": "both",
       "projectile_speed": 23.4375,
+      "ranged": false,
       "abilities": [
         "new_konghe"
       ],
@@ -1137,6 +1217,7 @@
       "range": 0.0,
       "targets": "both",
       "projectile_speed": 23.4375,
+      "ranged": false,
       "abilities": [
         "new_konghe3"
       ],
@@ -1152,6 +1233,7 @@
       "range": 0.0,
       "targets": "both",
       "projectile_speed": 23.4375,
+      "ranged": false,
       "abilities": [
         "new_konghe2"
       ],
@@ -1167,6 +1249,7 @@
       "range": 4.6875,
       "targets": "both",
       "projectile_speed": 23.4375,
+      "ranged": true,
       "abilities": [
         "tower_fenliejian"
       ],
@@ -1182,6 +1265,7 @@
       "range": 0.0,
       "targets": "both",
       "projectile_speed": 23.4375,
+      "ranged": false,
       "abilities": [
         "new_cask"
       ],
@@ -1197,6 +1281,7 @@
       "range": 0.0,
       "targets": "both",
       "projectile_speed": 23.4375,
+      "ranged": false,
       "abilities": [
         "new_cask3"
       ],
@@ -1212,6 +1297,7 @@
       "range": 0.0,
       "targets": "both",
       "projectile_speed": 23.4375,
+      "ranged": false,
       "abilities": [
         "new_cask2"
       ],
@@ -1227,6 +1313,7 @@
       "range": 39.0625,
       "targets": "both",
       "projectile_speed": 23.4375,
+      "ranged": true,
       "abilities": [
         "tower_attack5",
         "tower_fenliejian_xianyan",
@@ -1244,6 +1331,7 @@
       "range": 6.25,
       "targets": "both",
       "projectile_speed": 23.4375,
+      "ranged": true,
       "abilities": [
         "tower_zheyi2"
       ],
@@ -1259,6 +1347,7 @@
       "range": 4.6875,
       "targets": "both",
       "projectile_speed": 23.4375,
+      "ranged": true,
       "abilities": [
         "tower_bixi"
       ],
@@ -1274,6 +1363,7 @@
       "range": 4.6875,
       "targets": "both",
       "projectile_speed": 23.4375,
+      "ranged": true,
       "abilities": [
         "tower_huiyao3",
         "e10010"
@@ -1290,6 +1380,7 @@
       "range": 3.90625,
       "targets": "both",
       "projectile_speed": 23.4375,
+      "ranged": true,
       "abilities": [
         "tower_chenmoguanghuan"
       ],
@@ -1305,6 +1396,7 @@
       "range": 39.0625,
       "targets": "both",
       "projectile_speed": 23.4375,
+      "ranged": true,
       "abilities": [
         "tower_attack5",
         "tower_fenliejian_you",
@@ -1322,6 +1414,7 @@
       "range": 9.375,
       "targets": "both",
       "projectile_speed": 23.4375,
+      "ranged": true,
       "abilities": [
         "tower_du6",
         "tower_jianjia6",
@@ -1341,6 +1434,7 @@
       "range": 0.0,
       "targets": "both",
       "projectile_speed": 23.4375,
+      "ranged": false,
       "abilities": [
         "new_acid_spray"
       ],
@@ -1356,6 +1450,7 @@
       "range": 0.0,
       "targets": "both",
       "projectile_speed": 23.4375,
+      "ranged": false,
       "abilities": [
         "new_acid_spray3"
       ],
@@ -1371,6 +1466,7 @@
       "range": 0.0,
       "targets": "both",
       "projectile_speed": 23.4375,
+      "ranged": false,
       "abilities": [
         "new_acid_spray2"
       ],
@@ -1386,6 +1482,7 @@
       "range": 3.90625,
       "targets": "both",
       "projectile_speed": 23.4375,
+      "ranged": true,
       "abilities": [],
       "slab": false,
       "effect": "",
@@ -1400,6 +1497,7 @@
       "range": 7.8125,
       "targets": "both",
       "projectile_speed": 23.4375,
+      "ranged": true,
       "abilities": [
         "tower_aojiao",
         "tower_shandianlian",
@@ -1419,6 +1517,7 @@
       "range": 6.25,
       "targets": "both",
       "projectile_speed": 23.4375,
+      "ranged": true,
       "abilities": [
         "tower_fenliejian_xianyan"
       ],
@@ -1434,6 +1533,7 @@
       "range": 4.6875,
       "targets": "both",
       "projectile_speed": 9.375,
+      "ranged": true,
       "abilities": [
         "tower_huiyao"
       ],
@@ -1449,6 +1549,7 @@
       "range": 4.6875,
       "targets": "both",
       "projectile_speed": 23.4375,
+      "ranged": true,
       "abilities": [
         "tower_true_sight",
         "tower_speed_aura6",
@@ -1468,6 +1569,7 @@
       "range": 4.6875,
       "targets": "both",
       "projectile_speed": 9.375,
+      "ranged": true,
       "abilities": [
         "tower_huiyao2"
       ],
@@ -1483,6 +1585,7 @@
       "range": 0.0,
       "targets": "both",
       "projectile_speed": 23.4375,
+      "ranged": false,
       "abilities": [
         "new_xuwu"
       ],
@@ -1498,6 +1601,7 @@
       "range": 0.0,
       "targets": "both",
       "projectile_speed": 23.4375,
+      "ranged": false,
       "abilities": [
         "new_xuwu3"
       ],
@@ -1513,6 +1617,7 @@
       "range": 0.0,
       "targets": "both",
       "projectile_speed": 23.4375,
+      "ranged": false,
       "abilities": [
         "new_xuwu2"
       ],
@@ -1528,6 +1633,7 @@
       "range": 3.90625,
       "targets": "both",
       "projectile_speed": 23.4375,
+      "ranged": true,
       "abilities": [
         "tower_chenmoguanghuan",
         "tower_maoyan",
@@ -1547,6 +1653,7 @@
       "range": 6.25,
       "targets": "both",
       "projectile_speed": 23.4375,
+      "ranged": true,
       "abilities": [
         "tower_fenliejian_you",
         "tower_attack4"
@@ -1563,6 +1670,7 @@
       "range": 5.46875,
       "targets": "both",
       "projectile_speed": 23.4375,
+      "ranged": true,
       "abilities": [
         "tower_fenliejian_you"
       ],
@@ -1578,6 +1686,7 @@
       "range": 0.0,
       "targets": "both",
       "projectile_speed": 23.4375,
+      "ranged": false,
       "abilities": [
         "new_youbu1"
       ],
@@ -1593,6 +1702,7 @@
       "range": 0.0,
       "targets": "both",
       "projectile_speed": 23.4375,
+      "ranged": false,
       "abilities": [
         "new_youbu3"
       ],
@@ -1608,6 +1718,7 @@
       "range": 0.0,
       "targets": "both",
       "projectile_speed": 23.4375,
+      "ranged": false,
       "abilities": [
         "new_youbu2"
       ],
@@ -1623,6 +1734,7 @@
       "range": 6.25,
       "targets": "both",
       "projectile_speed": 23.4375,
+      "ranged": true,
       "abilities": [
         "tower_du4"
       ],
@@ -1638,6 +1750,7 @@
       "range": 0.0,
       "targets": "both",
       "projectile_speed": 23.4375,
+      "ranged": false,
       "abilities": [
         "new_venomous_gale"
       ],
@@ -1653,6 +1766,7 @@
       "range": 0.0,
       "targets": "both",
       "projectile_speed": 23.4375,
+      "ranged": false,
       "abilities": [
         "new_venomous_gale3"
       ],
@@ -1668,6 +1782,7 @@
       "range": 0.0,
       "targets": "both",
       "projectile_speed": 23.4375,
+      "ranged": false,
       "abilities": [
         "new_venomous_gale2"
       ],
@@ -2804,6 +2919,686 @@
       "source_id": "enemy_bukeqinfan",
       "coefficient": 0.302103025348742
     }
+  },
+  "mechanics": {
+    "tower_moves_per_run": 5,
+    "stealable_abilities": [
+      "tower_slow1",
+      "tower_slow2",
+      "tower_slow3",
+      "tower_slow4",
+      "tower_slow5",
+      "tower_slow6",
+      "tower_speed_aura1",
+      "tower_speed_aura2",
+      "tower_speed_aura3",
+      "tower_speed_aura4",
+      "tower_speed_aura5",
+      "tower_speed_aura6",
+      "tower_speed_aura_guichu",
+      "tower_jianshe1",
+      "tower_jianshe2",
+      "tower_jianshe3",
+      "tower_jianshe4",
+      "tower_jianshe5",
+      "tower_jianshe6",
+      "tower_ranjin",
+      "tower_du1",
+      "tower_du2",
+      "tower_du3",
+      "tower_du4",
+      "tower_du5",
+      "tower_du6",
+      "tower_fenliejian",
+      "tower_fenliejian_xianyan",
+      "tower_jianjia1",
+      "tower_jianjia2",
+      "tower_jianjia3",
+      "tower_jianjia4",
+      "tower_jianjia5",
+      "tower_jianjia6",
+      "tower_huiyao",
+      "tower_huiyao2",
+      "tower_huiyao3",
+      "tower_fenzheng",
+      "tower_zheyi",
+      "tower_zheyi2",
+      "tower_zheyi3",
+      "tower_bixi",
+      "tower_bixi2",
+      "tower_baoji1",
+      "tower_lanbaoshi",
+      "tower_jihan",
+      "tower_jingzhun",
+      "tower_10jiyun",
+      "tower_5shihua",
+      "tower_maoyan",
+      "tower_jin",
+      "tower_jin2",
+      "tower_shandianlian",
+      "tower_chazhuangshandian",
+      "tower_fenliejian_you",
+      "tower_chenmoguanghuan",
+      "tower_lanbaoshi2",
+      "tower_aojiao",
+      "tower_attack1",
+      "tower_attack2",
+      "tower_attack3",
+      "tower_attack4",
+      "tower_attack5",
+      "tower_attack6",
+      "tower_attack7",
+      "tower_speed1",
+      "tower_speed2",
+      "tower_chain_frost",
+      "tower_shechengguanghuan",
+      "tower_shihua_new",
+      "tower_huichun_aura",
+      "tower_tanlan"
+    ],
+    "downgrade_weights": {
+      "2": [
+        100
+      ],
+      "3": [
+        34,
+        66
+      ],
+      "4": [
+        20,
+        30,
+        50
+      ],
+      "5": [
+        10,
+        15,
+        25,
+        50
+      ],
+      "6": [
+        20,
+        20,
+        20,
+        20,
+        20
+      ]
+    },
+    "berserk_seconds": 180,
+    "berserk_move_percent": 100,
+    "trial_intermission_seconds": 3
+  },
+  "wave_alternatives": {
+    "5": [
+      {
+        "name": "Xiaohongmao Fly",
+        "source_id": "gemtd_xiaohongmao_fly",
+        "hp": 15.18,
+        "speed": 2.6953125,
+        "armor": 0.0,
+        "magic_resist": -0.1,
+        "air": true,
+        "boss": false,
+        "ancient": false,
+        "count": 10,
+        "leak": 1,
+        "leak_max": 3,
+        "reward": 5,
+        "completion": 0,
+        "spawn_interval": 1.0,
+        "evasion": 0,
+        "abilities": [
+          "enemy_fly"
+        ],
+        "variants": [],
+        "trial": false
+      }
+    ],
+    "15": [
+      {
+        "name": "Tianmaodigou Fly",
+        "source_id": "gemtd_tianmaodigou_fly",
+        "hp": 241.5,
+        "speed": 3.7734374999999996,
+        "armor": 10.0,
+        "magic_resist": -0.05,
+        "air": true,
+        "boss": false,
+        "ancient": false,
+        "count": 10,
+        "leak": 1,
+        "leak_max": 7,
+        "reward": 10,
+        "completion": 0,
+        "spawn_interval": 1.0,
+        "evasion": 0,
+        "abilities": [
+          "enemy_fly"
+        ],
+        "variants": [],
+        "trial": false
+      }
+    ],
+    "19": [
+      {
+        "name": "Yaobaidelvgemi",
+        "source_id": "gemtd_yaobaidelvgemi",
+        "hp": 2553.0,
+        "speed": 3.7734374999999996,
+        "armor": 10.0,
+        "magic_resist": -0.05,
+        "air": false,
+        "boss": false,
+        "ancient": true,
+        "count": 10,
+        "leak": 1,
+        "leak_max": 7,
+        "reward": 10,
+        "completion": 0,
+        "spawn_interval": 1.0,
+        "evasion": 0,
+        "abilities": [
+          "runrunrun"
+        ],
+        "variants": [],
+        "trial": false
+      }
+    ],
+    "21": [
+      {
+        "name": "Xiexiaowo",
+        "source_id": "gemtd_xiexiaowo",
+        "hp": 3795.0,
+        "speed": 3.7734374999999996,
+        "armor": 15.0,
+        "magic_resist": 0.2,
+        "air": false,
+        "boss": false,
+        "ancient": true,
+        "count": 10,
+        "leak": 1,
+        "leak_max": 11,
+        "reward": 15,
+        "completion": 0,
+        "spawn_interval": 1.0,
+        "evasion": 0,
+        "abilities": [
+          "enemy_jili"
+        ],
+        "variants": [],
+        "trial": false
+      }
+    ],
+    "23": [
+      {
+        "name": "Dazuiyaorenxiang",
+        "source_id": "gemtd_dazuiyaorenxiang",
+        "hp": 8280.0,
+        "speed": 3.0996093749999996,
+        "armor": 15.0,
+        "magic_resist": 0.0,
+        "air": false,
+        "boss": false,
+        "ancient": true,
+        "count": 10,
+        "leak": 1,
+        "leak_max": 11,
+        "reward": 15,
+        "completion": 0,
+        "spawn_interval": 1.0,
+        "evasion": 0,
+        "abilities": [
+          "enemy_wumian",
+          "enemy_zheguang"
+        ],
+        "variants": [],
+        "trial": false
+      }
+    ],
+    "24": [
+      {
+        "name": "Jixiezhanlv",
+        "source_id": "gemtd_jixiezhanlv",
+        "hp": 6900.0,
+        "speed": 4.177734375,
+        "armor": 20.0,
+        "magic_resist": 0.0,
+        "air": false,
+        "boss": false,
+        "ancient": true,
+        "count": 10,
+        "leak": 1,
+        "leak_max": 11,
+        "reward": 15,
+        "completion": 0,
+        "spawn_interval": 1.0,
+        "evasion": 0,
+        "abilities": [
+          "mars_bulwark"
+        ],
+        "variants": [],
+        "trial": false
+      }
+    ],
+    "25": [
+      {
+        "name": "Huoxingche Fly",
+        "source_id": "gemtd_huoxingche_fly",
+        "hp": 2415.0,
+        "speed": 3.2343749999999996,
+        "armor": 15.0,
+        "magic_resist": 0.0,
+        "air": true,
+        "boss": false,
+        "ancient": false,
+        "count": 10,
+        "leak": 1,
+        "leak_max": 11,
+        "reward": 15,
+        "completion": 0,
+        "spawn_interval": 1.0,
+        "evasion": 0,
+        "abilities": [
+          "enemy_fly",
+          "enemy_high_armor"
+        ],
+        "variants": [],
+        "trial": false
+      }
+    ],
+    "27": [
+      {
+        "name": "Ruxingshuimu Fly",
+        "source_id": "gemtd_ruxingshuimu_fly",
+        "hp": 1380.0,
+        "speed": 3.3691406249999996,
+        "armor": 15.0,
+        "magic_resist": 0.5,
+        "air": true,
+        "boss": false,
+        "ancient": false,
+        "count": 10,
+        "leak": 1,
+        "leak_max": 11,
+        "reward": 15,
+        "completion": 0,
+        "spawn_interval": 1.0,
+        "evasion": 0,
+        "abilities": [
+          "enemy_fly",
+          "enemy_wumian",
+          "enemy_bukeqinfan"
+        ],
+        "variants": [],
+        "trial": false
+      }
+    ],
+    "28": [
+      {
+        "name": "Xiaofamuji Fly",
+        "source_id": "gemtd_xiaofamuji_fly",
+        "hp": 3795.0,
+        "speed": 3.2343749999999996,
+        "armor": 30.0,
+        "magic_resist": 0.0,
+        "air": true,
+        "boss": false,
+        "ancient": false,
+        "count": 10,
+        "leak": 1,
+        "leak_max": 11,
+        "reward": 15,
+        "completion": 0,
+        "spawn_interval": 1.0,
+        "evasion": 0,
+        "abilities": [
+          "enemy_fly",
+          "mars_bulwark"
+        ],
+        "variants": [],
+        "trial": false
+      }
+    ],
+    "29": [
+      {
+        "name": "Yingwuchuanfu Fly",
+        "source_id": "gemtd_yingwuchuanfu_fly",
+        "hp": 2760.0,
+        "speed": 5.390625,
+        "armor": 15.0,
+        "magic_resist": 0.1,
+        "air": true,
+        "boss": false,
+        "ancient": false,
+        "count": 10,
+        "leak": 1,
+        "leak_max": 11,
+        "reward": 15,
+        "completion": 0,
+        "spawn_interval": 1.0,
+        "evasion": 0,
+        "abilities": [
+          "enemy_fly",
+          "guai_shanbi",
+          "enemy_zheguang"
+        ],
+        "variants": [],
+        "trial": false
+      }
+    ],
+    "31": [
+      {
+        "name": "Talongaosiji",
+        "source_id": "gemtd_talongaosiji",
+        "hp": 20700.0,
+        "speed": 4.3125,
+        "armor": 20.0,
+        "magic_resist": 0.05,
+        "air": false,
+        "boss": false,
+        "ancient": true,
+        "count": 10,
+        "leak": 1,
+        "leak_max": 15,
+        "reward": 20,
+        "completion": 0,
+        "spawn_interval": 1.0,
+        "evasion": 0,
+        "abilities": [
+          "enemy_wumian",
+          "enemy_zheguang"
+        ],
+        "variants": [],
+        "trial": false
+      }
+    ],
+    "33": [
+      {
+        "name": "Siwangxianzhi",
+        "source_id": "gemtd_siwangxianzhi",
+        "hp": 40020.0,
+        "speed": 5.390625,
+        "armor": 20.0,
+        "magic_resist": 0.05,
+        "air": false,
+        "boss": false,
+        "ancient": true,
+        "count": 10,
+        "leak": 1,
+        "leak_max": 15,
+        "reward": 20,
+        "completion": 0,
+        "spawn_interval": 1.0,
+        "evasion": 0,
+        "abilities": [
+          "enemy_wumian",
+          "enemy_shanshuo"
+        ],
+        "variants": [],
+        "trial": false
+      }
+    ],
+    "34": [
+      {
+        "name": "Xuemobaobao Fly",
+        "source_id": "gemtd_xuemobaobao_fly",
+        "hp": 7590.0,
+        "speed": 4.986328125,
+        "armor": 20.0,
+        "magic_resist": 0.05,
+        "air": true,
+        "boss": false,
+        "ancient": false,
+        "count": 10,
+        "leak": 1,
+        "leak_max": 15,
+        "reward": 20,
+        "completion": 0,
+        "spawn_interval": 1.0,
+        "evasion": 0,
+        "abilities": [
+          "enemy_fly",
+          "enemy_thief",
+          "guai_shanbi"
+        ],
+        "variants": [],
+        "trial": false
+      }
+    ],
+    "39": [
+      {
+        "name": "Fennenrongyuan Fly",
+        "source_id": "gemtd_fennenrongyuan_fly",
+        "hp": 10350.0,
+        "speed": 4.3125,
+        "armor": 20.0,
+        "magic_resist": 0.25,
+        "air": true,
+        "boss": false,
+        "ancient": false,
+        "count": 10,
+        "leak": 1,
+        "leak_max": 15,
+        "reward": 20,
+        "completion": 0,
+        "spawn_interval": 1.0,
+        "evasion": 0,
+        "abilities": [
+          "enemy_fly",
+          "enemy_bukeqinfan",
+          "tidehunter_blubber",
+          "guai_shanbi"
+        ],
+        "variants": [],
+        "trial": false
+      }
+    ],
+    "41": [
+      {
+        "name": "Cuiyuxiaolong",
+        "source_id": "gemtd_cuiyuxiaolong",
+        "hp": 165600.0,
+        "speed": 3.7734374999999996,
+        "armor": 25.0,
+        "magic_resist": 0.2,
+        "air": false,
+        "boss": false,
+        "ancient": true,
+        "count": 10,
+        "leak": 1,
+        "leak_max": 19,
+        "reward": 25,
+        "completion": 0,
+        "spawn_interval": 1.0,
+        "evasion": 0,
+        "abilities": [
+          "enemy_jili",
+          "enemy_high_armor"
+        ],
+        "variants": [],
+        "trial": false
+      }
+    ],
+    "47": [
+      {
+        "name": "Xunjieyuanzumaolv",
+        "source_id": "gemtd_xunjieyuanzumaolv",
+        "hp": 172500.0,
+        "speed": 2.6953125,
+        "armor": 25.0,
+        "magic_resist": 0.5,
+        "air": false,
+        "boss": false,
+        "ancient": true,
+        "count": 10,
+        "leak": 1,
+        "leak_max": 19,
+        "reward": 25,
+        "completion": 0,
+        "spawn_interval": 1.0,
+        "evasion": 0,
+        "abilities": [
+          "enemy_momian",
+          "enemy_bukeqinfan",
+          "runrunrun"
+        ],
+        "variants": [],
+        "trial": false
+      }
+    ],
+    "48": [
+      {
+        "name": "Jiwanghaidao Fly",
+        "source_id": "gemtd_jiwanghaidao_fly",
+        "hp": 58650.0,
+        "speed": 1.8867187499999998,
+        "armor": 25.0,
+        "magic_resist": 0.3,
+        "air": true,
+        "boss": false,
+        "ancient": false,
+        "count": 10,
+        "leak": 1,
+        "leak_max": 19,
+        "reward": 25,
+        "completion": 0,
+        "spawn_interval": 1.0,
+        "evasion": 0,
+        "abilities": [
+          "enemy_thief",
+          "enemy_momian",
+          "guai_jiaoxieguanghuan",
+          "guai_shanbi"
+        ],
+        "variants": [],
+        "trial": false
+      }
+    ],
+    "20": [
+      {
+        "name": "Yuediyang Boss",
+        "source_id": "gemtd_yuediyang_boss",
+        "hp": 27600.0,
+        "speed": 4.58203125,
+        "armor": 10.0,
+        "magic_resist": -0.05,
+        "air": false,
+        "boss": true,
+        "ancient": true,
+        "count": 1,
+        "leak": 100,
+        "leak_max": 100,
+        "reward": 150,
+        "completion": 0,
+        "spawn_interval": 1.0,
+        "evasion": 0,
+        "abilities": [
+          "gemtd_guai_base"
+        ],
+        "variants": [],
+        "trial": false
+      }
+    ],
+    "30": [
+      {
+        "name": "Zard-",
+        "source_id": "gemtd_zard_boss_fly",
+        "hp": 69000.0,
+        "speed": 3.7734374999999996,
+        "armor": 15.0,
+        "magic_resist": 0.0,
+        "air": true,
+        "boss": true,
+        "ancient": false,
+        "count": 1,
+        "leak": 100,
+        "leak_max": 100,
+        "reward": 150,
+        "completion": 0,
+        "spawn_interval": 1.0,
+        "evasion": 0,
+        "abilities": [
+          "enemy_fly"
+        ],
+        "variants": [],
+        "trial": false
+      }
+    ],
+    "40": [
+      {
+        "name": "Gugubiao Boss Fly",
+        "source_id": "gemtd_gugubiao_boss_fly",
+        "hp": 227700.0,
+        "speed": 5.929687499999999,
+        "armor": 20.0,
+        "magic_resist": 0.05,
+        "air": true,
+        "boss": true,
+        "ancient": false,
+        "count": 1,
+        "leak": 100,
+        "leak_max": 100,
+        "reward": 150,
+        "completion": 0,
+        "spawn_interval": 1.0,
+        "evasion": 0,
+        "abilities": [
+          "enemy_fly",
+          "tidehunter_blubber"
+        ],
+        "variants": [],
+        "trial": false
+      }
+    ],
+    "50": [
+      {
+        "name": "Roushan Boss Fly Jin",
+        "source_id": "gemtd_roushan_boss_fly_jin",
+        "hp": 690000.0,
+        "speed": 4.3125,
+        "armor": 35.0,
+        "magic_resist": 1.0,
+        "air": true,
+        "boss": true,
+        "ancient": false,
+        "count": 1,
+        "leak": 100,
+        "leak_max": 100,
+        "reward": 150,
+        "completion": 0,
+        "spawn_interval": 1.0,
+        "evasion": 0,
+        "abilities": [
+          "enemy_fly",
+          "tidehunter_blubber"
+        ],
+        "variants": [],
+        "trial": false
+      },
+      {
+        "name": "Roushan Boss Fly Bojin",
+        "source_id": "gemtd_roushan_boss_fly_bojin",
+        "hp": 690000.0,
+        "speed": 4.3125,
+        "armor": 9999.0,
+        "magic_resist": 0.2,
+        "air": true,
+        "boss": true,
+        "ancient": false,
+        "count": 1,
+        "leak": 100,
+        "leak_max": 100,
+        "reward": 150,
+        "completion": 0,
+        "spawn_interval": 1.0,
+        "evasion": 0,
+        "abilities": [
+          "enemy_fly",
+          "tidehunter_blubber"
+        ],
+        "variants": [],
+        "trial": false
+      }
+    ]
   },
   "combat": {
     "minimum_movement_speed": 100,
@@ -5754,7 +6549,7 @@
       "count": 1,
       "leak": 100,
       "leak_max": 100,
-      "reward": 150,
+      "reward": 5,
       "completion": 0,
       "spawn_interval": 1.0,
       "evasion": 0,
@@ -5775,7 +6570,7 @@
       "count": 10,
       "leak": 1,
       "leak_max": 27,
-      "reward": 10,
+      "reward": 5,
       "completion": 0,
       "spawn_interval": 1.0,
       "evasion": 0,
@@ -5796,7 +6591,7 @@
       "count": 10,
       "leak": 1,
       "leak_max": 27,
-      "reward": 10,
+      "reward": 5,
       "completion": 0,
       "spawn_interval": 1.0,
       "evasion": 0,
@@ -5819,7 +6614,7 @@
       "count": 10,
       "leak": 1,
       "leak_max": 27,
-      "reward": 10,
+      "reward": 5,
       "completion": 0,
       "spawn_interval": 1.0,
       "evasion": 0,
@@ -5840,7 +6635,7 @@
       "count": 10,
       "leak": 1,
       "leak_max": 27,
-      "reward": 10,
+      "reward": 5,
       "completion": 0,
       "spawn_interval": 1.0,
       "evasion": 0,
@@ -5863,7 +6658,7 @@
       "count": 10,
       "leak": 1,
       "leak_max": 27,
-      "reward": 10,
+      "reward": 5,
       "completion": 0,
       "spawn_interval": 1.0,
       "evasion": 0,
@@ -5887,7 +6682,7 @@
       "count": 10,
       "leak": 1,
       "leak_max": 27,
-      "reward": 10,
+      "reward": 5,
       "completion": 0,
       "spawn_interval": 1.0,
       "evasion": 0,
@@ -5911,7 +6706,7 @@
       "count": 10,
       "leak": 1,
       "leak_max": 27,
-      "reward": 10,
+      "reward": 5,
       "completion": 0,
       "spawn_interval": 1.0,
       "evasion": 0,
@@ -5934,7 +6729,7 @@
       "count": 10,
       "leak": 1,
       "leak_max": 27,
-      "reward": 10,
+      "reward": 5,
       "completion": 0,
       "spawn_interval": 1.0,
       "evasion": 0,
@@ -5958,7 +6753,7 @@
       "count": 10,
       "leak": 1,
       "leak_max": 27,
-      "reward": 10,
+      "reward": 5,
       "completion": 0,
       "spawn_interval": 1.0,
       "evasion": 0,
@@ -5981,7 +6776,7 @@
       "count": 1,
       "leak": 100,
       "leak_max": 100,
-      "reward": 150,
+      "reward": 5,
       "completion": 0,
       "spawn_interval": 1.0,
       "evasion": 0,
@@ -6002,7 +6797,7 @@
       "count": 10,
       "leak": 1,
       "leak_max": 31,
-      "reward": 15,
+      "reward": 5,
       "completion": 0,
       "spawn_interval": 1.0,
       "evasion": 0,
@@ -6023,7 +6818,7 @@
       "count": 10,
       "leak": 1,
       "leak_max": 31,
-      "reward": 15,
+      "reward": 5,
       "completion": 0,
       "spawn_interval": 1.0,
       "evasion": 0,
@@ -6046,7 +6841,7 @@
       "count": 10,
       "leak": 1,
       "leak_max": 31,
-      "reward": 15,
+      "reward": 5,
       "completion": 0,
       "spawn_interval": 1.0,
       "evasion": 0,
@@ -6070,7 +6865,7 @@
       "count": 10,
       "leak": 1,
       "leak_max": 31,
-      "reward": 15,
+      "reward": 5,
       "completion": 0,
       "spawn_interval": 1.0,
       "evasion": 0,
@@ -6093,7 +6888,7 @@
       "count": 10,
       "leak": 1,
       "leak_max": 31,
-      "reward": 15,
+      "reward": 5,
       "completion": 0,
       "spawn_interval": 1.0,
       "evasion": 0,
@@ -6117,7 +6912,7 @@
       "count": 10,
       "leak": 1,
       "leak_max": 31,
-      "reward": 15,
+      "reward": 5,
       "completion": 0,
       "spawn_interval": 1.0,
       "evasion": 0,
@@ -6140,7 +6935,7 @@
       "count": 10,
       "leak": 1,
       "leak_max": 31,
-      "reward": 15,
+      "reward": 5,
       "completion": 0,
       "spawn_interval": 1.0,
       "evasion": 0,
@@ -6165,7 +6960,7 @@
       "count": 10,
       "leak": 1,
       "leak_max": 31,
-      "reward": 15,
+      "reward": 5,
       "completion": 0,
       "spawn_interval": 1.0,
       "evasion": 0,
@@ -6189,7 +6984,7 @@
       "count": 10,
       "leak": 1,
       "leak_max": 31,
-      "reward": 15,
+      "reward": 5,
       "completion": 0,
       "spawn_interval": 1.0,
       "evasion": 0,
@@ -6214,7 +7009,7 @@
       "count": 1,
       "leak": 100,
       "leak_max": 100,
-      "reward": 150,
+      "reward": 5,
       "completion": 0,
       "spawn_interval": 1.0,
       "evasion": 0,
@@ -6237,7 +7032,7 @@
       "count": 10,
       "leak": 1,
       "leak_max": 35,
-      "reward": 20,
+      "reward": 5,
       "completion": 0,
       "spawn_interval": 1.0,
       "evasion": 0,
@@ -6261,7 +7056,7 @@
       "count": 10,
       "leak": 1,
       "leak_max": 35,
-      "reward": 20,
+      "reward": 5,
       "completion": 0,
       "spawn_interval": 1.0,
       "evasion": 0,
@@ -6284,7 +7079,7 @@
       "count": 10,
       "leak": 1,
       "leak_max": 35,
-      "reward": 20,
+      "reward": 5,
       "completion": 0,
       "spawn_interval": 1.0,
       "evasion": 0,
@@ -6309,7 +7104,7 @@
       "count": 10,
       "leak": 1,
       "leak_max": 35,
-      "reward": 20,
+      "reward": 5,
       "completion": 0,
       "spawn_interval": 1.0,
       "evasion": 0,
@@ -6334,7 +7129,7 @@
       "count": 10,
       "leak": 1,
       "leak_max": 35,
-      "reward": 20,
+      "reward": 5,
       "completion": 0,
       "spawn_interval": 1.0,
       "evasion": 0,
@@ -6356,7 +7151,7 @@
           "count": 10,
           "leak": 1,
           "leak_max": 35,
-          "reward": 20,
+          "reward": 5,
           "completion": 0,
           "spawn_interval": 1.0,
           "evasion": 0,
@@ -6383,7 +7178,7 @@
       "count": 10,
       "leak": 1,
       "leak_max": 35,
-      "reward": 20,
+      "reward": 5,
       "completion": 0,
       "spawn_interval": 1.0,
       "evasion": 0,
@@ -6404,7 +7199,7 @@
           "count": 10,
           "leak": 1,
           "leak_max": 35,
-          "reward": 20,
+          "reward": 5,
           "completion": 0,
           "spawn_interval": 1.0,
           "evasion": 0,
@@ -6430,7 +7225,7 @@
       "count": 10,
       "leak": 1,
       "leak_max": 35,
-      "reward": 20,
+      "reward": 5,
       "completion": 0,
       "spawn_interval": 1.0,
       "evasion": 0,
@@ -6453,7 +7248,7 @@
       "count": 10,
       "leak": 1,
       "leak_max": 35,
-      "reward": 20,
+      "reward": 5,
       "completion": 0,
       "spawn_interval": 1.0,
       "evasion": 0,
@@ -6474,7 +7269,7 @@
           "count": 10,
           "leak": 1,
           "leak_max": 35,
-          "reward": 20,
+          "reward": 5,
           "completion": 0,
           "spawn_interval": 1.0,
           "evasion": 0,
@@ -6500,7 +7295,7 @@
       "count": 10,
       "leak": 1,
       "leak_max": 35,
-      "reward": 20,
+      "reward": 5,
       "completion": 0,
       "spawn_interval": 1.0,
       "evasion": 0,
@@ -6526,7 +7321,7 @@
       "count": 1,
       "leak": 100,
       "leak_max": 100,
-      "reward": 150,
+      "reward": 5,
       "completion": 0,
       "spawn_interval": 1.0,
       "evasion": 0,
@@ -6550,7 +7345,7 @@
       "count": 10,
       "leak": 1,
       "leak_max": 39,
-      "reward": 25,
+      "reward": 5,
       "completion": 0,
       "spawn_interval": 1.0,
       "evasion": 0,
@@ -6573,7 +7368,7 @@
       "count": 10,
       "leak": 1,
       "leak_max": 39,
-      "reward": 25,
+      "reward": 5,
       "completion": 0,
       "spawn_interval": 1.0,
       "evasion": 0,
@@ -6598,7 +7393,7 @@
       "count": 10,
       "leak": 1,
       "leak_max": 39,
-      "reward": 25,
+      "reward": 5,
       "completion": 0,
       "spawn_interval": 1.0,
       "evasion": 0,
@@ -6623,7 +7418,7 @@
       "count": 10,
       "leak": 1,
       "leak_max": 39,
-      "reward": 25,
+      "reward": 5,
       "completion": 0,
       "spawn_interval": 1.0,
       "evasion": 0,
@@ -6647,7 +7442,7 @@
       "count": 10,
       "leak": 1,
       "leak_max": 39,
-      "reward": 25,
+      "reward": 5,
       "completion": 0,
       "spawn_interval": 1.0,
       "evasion": 0,
@@ -6672,7 +7467,7 @@
       "count": 10,
       "leak": 1,
       "leak_max": 39,
-      "reward": 25,
+      "reward": 5,
       "completion": 0,
       "spawn_interval": 1.0,
       "evasion": 0,
@@ -6695,7 +7490,7 @@
       "count": 10,
       "leak": 1,
       "leak_max": 39,
-      "reward": 25,
+      "reward": 5,
       "completion": 0,
       "spawn_interval": 1.0,
       "evasion": 0,
@@ -6719,7 +7514,7 @@
       "count": 10,
       "leak": 1,
       "leak_max": 39,
-      "reward": 25,
+      "reward": 5,
       "completion": 0,
       "spawn_interval": 1.0,
       "evasion": 0,
@@ -6746,7 +7541,7 @@
       "count": 10,
       "leak": 1,
       "leak_max": 39,
-      "reward": 25,
+      "reward": 5,
       "completion": 0,
       "spawn_interval": 1.0,
       "evasion": 0,
@@ -6770,7 +7565,7 @@
       "count": 1,
       "leak": 100,
       "leak_max": 100,
-      "reward": 150,
+      "reward": 5,
       "completion": 0,
       "spawn_interval": 1.0,
       "evasion": 0,

@@ -1,5 +1,22 @@
 # Grafik som går att byta under utvecklingen
 
+[Kvalitetspass för skadevisning och MVP](quality-pass-stats-mvp.md): panelens
+skada inkluderar stöd, rena skadeauror visar sina tickvärden och MVP 10 har
+guldkrona, räckviddsring och mottagarmarkering.
+
+[Inspektion av påverkan på valt torn](tower-effects-inspection.md) visar MVP,
+stödkällor, tillfälliga bonusar och avväpning i sidopanelen.
+
+[Specialtornens effekter](special-tower-effects.md) följer nu verkliga
+auraskadetick, gift, kedjehopp, splash, kritiska träffar och stödbonusar.
+Grafikverkstadens nya **Abilities**-flik visar samtliga 43 torn i isolerade
+förmågedemonstrationer.
+
+Senaste grafikpasset: [43 egna kombinationstorn](special-towers-art-v1.md), med
+Dota-inspirerade väktarmotiv i den befintliga byggnadsstilen. Separata PNG-filer i
+`assets/graphics/specials-v1/`; tidigare bilder finns kvar. Samma mittankare och
+0,94-rutorsgräns används.
+
 Grafiken är ett separat presentationslager. En bildändring ska inte kräva ändringar i placering, tornvärden, RNG, strid eller sparformat. Tre egna genererade PNG-ark ger totalt 44 bilder: åtta grundtyper med varsin bild för I–III, specialtorn, tio fiender, checkpoint och dekorationer.
 
 Stilen utgår från användarens [pixelreferens](referenser/pixelgrafik.png). Dota GemTD:s juveler, socklar och magiska uttryck används som inspiration; inga originalmodeller eller speltexturer ingår. [Workshop-sidan](https://steamcommunity.com/sharedfiles/filedetails/?id=474619917) och [visuella spelbilder hos Dotas kinesiska utgivare](https://maps.dota2.com.cn/maps/custommap?id=41) användes som kompletterande visuellt underlag, inte som versionsbevis för reglerna.
@@ -42,6 +59,10 @@ Bygghjälpen ligger i `game/presentation/build_guide.gd`. Den läser modellens f
 Receptboken kan användas under strid för planering. Den pausar spelet och återställer tidigare pausläge vid stängning eller Locate/Track. Inget av dessa val kombinerar, förbrukar eller avslöjar gems. Boken beskriver om bara äldre material räcker, om fem placeringar först behövs och om nya material innebär omedelbar vågstart. Faktisk kombination sker via de befintliga tornkontrollerna.
 
 `recipe_guide.gd` beräknar skrivskyddat lager/framskridande. `recipe_book.gd` bygger kort och skickar Locate/Track-signaler. `board_view.gd` visar markeringarna. Räkningen uppdateras efter placering, kombination eller rivning. Fäst recept och Locate-ordning är sessionsinställningar; de nollställs vid ny omgång/återladdning och ändrar inte sparformatet. Befintliga bildbindningar/tema används; inga nya PNG-filer krävs.
+
+## Maze-tips
+
+**Mazes** öppnar Dota-versionens labyrintförslag som en vy i receptbokens stil; **Show on board** ritar valt förslag som rosa rutor (att bygga) och orange kryss (startstenar att riva) på spelplanen tills det stängs med länken under brädet, knappen i vyn eller G. Färgen kan ändras med paletten `maze_guide` i manifestet (standard `#ff7ad9` i koden; nyckeln finns inte i manifestet än). Källa, egna tolkningar och filer: [maze-tips.md](maze-tips.md).
 
 ## Tornvärden och resultatjämförelse
 
@@ -106,6 +127,24 @@ Efter användarens återkoppling om för högt placerade torn använder alla 27 
 `effects.muzzle_height` (0,35 celler) placerar skott/glimt vid det centrerade tornets juvel. En viss skottprofil kan överstyra `muzzle_height`. Detta är en visuell startpunkt; det påverkar inte modellens räckvidd eller träffberäkning.
 
 För ett ark anges `sheet` och nollbaserat `index`, räknat från vänster till höger, uppifrån nedåt. Arkets sökväg/rader/kolumner står under `sheets`. Vid ojämna marginaler kan en post ange exakt `region: [x,y,bredd,höjd]`. Automatisk transparent beskärning sker i minnet via AtlasTexture; original-PNG ändras inte.
+
+## Animationsremsor för fiender
+
+En spritepost kan ange `"frames": n`. Bilden (eller `region`) är då en horisontell remsa med n lika breda rutor. Alla rutor beskärs med samma ram (unionen av rutornas synliga pixlar), så fienden hoppar inte mellan rutorna. `GemArt.texture(id)` ger ruta 0, så porträtt, galleri och bildkontroller fungerar som förut; `GemArt.frame_texture(id, i)` ger ruta i. Ruta väljs av `GemArt.enemy_frame`, som följer samma gångklocka som `motion`: markfiender byter ruta efter tillryggalagd sträcka (en saktad fiende rör benen långsammare) och ruta 0 och n/2 sammanfaller med att studsen landar; flygfiender följer tid. `motion.enabled: false` fryser på ruta 0. Poster utan `frames` beter sig exakt som tidigare.
+
+```json
+"boar": { "texture": "res://assets/graphics/refined-v3/anims/boar_walk_v1.png", "frames": 4,
+          "trim_alpha": true, "size": [1.25, 1.3], "anchor": [0.5, 0.72] }
+```
+
+Källor och bygge:
+
+- Gångcykler skrivs i pxl ([claude-pxl](https://github.com/crsolver/claude-pxl), installerad som projektskill i `.claude/skills/pxl-pixel-art`, kräver Node ≥ 22.18). Alla gångcykler står i `tools/art/anims/walk.px.js`: en rad per familj med benens rektanglar, ledrad och förskjutning per ruta (`NEAR_FRONT`, `FAR_FRONT`, `HIND`; `HIND_FROM_REAR` och `FAR_FRONT_FROM_FORWARD` för ben som redan når bildkanten och bara kan svinga åt ett håll; `SPIDER_A`/`SPIDER_B` för spindelns två växlande bengrupper). Vingar: en utsträckt vinge anges med `pivotX` (axelkolumn), `reach` och `flap` (`WING_DOWN`, hur långt spetsen sjunker per ruta); en uppåtriktad vinge använder benskjuvningen med negativ `len` (`UPRIGHT_WING`). Flygremsor heter `<namn>_flap_v1.png`. Benrektanglarna måste täcka hela foten ner till konturen, annars blir en rad kvar när benet flyttas. Kroppen kommer oförändrad från den godkända refined-v3-bilden och bara benen flyttas. Ny familj: lägg till `include("<namn>_part.px.js")` + `walk(...)` där och en rad i `ANIMS` i `build_anims.py`.
+- `tools/art/png2pxl.py` gör om en PNG till en pxl-del. Refined-bilderna har tusentals nästan lika färger, så den reducerar till 48 färger (boar: max kanalfel 14/255, medel 4).
+- `python tools/art/build_anims.py` bygger alla remsor i `ANIMS`, kopierar dem till `assets/graphics/refined-v3/anims/<namn>_walk_v1.png` och färgar om samma remsa för varje variant av grundbilden via `variants.py` (kräver Pillow). Förhandsvisningar (uppskalad PNG + GIF) hamnar i `output/pxl/`. Kör därefter `python tools/godot.py --headless --editor --path . --import`.
+- Egna kroppar (24 fiender, se `docs/enemy-silhouettes.md`): ritade direkt i pxl i `tools/art/anims/creatures.px.js` med gemensamma hjälpfunktioner (`ball`, `tube`, `cyl`, `fan`, `eye`, `rim`; ljus från övre vänster, mörk skarv mellan delar, en mörkare ton innanför konturen) och `creature(namn, w, h, draw, scale)` som ger 4 rutor med samma gångfaser som `walk.px.js`. `scale` ritar om formerna på en större duk så att pixelstorleken i spelet matchar refined-v3 (mål cirka 2,1 skärmpixlar per bildpixel, bossar 2,47); `fur`, `scallops` och `curls` lägger päls, fjädrar/fjäll och ull i slutupplösningen. `tone()` blandar tonerna med mjukt värdebrus (penselkluster, inte Bayer-rutmönster), `seam()` ger en kontaktskugga på delen under, och `facet()` fyller plana ytor (kistor, brädor) med tonövergång. Varje familj börjar med `use(["#050304"])` eftersom pxl:s `ramps()` ackumuleras. `build_anims.py` kopierar dem som `<anim>_v2.png`.
+- refined-v4 (AI-ark v2, 32 fiender med egen kropp): animeras i `walk.px.js` via `V4`-tabellen och `walk4` (marginal på duken, `despeckle`), med rörelsetyperna ben (`swing`), vinge (`pivotX`/`flap`), `shift`, `spin` och `wave`; byggs till `<fiende>_<walk|flap>_v3.png`. pxl-kropparna (`_v2`) är reserv.
+- Nu animerade (53): alla fiendefamiljer med deras varianter. Mark: boar (pig_princess, bajie), yak (sheep, alpaca, jumo, boooofus, crummy), hound (bulldog, rabbit, baekho, zombie, dusky), lizard (young_demon, lockjaw, trapjaw, bookwyrm, azuremir), frog (shark, lilnova, furry_fish, shroomy), spider (invisible_spider, ripper, stump), robot/`courier_robot` (machjaw) och boss_hound (shagbark, baby_roshan). Flyg (vingslag): bat/`red_courier` (corsair, goldfish, ig_dragon, fox, jinyin_fox, wabbit, ghost) och griffin/`blue_courier` (panda_flyer, flamingo, huntling, mermaid, chicken, kupu, chirpy, drodo, carpet_rider). Rutvalet använder fiendens egen `motion.frequency` när den finns (spider, robot, boss); flygfiender byter ruta efter tid, och ruta 1 (mitt i nedslaget) sammanfaller med att kroppen är högst. Chickens kam placeras av `variants.py` på den högsta punkten i högra tredjedelen, vilket är vingspetsen (som i stillbilden), så den följer vingslaget. `tests/check_enemy_frames.gd` (ingår i `tools/check.py`) kontrollerar lika rutstorlek, att beskärningen inte skär bort pixlar, att rutvalet bara beror på sträckan och att ojämna remsor avvisas.
 
 ## Granska innan vi byter allt
 

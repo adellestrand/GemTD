@@ -50,7 +50,17 @@ func campaign_run(seed_value: int) -> Dictionary:
 	state.action_recorded.connect(record)
 	state.combat_started.connect(start)
 	var error = ""
-	while state.phase == "build":
+	while state.phase in ["build","combat","intermission"]:
+		if state.phase != "build":
+			var before = state.wave
+			for tick in range(90000):
+				combat.tick(1.0/30.0)
+				if state.wave != before or state.phase in ["won","lost"]: break
+			journal.complete_wave(state,combat)
+			if state.wave == before and state.phase not in ["won","lost"]:
+				error = "Trial exceeded 3000 simulation seconds"
+				break
+			continue
 		while state.quality < GemCatalog.max_quality_upgrade() and state.gold >= state.quality_price(): state.buy_quality()
 		combine_old(state)
 		for p in state.board.slabs.keys():
@@ -75,6 +85,7 @@ func campaign_run(seed_value: int) -> Dictionary:
 		if not accepted:
 			error = state.message
 			break
+		if state.awaiting_trap_placement: state.start_wave()
 		for tick in range(90000):
 			combat.tick(1.0/30.0)
 			if state.phase != "combat": break

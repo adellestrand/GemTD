@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "name": "Arcane meadow - quality variants v2",
+  "name": "Arcane meadow - refined pixel grid v3",
   "sheets": {
     "towers": {
       "texture": "res://assets/graphics/generated/towers-v1.png",
@@ -20,188 +20,173 @@
   },
   "sprites": {
     "sapphire": {
-      "sheet": "towers",
-      "index": 0,
       "trim_alpha": true,
       "size": [
-        1.22,
-        1.95
+        0.94,
+        0.94
       ],
       "anchor": [
         0.5,
         0.5
       ],
-      "effect_color": "#62c8ff"
+      "effect_color": "#62c8ff",
+      "texture": "res://assets/graphics/refined-v3/sapphire_1.png"
     },
     "diamond": {
-      "sheet": "towers",
-      "index": 1,
       "trim_alpha": true,
       "size": [
-        1.22,
-        1.95
+        0.94,
+        0.94
       ],
       "anchor": [
         0.5,
         0.5
       ],
-      "effect_color": "#e1edf7"
+      "effect_color": "#e1edf7",
+      "texture": "res://assets/graphics/refined-v3/diamond_1.png"
     },
     "aquamarine": {
-      "sheet": "towers",
-      "index": 2,
       "trim_alpha": true,
       "size": [
-        1.22,
-        1.95
+        0.94,
+        0.94
       ],
       "anchor": [
         0.5,
         0.5
       ],
-      "effect_color": "#5bf0d4"
+      "effect_color": "#5bf0d4",
+      "texture": "res://assets/graphics/refined-v3/aquamarine_1.png"
     },
     "opal": {
-      "sheet": "towers",
-      "index": 3,
       "trim_alpha": true,
       "size": [
-        1.22,
-        1.95
+        0.94,
+        0.94
       ],
       "anchor": [
         0.5,
         0.5
       ],
-      "effect_color": "#f2afdc"
+      "effect_color": "#f2afdc",
+      "texture": "res://assets/graphics/refined-v3/opal_1.png"
     },
     "emerald": {
-      "sheet": "towers",
-      "index": 4,
       "trim_alpha": true,
       "size": [
-        1.22,
-        1.95
+        0.94,
+        0.94
       ],
       "anchor": [
         0.5,
         0.5
       ],
-      "effect_color": "#83d46a"
+      "effect_color": "#83d46a",
+      "texture": "res://assets/graphics/refined-v3/emerald_1.png"
     },
     "topaz": {
-      "sheet": "towers",
-      "index": 5,
       "trim_alpha": true,
       "size": [
-        1.22,
-        1.95
+        0.94,
+        0.94
       ],
       "anchor": [
         0.5,
         0.5
       ],
-      "effect_color": "#f4ce65"
+      "effect_color": "#f4ce65",
+      "texture": "res://assets/graphics/refined-v3/topaz_1.png"
     },
     "ruby": {
-      "sheet": "towers",
-      "index": 6,
       "trim_alpha": true,
       "size": [
-        1.22,
-        1.95
+        0.94,
+        0.94
       ],
       "anchor": [
         0.5,
         0.5
       ],
-      "effect_color": "#f1757b"
+      "effect_color": "#f1757b",
+      "texture": "res://assets/graphics/refined-v3/ruby_1.png"
     },
     "amethyst": {
-      "sheet": "towers",
-      "index": 7,
       "trim_alpha": true,
       "size": [
-        1.22,
-        1.95
+        0.94,
+        0.94
       ],
       "anchor": [
         0.5,
         0.5
       ],
-      "effect_color": "#b79afa"
+      "effect_color": "#b79afa",
+      "texture": "res://assets/graphics/refined-v3/amethyst_1.png"
     },
     "silver": {
-      "sheet": "towers",
-      "index": 8,
       "trim_alpha": true,
       "size": [
-        1.22,
-        1.95
+        0.94,
+        0.94
       ],
       "anchor": [
         0.5,
         0.5
       ],
-      "effect_color": "#c5e4e7"
+      "effect_color": "#c5e4e7",
+      "texture": "res://assets/graphics/refined-v3/silver.png"
     },
     "malachite": {
-      "sheet": "towers",
-      "index": 9,
       "trim_alpha": true,
       "size": [
-        1.22,
-        1.95
+        0.94,
+        0.94
       ],
       "anchor": [
         0.5,
         0.5
       ],
-      "effect_color": "#86e1a7"
+      "effect_color": "#86e1a7",
+      "texture": "res://assets/graphics/refined-v3/malachite.png"
     },
     "asteriated_ruby": {
-      "sheet": "towers",
-      "index": 10,
       "trim_alpha": true,
       "size": [
-        1.22,
-        1.95
+        0.94,
+        0.94
       ],
       "anchor": [
         0.5,
         0.5
       ],
-      "effect_color": "#ff9ab1"
+      "effect_color": "#ff9ab1",
+      "texture": "res://assets/graphics/refined-v3/asteriated_ruby.png"
     },
     "stone": {
-      "sheet": "towers",
-      "index": 11,
       "trim_alpha": true,
       "size": [
-        1.04,
-        1.0
+        0.94,
+        0.94
       ],
       "anchor": [
         0.5,
-        0.65
-      ]
+        0.5
+      ],
+      "texture": "res://assets/graphics/refined-v3/stone.png"
     },
     "checkpoint": {
-      "sheet": "towers",
-      "index": 12,
       "trim_alpha": true,
       "size": [
-        1.75,
-        1.5
+        0.98,
+        0.98
       ],
       "anchor": [
         0.5,
-        0.65
-      ]
+        0.5
+      ],
+      "texture": "res://assets/graphics/refined-v3/checkpoint.png"
     },
     "flowers": {
-      "sheet": "towers",
-      "index": 13,
       "trim_alpha": true,
       "size": [
         1.04,
@@ -210,11 +195,10 @@
       "anchor": [
         0.5,
         0.65
-      ]
+      ],
+      "texture": "res://assets/graphics/refined-v3/grass_tuft.png"
     },
     "fern": {
-      "sheet": "towers",
-      "index": 14,
       "trim_alpha": true,
       "size": [
         1.04,
@@ -223,11 +207,10 @@
       "anchor": [
         0.5,
         0.65
-      ]
+      ],
+      "texture": "res://assets/graphics/refined-v3/fern.png"
     },
     "pine": {
-      "sheet": "towers",
-      "index": 15,
       "trim_alpha": true,
       "size": [
         2.0,
@@ -236,11 +219,10 @@
       "anchor": [
         0.5,
         0.65
-      ]
+      ],
+      "texture": "res://assets/graphics/refined-v3/tree.png"
     },
     "boar": {
-      "sheet": "enemies",
-      "index": 0,
       "trim_alpha": true,
       "size": [
         1.25,
@@ -249,11 +231,11 @@
       "anchor": [
         0.5,
         0.72
-      ]
+      ],
+      "texture": "res://assets/graphics/refined-v3/anims/boar_walk_v1.png",
+      "frames": 4
     },
     "frog": {
-      "sheet": "enemies",
-      "index": 1,
       "trim_alpha": true,
       "size": [
         1.25,
@@ -262,11 +244,11 @@
       "anchor": [
         0.5,
         0.72
-      ]
+      ],
+      "texture": "res://assets/graphics/refined-v3/anims/frog_walk_v1.png",
+      "frames": 4
     },
     "yak": {
-      "sheet": "enemies",
-      "index": 2,
       "trim_alpha": true,
       "size": [
         1.25,
@@ -275,11 +257,11 @@
       "anchor": [
         0.5,
         0.72
-      ]
+      ],
+      "texture": "res://assets/graphics/refined-v3/anims/yak_walk_v1.png",
+      "frames": 4
     },
     "courier_robot": {
-      "sheet": "enemies",
-      "index": 3,
       "trim_alpha": true,
       "size": [
         1.25,
@@ -294,11 +276,11 @@
         "bounce": 0.025,
         "squash": 0.01,
         "sway": 0.01
-      }
+      },
+      "texture": "res://assets/graphics/refined-v3/anims/robot_walk_v1.png",
+      "frames": 4
     },
     "blue_courier": {
-      "sheet": "enemies",
-      "index": 4,
       "trim_alpha": true,
       "size": [
         1.25,
@@ -307,11 +289,11 @@
       "anchor": [
         0.5,
         0.72
-      ]
+      ],
+      "texture": "res://assets/graphics/refined-v3/anims/blue_courier_flap_v3.png",
+      "frames": 4
     },
     "spider": {
-      "sheet": "enemies",
-      "index": 5,
       "trim_alpha": true,
       "size": [
         1.25,
@@ -320,22 +302,16 @@
       "anchor": [
         0.5,
         0.72
-      ],
-      "region": [
-        362,
-        362,
-        362,
-        338
       ],
       "motion": {
         "frequency": 12.0,
         "bounce": 0.02,
         "sway": 0.015
-      }
+      },
+      "texture": "res://assets/graphics/refined-v3/anims/spider_walk_v1.png",
+      "frames": 4
     },
     "lizard": {
-      "sheet": "enemies",
-      "index": 6,
       "trim_alpha": true,
       "size": [
         1.25,
@@ -345,16 +321,10 @@
         0.5,
         0.72
       ],
-      "region": [
-        724,
-        362,
-        362,
-        338
-      ]
+      "texture": "res://assets/graphics/refined-v3/anims/lizard_walk_v1.png",
+      "frames": 4
     },
     "red_courier": {
-      "sheet": "enemies",
-      "index": 7,
       "trim_alpha": true,
       "size": [
         1.25,
@@ -363,11 +333,11 @@
       "anchor": [
         0.5,
         0.72
-      ]
+      ],
+      "texture": "res://assets/graphics/refined-v3/anims/bat_flap_v1.png",
+      "frames": 4
     },
     "hound": {
-      "sheet": "enemies",
-      "index": 8,
       "trim_alpha": true,
       "size": [
         1.25,
@@ -376,11 +346,11 @@
       "anchor": [
         0.5,
         0.72
-      ]
+      ],
+      "texture": "res://assets/graphics/refined-v3/anims/hound_walk_v1.png",
+      "frames": 4
     },
     "boss_hound": {
-      "sheet": "enemies",
-      "index": 9,
       "trim_alpha": true,
       "size": [
         1.85,
@@ -390,113 +360,831 @@
         0.5,
         0.72
       ],
-      "region": [
-        350,
-        700,
-        470,
-        386
+      "motion": {
+        "frequency": 5.0,
+        "bounce": 0.035,
+        "sway": 0.02
+      },
+      "texture": "res://assets/graphics/refined-v3/anims/boss_hound_walk_v1.png",
+      "frames": 4
+    },
+    "rocks": {
+      "trim_alpha": true,
+      "size": [
+        1.25,
+        1.3
+      ],
+      "anchor": [
+        0.5,
+        0.72
+      ],
+      "texture": "res://assets/graphics/refined-v3/rocks.png"
+    },
+    "dry_grass": {
+      "trim_alpha": true,
+      "size": [
+        1.25,
+        1.3
+      ],
+      "anchor": [
+        0.5,
+        0.72
+      ],
+      "texture": "res://assets/graphics/refined-v3/meadow.png"
+    },
+    "sapphire_2_v2": {
+      "trim_alpha": true,
+      "size": [
+        0.94,
+        0.94
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "effect_color": "#62c8ff",
+      "texture": "res://assets/graphics/refined-v3/sapphire_2.png"
+    },
+    "sapphire_3_v2": {
+      "trim_alpha": true,
+      "size": [
+        0.94,
+        0.94
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "effect_color": "#62c8ff",
+      "texture": "res://assets/graphics/refined-v3/sapphire_3.png"
+    },
+    "diamond_2_v2": {
+      "trim_alpha": true,
+      "size": [
+        0.94,
+        0.94
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "effect_color": "#e1edf7",
+      "texture": "res://assets/graphics/refined-v3/diamond_2.png"
+    },
+    "diamond_3_v2": {
+      "trim_alpha": true,
+      "size": [
+        0.94,
+        0.94
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "effect_color": "#e1edf7",
+      "texture": "res://assets/graphics/refined-v3/diamond_3.png"
+    },
+    "aquamarine_2_v2": {
+      "trim_alpha": true,
+      "size": [
+        0.94,
+        0.94
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "effect_color": "#5bf0d4",
+      "texture": "res://assets/graphics/refined-v3/aquamarine_2.png"
+    },
+    "aquamarine_3_v2": {
+      "trim_alpha": true,
+      "size": [
+        0.94,
+        0.94
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "effect_color": "#5bf0d4",
+      "texture": "res://assets/graphics/refined-v3/aquamarine_3.png"
+    },
+    "opal_2_v2": {
+      "trim_alpha": true,
+      "size": [
+        0.94,
+        0.94
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "effect_color": "#f2afdc",
+      "texture": "res://assets/graphics/refined-v3/opal_2.png"
+    },
+    "opal_3_v2": {
+      "trim_alpha": true,
+      "size": [
+        0.94,
+        0.94
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "effect_color": "#f2afdc",
+      "texture": "res://assets/graphics/refined-v3/opal_3.png"
+    },
+    "emerald_2_v2": {
+      "trim_alpha": true,
+      "size": [
+        0.94,
+        0.94
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "effect_color": "#83d46a",
+      "texture": "res://assets/graphics/refined-v3/emerald_2.png"
+    },
+    "emerald_3_v2": {
+      "trim_alpha": true,
+      "size": [
+        0.94,
+        0.94
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "effect_color": "#83d46a",
+      "texture": "res://assets/graphics/refined-v3/emerald_3.png"
+    },
+    "topaz_2_v2": {
+      "trim_alpha": true,
+      "size": [
+        0.94,
+        0.94
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "effect_color": "#f4ce65",
+      "texture": "res://assets/graphics/refined-v3/topaz_2.png"
+    },
+    "topaz_3_v2": {
+      "trim_alpha": true,
+      "size": [
+        0.94,
+        0.94
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "effect_color": "#f4ce65",
+      "texture": "res://assets/graphics/refined-v3/topaz_3.png"
+    },
+    "ruby_2_v2": {
+      "trim_alpha": true,
+      "size": [
+        0.94,
+        0.94
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "effect_color": "#f1757b",
+      "texture": "res://assets/graphics/refined-v3/ruby_2.png"
+    },
+    "ruby_3_v2": {
+      "trim_alpha": true,
+      "size": [
+        0.94,
+        0.94
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "effect_color": "#f1757b",
+      "texture": "res://assets/graphics/refined-v3/ruby_3.png"
+    },
+    "amethyst_2_v2": {
+      "trim_alpha": true,
+      "size": [
+        0.94,
+        0.94
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "effect_color": "#b79afa",
+      "texture": "res://assets/graphics/refined-v3/amethyst_2.png"
+    },
+    "amethyst_3_v2": {
+      "trim_alpha": true,
+      "size": [
+        0.94,
+        0.94
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "effect_color": "#b79afa",
+      "texture": "res://assets/graphics/refined-v3/amethyst_3.png"
+    },
+    "pig_princess": {
+      "trim_alpha": true,
+      "size": [
+        1.25,
+        1.3
+      ],
+      "anchor": [
+        0.5,
+        0.72
+      ],
+      "texture": "res://assets/graphics/refined-v3/anims/pig_princess_walk_v1.png",
+      "frames": 4
+    },
+    "bajie": {
+      "trim_alpha": true,
+      "size": [
+        1.25,
+        1.3
+      ],
+      "anchor": [
+        0.5,
+        0.72
+      ],
+      "texture": "res://assets/graphics/refined-v3/anims/bajie_walk_v1.png",
+      "frames": 4
+    },
+    "sheep": {
+      "trim_alpha": true,
+      "size": [
+        1.25,
+        1.3
+      ],
+      "anchor": [
+        0.5,
+        0.72
+      ],
+      "texture": "res://assets/graphics/refined-v3/anims/sheep_walk_v3.png",
+      "frames": 4
+    },
+    "alpaca": {
+      "trim_alpha": true,
+      "size": [
+        1.25,
+        1.3
+      ],
+      "anchor": [
+        0.5,
+        0.72
+      ],
+      "texture": "res://assets/graphics/refined-v3/anims/alpaca_walk_v3.png",
+      "frames": 4
+    },
+    "jumo": {
+      "trim_alpha": true,
+      "size": [
+        1.25,
+        1.3
+      ],
+      "anchor": [
+        0.5,
+        0.72
+      ],
+      "texture": "res://assets/graphics/refined-v3/anims/jumo_walk_v3.png",
+      "frames": 4
+    },
+    "boooofus": {
+      "trim_alpha": true,
+      "size": [
+        1.25,
+        1.3
+      ],
+      "anchor": [
+        0.5,
+        0.72
+      ],
+      "texture": "res://assets/graphics/refined-v3/anims/boooofus_walk_v3.png",
+      "frames": 4
+    },
+    "crummy": {
+      "trim_alpha": true,
+      "size": [
+        1.25,
+        1.3
+      ],
+      "anchor": [
+        0.5,
+        0.72
+      ],
+      "texture": "res://assets/graphics/refined-v3/anims/crummy_walk_v1.png",
+      "frames": 4
+    },
+    "invisible_spider": {
+      "trim_alpha": true,
+      "size": [
+        1.25,
+        1.3
+      ],
+      "anchor": [
+        0.5,
+        0.72
+      ],
+      "motion": {
+        "frequency": 12.0,
+        "bounce": 0.02,
+        "sway": 0.015
+      },
+      "texture": "res://assets/graphics/refined-v3/anims/invisible_spider_walk_v1.png",
+      "frames": 4
+    },
+    "ripper": {
+      "trim_alpha": true,
+      "size": [
+        1.25,
+        1.3
+      ],
+      "anchor": [
+        0.5,
+        0.72
+      ],
+      "motion": {
+        "frequency": 12.0,
+        "bounce": 0.02,
+        "sway": 0.015
+      },
+      "texture": "res://assets/graphics/refined-v3/anims/ripper_walk_v3.png",
+      "frames": 4
+    },
+    "stump": {
+      "trim_alpha": true,
+      "size": [
+        1.25,
+        1.3
+      ],
+      "anchor": [
+        0.5,
+        0.72
+      ],
+      "texture": "res://assets/graphics/refined-v3/anims/stump_walk_v3.png",
+      "frames": 4
+    },
+    "young_demon": {
+      "trim_alpha": true,
+      "size": [
+        1.25,
+        1.3
+      ],
+      "anchor": [
+        0.5,
+        0.72
+      ],
+      "texture": "res://assets/graphics/refined-v3/anims/young_demon_walk_v3.png",
+      "frames": 4
+    },
+    "lockjaw": {
+      "trim_alpha": true,
+      "size": [
+        1.25,
+        1.3
+      ],
+      "anchor": [
+        0.5,
+        0.72
+      ],
+      "texture": "res://assets/graphics/refined-v3/anims/lockjaw_walk_v3.png",
+      "frames": 4
+    },
+    "trapjaw": {
+      "trim_alpha": true,
+      "size": [
+        1.25,
+        1.3
+      ],
+      "anchor": [
+        0.5,
+        0.72
+      ],
+      "texture": "res://assets/graphics/refined-v3/anims/trapjaw_walk_v3.png",
+      "frames": 4
+    },
+    "bookwyrm": {
+      "trim_alpha": true,
+      "size": [
+        1.25,
+        1.3
+      ],
+      "anchor": [
+        0.5,
+        0.72
+      ],
+      "texture": "res://assets/graphics/refined-v3/anims/bookwyrm_walk_v1.png",
+      "frames": 4
+    },
+    "azuremir": {
+      "trim_alpha": true,
+      "size": [
+        1.25,
+        1.3
+      ],
+      "anchor": [
+        0.5,
+        0.72
+      ],
+      "texture": "res://assets/graphics/refined-v3/anims/azuremir_walk_v1.png",
+      "frames": 4
+    },
+    "machjaw": {
+      "trim_alpha": true,
+      "size": [
+        1.25,
+        1.3
+      ],
+      "anchor": [
+        0.5,
+        0.72
+      ],
+      "texture": "res://assets/graphics/refined-v3/anims/machjaw_walk_v3.png",
+      "frames": 4
+    },
+    "bulldog": {
+      "trim_alpha": true,
+      "size": [
+        1.25,
+        1.3
+      ],
+      "anchor": [
+        0.5,
+        0.72
+      ],
+      "texture": "res://assets/graphics/refined-v3/anims/bulldog_walk_v1.png",
+      "frames": 4
+    },
+    "rabbit": {
+      "trim_alpha": true,
+      "size": [
+        1.25,
+        1.3
+      ],
+      "anchor": [
+        0.5,
+        0.72
+      ],
+      "texture": "res://assets/graphics/refined-v3/anims/rabbit_walk_v3.png",
+      "frames": 4
+    },
+    "baekho": {
+      "trim_alpha": true,
+      "size": [
+        1.25,
+        1.3
+      ],
+      "anchor": [
+        0.5,
+        0.72
+      ],
+      "texture": "res://assets/graphics/refined-v3/anims/baekho_walk_v1.png",
+      "frames": 4
+    },
+    "zombie": {
+      "trim_alpha": true,
+      "size": [
+        1.25,
+        1.3
+      ],
+      "anchor": [
+        0.5,
+        0.72
+      ],
+      "texture": "res://assets/graphics/refined-v3/anims/zombie_walk_v3.png",
+      "frames": 4
+    },
+    "dusky": {
+      "trim_alpha": true,
+      "size": [
+        1.25,
+        1.3
+      ],
+      "anchor": [
+        0.5,
+        0.72
+      ],
+      "texture": "res://assets/graphics/refined-v3/anims/dusky_walk_v1.png",
+      "frames": 4
+    },
+    "shark": {
+      "trim_alpha": true,
+      "size": [
+        1.25,
+        1.3
+      ],
+      "anchor": [
+        0.5,
+        0.72
+      ],
+      "texture": "res://assets/graphics/refined-v3/anims/shark_walk_v3.png",
+      "frames": 4
+    },
+    "lilnova": {
+      "trim_alpha": true,
+      "size": [
+        1.25,
+        1.3
+      ],
+      "anchor": [
+        0.5,
+        0.72
+      ],
+      "texture": "res://assets/graphics/refined-v3/anims/lilnova_walk_v3.png",
+      "frames": 4
+    },
+    "furry_fish": {
+      "trim_alpha": true,
+      "size": [
+        1.25,
+        1.3
+      ],
+      "anchor": [
+        0.5,
+        0.72
+      ],
+      "texture": "res://assets/graphics/refined-v3/anims/furry_fish_walk_v3.png",
+      "frames": 4
+    },
+    "shroomy": {
+      "trim_alpha": true,
+      "size": [
+        1.25,
+        1.3
+      ],
+      "anchor": [
+        0.5,
+        0.72
+      ],
+      "texture": "res://assets/graphics/refined-v3/anims/shroomy_walk_v3.png",
+      "frames": 4
+    },
+    "panda_flyer": {
+      "trim_alpha": true,
+      "size": [
+        1.25,
+        1.3
+      ],
+      "anchor": [
+        0.5,
+        0.72
+      ],
+      "texture": "res://assets/graphics/refined-v3/anims/panda_flyer_flap_v3.png",
+      "frames": 4
+    },
+    "flamingo": {
+      "trim_alpha": true,
+      "size": [
+        1.25,
+        1.3
+      ],
+      "anchor": [
+        0.5,
+        0.72
+      ],
+      "texture": "res://assets/graphics/refined-v3/anims/flamingo_walk_v3.png",
+      "frames": 4
+    },
+    "huntling": {
+      "trim_alpha": true,
+      "size": [
+        1.25,
+        1.3
+      ],
+      "anchor": [
+        0.5,
+        0.72
+      ],
+      "texture": "res://assets/graphics/refined-v3/anims/huntling_flap_v1.png",
+      "frames": 4
+    },
+    "mermaid": {
+      "trim_alpha": true,
+      "size": [
+        1.25,
+        1.3
+      ],
+      "anchor": [
+        0.5,
+        0.72
+      ],
+      "texture": "res://assets/graphics/refined-v3/anims/mermaid_flap_v3.png",
+      "frames": 4
+    },
+    "chicken": {
+      "trim_alpha": true,
+      "size": [
+        1.25,
+        1.3
+      ],
+      "anchor": [
+        0.5,
+        0.72
+      ],
+      "texture": "res://assets/graphics/refined-v3/anims/chicken_walk_v3.png",
+      "frames": 4
+    },
+    "kupu": {
+      "trim_alpha": true,
+      "size": [
+        1.25,
+        1.3
+      ],
+      "anchor": [
+        0.5,
+        0.72
+      ],
+      "texture": "res://assets/graphics/refined-v3/anims/kupu_flap_v3.png",
+      "frames": 4
+    },
+    "chirpy": {
+      "trim_alpha": true,
+      "size": [
+        1.25,
+        1.3
+      ],
+      "anchor": [
+        0.5,
+        0.72
+      ],
+      "texture": "res://assets/graphics/refined-v3/anims/chirpy_flap_v1.png",
+      "frames": 4
+    },
+    "drodo": {
+      "trim_alpha": true,
+      "size": [
+        1.25,
+        1.3
+      ],
+      "anchor": [
+        0.5,
+        0.72
+      ],
+      "texture": "res://assets/graphics/refined-v3/anims/drodo_walk_v3.png",
+      "frames": 4
+    },
+    "carpet_rider": {
+      "trim_alpha": true,
+      "size": [
+        1.85,
+        1.9
+      ],
+      "anchor": [
+        0.5,
+        0.72
+      ],
+      "texture": "res://assets/graphics/refined-v3/anims/carpet_rider_flap_v3.png",
+      "frames": 4
+    },
+    "corsair": {
+      "trim_alpha": true,
+      "size": [
+        1.25,
+        1.3
+      ],
+      "anchor": [
+        0.5,
+        0.72
+      ],
+      "texture": "res://assets/graphics/refined-v3/anims/corsair_flap_v3.png",
+      "frames": 4
+    },
+    "goldfish": {
+      "trim_alpha": true,
+      "size": [
+        1.25,
+        1.3
+      ],
+      "anchor": [
+        0.5,
+        0.72
+      ],
+      "texture": "res://assets/graphics/refined-v3/anims/goldfish_flap_v3.png",
+      "frames": 4
+    },
+    "ig_dragon": {
+      "trim_alpha": true,
+      "size": [
+        1.25,
+        1.3
+      ],
+      "anchor": [
+        0.5,
+        0.72
+      ],
+      "texture": "res://assets/graphics/refined-v3/anims/ig_dragon_flap_v1.png",
+      "frames": 4
+    },
+    "fox": {
+      "trim_alpha": true,
+      "size": [
+        1.25,
+        1.3
+      ],
+      "anchor": [
+        0.5,
+        0.72
+      ],
+      "texture": "res://assets/graphics/refined-v3/anims/fox_flap_v3.png",
+      "frames": 4
+    },
+    "jinyin_fox": {
+      "trim_alpha": true,
+      "size": [
+        1.25,
+        1.3
+      ],
+      "anchor": [
+        0.5,
+        0.72
+      ],
+      "texture": "res://assets/graphics/refined-v3/anims/jinyin_fox_flap_v3.png",
+      "frames": 4
+    },
+    "wabbit": {
+      "trim_alpha": true,
+      "size": [
+        1.25,
+        1.3
+      ],
+      "anchor": [
+        0.5,
+        0.72
+      ],
+      "texture": "res://assets/graphics/refined-v3/anims/wabbit_flap_v3.png",
+      "frames": 4
+    },
+    "ghost": {
+      "trim_alpha": true,
+      "size": [
+        1.85,
+        1.9
+      ],
+      "anchor": [
+        0.5,
+        0.72
+      ],
+      "texture": "res://assets/graphics/refined-v3/anims/ghost_flap_v3.png",
+      "frames": 4
+    },
+    "shagbark": {
+      "trim_alpha": true,
+      "size": [
+        1.85,
+        1.9
+      ],
+      "anchor": [
+        0.5,
+        0.72
       ],
       "motion": {
         "frequency": 5.0,
         "bounce": 0.035,
         "sway": 0.02
-      }
+      },
+      "texture": "res://assets/graphics/refined-v3/anims/shagbark_walk_v3.png",
+      "frames": 4
     },
-    "rocks": {
-      "sheet": "enemies",
-      "index": 10,
+    "baby_roshan": {
       "trim_alpha": true,
       "size": [
-        1.25,
-        1.3
+        1.85,
+        1.9
       ],
       "anchor": [
         0.5,
         0.72
       ],
-      "region": [
-        820,
-        760,
-        266,
-        326
-      ]
+      "motion": {
+        "frequency": 5.0,
+        "bounce": 0.035,
+        "sway": 0.02
+      },
+      "texture": "res://assets/graphics/refined-v3/anims/baby_roshan_flap_v3.png",
+      "frames": 4
     },
-    "dry_grass": {
-      "sheet": "enemies",
-      "index": 11,
+    "special_v1_aijijin": {
+      "texture": "res://assets/graphics/specials-v1/aijijin.png",
       "trim_alpha": true,
       "size": [
-        1.25,
-        1.3
-      ],
-      "anchor": [
-        0.5,
-        0.72
-      ]
-    },
-    "sapphire_2_v2": {
-      "sheet": "qualities_v2",
-      "index": 0,
-      "trim_alpha": true,
-      "size": [
-        1.24,
-        2.0
-      ],
-      "anchor": [
-        0.5,
-        0.5
-      ],
-      "effect_color": "#62c8ff"
-    },
-    "sapphire_3_v2": {
-      "sheet": "qualities_v2",
-      "index": 1,
-      "trim_alpha": true,
-      "size": [
-        1.28,
-        2.12
-      ],
-      "anchor": [
-        0.5,
-        0.5
-      ],
-      "effect_color": "#62c8ff"
-    },
-    "diamond_2_v2": {
-      "sheet": "qualities_v2",
-      "index": 2,
-      "trim_alpha": true,
-      "size": [
-        1.24,
-        2.0
-      ],
-      "anchor": [
-        0.5,
-        0.5
-      ],
-      "effect_color": "#e1edf7"
-    },
-    "diamond_3_v2": {
-      "sheet": "qualities_v2",
-      "index": 3,
-      "trim_alpha": true,
-      "size": [
-        1.28,
-        2.12
-      ],
-      "anchor": [
-        0.5,
-        0.5
-      ],
-      "effect_color": "#e1edf7"
-    },
-    "aquamarine_2_v2": {
-      "sheet": "qualities_v2",
-      "index": 4,
-      "trim_alpha": true,
-      "size": [
-        1.24,
-        2.0
+        0.94,
+        0.94
       ],
       "anchor": [
         0.5,
@@ -504,13 +1192,38 @@
       ],
       "effect_color": "#5bf0d4"
     },
-    "aquamarine_3_v2": {
-      "sheet": "qualities_v2",
-      "index": 5,
+    "special_v1_silver": {
+      "texture": "res://assets/graphics/specials-v1/silver.png",
       "trim_alpha": true,
       "size": [
-        1.28,
-        2.12
+        0.94,
+        0.94
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "effect_color": "#c5e4e7"
+    },
+    "special_v1_baiyinqishi": {
+      "texture": "res://assets/graphics/specials-v1/baiyinqishi.png",
+      "trim_alpha": true,
+      "size": [
+        0.94,
+        0.94
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "effect_color": "#62c8ff"
+    },
+    "special_v1_feicuimoxiang": {
+      "texture": "res://assets/graphics/specials-v1/feicuimoxiang.png",
+      "trim_alpha": true,
+      "size": [
+        0.94,
+        0.94
       ],
       "anchor": [
         0.5,
@@ -518,125 +1231,38 @@
       ],
       "effect_color": "#5bf0d4"
     },
-    "opal_2_v2": {
-      "sheet": "qualities_v2",
-      "index": 6,
+    "special_v1_fenhongzuanshi": {
+      "texture": "res://assets/graphics/specials-v1/fenhongzuanshi.png",
       "trim_alpha": true,
       "size": [
-        1.24,
-        2.0
+        0.94,
+        0.94
       ],
       "anchor": [
         0.5,
         0.5
       ],
-      "effect_color": "#f2afdc"
+      "effect_color": "#e1edf7"
     },
-    "opal_3_v2": {
-      "sheet": "qualities_v2",
-      "index": 7,
+    "special_v1_furongshi": {
+      "texture": "res://assets/graphics/specials-v1/furongshi.png",
       "trim_alpha": true,
       "size": [
-        1.28,
-        2.12
+        0.94,
+        0.94
       ],
       "anchor": [
         0.5,
         0.5
       ],
-      "effect_color": "#f2afdc"
+      "effect_color": "#5bf0d4"
     },
-    "emerald_2_v2": {
-      "sheet": "qualities_v2",
-      "index": 8,
+    "special_v1_geluanshi": {
+      "texture": "res://assets/graphics/specials-v1/geluanshi.png",
       "trim_alpha": true,
       "size": [
-        1.24,
-        2.0
-      ],
-      "anchor": [
-        0.5,
-        0.5
-      ],
-      "effect_color": "#83d46a"
-    },
-    "emerald_3_v2": {
-      "sheet": "qualities_v2",
-      "index": 9,
-      "trim_alpha": true,
-      "size": [
-        1.28,
-        2.12
-      ],
-      "anchor": [
-        0.5,
-        0.5
-      ],
-      "effect_color": "#83d46a"
-    },
-    "topaz_2_v2": {
-      "sheet": "qualities_v2",
-      "index": 10,
-      "trim_alpha": true,
-      "size": [
-        1.24,
-        2.0
-      ],
-      "anchor": [
-        0.5,
-        0.5
-      ],
-      "effect_color": "#f4ce65"
-    },
-    "topaz_3_v2": {
-      "sheet": "qualities_v2",
-      "index": 11,
-      "trim_alpha": true,
-      "size": [
-        1.28,
-        2.12
-      ],
-      "anchor": [
-        0.5,
-        0.5
-      ],
-      "effect_color": "#f4ce65"
-    },
-    "ruby_2_v2": {
-      "sheet": "qualities_v2",
-      "index": 12,
-      "trim_alpha": true,
-      "size": [
-        1.24,
-        2.0
-      ],
-      "anchor": [
-        0.5,
-        0.5
-      ],
-      "effect_color": "#f1757b"
-    },
-    "ruby_3_v2": {
-      "sheet": "qualities_v2",
-      "index": 13,
-      "trim_alpha": true,
-      "size": [
-        1.28,
-        2.12
-      ],
-      "anchor": [
-        0.5,
-        0.5
-      ],
-      "effect_color": "#f1757b"
-    },
-    "amethyst_2_v2": {
-      "sheet": "qualities_v2",
-      "index": 14,
-      "trim_alpha": true,
-      "size": [
-        1.24,
-        2.0
+        0.94,
+        0.94
       ],
       "anchor": [
         0.5,
@@ -644,19 +1270,473 @@
       ],
       "effect_color": "#b79afa"
     },
-    "amethyst_3_v2": {
-      "sheet": "qualities_v2",
-      "index": 15,
+    "special_v1_gudaidejixueshi": {
+      "texture": "res://assets/graphics/specials-v1/gudaidejixueshi.png",
       "trim_alpha": true,
       "size": [
-        1.28,
-        2.12
+        0.94,
+        0.94
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "effect_color": "#f1757b"
+    },
+    "special_v1_haibao": {
+      "texture": "res://assets/graphics/specials-v1/haibao.png",
+      "trim_alpha": true,
+      "size": [
+        0.94,
+        0.94
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "effect_color": "#5bf0d4"
+    },
+    "special_v1_haiyangqingyu": {
+      "texture": "res://assets/graphics/specials-v1/haiyangqingyu.png",
+      "trim_alpha": true,
+      "size": [
+        0.94,
+        0.94
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "effect_color": "#83d46a"
+    },
+    "special_v1_heianfeicui": {
+      "texture": "res://assets/graphics/specials-v1/heianfeicui.png",
+      "trim_alpha": true,
+      "size": [
+        0.94,
+        0.94
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "effect_color": "#5bf0d4"
+    },
+    "special_v1_heisemaoyanshi": {
+      "texture": "res://assets/graphics/specials-v1/heisemaoyanshi.png",
+      "trim_alpha": true,
+      "size": [
+        0.94,
+        0.94
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "effect_color": "#f2afdc"
+    },
+    "special_v1_heiwangzihuangguanhongbaoshi": {
+      "texture": "res://assets/graphics/specials-v1/heiwangzihuangguanhongbaoshi.png",
+      "trim_alpha": true,
+      "size": [
+        0.94,
+        0.94
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "effect_color": "#83d46a"
+    },
+    "special_v1_heiyaoshi": {
+      "texture": "res://assets/graphics/specials-v1/heiyaoshi.png",
+      "trim_alpha": true,
+      "size": [
+        0.94,
+        0.94
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "effect_color": "#62c8ff"
+    },
+    "special_v1_hongshanhu": {
+      "texture": "res://assets/graphics/specials-v1/hongshanhu.png",
+      "trim_alpha": true,
+      "size": [
+        0.94,
+        0.94
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "effect_color": "#f2afdc"
+    },
+    "special_v1_huaguoshanxiandan": {
+      "texture": "res://assets/graphics/specials-v1/huaguoshanxiandan.png",
+      "trim_alpha": true,
+      "size": [
+        0.94,
+        0.94
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "effect_color": "#83d46a"
+    },
+    "special_v1_huangcailanbaoshi": {
+      "texture": "res://assets/graphics/specials-v1/huangcailanbaoshi.png",
+      "trim_alpha": true,
+      "size": [
+        0.94,
+        0.94
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "effect_color": "#5bf0d4"
+    },
+    "special_v1_huguoshenyishi": {
+      "texture": "res://assets/graphics/specials-v1/huguoshenyishi.png",
+      "trim_alpha": true,
+      "size": [
+        0.94,
+        0.94
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "effect_color": "#5bf0d4"
+    },
+    "special_v1_jin": {
+      "texture": "res://assets/graphics/specials-v1/jin.png",
+      "trim_alpha": true,
+      "size": [
+        0.94,
+        0.94
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "effect_color": "#5bf0d4"
+    },
+    "special_v1_jingangshikulinan": {
+      "texture": "res://assets/graphics/specials-v1/jingangshikulinan.png",
+      "trim_alpha": true,
+      "size": [
+        0.94,
+        0.94
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "effect_color": "#e1edf7"
+    },
+    "special_v1_jingxindiaozhuodepalayibabixi": {
+      "texture": "res://assets/graphics/specials-v1/jingxindiaozhuodepalayibabixi.png",
+      "trim_alpha": true,
+      "size": [
+        0.94,
+        0.94
       ],
       "anchor": [
         0.5,
         0.5
       ],
       "effect_color": "#b79afa"
+    },
+    "special_v1_jixiangdezhongguoyu": {
+      "texture": "res://assets/graphics/specials-v1/jixiangdezhongguoyu.png",
+      "trim_alpha": true,
+      "size": [
+        0.94,
+        0.94
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "effect_color": "#83d46a"
+    },
+    "special_v1_jixueshi": {
+      "texture": "res://assets/graphics/specials-v1/jixueshi.png",
+      "trim_alpha": true,
+      "size": [
+        0.94,
+        0.94
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "effect_color": "#5bf0d4"
+    },
+    "special_v1_juxingfenhongzuanshi": {
+      "texture": "res://assets/graphics/specials-v1/juxingfenhongzuanshi.png",
+      "trim_alpha": true,
+      "size": [
+        0.94,
+        0.94
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "effect_color": "#62c8ff"
+    },
+    "special_v1_keyinuoerguangmingzhishan": {
+      "texture": "res://assets/graphics/specials-v1/keyinuoerguangmingzhishan.png",
+      "trim_alpha": true,
+      "size": [
+        0.94,
+        0.94
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "effect_color": "#62c8ff"
+    },
+    "special_v1_malachite": {
+      "texture": "res://assets/graphics/specials-v1/malachite.png",
+      "trim_alpha": true,
+      "size": [
+        0.94,
+        0.94
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "effect_color": "#86e1a7"
+    },
+    "special_v1_manao": {
+      "texture": "res://assets/graphics/specials-v1/manao.png",
+      "trim_alpha": true,
+      "size": [
+        0.94,
+        0.94
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "effect_color": "#f4ce65"
+    },
+    "special_v1_mirendeqingjinshi": {
+      "texture": "res://assets/graphics/specials-v1/mirendeqingjinshi.png",
+      "trim_alpha": true,
+      "size": [
+        0.94,
+        0.94
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "effect_color": "#5bf0d4"
+    },
+    "special_v1_palayibabixi": {
+      "texture": "res://assets/graphics/specials-v1/palayibabixi.png",
+      "trim_alpha": true,
+      "size": [
+        0.94,
+        0.94
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "effect_color": "#b79afa"
+    },
+    "special_v1_ranshaozhishi": {
+      "texture": "res://assets/graphics/specials-v1/ranshaozhishi.png",
+      "trim_alpha": true,
+      "size": [
+        0.94,
+        0.94
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "effect_color": "#f1757b"
+    },
+    "special_v1_shenhaizhenzhu": {
+      "texture": "res://assets/graphics/specials-v1/shenhaizhenzhu.png",
+      "trim_alpha": true,
+      "size": [
+        0.94,
+        0.94
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "effect_color": "#5bf0d4"
+    },
+    "special_v1_shuaibiankaipayou": {
+      "texture": "res://assets/graphics/specials-v1/shuaibiankaipayou.png",
+      "trim_alpha": true,
+      "size": [
+        0.94,
+        0.94
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "effect_color": "#f4ce65"
+    },
+    "special_v1_sililankazhixing": {
+      "texture": "res://assets/graphics/specials-v1/sililankazhixing.png",
+      "trim_alpha": true,
+      "size": [
+        0.94,
+        0.94
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "effect_color": "#83d46a"
+    },
+    "special_v1_tianranzumulv": {
+      "texture": "res://assets/graphics/specials-v1/tianranzumulv.png",
+      "trim_alpha": true,
+      "size": [
+        0.94,
+        0.94
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "effect_color": "#5bf0d4"
+    },
+    "special_v1_xiameishi": {
+      "texture": "res://assets/graphics/specials-v1/xiameishi.png",
+      "trim_alpha": true,
+      "size": [
+        0.94,
+        0.94
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "effect_color": "#5bf0d4"
+    },
+    "special_v1_xianyandekongqueshi": {
+      "texture": "res://assets/graphics/specials-v1/xianyandekongqueshi.png",
+      "trim_alpha": true,
+      "size": [
+        0.94,
+        0.94
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "effect_color": "#f4ce65"
+    },
+    "special_v1_asteriated_ruby": {
+      "texture": "res://assets/graphics/specials-v1/asteriated_ruby.png",
+      "trim_alpha": true,
+      "size": [
+        0.94,
+        0.94
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "effect_color": "#ff9ab1"
+    },
+    "special_v1_xingguanglanbaoshi": {
+      "texture": "res://assets/graphics/specials-v1/xingguanglanbaoshi.png",
+      "trim_alpha": true,
+      "size": [
+        0.94,
+        0.94
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "effect_color": "#62c8ff"
+    },
+    "special_v1_xuehonghuoshan": {
+      "texture": "res://assets/graphics/specials-v1/xuehonghuoshan.png",
+      "trim_alpha": true,
+      "size": [
+        0.94,
+        0.94
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "effect_color": "#f1757b"
+    },
+    "special_v1_yijiazhishi": {
+      "texture": "res://assets/graphics/specials-v1/yijiazhishi.png",
+      "trim_alpha": true,
+      "size": [
+        0.94,
+        0.94
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "effect_color": "#f2afdc"
+    },
+    "special_v1_you235": {
+      "texture": "res://assets/graphics/specials-v1/you235.png",
+      "trim_alpha": true,
+      "size": [
+        0.94,
+        0.94
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "effect_color": "#f4ce65"
+    },
+    "special_v1_you238": {
+      "texture": "res://assets/graphics/specials-v1/you238.png",
+      "trim_alpha": true,
+      "size": [
+        0.94,
+        0.94
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "effect_color": "#f4ce65"
+    },
+    "special_v1_jade": {
+      "texture": "res://assets/graphics/specials-v1/jade.png",
+      "trim_alpha": true,
+      "size": [
+        0.94,
+        0.94
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "effect_color": "#83d46a"
     }
   },
   "bindings": {
@@ -726,46 +1806,46 @@
         "6": "amethyst_3_v2"
       },
       "silver": {
-        "default": "silver"
+        "default": "special_v1_silver"
       },
       "malachite": {
-        "default": "malachite"
+        "default": "special_v1_malachite"
       },
       "asteriated_ruby": {
-        "default": "asteriated_ruby"
+        "default": "special_v1_asteriated_ruby"
       },
       "stone": {
         "default": "stone"
       },
       "jade": {
-        "default": "emerald_3_v2"
+        "default": "special_v1_jade"
       },
       "aijijin": {
-        "default": "aquamarine_3_v2"
+        "default": "special_v1_aijijin"
       },
       "baiyinqishi": {
-        "default": "sapphire_3_v2"
+        "default": "special_v1_baiyinqishi"
       },
       "feicuimoxiang": {
-        "default": "aquamarine_3_v2"
+        "default": "special_v1_feicuimoxiang"
       },
       "fenhongzuanshi": {
-        "default": "diamond_3_v2"
+        "default": "special_v1_fenhongzuanshi"
       },
       "furongshi": {
-        "default": "aquamarine_3_v2"
+        "default": "special_v1_furongshi"
       },
       "geluanshi": {
-        "default": "amethyst_3_v2"
+        "default": "special_v1_geluanshi"
       },
       "gudaidejixueshi": {
-        "default": "ruby_3_v2"
+        "default": "special_v1_gudaidejixueshi"
       },
       "haibao": {
-        "default": "aquamarine_3_v2"
+        "default": "special_v1_haibao"
       },
       "haiyangqingyu": {
-        "default": "emerald_3_v2"
+        "default": "special_v1_haiyangqingyu"
       },
       "haojiaoshiban": {
         "default": "stone"
@@ -777,16 +1857,16 @@
         "default": "stone"
       },
       "heianfeicui": {
-        "default": "aquamarine_3_v2"
+        "default": "special_v1_heianfeicui"
       },
       "heisemaoyanshi": {
-        "default": "opal_3_v2"
+        "default": "special_v1_heisemaoyanshi"
       },
       "heiwangzihuangguanhongbaoshi": {
-        "default": "emerald_3_v2"
+        "default": "special_v1_heiwangzihuangguanhongbaoshi"
       },
       "heiyaoshi": {
-        "default": "sapphire_3_v2"
+        "default": "special_v1_heiyaoshi"
       },
       "hongliushiban": {
         "default": "stone"
@@ -798,37 +1878,37 @@
         "default": "stone"
       },
       "hongshanhu": {
-        "default": "opal_3_v2"
+        "default": "special_v1_hongshanhu"
       },
       "huaguoshanxiandan": {
-        "default": "emerald_3_v2"
+        "default": "special_v1_huaguoshanxiandan"
       },
       "huangcailanbaoshi": {
-        "default": "aquamarine_3_v2"
+        "default": "special_v1_huangcailanbaoshi"
       },
       "huguoshenyishi": {
-        "default": "aquamarine_3_v2"
+        "default": "special_v1_huguoshenyishi"
       },
       "jin": {
-        "default": "aquamarine_3_v2"
+        "default": "special_v1_jin"
       },
       "jingangshikulinan": {
-        "default": "diamond_3_v2"
+        "default": "special_v1_jingangshikulinan"
       },
       "jingxindiaozhuodepalayibabixi": {
-        "default": "amethyst_3_v2"
+        "default": "special_v1_jingxindiaozhuodepalayibabixi"
       },
       "jixiangdezhongguoyu": {
-        "default": "emerald_3_v2"
+        "default": "special_v1_jixiangdezhongguoyu"
       },
       "jixueshi": {
-        "default": "aquamarine_3_v2"
+        "default": "special_v1_jixueshi"
       },
       "juxingfenhongzuanshi": {
-        "default": "sapphire_3_v2"
+        "default": "special_v1_juxingfenhongzuanshi"
       },
       "keyinuoerguangmingzhishan": {
-        "default": "sapphire_3_v2"
+        "default": "special_v1_keyinuoerguangmingzhishan"
       },
       "kongheshiban": {
         "default": "stone"
@@ -849,25 +1929,25 @@
         "default": "stone"
       },
       "manao": {
-        "default": "topaz_3_v2"
+        "default": "special_v1_manao"
       },
       "mirendeqingjinshi": {
-        "default": "aquamarine_3_v2"
+        "default": "special_v1_mirendeqingjinshi"
       },
       "palayibabixi": {
-        "default": "amethyst_3_v2"
+        "default": "special_v1_palayibabixi"
       },
       "ranshaozhishi": {
-        "default": "ruby_3_v2"
+        "default": "special_v1_ranshaozhishi"
       },
       "shenhaizhenzhu": {
-        "default": "aquamarine_3_v2"
+        "default": "special_v1_shenhaizhenzhu"
       },
       "shuaibiankaipayou": {
-        "default": "topaz_3_v2"
+        "default": "special_v1_shuaibiankaipayou"
       },
       "sililankazhixing": {
-        "default": "emerald_3_v2"
+        "default": "special_v1_sililankazhixing"
       },
       "suanwushiban": {
         "default": "stone"
@@ -879,19 +1959,19 @@
         "default": "stone"
       },
       "tianranzumulv": {
-        "default": "aquamarine_3_v2"
+        "default": "special_v1_tianranzumulv"
       },
       "xiameishi": {
-        "default": "aquamarine_3_v2"
+        "default": "special_v1_xiameishi"
       },
       "xianyandekongqueshi": {
-        "default": "topaz_3_v2"
+        "default": "special_v1_xianyandekongqueshi"
       },
       "xingguanglanbaoshi": {
-        "default": "sapphire_3_v2"
+        "default": "special_v1_xingguanglanbaoshi"
       },
       "xuehonghuoshan": {
-        "default": "ruby_3_v2"
+        "default": "special_v1_xuehonghuoshan"
       },
       "xuwushiban": {
         "default": "stone"
@@ -903,13 +1983,13 @@
         "default": "stone"
       },
       "yijiazhishi": {
-        "default": "opal_3_v2"
+        "default": "special_v1_yijiazhishi"
       },
       "you235": {
-        "default": "topaz_3_v2"
+        "default": "special_v1_you235"
       },
       "you238": {
-        "default": "topaz_3_v2"
+        "default": "special_v1_you238"
       },
       "youbushiban": {
         "default": "stone"
@@ -936,55 +2016,76 @@
       "gemtd_zhongchenggaoshanmaoniu": "yak",
       "gemtd_moluokedejixiezhushou": "courier_robot",
       "gemtd_wuweizhihuan_fly": "blue_courier",
-      "gemtd_shudunziranzhizhu": "spider",
+      "gemtd_shudunziranzhizhu": "stump",
       "gemtd_chaomengjuxi": "lizard",
       "gemtd_xiaohongmao_fly": "red_courier",
-      "gemtd_dashiqi": "hound",
+      "gemtd_dashiqi": "dusky",
       "gemtd_buquzhanquan_boss": "boss_hound",
-      "gemtd_mengzhu": "frog",
-      "gemtd_maorongrongdefeiyangyang": "yak",
-      "gemtd_caonimalama": "lizard",
-      "gemtd_fengtungongzhu": "yak",
-      "gemtd_bugou": "lizard",
-      "gemtd_banzhuduizhang_fly": "red_courier",
-      "gemtd_xunjiemotong": "frog",
-      "gemtd_yonggandexiaoji": "hound",
-      "gemtd_xiaobajie": "spider",
-      "gemtd_shentu": "spider",
-      "gemtd_huxiaotao_boss": "lizard",
-      "gemtd_siwangsiliezhe": "boss_hound",
-      "gemtd_yaorenxiangluoke": "boss_hound",
-      "gemtd_tiezuiyaorenxiang": "yak",
-      "gemtd_jixieyaorenxiang": "lizard",
-      "gemtd_fengbaozhizikesaier_fly": "blue_courier",
-      "gemtd_niepanhuolieniao": "hound",
-      "gemtd_lgddejinmengmeng_fly": "red_courier",
-      "gemtd_youniekesizhinu_fly": "blue_courier",
-      "gemtd_feihuxia_fly": "red_courier",
-      "gemtd_mofafeitanxiaoemo_boss_fly": "blue_courier",
-      "gemtd_modianxiaolong": "hound",
-      "gemtd_xiaoshayu": "yak",
-      "gemtd_feijiangxiaobao": "hound",
-      "gemtd_shangjinbaobao_fly": "red_courier",
-      "gemtd_jinyinhuling_fly": "red_courier",
-      "gemtd_jinyinhuling_fly1": "blue_courier",
-      "gemtd_cuihua": "courier_robot",
-      "gemtd_cuihua1": "courier_robot",
-      "gemtd_xiaobaihu": "courier_robot",
-      "gemtd_xiaoxingyue": "spider",
+      "gemtd_mengzhu": "invisible_spider",
+      "gemtd_maorongrongdefeiyangyang": "sheep",
+      "gemtd_caonimalama": "alpaca",
+      "gemtd_fengtungongzhu": "pig_princess",
+      "gemtd_bugou": "bulldog",
+      "gemtd_banzhuduizhang_fly": "panda_flyer",
+      "gemtd_xunjiemotong": "young_demon",
+      "gemtd_yonggandexiaoji": "chicken",
+      "gemtd_xiaobajie": "bajie",
+      "gemtd_shentu": "rabbit",
+      "gemtd_huxiaotao_boss": "shagbark",
+      "gemtd_siwangsiliezhe": "ripper",
+      "gemtd_yaorenxiangluoke": "lockjaw",
+      "gemtd_tiezuiyaorenxiang": "trapjaw",
+      "gemtd_jixieyaorenxiang": "machjaw",
+      "gemtd_fengbaozhizikesaier_fly": "corsair",
+      "gemtd_niepanhuolieniao": "flamingo",
+      "gemtd_lgddejinmengmeng_fly": "goldfish",
+      "gemtd_youniekesizhinu_fly": "ig_dragon",
+      "gemtd_feihuxia_fly": "fox",
+      "gemtd_mofafeitanxiaoemo_boss_fly": "carpet_rider",
+      "gemtd_modianxiaolong": "bookwyrm",
+      "gemtd_xiaoshayu": "shark",
+      "gemtd_feijiangxiaobao": "zombie",
+      "gemtd_shangjinbaobao_fly": "huntling",
+      "gemtd_jinyinhuling_fly": "jinyin_fox",
+      "gemtd_jinyinhuling_fly1": "fox",
+      "gemtd_cuihua": "jumo",
+      "gemtd_cuihua1": "jumo",
+      "gemtd_xiaobaihu": "baekho",
+      "gemtd_xiaoxingyue": "lilnova",
       "gemtd_xiaoxingyue1": "courier_robot",
-      "gemtd_liangqiyuhai_fly": "red_courier",
-      "gemtd_guixiaoxieling_boss_fly": "blue_courier",
-      "gemtd_weilanlong": "hound",
-      "gemtd_saodiekupu_fly": "blue_courier",
-      "gemtd_maomaoyu": "courier_robot",
-      "gemtd_xiaomogu": "spider",
-      "gemtd_jiujiu_fly": "blue_courier",
-      "gemtd_siwangxintu": "frog",
-      "gemtd_jilamofashi": "yak",
-      "gemtd_xiaofeixia_fly": "red_courier",
-      "gemtd_juniaoduoduo": "boar",
-      "gemtd_roushan_boss_fly": "blue_courier"
+      "gemtd_liangqiyuhai_fly": "mermaid",
+      "gemtd_guixiaoxieling_boss_fly": "ghost",
+      "gemtd_weilanlong": "azuremir",
+      "gemtd_saodiekupu_fly": "kupu",
+      "gemtd_maomaoyu": "furry_fish",
+      "gemtd_xiaomogu": "shroomy",
+      "gemtd_jiujiu_fly": "chirpy",
+      "gemtd_siwangxintu": "boooofus",
+      "gemtd_jilamofashi": "crummy",
+      "gemtd_xiaofeixia_fly": "wabbit",
+      "gemtd_juniaoduoduo": "drodo",
+      "gemtd_roushan_boss_fly": "baby_roshan",
+      "gemtd_tianmaodigou_fly": "panda_flyer",
+      "gemtd_yaobaidelvgemi": "rabbit",
+      "gemtd_xiexiaowo": "ripper",
+      "gemtd_dazuiyaorenxiang": "trapjaw",
+      "gemtd_jixiezhanlv": "machjaw",
+      "gemtd_huoxingche_fly": "corsair",
+      "gemtd_ruxingshuimu_fly": "goldfish",
+      "gemtd_xiaofamuji_fly": "ig_dragon",
+      "gemtd_yingwuchuanfu_fly": "fox",
+      "gemtd_talongaosiji": "bookwyrm",
+      "gemtd_siwangxianzhi": "zombie",
+      "gemtd_xuemobaobao_fly": "huntling",
+      "gemtd_fennenrongyuan_fly": "mermaid",
+      "gemtd_cuiyuxiaolong": "azuremir",
+      "gemtd_xunjieyuanzumaolv": "crummy",
+      "gemtd_jiwanghaidao_fly": "wabbit",
+      "gemtd_yuediyang_boss": "shagbark",
+      "gemtd_zard_boss_fly": "carpet_rider",
+      "gemtd_gugubiao_boss_fly": "ghost",
+      "gemtd_roushan_boss_fly_jin": "baby_roshan",
+      "gemtd_roushan_boss_fly_bojin": "baby_roshan"
     }
   },
   "palette": {
@@ -1090,6 +2191,14 @@
       "squash": 0.035,
       "sway": 0.04,
       "lift": 0.25
+    },
+    "towers": {
+      "enabled": true,
+      "idle_glow": 0.12,
+      "glow_speed": 2.2,
+      "pop_time": 0.26,
+      "fire_flash": 0.14,
+      "fire_glow": 0.35
     }
   }
 }

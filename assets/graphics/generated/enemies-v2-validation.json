@@ -1,0 +1,329 @@
+{
+  "sprites": {
+    "stump": {
+      "size": [
+        51,
+        52
+      ],
+      "alpha_values": [
+        0,
+        255
+      ]
+    },
+    "shroomy": {
+      "size": [
+        45,
+        42
+      ],
+      "alpha_values": [
+        0,
+        255
+      ]
+    },
+    "shark": {
+      "size": [
+        61,
+        46
+      ],
+      "alpha_values": [
+        0,
+        255
+      ]
+    },
+    "furry_fish": {
+      "size": [
+        50,
+        40
+      ],
+      "alpha_values": [
+        0,
+        255
+      ]
+    },
+    "flamingo": {
+      "size": [
+        47,
+        51
+      ],
+      "alpha_values": [
+        0,
+        255
+      ]
+    },
+    "drodo": {
+      "size": [
+        50,
+        44
+      ],
+      "alpha_values": [
+        0,
+        255
+      ]
+    },
+    "chicken": {
+      "size": [
+        48,
+        47
+      ],
+      "alpha_values": [
+        0,
+        255
+      ]
+    },
+    "young_demon": {
+      "size": [
+        44,
+        42
+      ],
+      "alpha_values": [
+        0,
+        255
+      ]
+    },
+    "ripper": {
+      "size": [
+        62,
+        47
+      ],
+      "alpha_values": [
+        0,
+        255
+      ]
+    },
+    "alpaca": {
+      "size": [
+        47,
+        56
+      ],
+      "alpha_values": [
+        0,
+        255
+      ]
+    },
+    "sheep": {
+      "size": [
+        42,
+        49
+      ],
+      "alpha_values": [
+        0,
+        255
+      ]
+    },
+    "rabbit": {
+      "size": [
+        41,
+        43
+      ],
+      "alpha_values": [
+        0,
+        255
+      ]
+    },
+    "lilnova": {
+      "size": [
+        59,
+        53
+      ],
+      "alpha_values": [
+        0,
+        255
+      ]
+    },
+    "zombie": {
+      "size": [
+        40,
+        55
+      ],
+      "alpha_values": [
+        0,
+        255
+      ]
+    },
+    "boooofus": {
+      "size": [
+        60,
+        53
+      ],
+      "alpha_values": [
+        0,
+        255
+      ]
+    },
+    "jumo": {
+      "size": [
+        34,
+        54
+      ],
+      "alpha_values": [
+        0,
+        255
+      ]
+    },
+    "lockjaw": {
+      "size": [
+        52,
+        52
+      ],
+      "alpha_values": [
+        0,
+        255
+      ]
+    },
+    "trapjaw": {
+      "size": [
+        51,
+        53
+      ],
+      "alpha_values": [
+        0,
+        255
+      ]
+    },
+    "machjaw": {
+      "size": [
+        45,
+        50
+      ],
+      "alpha_values": [
+        0,
+        255
+      ]
+    },
+    "goldfish": {
+      "size": [
+        62,
+        52
+      ],
+      "alpha_values": [
+        0,
+        255
+      ]
+    },
+    "corsair": {
+      "size": [
+        61,
+        50
+      ],
+      "alpha_values": [
+        0,
+        255
+      ]
+    },
+    "fox": {
+      "size": [
+        56,
+        43
+      ],
+      "alpha_values": [
+        0,
+        255
+      ]
+    },
+    "jinyin_fox": {
+      "size": [
+        58,
+        45
+      ],
+      "alpha_values": [
+        0,
+        255
+      ]
+    },
+    "wabbit": {
+      "size": [
+        52,
+        49
+      ],
+      "alpha_values": [
+        0,
+        255
+      ]
+    },
+    "panda_flyer": {
+      "size": [
+        49,
+        44
+      ],
+      "alpha_values": [
+        0,
+        255
+      ]
+    },
+    "mermaid": {
+      "size": [
+        47,
+        42
+      ],
+      "alpha_values": [
+        0,
+        255
+      ]
+    },
+    "kupu": {
+      "size": [
+        49,
+        36
+      ],
+      "alpha_values": [
+        0,
+        255
+      ]
+    },
+    "blue_courier": {
+      "size": [
+        42,
+        55
+      ],
+      "alpha_values": [
+        0,
+        255
+      ]
+    },
+    "shagbark": {
+      "size": [
+        61,
+        56
+      ],
+      "alpha_values": [
+        0,
+        255
+      ]
+    },
+    "carpet_rider": {
+      "size": [
+        57,
+        43
+      ],
+      "alpha_values": [
+        0,
+        255
+      ]
+    },
+    "ghost": {
+      "size": [
+        52,
+        47
+      ],
+      "alpha_values": [
+        0,
+        255
+      ]
+    },
+    "baby_roshan": {
+      "size": [
+        53,
+        44
+      ],
+      "alpha_values": [
+        0,
+        255
+      ]
+    }
+  },
+  "count": 32,
+  "raw_files_unchanged": true,
+  "refine_command": "python tools/art/refine_v2.py",
+  "redesign_guard": "RED_ZONE_OK files=69",
+  "project_checks": "CHECKS_OK (run before all refined PNGs completed; final full import run separately)"
+}

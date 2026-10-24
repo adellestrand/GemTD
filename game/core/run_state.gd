@@ -20,14 +20,22 @@ var quality_discount = 0
 var discounted_bosses: Array[int] = []
 var placed = 0
 var phase = "build"
+var awaiting_trap_placement = false
+var pending_trap = Vector2i(-1,-1)
 var message = "Place five gems. Their type is revealed after placement."
 var kills = 0
 var leaks = 0
 var streak = 0.0
 var enemy_count = 10
+var tower_revision = 0
+var tower_moves_left = 0
+var trial_wait = 0.0
+var wave_choices: Dictionary = {}
+var reference_calendar: Dictionary = Time.get_date_dict_from_system()
 
 func _init(seed_value: int = 1) -> void:
 	lives = GemCatalog.starting_lives()
+	if GemCatalog.campaign(): tower_moves_left = int(GemCatalog.DATA.mechanics.tower_moves_per_run)
 	initial_seed = seed_value
 	rng.seed = seed_value
 	combat_rng.seed = seed_value ^ 0x47454d
@@ -58,6 +66,7 @@ func place(p: Vector2i) -> bool:
 	return true
 
 func demolish(p: Vector2i) -> bool:
+	if awaiting_trap_placement: return fail("Position your trap, then start the wave. Your tower choice is already final.")
 	if phase == "build" and board.slabs.has(p):
 		record_action({"action":"demolish","at":[p.x,p.y]})
 		board.slabs.erase(p)
@@ -82,6 +91,44 @@ func fresh_cells() -> Array[Vector2i]:
 		if board.cells[p].fresh:
 			result.append(p)
 	return result
+
+func tower_move_source_error(from: Vector2i) -> String:
+	if not GemCatalog.campaign(): return "Tower relocation is available in the solo campaign."
+	if phase != "build" or awaiting_trap_placement: return "Move older towers during building, before your final choice."
+	if tower_moves_left <= 0: return "No tower moves left this run."
+	if not board.cells.has(from) or board.cells[from].kind == "stone": return "Select an older tower to move."
+	if board.cells[from].get("fresh",true): return "New gems cannot be moved before your final choice."
+	return ""
+
+func tower_move_preview(from: Vector2i, to: Vector2i) -> Dictionary:
+	var error = tower_move_source_error(from)
+	if error.is_empty():
+		if from == to: error = "Choose a different cell, or cancel the move."
+		elif not board.inside(to): error = "Choose a cell inside the board."
+		elif board.checkpoints.has(to): error = "Checkpoints must stay clear."
+		elif board.slabs.has(to): error = "A path trap occupies that cell."
+		elif board.cells.has(to) and board.cells[to].kind != "stone": error = "Choose an empty cell or a stone, not another tower or new gem."
+	if not error.is_empty(): return {"error":error,"route":PackedVector2Array()}
+	var candidate = board.cells.duplicate()
+	var tower: Dictionary = candidate[from]
+	if candidate.has(to): candidate[from] = candidate[to]
+	else: candidate.erase(from)
+	candidate[to] = tower
+	var route = board.path_for(candidate)
+	return {"error":"That move would block a checkpoint route." if route.is_empty() else "","route":route,"cells":candidate}
+
+func move_tower(from: Vector2i, to: Vector2i) -> bool:
+	var preview = tower_move_preview(from,to)
+	if not preview.error.is_empty(): return fail(preview.error)
+	record_action({"action":"move_tower","at":[from.x,from.y],"to":[to.x,to.y]})
+	board.cells = preview.cells
+	board.ground_route = preview.route
+	tower_moves_left -= 1
+	tower_revision += 1
+	message = "Tower moved. %d of %d moves left this run." % [tower_moves_left,int(GemCatalog.DATA.mechanics.tower_moves_per_run)]
+	sound_requested.emit("place")
+	changed.emit()
+	return true
 
 func keep(p: Vector2i) -> bool:
 	if phase != "build" or placed != 5 or not board.cells.has(p) or not board.cells[p].fresh:
@@ -119,6 +166,22 @@ func upgrade(p: Vector2i, count: int) -> bool:
 	finalize(p)
 	return true
 
+func downgrade(p: Vector2i) -> bool:
+	if not GemCatalog.campaign() or phase != "build" or placed != 5 or awaiting_trap_placement or not board.cells.has(p):
+		return fail("Place five gems, then select a new gem of quality II or higher to downgrade.")
+	var gem: Dictionary = board.cells[p]
+	if not gem.fresh or gem.kind not in GemCatalog.TYPES or int(gem.tier) < 2:
+		return fail("Only a new gem of quality II or higher can be downgraded.")
+	var weights: Array = GemCatalog.DATA.mechanics.downgrade_weights[str(int(gem.tier))]
+	# Source makes an initial uniform draw even for grades with a weighted override.
+	var tier = int(gem.tier)-rng.randi_range(1,int(gem.tier)-1)
+	if int(gem.tier) in [3,4,5]: tier = GemCatalog.roll_tier(weights,101-rng.randi_range(1,100))
+	gem.tier = tier
+	record_action({"action":"downgrade","at":[p.x,p.y],"tier":tier})
+	sound_requested.emit("combine")
+	finalize(p)
+	return true
+
 func recipe_materials(recipe: String, result_at: Vector2i, old_only: bool = false) -> Array[Vector2i]:
 	var result: Array[Vector2i] = []
 	if GemCatalog.recipe(recipe).is_empty() or not board.cells.has(result_at):
@@ -148,9 +211,10 @@ func recipe_materials(recipe: String, result_at: Vector2i, old_only: bool = fals
 	return result
 
 func combine(recipe: String, result_at: Vector2i, old_only: bool = false) -> bool:
-	if phase != "build":
+	if phase not in ["build","combat"] or (phase == "combat" and not GemCatalog.campaign()) or awaiting_trap_placement:
 		return fail("Combinations are available during the build phase.")
 	if GemCatalog.stats({"kind":GemCatalog.recipe_result(recipe),"tier":1}).get("slab",false):
+		if phase == "combat": return fail("Create path traps before combat. Older tower recipes remain available during combat.")
 		var error = slab_error(result_at,true)
 		if not error.is_empty(): return fail(error)
 	var materials = recipe_materials(recipe, result_at, old_only)
@@ -161,6 +225,7 @@ func combine(recipe: String, result_at: Vector2i, old_only: bool = false) -> boo
 		uses_new = uses_new or board.cells[p].fresh
 	if uses_new and placed != 5:
 		return fail("Place all five gems before combining new materials.")
+	if uses_new and phase != "build": return fail("Only older materials can be combined during combat.")
 	record_action({"action":"recipe","at":[result_at.x,result_at.y],"recipe":recipe,"old_only":old_only})
 	var mvp = 0
 	for p in materials: mvp += int(board.cells[p].get("mvp",0))
@@ -170,7 +235,7 @@ func combine(recipe: String, result_at: Vector2i, old_only: bool = false) -> boo
 	if GemCatalog.stats({"kind":result,"tier":1}).get("slab",false):
 		board.cells.erase(result_at)
 		board.slabs[result_at] = result
-		upgrade_slabs()
+		pending_trap = upgrade_slabs(result_at)
 		board.rebuild()
 	else:
 		board.cells[result_at] = {"kind":result,"tier":1,"fresh":false,"priority":"First"}
@@ -183,32 +248,48 @@ func combine(recipe: String, result_at: Vector2i, old_only: bool = false) -> boo
 				z = sqrt(-2.0*log(u))*cos(TAU*v)
 			board.cells[result_at].rolled_damage = maxi(30,ceili(z*128.0+512.0))
 		if GemCatalog.stats(board.cells[result_at]).get("steal_abilities",0) > 0:
-			var pool: Array = []
-			for p in board.cells:
-				if p != result_at and Vector2(p).distance_to(Vector2(result_at)) <= 220.0/128.0 and board.cells[p].kind != result:
-					for id in GemCatalog.stats(board.cells[p]).get("abilities",[]):
-						if not str(id).begins_with("e") and id not in pool: pool.append(id)
+			var pool = GemCampaignRules.steal_pool(result_at,board.cells)
 			var stolen: Array = []
-			while not pool.is_empty() and stolen.size() < 3:
+			var attempts = 0
+			while not pool.is_empty() and stolen.size() < 3 and attempts < 100:
 				var index = rng.randi_range(0,pool.size()-1)
-				stolen.append(pool.pop_at(index))
+				if pool[index] not in stolen: stolen.append(pool[index])
+				attempts += 1
 			board.cells[result_at].stolen_abilities = stolen
+	tower_revision += 1
 	sound_requested.emit("combine")
 	if uses_new:
-		finalize(result_at)
+		finalize(result_at,board.slabs.has(pending_trap) and GemCatalog.stats({"kind":result,"tier":1}).get("slab",false))
 	else:
-		message = "Combined older towers. Your new tower choice is still available."
+		message = "Combined older towers during combat." if phase == "combat" else "Combined older towers. Your new tower choice is still available."
 		changed.emit()
 	return true
 
 static func stone() -> Dictionary:
 	return {"kind": "stone", "tier": 1, "fresh": false, "priority": "First"}
 
-func finalize(result_at: Vector2i) -> void:
+func finalize(result_at: Vector2i, position_trap: bool = false) -> void:
 	for p in fresh_cells():
 		if p != result_at:
 			board.cells[p] = stone()
 	if board.cells.has(result_at): board.cells[result_at].fresh = false
+	if position_trap:
+		awaiting_trap_placement = true
+		message = "Trap created. Move it now, or keep its position, then click Start wave. Your tower choice is final."
+		changed.emit()
+		return
+	begin_combat()
+
+func start_wave() -> bool:
+	if phase != "build" or not awaiting_trap_placement:
+		return fail("Finish your tower choice before starting the wave.")
+	record_action({"action":"start_wave"})
+	begin_combat()
+	return true
+
+func begin_combat() -> void:
+	awaiting_trap_placement = false
+	pending_trap = Vector2i(-1,-1)
 	phase = "combat"
 	message = "Wave %d: %s" % [wave, GemCatalog.wave(wave).name]
 	combat_started.emit()
@@ -240,6 +321,7 @@ static func valid_discount(data: Dictionary) -> bool:
 	return float(credit) <= bosses.size()*int(GemCatalog.DATA.economy.boss_odds_discount)
 
 func buy_quality() -> bool:
+	if GemCatalog.campaign() and wave > 50: return fail("Trials grant no new gems, so gem odds purchases are closed.")
 	if phase in ["won", "lost"] or quality >= GemCatalog.max_quality_upgrade():
 		return fail("Quality odds are at the current content maximum.")
 	var cost = quality_price()
@@ -273,6 +355,7 @@ func set_priority(p: Vector2i, mode: String) -> bool:
 	return true
 
 func leaked(cost: int, boss: bool) -> void:
+	if GemCatalog.campaign(): adjust_streak(-3.0*cost)
 	leaks += 1
 	lives = maxi(0, lives-cost)
 	sound_requested.emit("leak")
@@ -294,6 +377,10 @@ func finish_wave() -> void:
 		placed = 0
 		phase = "build"
 		message = "Wave cleared. Place five new gems."
+		if GemCatalog.campaign() and wave > 50:
+			phase = "intermission"
+			trial_wait = float(GemCatalog.DATA.mechanics.trial_intermission_seconds)
+			message = "Trials: no new gems. The next wave starts automatically; pause to review."
 		build_started.emit()
 	changed.emit()
 
@@ -301,6 +388,8 @@ func snapshot() -> Dictionary:
 	var result = {"version": SAVE_VERSION, "content_version": GemCatalog.DATA.version, "seed": str(initial_seed), "rng": str(rng.state), "combat_rng": str(combat_rng.state), "wave": wave, "lives": lives, "gold": gold, "quality": quality, "kills": kills, "leaks": leaks, "cells": board.serialize()}
 	if GemCatalog.campaign():
 		result.merge({"slabs":serialize_slabs(),"streak":streak,"enemy_count":enemy_count,"quality_discount":quality_discount,"discounted_bosses":discounted_bosses.duplicate()})
+		result.merge({"wave_choices":wave_choices.duplicate(),"reference_calendar":{"month":reference_calendar.month,"day":reference_calendar.day}})
+		result.tower_moves_left = tower_moves_left
 	return result
 
 func serialize_slabs() -> Array:
@@ -317,7 +406,7 @@ func adjust_streak(amount: float) -> void:
 		streak += 50
 		enemy_count = maxi(5,enemy_count-1)
 
-func upgrade_slabs() -> void:
+func upgrade_slabs(tracked: Vector2i = Vector2i(-1,-1)) -> Vector2i:
 	var again = true
 	while again:
 		again = false
@@ -328,12 +417,14 @@ func upgrade_slabs() -> void:
 			if not GemCatalog.DATA.get("slab_upgrades",{}).has(kind): continue
 			for delta in [Vector2i(1,0),Vector2i(0,1),Vector2i(1,1),Vector2i(1,-1)]:
 				if board.slabs.get(p+delta,"") == kind and board.slabs.get(p-delta,"") == kind:
+					if tracked in [p,p+delta,p-delta]: tracked = p
 					board.slabs.erase(p+delta)
 					board.slabs.erase(p-delta)
 					board.slabs[p] = GemCatalog.DATA.slab_upgrades[kind]
 					again = true
 					break
 			if again: break
+	return tracked
 
 func move_slab(from: Vector2i, to: Vector2i) -> bool:
 	if phase != "build" or not board.slabs.has(from): return fail("Move path traps during building.")
@@ -342,8 +433,11 @@ func move_slab(from: Vector2i, to: Vector2i) -> bool:
 	record_action({"action":"move_slab","at":[from.x,from.y],"to":[to.x,to.y]})
 	board.slabs[to] = board.slabs[from]
 	board.slabs.erase(from)
-	upgrade_slabs()
-	message = "Path trap moved. Three equal traps in a line upgrade automatically."
+	if awaiting_trap_placement:
+		pending_trap = upgrade_slabs(to if pending_trap == from else pending_trap)
+	else:
+		upgrade_slabs()
+	message = "Path trap moved. Click Start wave when ready." if awaiting_trap_placement else "Path trap moved. Three equal traps in a line upgrade automatically."
 	changed.emit()
 	return true
 
@@ -364,6 +458,20 @@ func restore(data: Dictionary) -> bool:
 		return false
 	if GemCatalog.campaign():
 		if not valid_discount(data): return false
+		var moves: Variant = data.get("tower_moves_left",null)
+		if not (moves is int or moves is float) or not is_finite(float(moves)) or float(moves) != floorf(float(moves)) or float(moves) < 0 or float(moves) > float(GemCatalog.DATA.mechanics.tower_moves_per_run): return false
+		if not data.has_all(["wave_choices","reference_calendar"]): return false
+		if not data.get("wave_choices",{}) is Dictionary or not data.get("reference_calendar",{}) is Dictionary: return false
+		var calendar: Dictionary = data.get("reference_calendar",{})
+		for field in ["month","day"]:
+			var value: Variant = calendar.get(field,null)
+			if not (value is int or value is float) or not is_finite(float(value)) or float(value) != floorf(float(value)): return false
+		if int(calendar.get("month",0)) not in range(1,13) or int(calendar.get("day",0)) not in range(1,32): return false
+		for key in data.wave_choices:
+			if not str(key).is_valid_int() or str(int(key)) != str(key) or int(key) not in range(1,51): return false
+			var ids: Array = [GemCatalog.wave(int(key)).source_id]
+			for alternate in GemCatalog.DATA.wave_alternatives.get(str(key),[]): ids.append(alternate.source_id)
+			if data.wave_choices[key] not in ids: return false
 		if not (data.get("streak",0) is int or data.get("streak",0) is float) or not is_finite(float(data.get("streak",0))) or absf(float(data.get("streak",0))) >= 50: return false
 		if int(data.get("enemy_count",10)) < 5 or int(data.get("enemy_count",10)) > 1000: return false
 		if not data.get("slabs",[]) is Array: return false
@@ -393,7 +501,16 @@ func restore(data: Dictionary) -> bool:
 	streak = float(data.get("streak",0))
 	enemy_count = int(data.get("enemy_count",10))
 	phase = "build"
+	if GemCatalog.campaign():
+		wave_choices = data.wave_choices.duplicate()
+		tower_moves_left = int(data.tower_moves_left)
+		reference_calendar = data.reference_calendar.duplicate()
+		if wave > 50:
+			phase = "intermission"
+			trial_wait = float(GemCatalog.DATA.mechanics.trial_intermission_seconds)
+	awaiting_trap_placement = false
+	pending_trap = Vector2i(-1,-1)
 	placed = 0
-	message = "Resumed at the beginning of build phase %d." % wave
+	message = "Resumed before trial %d. No new gems; pause to review." % wave if phase == "intermission" else "Resumed at the beginning of build phase %d." % wave
 	changed.emit()
 	return true

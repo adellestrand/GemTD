@@ -10,6 +10,10 @@ const CARD_MIN_WIDTH = 186.0
 const COMPACT_HEIGHT = 44.0
 const ROW_MIN_WIDTH = 280.0
 const READY = Color("6fc48a")
+# Ingredients that are only available among this round's new gems (combining them is the final choice).
+const FRESH = Color("f0cf4a")
+const PARTIAL = Color("b8863b")
+const GROUP_HEADER = 22.0
 const MISSING = Color("4a5560")
 const TRAP_WIDTH = 280.0
 # Tower grades as the Dota 2 version labels them (help texts): grey, blue, pink, orange.
@@ -74,6 +78,8 @@ const SUMMARY = {
 	"tianranzumulv":"Steals 3 abilities from towers around."}
 
 var content: GridContainer
+# Compact mode: one column per HBox child, each holding whole upgrade-line groups.
+var chains: HBoxContainer
 var tower_header: HBoxContainer
 var trap_panel: PanelContainer
 var trap_list: VBoxContainer
@@ -116,6 +122,14 @@ func _ready() -> void:
 	search.custom_minimum_size.x = 320
 	search.text_changed.connect(func(_text): rebuild_cards())
 	top.add_child(search)
+	# Grade legend sits in the top row so the recipe columns get the full height.
+	tower_header = HBoxContainer.new()
+	tower_header.add_theme_constant_override("separation",10)
+	tower_header.size_flags_vertical = Control.SIZE_SHRINK_CENTER
+	top.add_child(tower_header)
+	section_title(tower_header,"TOWER RECIPES",Color("e8c46a"))
+	for key in ["basic","intermediate","advanced","top"]:
+		legend_dot(tower_header,GRADES[key][0],Color(GRADES[key][1]))
 	summary = Label.new()
 	summary.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	summary.size_flags_vertical = Control.SIZE_SHRINK_CENTER
@@ -134,17 +148,15 @@ func _ready() -> void:
 	towers.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	towers.add_theme_constant_override("separation",6)
 	columns.add_child(towers)
-	tower_header = HBoxContainer.new()
-	tower_header.add_theme_constant_override("separation",10)
-	towers.add_child(tower_header)
-	section_title(tower_header,"TOWER RECIPES",Color("e8c46a"))
-	for key in ["basic","intermediate","advanced","top"]:
-		legend_dot(tower_header,GRADES[key][0],Color(GRADES[key][1]))
 	content = GridContainer.new()
 	content.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	content.add_theme_constant_override("h_separation",8)
 	content.add_theme_constant_override("v_separation",6)
 	towers.add_child(content)
+	chains = HBoxContainer.new()
+	chains.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	chains.add_theme_constant_override("separation",8)
+	towers.add_child(chains)
 	# Traps (path pedals) are a different kind of build: their own column, like Dota's pedal list.
 	trap_panel = PanelContainer.new()
 	var trap_style = StyleBoxFlat.new()
@@ -213,7 +225,7 @@ func _ready() -> void:
 func clear_cards() -> void:
 	track_buttons.clear()
 	find_buttons.clear()
-	for list in [content,trap_list]:
+	for list in [content,chains,trap_list]:
 		for child in list.get_children():
 			list.remove_child(child)
 			child.queue_free()
@@ -242,20 +254,23 @@ func rebuild_cards() -> void:
 	if bound_state == null: return
 	built_width = size.x
 	clear_cards()
-	var shown: Array = []
+	var matches: Dictionary = {}
 	for recipe in GemCatalog.recipes():
 		var haystack = GemCatalog.recipe_title(recipe)+" "+str(GemCatalog.recipe(recipe).get("family",""))
 		for ingredient in GemCatalog.recipe(recipe).ingredients: haystack += " "+GemCatalog.title({"kind":ingredient[0],"tier":int(ingredient[1])})
 		if search.text.is_empty() or haystack.to_lower().contains(search.text.to_lower()):
-			shown.append({"recipe":recipe,"progress":GemRecipeGuide.progress(bound_state,recipe),"order":shown.size()})
-	# Ready recipes first, then the ones closest to completion; ties keep catalog order.
-	shown.sort_custom(func(a,b):
-		var ra = float(a.progress.collected)/maxf(1,float(a.progress.total))
-		var rb = float(b.progress.collected)/maxf(1,float(b.progress.total))
-		return ra > rb if not is_equal_approx(ra,rb) else a.order < b.order
-	)
-	var traps = shown.filter(func(e): return is_trap(e.recipe))
-	shown = shown.filter(func(e): return not is_trap(e.recipe))
+			matches[recipe] = GemRecipeGuide.progress(bound_state,recipe)
+	# Dota order: towers grouped by upgrade line (base -> top), secret recipes after, traps in their own column.
+	var groups: Array = []
+	var shown: Array = []
+	for group in chain_groups():
+		var entries: Array = group.recipes.filter(func(r): return matches.has(r)).map(func(r): return {"recipe":r,"progress":matches[r]})
+		if not entries.is_empty():
+			groups.append({"title":group.title,"color":group.color,"entries":entries})
+			shown.append_array(entries)
+	var traps: Array = []
+	for recipe in matches:
+		if is_trap(recipe): traps.append({"recipe":recipe,"progress":matches[recipe]})
 	trap_panel.visible = not traps.is_empty()
 	show_detail("")
 	tower_header.visible = not traps.is_empty() or shown.size() > 12
@@ -263,27 +278,59 @@ func rebuild_cards() -> void:
 	detail_panel.visible = not detailed
 	detail_panel.get_parent().visible = not detailed or trap_panel.visible
 	var width = maxf(400.0,float(size.x)-40.0-(TRAP_WIDTH+14.0 if trap_panel.visible else 0.0))
+	content.visible = detailed
+	chains.visible = not detailed
+	var ready = 0
 	if detailed:
 		content.columns = clampi(int(width/(CARD_MIN_WIDTH+8.0)),1,3)
+		for entry in shown:
+			if entry.progress.complete: ready += 1
+			add_recipe(entry.recipe,entry.progress,true,content)
 	else:
 		# Enough columns that every row fits the window height; never narrower than readable.
-		var rows_fit = maxi(1,int((float(size.y)-180.0+8.0)/(COMPACT_HEIGHT+8.0)))
-		var needed = ceili(float(shown.size())/float(rows_fit))
-		content.columns = clampi(maxi(needed,int(width/380.0)),1,maxi(1,int(width/(ROW_MIN_WIDTH+8.0))))
-	var ready = 0
-	for entry in shown:
-		if entry.progress.complete: ready += 1
-		add_recipe(entry.recipe,entry.progress,detailed,content)
+		var rows_fit = maxi(1,int((float(size.y)-150.0+8.0)/(COMPACT_HEIGHT+8.0)))
+		var units = float(shown.size())+float(groups.size())*GROUP_HEADER/(COMPACT_HEIGHT+8.0)
+		var needed = ceili(units/float(rows_fit))
+		var columns = clampi(maxi(needed,int(width/380.0)),1,maxi(1,int(width/(ROW_MIN_WIDTH+8.0))))
+		# Lines are never split. Largest first into the emptiest column, then each column keeps
+		# the original line order, so the columns end up level and fit the window.
+		var fill: Array = []
+		var picks: Array = []
+		for i in range(columns):
+			fill.append(0.0)
+			picks.append([])
+		var by_size = range(groups.size())
+		by_size.sort_custom(func(a,b): return groups[a].entries.size() > groups[b].entries.size() if groups[a].entries.size() != groups[b].entries.size() else a < b)
+		for index in by_size:
+			var target = fill.find(fill.min())
+			fill[target] += float(groups[index].entries.size())+GROUP_HEADER/(COMPACT_HEIGHT+8.0)
+			picks[target].append(index)
+		for pick in picks: pick.sort()
+		picks.sort_custom(func(a,b): return a.size() > 0 and (b.is_empty() or a[0] < b[0]))
+		for pick in picks:
+			if pick.is_empty():
+				continue
+			var column = VBoxContainer.new()
+			column.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+			column.add_theme_constant_override("separation",3)
+			chains.add_child(column)
+			for index in pick:
+				var group: Dictionary = groups[index]
+				var title = section_title(column,group.title,group.color)
+				title.add_theme_font_size_override("font_size",11)
+				for entry in group.entries:
+					if entry.progress.complete: ready += 1
+					add_recipe(entry.recipe,entry.progress,false,column)
 	for entry in traps:
 		if entry.progress.complete: ready += 1
 		add_recipe(entry.recipe,entry.progress,false,trap_list)
 	shown.append_array(traps)
 	summary.text = "%d recipes · %d ready now · click an ingredient to find it on the board, the pin to track a recipe" % [shown.size(),ready] if not shown.is_empty() else "No matching recipes."
 
-func card_style(ready: bool, tracked: bool) -> StyleBoxFlat:
+func card_style(ready: bool, tracked: bool, needs_new: bool = false) -> StyleBoxFlat:
 	var box = StyleBoxFlat.new()
-	box.bg_color = Color("1d2832") if not ready else Color("1c2e27")
-	box.border_color = Color("e8c46a") if tracked else (READY if ready else Color("2c3a46"))
+	box.bg_color = Color("1d2832") if not ready else (Color("2a2817") if needs_new else Color("1c2e27"))
+	box.border_color = Color("e8c46a") if tracked else ((FRESH if needs_new else READY) if ready else Color("2c3a46"))
 	box.set_border_width_all(2 if ready or tracked else 1)
 	box.set_corner_radius_all(6)
 	box.content_margin_left = 8
@@ -308,7 +355,7 @@ func show_detail(recipe: String) -> void:
 	if recipe.is_empty() or bound_state == null:
 		detail_title.text = "What does it do?"
 		detail_kind.text = ""
-		detail_text.text = "Point at any recipe to read its full effect here. Ingredient chips: green = you have it, bronze = some of them, grey = missing. Click a chip to find the gem on the board."
+		detail_text.text = "Point at any recipe to read its full effect here. Ingredient chips: green = placed in an earlier round, yellow = only among this round's new gems, bronze = some of them, grey = missing. Click a chip to find the gem on the board."
 		detail_status.text = ""
 		return
 	var result = GemCatalog.recipe_result(recipe)
@@ -335,14 +382,98 @@ func show_ingredient(recipe: String, group: Dictionary) -> void:
 	if detail_panel == null or bound_state == null:
 		return
 	var have = group.owned.size()
-	detail_ingredient.text = "Ingredient: %s — have %d / %d%s" % [GemCatalog.title({"kind":group.kind,"tier":int(group.tier)}),have,int(group.needed),"" if have > 0 else " (missing)"]
+	var source = " (missing)"
+	if have > 0:
+		source = " (earlier rounds)" if int(group.older) >= int(group.needed) else (" (new this round)" if int(group.older) == 0 else " (%d earlier, %d new)" % [int(group.older),int(group["new"])])
+	detail_ingredient.text = "Ingredient: %s — have %d / %d%s" % [GemCatalog.title({"kind":group.kind,"tier":int(group.tier)}),have,int(group.needed),source]
 	detail_ingredient.visible = true
 
-func is_trap(recipe: String) -> bool:
+# Upgrade lines from the recipe tree (Dota's _G.gemtd_merge): each top tower with every combined
+# tower that feeds it, base first. Side towers join the line of a tower they are built from.
+static func chain_groups() -> Array:
+	var standard: Array = []
+	var home: Array = []
+	var mixed: Array = []
+	for recipe in GemCatalog.recipes():
+		if is_trap(recipe):
+			continue
+		if str(GemCatalog.recipe(recipe).get("family","")) != "secret":
+			standard.append(recipe)
+			continue
+		var kinds = {}
+		for ingredient in GemCatalog.recipe(recipe).ingredients: kinds[str(ingredient[0])] = true
+		(home if kinds.size() == 1 else mixed).append(recipe)
+	var by_result = {}
+	for recipe in standard: by_result[GemCatalog.recipe_result(recipe)] = recipe
+	var parts = {}
+	var used = {}
+	for recipe in standard:
+		parts[recipe] = []
+		for ingredient in GemCatalog.recipe(recipe).ingredients:
+			if by_result.has(str(ingredient[0])):
+				parts[recipe].append(by_result[str(ingredient[0])])
+				used[by_result[str(ingredient[0])]] = true
+	var depth = {}
+	for recipe in standard: depth[recipe] = 0
+	for _pass in range(standard.size()):
+		for recipe in standard:
+			for part in parts[recipe]: depth[recipe] = maxi(int(depth[recipe]),int(depth[part])+1)
+	var roots = standard.filter(func(r): return not used.has(r))
+	# Lines start at the Top-grade towers (Dota help texts); without any, every final tower starts one.
+	var has_top = roots.any(func(r): return grade_of(r) == "top")
+	var lines: Array = []
+	var line_of = {}
+	var pending: Array = []
+	for root in roots:
+		if grade_of(root) == "top" or not has_top: claim(root,lines.size(),parts,line_of,true,lines)
+		else: pending.append(root)
+	while not pending.is_empty():
+		var attached = false
+		for root in pending.duplicate():
+			var line = -1
+			for recipe in feeders(root,parts):
+				if line_of.has(recipe):
+					line = int(line_of[recipe])
+					break
+			if line >= 0:
+				claim(root,line,parts,line_of,false,lines)
+				pending.erase(root)
+				attached = true
+		if not attached:
+			claim(pending.pop_front(),lines.size(),parts,line_of,true,lines)
+	var groups: Array = []
+	for line in lines:
+		var members: Array = line.recipes
+		members.sort_custom(func(a,b): return int(depth[a]) < int(depth[b]) if depth[a] != depth[b] else standard.find(a) < standard.find(b))
+		var grade = grade_of(line.root)
+		groups.append({"title":str(GemCatalog.stats({"kind":GemCatalog.recipe_result(line.root),"tier":1}).name).to_upper()+(" LINE" if members.size() > 1 else ""),
+			"color":Color(GRADES[grade][1]) if not grade.is_empty() else Color("e8c46a"),"recipes":members})
+	if not home.is_empty(): groups.append({"title":"SECRET · ONE GEM, FIVE QUALITIES","color":Color(GRADES.top[1]),"recipes":home})
+	if not mixed.is_empty(): groups.append({"title":"SECRET · OTHERS","color":Color(GRADES.top[1]),"recipes":mixed})
+	return groups
+
+# The recipe and every combined tower it is built from, nearest first.
+static func feeders(recipe: String, parts: Dictionary) -> Array:
+	var result: Array = [recipe]
+	var index = 0
+	while index < result.size():
+		for part in parts[result[index]]:
+			if not result.has(part): result.append(part)
+		index += 1
+	return result
+
+static func claim(root: String, line: int, parts: Dictionary, line_of: Dictionary, new_line: bool, lines: Array) -> void:
+	if new_line: lines.append({"root":root,"recipes":[]})
+	for recipe in feeders(root,parts):
+		if not line_of.has(recipe):
+			line_of[recipe] = line
+			lines[line].recipes.append(recipe)
+
+static func is_trap(recipe: String) -> bool:
 	var result = GemCatalog.recipe_result(recipe)
 	return str(GemCatalog.recipe(recipe).get("family","")) == "slab" or bool(GemCatalog.DATA.get("specials",{}).get(result,{}).get("slab",false))
 
-func grade_of(recipe: String) -> String:
+static func grade_of(recipe: String) -> String:
 	var result = GemCatalog.recipe_result(recipe)
 	var source = str(GemCatalog.DATA.get("specials",{}).get(result,{}).get("source_id","")).trim_prefix("gemtd_")
 	if GRADE_OF.has(source): return GRADE_OF[source]
@@ -378,7 +509,7 @@ func add_recipe(recipe: String, progress: Dictionary, detailed: bool, parent: No
 	var family = str(GemCatalog.recipe(recipe).get("family",""))
 	var grade = grade_of(recipe)
 	var panel = PanelContainer.new()
-	panel.add_theme_stylebox_override("panel",card_style(bool(progress.complete),bound_tracking == recipe))
+	panel.add_theme_stylebox_override("panel",card_style(bool(progress.complete),bound_tracking == recipe,bool(progress.complete) and not bool(progress.old_only)))
 	panel.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	panel.custom_minimum_size.x = CARD_MIN_WIDTH if detailed else 0.0
 	var kind_text = "Trap (path pedal)" if is_trap(recipe) else (GRADES[grade][0]+" combined tower" if not grade.is_empty() else "")
@@ -396,7 +527,7 @@ func add_recipe(recipe: String, progress: Dictionary, detailed: bool, parent: No
 		stripe.mouse_filter = Control.MOUSE_FILTER_IGNORE
 		outer.add_child(stripe)
 	var count_text = "Ready" if progress.complete else "%d/%d" % [progress.collected,progress.total]
-	var count_color = READY if progress.complete else Color("8e9aa3")
+	var count_color = (READY if progress.old_only else FRESH) if progress.complete else Color("8e9aa3")
 	var track = Button.new()
 	track.theme_type_variation = "ToolButton"
 	track.icon = pin_icon(bound_tracking == recipe)
@@ -507,10 +638,12 @@ func ingredient_button(recipe: String, group: Dictionary, detailed: bool) -> But
 		find.add_child(numeral)
 	find.add_theme_font_size_override("font_size",10 if not detailed else 13)
 	var ok = have >= int(group.needed)
+	# Green: enough from earlier rounds. Yellow: only reachable with this round's new gems.
+	var older = int(group.older) >= int(group.needed)
 	var style = StyleBoxFlat.new()
-	style.bg_color = Color("13201b") if ok else Color("141b22")
-	style.border_color = READY if ok else (Color("b8863b") if have > 0 else MISSING)
-	style.set_border_width_all(1)
+	style.bg_color = (Color("13201b") if older else Color("272412")) if ok else Color("141b22")
+	style.border_color = (READY if older else FRESH) if ok else (PARTIAL if have > 0 else MISSING)
+	style.set_border_width_all(2 if ok else 1)
 	style.set_corner_radius_all(4)
 	style.content_margin_left = 1
 	style.content_margin_right = 3

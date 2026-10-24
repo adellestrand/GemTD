@@ -58,6 +58,8 @@ Bygghjälpen ligger i `game/presentation/build_guide.gd`. Den läser modellens f
 
 Receptboken kan användas under strid för planering. Den pausar spelet och återställer tidigare pausläge vid stängning eller Locate/Track. Inget av dessa val kombinerar, förbrukar eller avslöjar gems. Boken beskriver om bara äldre material räcker, om fem placeringar först behövs och om nya material innebär omedelbar vågstart. Faktisk kombination sker via de befintliga tornkontrollerna.
 
+**Ordning och färger (2026-10-24).** Receptboken visar tornen per uppgraderingslinje som i Dota-versionen: varje Top-torn (Koh-i-Noor, Depleted Uranium, …) med alla kombinerade torn som leder dit, bas först. Linjerna härleds ur receptdatan (samma träd som Dotas `_G.gemtd_merge` i `mode.lua`); sidotorn som inte leder till ett Top-torn (Sea Jewel, Lucky Chinese Jade, Egypt Gold, Emerald Golem, Natural Emerald) placeras i linjen för ett torn de byggs av. Hemliga recept kommer sist i två grupper (en gemtyp i fem kvaliteter / övriga), som källans egna kommentarer delar dem. Hur Dotas Panorama-panel exakt ritar listan finns inte i referensdatan; grupperingen bygger på receptträdet. Ingredienschips: grön = finns bland gems från tidigare rundor, gul = finns bara bland den här rundans nya gems (kombination blir då rundans slutval), brons = delvis, grå = saknas.
+
 `recipe_guide.gd` beräknar skrivskyddat lager/framskridande. `recipe_book.gd` bygger kort och skickar Locate/Track-signaler. `board_view.gd` visar markeringarna. Räkningen uppdateras efter placering, kombination eller rivning. Fäst recept och Locate-ordning är sessionsinställningar; de nollställs vid ny omgång/återladdning och ändrar inte sparformatet. Befintliga bildbindningar/tema används; inga nya PNG-filer krävs.
 
 ## Maze-tips

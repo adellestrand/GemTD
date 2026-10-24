@@ -43,6 +43,7 @@ var recipe_text: RichTextLabel
 var muted = false
 var saved_volume = 0.35
 var volume_slider: HSlider
+var routes_check: CheckBox
 var smoke = false
 var recipe_book: GemRecipeBook
 var maze_book: GemMazeBook
@@ -51,6 +52,7 @@ var maze_button: LinkButton
 var last_maze_tip = ""
 var wave_book: GemWaveBook
 var summary_dialog: GemRunSummary
+var leaderboard_dialog: GemLeaderboardDialog
 var seed_dialog: GemSeedDialog
 var journal: GemReviewJournal
 var result_box: VBoxContainer
@@ -360,6 +362,7 @@ func build_ui() -> void:
 	restart.get_popup().add_separator()
 	restart.get_popup().add_item("Run summary / test report",3)
 	restart.get_popup().add_item("Enter seed...",4)
+	restart.get_popup().add_item("Leaderboard",5)
 	restart.get_popup().add_separator()
 	restart.get_popup().add_item("Solo campaign · 100 waves",10)
 	restart.get_popup().add_item("Review 1.0 · 10 waves",11)
@@ -386,6 +389,8 @@ func build_ui() -> void:
 			show_summary()
 		elif id == 4:
 			show_seed_dialog()
+		elif id == 5:
+			show_leaderboard()
 		elif id == 2:
 			new_run(run.initial_seed,last_snapshot)
 		else:
@@ -509,8 +514,14 @@ func build_ui() -> void:
 	label_in(legend,"— Ground",12).add_theme_color_override("font_color",Color("95d7ad"))
 	label_in(legend,"- - Air",12).add_theme_color_override("font_color",Color("9bc6ec"))
 	label_in(legend,"— Preview",12).add_theme_color_override("font_color",GemArt.color("route_preview"))
-	var routes_button = styled(button_in(map_tools,"Routes  R",func(): board_view.show_routes = not board_view.show_routes),"ToolButton") as Button
-	routes_button.tooltip_text = "Show or hide the ground and air routes."
+	# Enemy route lines are opt-in with a checkbox (R toggles it too); remembered in settings.cfg.
+	routes_check = CheckBox.new()
+	routes_check.text = "Show routes  R"
+	routes_check.focus_mode = Control.FOCUS_NONE
+	routes_check.button_pressed = board_view.show_routes
+	routes_check.tooltip_text = "Show the ground and air routes the enemies will walk and fly."
+	routes_check.toggled.connect(set_routes)
+	map_tools.add_child(routes_check)
 	var fit_button = styled(button_in(map_tools,"Fit  F",func(): board_view.fit_board()),"ToolButton") as Button
 	fit_button.tooltip_text = "Centre the map at the closest zoom-out. Wheel zooms; right- or middle-drag, arrow keys or WASD pan."
 	# --- sidebar: wave, selection, decisions, odds, settings
@@ -736,6 +747,10 @@ func build_ui() -> void:
 	summary_dialog = GemRunSummary.new()
 	add_child(summary_dialog)
 	connect_modal_pause(summary_dialog)
+	summary_dialog.leaderboard_requested.connect(show_leaderboard)
+	leaderboard_dialog = GemLeaderboardDialog.new()
+	add_child(leaderboard_dialog)
+	connect_modal_pause(leaderboard_dialog)
 	seed_dialog = GemSeedDialog.new()
 	add_child(seed_dialog)
 	connect_modal_pause(seed_dialog)
@@ -764,7 +779,7 @@ func connect_modal_pause(dialog: Window) -> void:
 	)
 	dialog.visibility_changed.connect(func():
 		if not dialog.visible:
-			if dim != null: dim.visible = [recipe_popup,recipe_book,maze_book,wave_book,summary_dialog,seed_dialog].any(func(d): return d != null and d != dialog and d.visible)
+			if dim != null: dim.visible = [recipe_popup,recipe_book,maze_book,wave_book,summary_dialog,seed_dialog,leaderboard_dialog].any(func(d): return d != null and d != dialog and d.visible)
 			paused = bool(restore.paused)
 			refresh_ui()
 	)
@@ -1175,7 +1190,7 @@ func refresh_combat_progress(wave: Dictionary) -> void:
 		boss_label.text = "Boss health: %.0f / %.0f" % [boss_health.value,boss_health.max_value]
 
 func hide_other_dialogs(except: Window = null) -> void:
-	for dialog in [recipe_popup,recipe_book,maze_book,wave_book,summary_dialog,seed_dialog]:
+	for dialog in [recipe_popup,recipe_book,maze_book,wave_book,summary_dialog,seed_dialog,leaderboard_dialog]:
 		if dialog != null and dialog != except:
 			dialog.hide()
 
@@ -1193,6 +1208,11 @@ func show_summary() -> void:
 	persist_review()
 	summary_dialog.open_report(report)
 
+func show_leaderboard() -> void:
+	if leaderboard_dialog.visible: return
+	hide_other_dialogs(leaderboard_dialog)
+	leaderboard_dialog.open_report(journal.export_report(run,combat))
+
 func show_seed_dialog() -> void:
 	if seed_dialog.visible:
 		return
@@ -1204,7 +1224,7 @@ func _input(event: InputEvent) -> void:
 	# key release. Text fields and modal windows retain their own keyboard UI.
 	if not event is InputEventKey or event.keycode != KEY_SPACE: return
 	if run == null or run.phase not in ["build","combat","intermission"]: return
-	for dialog in [recipe_popup,recipe_book,maze_book,wave_book,summary_dialog,seed_dialog]:
+	for dialog in [recipe_popup,recipe_book,maze_book,wave_book,summary_dialog,seed_dialog,leaderboard_dialog]:
 		if dialog != null and dialog.visible: return
 	var focus = get_viewport().gui_get_focus_owner()
 	if focus is LineEdit or focus is TextEdit: return
@@ -1221,7 +1241,7 @@ func _unhandled_key_input(event: InputEvent) -> void:
 			KEY_F: board_view.fit_board()
 			KEY_F11: toggle_fullscreen()
 			KEY_M: toggle_mute()
-			KEY_R: board_view.show_routes = not board_view.show_routes
+			KEY_R: set_routes(not board_view.show_routes)
 			KEY_G: choose_maze_tip("" if not board_view.maze_tip.is_empty() else last_maze_tip)
 			KEY_1: speed = 1
 			KEY_2: speed = 2
@@ -1253,6 +1273,12 @@ func apply_display(mode: String) -> void:
 	if usable.size.x > 0:
 		DisplayServer.window_set_position(usable.position+(usable.size-wanted)/2)
 
+func set_routes(on: bool) -> void:
+	board_view.show_routes = on
+	routes_check.set_pressed_no_signal(on)
+	board_view.queue_redraw()
+	save_settings()
+
 func toggle_pause() -> void:
 	paused = not paused
 	refresh_ui()
@@ -1279,6 +1305,7 @@ func save_settings() -> void:
 	config.set_value("audio","muted",muted)
 	config.set_value("display","mode",display_mode)
 	config.set_value("display","window",last_window_mode)
+	config.set_value("map","routes",board_view.show_routes)
 	config.save("user://settings.cfg")
 
 func load_settings() -> void:
@@ -1288,6 +1315,8 @@ func load_settings() -> void:
 		muted = bool(config.get_value("audio","muted",false))
 		display_mode = str(config.get_value("display","mode","fullscreen"))
 		last_window_mode = str(config.get_value("display","window","1080p"))
+		board_view.show_routes = bool(config.get_value("map","routes",true))
+	routes_check.set_pressed_no_signal(board_view.show_routes)
 	volume_slider.set_value_no_signal(saved_volume)
 	audio.volume = 0 if muted else saved_volume
 

@@ -1,0 +1,6 @@
+project_id = "gemtd-solo"
+
+[functions.submit-run]
+# The handler validates the user token through Auth.getUser before any write.
+# This also supports projects using new asymmetric Auth signing keys.
+verify_jwt = false

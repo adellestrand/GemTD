@@ -5,10 +5,12 @@ Den här filen sammanfattar design-/grafikarbetet som gjordes i en Claude-sessio
 ## Grundregel
 Var SUPER försiktig med själva spelet så att balanseringen inte förstörs. Ändra bara presentation (grafik, UI, animation). Röd zon = `game/core/`, `data/`, bygg-/verifieringsskript och befintliga tester.
 
-- Skyddskontroll: `python tools/redesign_guard.py` ska ge `RED_ZONE_OK`. `--baseline` sparar ny baslinje (bara när användaren godkänt ändringar i röd zon – senast godkänt 2026-10-24 efter vågtäthets-/fällarbetet).
+- Skyddskontroll: `python tools/redesign_guard.py` ska ge `RED_ZONE_OK`. `--baseline` sparar ny baslinje (bara när användaren godkänt ändringar i röd zon – senast godkänt 2026-10-24 efter vågtäthets-/fällarbetet, och igen samma dag efter det andra verktygets regel-/dataändringar i `data/`, `game/core/`, bygg-/verifieringsskript och `check_boss_discount.gd`).
 - Full testsvit: `python tools/check.py` (29 kontroller inkl. `check_cell_fit.gd`, `check_trap_placement.gd` och `check_enemy_frames.gd`).
 - Separat test (ingår inte i `check.py`, enligt användarens val): `python tools/godot.py --headless --path . --script res://tests/check_recipe_hover.gd -- --campaign --smoke` ska ge `RECIPE_HOVER_CHECK_OK` (receptbokens ingrediensnamn vid hovring).
+- Separat test (ingår inte i `check.py`): `python tools/godot.py --headless --path . --script res://tests/check_recipe_lines.gd -- --campaign --smoke` ska ge `RECIPE_LINES_CHECK_OK` (receptbokens uppgraderingslinjer och grön/gul-markering).
 - Separat test (ingår inte i `check.py`): `python tools/godot.py --headless --path . --script res://tests/check_maze_tips.gd -- --smoke` ska ge `MAZE_TIPS_CHECK_OK` (maze-tips-vyn och överlägget).
+- Separat test (ingår inte i `check.py`): `python tools/godot.py --headless --path . --script res://tests/check_route_toggle.gd -- --smoke` ska ge `ROUTE_TOGGLE_CHECK_OK` (kryssrutan "Show routes" för fiendernas väglinjer).
 - Efter nya bildfiler: `python tools/godot.py --headless --editor --path . --import` (annars `.ctex`-fel vid start; `.godot/` är git-ignorerad).
 - Repot använder LF-radslut.
 
@@ -24,7 +26,8 @@ Var SUPER försiktig med själva spelet så att balanseringen inte förstörs. �
 - Fast designyta 1600×900 (16:9) som skalar till 1080p/1440p/4K. Run ▾ → Display: helskärm (F11) eller fönster 1920×1080 / 2560×1440 / 3840×2160; sparas i `user://settings.cfg`.
 - Sidopanel: vågkort med taggar, tornkort med statbrickor, tydlig knapphierarki, odds som stapel. Dolda gamla etiketter (`detail_label`, `wave_label`, `odds_label`) finns kvar eftersom testerna läser dem.
 - Dialoger har riktig ram och dimmad bakgrund.
-- Receptbok (`game/presentation/recipe_book.gd`): helskärm, alla 59 kampanjrecept syns utan scroll vid 1080p. Tornrecept i 4 kolumner med nivåfärg (Basic/Intermediate/Advanced/Top från Dota-hjälptexterna), fällor i egen kolumn, kort beskrivning per rad (`SUMMARY`), detaljpanel vid hover.
+- Receptbok (`game/presentation/recipe_book.gd`): helskärm, alla 59 kampanjrecept syns utan scroll vid 1080p. Tornrecept grupperade per uppgraderingslinje (`chain_groups()`, härledd ur receptträdet = Dotas `_G.gemtd_merge`: varje Top-torn med alla kombinerade torn som leder dit, bas först; sidotorn som Sea Jewel/Egypt Gold följer linjen de byggs av), därefter hemliga recept i två grupper. Linjerna fördelas jämnt på 4 kolumner utan att delas. Nivåfärg (Basic/Intermediate/Advanced/Top från Dota-hjälptexterna) i toppraden, fällor i egen kolumn, kort beskrivning per rad (`SUMMARY`), detaljpanel vid hover. Ingredienschips: grön = placerad i tidigare runda, gul = finns bara bland rundans nya gems, brons = delvis, grå = saknas; kort med "Ready" får samma grön/gul-ram.
+- Fiendernas väglinjer (mark/luft) visas bara när kryssrutan **Show routes** under kartan är ikryssad (även i byggfasen); R växlar den, valet sparas i `user://settings.cfg` (`map/routes`, standard på). Byggförhandsvisningen av vägen visas alltid.
 - Maze-tips (`game/presentation/maze_book.gd`, `maze_tips.gd`, genererad `maze_tip_layouts.gd`): knappen **Mazes** visar Dota-versionens åtta labyrintförslag (`maze_coop1..8` ur `mode.lua`, egna namn) med minikarta; valt förslag ritas som rosa överlägg i `board_view.gd` tills det stängs (länk under brädet, knapp i vyn eller G). Se `docs/maze-tips.md`.
 
 **Animation**

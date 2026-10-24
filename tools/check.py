@@ -38,6 +38,7 @@ if __name__ == '__main__':
     logs.append(checked([str(ENGINE),'--headless','--path','.','--script','res://tests/check_ability_art.gd','--','--campaign','--smoke'], 'ABILITY_ART_CHECK_OK'))
     logs.append(checked([str(ENGINE),'--headless','--path','.','--script','res://tests/check_tower_effects.gd','--','--campaign','--smoke'], 'TOWER_EFFECTS_CHECK_OK'))
     logs.append(checked([str(ENGINE),'--headless','--path','.','--script','res://tests/check_quality_pass.gd','--','--campaign','--smoke'], 'QUALITY_PASS_CHECK_OK'))
+    logs.append(checked([str(ENGINE),'--headless','--path','.','--script','res://tests/check_leaderboard.gd','--','--campaign','--smoke'], 'LEADERBOARD_CHECK_OK'))
     logs.append(checked([str(ENGINE),'--headless','--path','.','--script','res://tests/check_campaign_flight.gd','--','--campaign','--smoke'], 'CAMPAIGN_FLIGHT_CHECK_OK'))
     logs.append(checked([str(ENGINE),'--headless','--path','.','--script','res://tests/check_proc_random.gd','--','--campaign','--smoke'], 'PROC_RANDOM_CHECK_OK'))
     logs.append(checked([str(ENGINE),'--headless','--path','.','--script','res://tests/check_boss_discount.gd','--','--campaign','--smoke'], 'BOSS_DISCOUNT_CHECK_OK'))

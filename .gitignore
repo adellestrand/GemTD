@@ -6,3 +6,6 @@ output/
 __pycache__/
 .playwright-cli/
 .claude/
+.env
+.env.*
+supabase/.temp/

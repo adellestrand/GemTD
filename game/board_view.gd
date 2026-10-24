@@ -271,7 +271,8 @@ func _draw() -> void:
 	for i in range(38):
 		draw_line(origin+Vector2(i,0)*cell_size, origin+Vector2(i,37)*cell_size, Color(GemArt.color("grid"),.25))
 		draw_line(origin+Vector2(0,i)*cell_size, origin+Vector2(37,i)*cell_size, Color(GemArt.color("grid"),.25))
-	if run.phase == "build" or show_routes:
+	# Route lines only when the player ticks "Show routes" (main.gd); the placement preview stays.
+	if show_routes:
 			draw_route(run.board.ground_route, Color(GemArt.color("route_ground"),.62), false)
 			draw_route(run.board.air_route, Color(GemArt.color("route_air"),.72), true)
 	var placement = guide.placement(hovered)

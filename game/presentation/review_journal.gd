@@ -8,8 +8,12 @@ var waves: Array[Dictionary] = []
 var active: Dictionary = {}
 var truncated = false
 var resumed = false
+var run_id = ""
 
 func reset(state: GemRun, from_checkpoint: bool) -> void:
+	# Independent entropy: online identity must never consume gameplay RNG.
+	var identity = Crypto.new().generate_random_bytes(16).hex_encode()
+	run_id = "%s-%s-%s-%s-%s" % [identity.substr(0,8),identity.substr(8,4),identity.substr(12,4),identity.substr(16,4),identity.substr(20,12)]
 	starting_checkpoint = state.snapshot().duplicate(true)
 	actions.clear()
 	waves.clear()
@@ -50,7 +54,7 @@ func export_report(state: GemRun, combat: GemCombat) -> Dictionary:
 	var history = waves.duplicate(true)
 	if not active.is_empty():
 		history.append(wave_result(state,combat,"in_progress"))
-	var result = {"report_schema":1,"game_version":GemRelease.version(),"balance_profile":GemCatalog.DATA.get("profile",GemRelease.DATA.balance_profile),
+	var result = {"report_schema":1,"run_id":run_id,"game_version":GemRelease.version(),"balance_profile":GemCatalog.DATA.get("profile",GemRelease.DATA.balance_profile),
 		"catalog_version":GemCatalog.DATA.version,"catalog_sha256":GemCatalog.content_sha256(),"balance_note":GemCatalog.DATA.get("balance_note",""),
 		"engine":Engine.get_version_info().string,"platform":OS.get_name(),"debug_build":OS.is_debug_build(),"reference_date":GemRelease.DATA.reference_date,
 		"seed":str(state.initial_seed),"resumed_from_checkpoint":resumed,"starting_checkpoint":starting_checkpoint.duplicate(true),

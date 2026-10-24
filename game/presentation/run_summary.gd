@@ -1,6 +1,8 @@
 class_name GemRunSummary
 extends AcceptDialog
 
+signal leaderboard_requested
+
 var content: MarginContainer
 var tabs: TabContainer
 var summary: RichTextLabel
@@ -40,6 +42,10 @@ func _ready() -> void:
 		status.text = "Report prepared. If copying is unavailable, open Report and use Ctrl+A, Ctrl+C."
 	)
 	box.add_child(copy_button)
+	var leaderboard_button = Button.new()
+	leaderboard_button.text = "Leaderboard & submit result"
+	leaderboard_button.pressed.connect(func(): leaderboard_requested.emit())
+	box.add_child(leaderboard_button)
 	status = Label.new()
 	status.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	status.add_theme_font_size_override("font_size",12)

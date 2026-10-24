@@ -93,6 +93,13 @@ det är inte ett äkthetsbevis för en spelad releaseomgång. Testspelare/result
 Webbexporten läser listan från Supabase i Chrome utan konsolfel. Windows-exportens
 grafik och ljud har också startkontrollerats.
 
+Publicerad kod: `09927c06b993f31f5ea928e9870fb552630e7e6e`.
+[Pages-körningen](https://github.com/adellestrand/GemTD/actions/runs/40135866097)
+klarade regression, paketering, API-tester, export och publicering. Den publika
+sidans `build.json` bekräftar samma commit och innehållshash `84986c6e…`.
+**Run → Leaderboard** laddar från Supabase även på den publika Pages-adressen;
+slutkontroll i Chrome 1360 × 900 gav 0 konsolfel och 0 varningar.
+
 Källor: [anonyma identiteter](https://supabase.com/docs/guides/auth/auth-anonymous),
 [Edge-autentisering](https://supabase.com/docs/guides/functions/auth),
 [serverhemligheter](https://supabase.com/docs/guides/functions/secrets),

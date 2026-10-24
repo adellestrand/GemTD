@@ -23,15 +23,21 @@ jobs:
           python-version: '3.12'
       - uses: actions/cache@v4
         with:
+          # Engine and templates only: the self-contained editor data (cache, temp, settings)
+          # written by an earlier run made a re-run crash while importing fonts.
           path: |
             .tools/godot
+            !.tools/godot/editor_data
             .tools/templates
             .tools/godot.zip
             .tools/templates.tpz
-          key: godot-windows-${{ hashFiles('tools/bootstrap.ps1') }}
+          key: godot-windows-v2-${{ hashFiles('tools/bootstrap.ps1') }}
       - name: Install pinned Godot and export templates
         shell: pwsh
         run: ./tools/bootstrap.ps1
+      - name: Start from fresh Godot editor data
+        shell: pwsh
+        run: Remove-Item -Recurse -Force .tools/godot/editor_data -ErrorAction SilentlyContinue
       - name: Run regression checks
         run: python tools/check.py
       - name: Check public packaging

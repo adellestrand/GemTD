@@ -1,10 +1,12 @@
 """Host-independent packaging checks; no engine or network needed."""
 import json
+import hashlib
 from pathlib import Path
 import tempfile
 import unittest
 
 from prepare_web_beta import FILES, ROOT, prepare
+from unittest.mock import patch
 
 
 class PublicBetaChecks(unittest.TestCase):
@@ -37,6 +39,19 @@ class PublicBetaChecks(unittest.TestCase):
         (self.source/'private.txt').write_text('not part of a web export')
         prepare(self.source, self.destination, 'b'*40)
         self.assertFalse((self.destination/'private.txt').exists())
+
+    def test_hash_is_independent_of_checkout_newlines(self):
+        fake_root = Path(self.temp.name)/'repo'
+        (fake_root/'data').mkdir(parents=True)
+        (fake_root/'game/core').mkdir(parents=True)
+        (fake_root/'game/core/release.gd').write_text('if GemCatalog.campaign(): return "1.4.1-dev"')
+        catalog = b'{"gems": {}}\n'
+        campaign = b'{"version": 10}\n'
+        (fake_root/'data/catalog.json').write_bytes(catalog.replace(b'\n',b'\r\n'))
+        (fake_root/'data/campaign.json').write_bytes(campaign.replace(b'\n',b'\r\n'))
+        with patch('prepare_web_beta.ROOT',fake_root):
+            metadata = prepare(self.source,self.destination,'e'*40)
+        self.assertEqual(metadata['content_sha256'],hashlib.sha256(catalog+b'\n'+campaign).hexdigest())
 
     def test_incomplete_export_rejected(self):
         (self.source/'index.pck').unlink()

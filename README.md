@@ -14,7 +14,12 @@ Spela och dela: [GemTD Solo på GitHub Pages](https://adellestrand.github.io/Gem
 Publicering startas manuellt under **Actions → Publish web beta → Run workflow**.
 Workflow kör tester och exporterar innan sidan ersätts. Den publika länken väljer
 kampanjen direkt. `build.json` visar vilken commit och innehållsversion som körs.
-Se [publiceringsflöde och förslag till leaderboard](docs/web-beta-and-leaderboard.md).
+Se [publiceringsflödet](docs/web-beta-and-leaderboard.md).
+
+Gemensam topplista finns under **Run → Leaderboard**. Skicka en avslutad, ny
+kampanjomgång med valfritt visningsnamn; ingen e-post behövs. Bästa resultat per
+spelare sorteras på avklarade vågor och liv, separat för varje balansversion.
+Resultat märks **unverified**. Se [leaderboard: användning och drift](docs/leaderboard.md).
 
 ## Innehåll
 

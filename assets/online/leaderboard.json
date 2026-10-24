@@ -1,5 +1,5 @@
 {
-  "enabled": false,
-  "project_url": "",
-  "publishable_key": ""
+  "enabled": true,
+  "project_url": "https://prnpylyaezmusspytckw.supabase.co",
+  "publishable_key": "sb_publishable_qkaIzg6QYksquWonsUY_iA_qXkq9uOm"
 }

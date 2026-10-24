@@ -49,7 +49,8 @@ def prepare(source, destination, commit):
         if name != 'index.html': shutil.copy2(source/name, destination/name)
     (destination/'index.html').write_text(html, encoding='utf8', newline='\n')
     (destination/'.nojekyll').touch()
-    content = (ROOT/'data/catalog.json').read_bytes()+b'\n'+(ROOT/'data/campaign.json').read_bytes()
+    content = ((ROOT/'data/catalog.json').read_text(encoding='utf8')+'\n'+
+               (ROOT/'data/campaign.json').read_text(encoding='utf8')).encode('utf8')
     manifest = {'game_version': version, 'content_version': campaign['version'],
                 'commit': commit, 'profile': 'campaign',
                 'content_sha256': hashlib.sha256(content).hexdigest(),

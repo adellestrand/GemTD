@@ -14,6 +14,7 @@ var generation = 0
 
 func _ready() -> void:
 	title = "Leaderboard · solo campaign"
+	wrap_controls = false
 	min_size = Vector2i(720,540)
 	get_ok_button().text = "Close"
 	client = GemLeaderboardClient.new()
@@ -48,7 +49,9 @@ func _ready() -> void:
 	status = Label.new()
 	status.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	content.add_child(status)
-	size_changed.connect(fit_content)
+	size_changed.connect(func(): fit_content.call_deferred())
+	content.resized.connect(func(): fit_content.call_deferred())
+	content.minimum_size_changed.connect(func(): fit_content.call_deferred())
 
 func fit_content() -> void:
 	content.position = Vector2(16,12)

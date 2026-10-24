@@ -44,10 +44,14 @@ static func load_profile() -> Dictionary:
 
 static func content_sha256() -> String:
 	if campaign():
-		return (FileAccess.get_file_as_string("res://data/catalog.json")+"\n"+FileAccess.get_file_as_string("res://data/campaign.json")).sha256_text()
+		return (canonical_content("res://data/catalog.json")+"\n"+canonical_content("res://data/campaign.json")).sha256_text()
 	if not expanded_gems():
 		return FileAccess.get_sha256("res://data/catalog.json")
-	return (FileAccess.get_file_as_string("res://data/catalog.json")+"\n"+FileAccess.get_file_as_string("res://data/expanded_gems.json")).sha256_text()
+	return (canonical_content("res://data/catalog.json")+"\n"+canonical_content("res://data/expanded_gems.json")).sha256_text()
+
+static func canonical_content(path: String) -> String:
+	# Git checkouts and generators may use different newlines on Windows.
+	return FileAccess.get_file_as_string(path).replace("\r\n","\n").replace("\r","\n")
 
 static func effect_value(effect: Dictionary, field: String, tier: int) -> float:
 	var value: Variant = effect[field]

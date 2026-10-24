@@ -71,10 +71,13 @@ func run_checks() -> void:
 	var game = load("res://game/main.tscn").instantiate()
 	root.add_child(game)
 	game.audio.volume = 0
+	game.leaderboard_dialog.client.config.enabled = false
 	game.show_leaderboard()
+	await process_frame
 	await process_frame
 	check(game.leaderboard_dialog.visible and not game.leaderboard_dialog.scores.bbcode_enabled,"scoreboard modal opens with safe plain-text names")
 	check(game.leaderboard_dialog.submit_button.disabled and not game.leaderboard_dialog.scores.text.is_empty(),"disabled deployment explains availability and prevents submission")
+	check(game.leaderboard_dialog.content.get_rect().end.y <= game.leaderboard_dialog.size.y-50 and game.leaderboard_dialog.size.y <= 600,"scoreboard and submission controls fit above Close without recursive window growth")
 	game.show_summary()
 	check(not game.leaderboard_dialog.visible and game.summary_dialog.visible,"summary and leaderboard follow the shared modal rules")
 	game.free()

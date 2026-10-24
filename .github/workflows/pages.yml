@@ -42,6 +42,11 @@ jobs:
         run: python tools/check.py
       - name: Check public packaging
         run: python tools/test_prepare_web_beta.py
+      - uses: actions/setup-node@v6
+        with:
+          node-version: '22'
+      - name: Check leaderboard API
+        run: node --test supabase/functions/submit-run/submit-run.test.mjs
       - name: Export web release
         shell: pwsh
         run: |

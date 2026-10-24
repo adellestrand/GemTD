@@ -30,7 +30,12 @@ Publika `build.json` motsvarar commit `0166e336a70cea15b189f56f11a159fb9fac2950`
 Chrome startar kampanj 1.4.1-dev från den publika adressen utan profilparameter;
 fem placeringar och vågstart har testats med 0 konsolfel/varningar.
 
-## Leaderboard – rekommenderad nästa etapp, ännu inte aktiverad
+## Leaderboard – genomförd integration
+
+Uppdatering 2026-10-24: Supabase-databas, anonym Auth och Edge Function är nu
+driftsatta och testade. Klienten och publiceringsflödet är anslutna. Läs
+[aktuell användning, drift och verifiering](leaderboard.md). Nedan bevaras
+bakgrunden till arkitekturvalet.
 
 GitHub Pages serverar filer. En gemensam resultatlista behöver ett separat API
 och datalager. Förslaget är **Supabase Postgres + en Edge Function**, med
@@ -59,8 +64,7 @@ kan inte verifieras fullt som en ny obruten omgång.
 
 Supabase Free räcker storleksmässigt för en liten testgrupp, men projekt kan
 pausas efter en veckas inaktivitet. Bekräfta därför kontots aktuella villkor innan
-det väljs för permanent drift. Ingen databas, inloggning eller resultatsändning
-har skapats i denna etapp.
+det väljs för permanent drift.
 
 Källor, kontrollerade 2026-10-24:
 

@@ -1,0 +1,84 @@
+name: Publish web beta
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: github-pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: windows-latest
+    timeout-minutes: 30
+    env:
+      PYTHONUTF8: '1'
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - uses: actions/cache@v4
+        with:
+          path: |
+            .tools/godot
+            .tools/templates
+            .tools/godot.zip
+            .tools/templates.tpz
+          key: godot-windows-${{ hashFiles('tools/bootstrap.ps1') }}
+      - name: Install pinned Godot and export templates
+        shell: pwsh
+        run: ./tools/bootstrap.ps1
+      - name: Run regression checks
+        run: python tools/check.py
+      - name: Check public packaging
+        run: python tools/test_prepare_web_beta.py
+      - name: Export web release
+        shell: pwsh
+        run: |
+          New-Item -ItemType Directory -Force builds/web | Out-Null
+          python tools/godot.py --headless --path . --export-release Web builds/web/index.html
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+      - name: Prepare public campaign and build manifest
+        run: python tools/prepare_web_beta.py --commit ${{ github.sha }}
+      - uses: actions/upload-artifact@v4
+        with:
+          name: web-beta
+          path: builds/pages/
+          include-hidden-files: true
+          retention-days: 14
+      - name: Preserve diagnostics
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: check-logs
+          path: output/checks.log
+          if-no-files-found: ignore
+          retention-days: 14
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          name: web-beta
+          path: site
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v4
+        with:
+          path: site
+      - name: Publish tested build
+        id: deployment
+        uses: actions/deploy-pages@v4

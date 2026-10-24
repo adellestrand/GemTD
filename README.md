@@ -8,6 +8,14 @@ och pixelgrafik; samma projekt för Windows och webb.
 spelbar och automatiskt verifierad. Mänskliga kampanjtester och slutbalansering
 återstår; full likhet med Dotas motor är inte uppmätt.
 
+## Dela webbversionen
+
+Planerad betaadress: [GemTD Solo på GitHub Pages](https://adellestrand.github.io/GemTD/).
+Publicering startas manuellt under **Actions → Publish web beta → Run workflow**.
+Workflow kör tester och exporterar innan sidan ersätts. Den publika länken väljer
+kampanjen direkt. `build.json` visar vilken commit och innehållsversion som körs.
+Se [publiceringsflöde och förslag till leaderboard](docs/web-beta-and-leaderboard.md).
+
 ## Innehåll
 
 - 37×37 rutor, sju kontrollpunkter, 50 grundvågor och 50 prövningsvågor.

@@ -1,0 +1,141 @@
+{
+  "schema": 1,
+  "checks": 180,
+  "failures": [],
+  "reference": {
+    "workshop_id": "474619917",
+    "installed_publish_date": "2026-08-01",
+    "file_hashes": {
+      "mode.lua": "f7b84401f2d24f3f2249879b18aa75bab0ec66dd0043713b49dbb54be802b75b",
+      "units.txt": "19af24c6a0a1151965d9ab8d1962344893ef924954eca179156da91efa7a060e",
+      "abilities.txt": "1c46eaa37834bb53be854ffa35c720bd8b53bc614385fcd0488c4e49add250f4",
+      "entities.txt": "3f6ae19395be4ae9620531d25c86257656270bae2cc21024808edafbed6d9a74"
+    }
+  },
+  "local_reference": "local reference hashes checked",
+  "catalog_sha256": "70acd784499cdd4f3f9b82b8bf198ba856d5d5f77069637163955e1978dcf527",
+  "profile": "dota-solo-10w-v1",
+  "prototype_overrides": {
+    "starting_lives": 30,
+    "starting_gold": 0,
+    "quality_costs": [
+      20,
+      45
+    ],
+    "waves": [
+      {
+        "source_id": "gemtd_kuangbaoyezhu",
+        "count": 8,
+        "leak": 1,
+        "boss": false,
+        "reward": 2,
+        "completion": 14,
+        "spawn_interval": 0.85,
+        "evasion": 0.0
+      },
+      {
+        "source_id": "gemtd_kuaidiqingwatiaotiao",
+        "count": 10,
+        "leak": 1,
+        "boss": false,
+        "reward": 2,
+        "completion": 16,
+        "spawn_interval": 0.85,
+        "evasion": 0.0
+      },
+      {
+        "source_id": "gemtd_zhongchenggaoshanmaoniu",
+        "count": 10,
+        "leak": 2,
+        "boss": false,
+        "reward": 2,
+        "completion": 18,
+        "spawn_interval": 0.85,
+        "evasion": 0.0
+      },
+      {
+        "source_id": "gemtd_moluokedejixiezhushou",
+        "count": 10,
+        "leak": 2,
+        "boss": false,
+        "reward": 2,
+        "completion": 20,
+        "spawn_interval": 0.85,
+        "evasion": 0.0
+      },
+      {
+        "source_id": "gemtd_wuweizhihuan_fly",
+        "count": 10,
+        "leak": 2,
+        "boss": false,
+        "reward": 2,
+        "completion": 22,
+        "spawn_interval": 0.85,
+        "evasion": 0.0
+      },
+      {
+        "source_id": "gemtd_shudunziranzhizhu",
+        "count": 10,
+        "leak": 3,
+        "boss": false,
+        "reward": 3,
+        "completion": 24,
+        "spawn_interval": 0.85,
+        "evasion": 0.0
+      },
+      {
+        "source_id": "gemtd_chaomengjuxi",
+        "count": 12,
+        "leak": 3,
+        "boss": false,
+        "reward": 3,
+        "completion": 26,
+        "spawn_interval": 0.85,
+        "evasion": 0.0
+      },
+      {
+        "source_id": "gemtd_xiaohongmao_fly",
+        "count": 16,
+        "leak": 3,
+        "boss": false,
+        "reward": 3,
+        "completion": 28,
+        "spawn_interval": 0.85,
+        "evasion": 0.0
+      },
+      {
+        "source_id": "gemtd_dashiqi",
+        "count": 12,
+        "leak": 4,
+        "boss": false,
+        "reward": 3,
+        "completion": 30,
+        "spawn_interval": 0.85,
+        "evasion": 0.5
+      },
+      {
+        "source_id": "gemtd_buquzhanquan_boss",
+        "count": 1,
+        "leak": 30,
+        "boss": true,
+        "reward": 3,
+        "completion": 32,
+        "spawn_interval": 0.85,
+        "evasion": 0.0
+      }
+    ]
+  },
+  "reference_economy": {
+    "starting_lives": 100,
+    "starting_gold": 0,
+    "ordinary_kill_waves_1_to_9": 5,
+    "boss_wave_10_kill": 150,
+    "quality_costs": null,
+    "clear_reward": null
+  },
+  "notes": [
+    "Original tower damage/rate/range and enemy HP/speed/armor/resistance are retained.",
+    "Thirty lives, fixed leaks, kill/clear rewards, upgrade prices and ten-wave sequence are deliberate compressed-mode values, not exact original economy.",
+    "Source snapshot is dated 2026-08-01. This does not establish latest Workshop parity."
+  ]
+}

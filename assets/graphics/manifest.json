@@ -1,0 +1,1095 @@
+{
+  "version": 1,
+  "name": "Arcane meadow - quality variants v2",
+  "sheets": {
+    "towers": {
+      "texture": "res://assets/graphics/generated/towers-v1.png",
+      "columns": 4,
+      "rows": 4
+    },
+    "enemies": {
+      "texture": "res://assets/graphics/generated/enemies-v1.png",
+      "columns": 4,
+      "rows": 3
+    },
+    "qualities_v2": {
+      "texture": "res://assets/graphics/generated/qualities-v2.png",
+      "columns": 4,
+      "rows": 4
+    }
+  },
+  "sprites": {
+    "sapphire": {
+      "sheet": "towers",
+      "index": 0,
+      "trim_alpha": true,
+      "size": [
+        1.22,
+        1.95
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "effect_color": "#62c8ff"
+    },
+    "diamond": {
+      "sheet": "towers",
+      "index": 1,
+      "trim_alpha": true,
+      "size": [
+        1.22,
+        1.95
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "effect_color": "#e1edf7"
+    },
+    "aquamarine": {
+      "sheet": "towers",
+      "index": 2,
+      "trim_alpha": true,
+      "size": [
+        1.22,
+        1.95
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "effect_color": "#5bf0d4"
+    },
+    "opal": {
+      "sheet": "towers",
+      "index": 3,
+      "trim_alpha": true,
+      "size": [
+        1.22,
+        1.95
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "effect_color": "#f2afdc"
+    },
+    "emerald": {
+      "sheet": "towers",
+      "index": 4,
+      "trim_alpha": true,
+      "size": [
+        1.22,
+        1.95
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "effect_color": "#83d46a"
+    },
+    "topaz": {
+      "sheet": "towers",
+      "index": 5,
+      "trim_alpha": true,
+      "size": [
+        1.22,
+        1.95
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "effect_color": "#f4ce65"
+    },
+    "ruby": {
+      "sheet": "towers",
+      "index": 6,
+      "trim_alpha": true,
+      "size": [
+        1.22,
+        1.95
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "effect_color": "#f1757b"
+    },
+    "amethyst": {
+      "sheet": "towers",
+      "index": 7,
+      "trim_alpha": true,
+      "size": [
+        1.22,
+        1.95
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "effect_color": "#b79afa"
+    },
+    "silver": {
+      "sheet": "towers",
+      "index": 8,
+      "trim_alpha": true,
+      "size": [
+        1.22,
+        1.95
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "effect_color": "#c5e4e7"
+    },
+    "malachite": {
+      "sheet": "towers",
+      "index": 9,
+      "trim_alpha": true,
+      "size": [
+        1.22,
+        1.95
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "effect_color": "#86e1a7"
+    },
+    "asteriated_ruby": {
+      "sheet": "towers",
+      "index": 10,
+      "trim_alpha": true,
+      "size": [
+        1.22,
+        1.95
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "effect_color": "#ff9ab1"
+    },
+    "stone": {
+      "sheet": "towers",
+      "index": 11,
+      "trim_alpha": true,
+      "size": [
+        1.04,
+        1.0
+      ],
+      "anchor": [
+        0.5,
+        0.65
+      ]
+    },
+    "checkpoint": {
+      "sheet": "towers",
+      "index": 12,
+      "trim_alpha": true,
+      "size": [
+        1.75,
+        1.5
+      ],
+      "anchor": [
+        0.5,
+        0.65
+      ]
+    },
+    "flowers": {
+      "sheet": "towers",
+      "index": 13,
+      "trim_alpha": true,
+      "size": [
+        1.04,
+        1.0
+      ],
+      "anchor": [
+        0.5,
+        0.65
+      ]
+    },
+    "fern": {
+      "sheet": "towers",
+      "index": 14,
+      "trim_alpha": true,
+      "size": [
+        1.04,
+        1.0
+      ],
+      "anchor": [
+        0.5,
+        0.65
+      ]
+    },
+    "pine": {
+      "sheet": "towers",
+      "index": 15,
+      "trim_alpha": true,
+      "size": [
+        2.0,
+        3.0
+      ],
+      "anchor": [
+        0.5,
+        0.65
+      ]
+    },
+    "boar": {
+      "sheet": "enemies",
+      "index": 0,
+      "trim_alpha": true,
+      "size": [
+        1.25,
+        1.3
+      ],
+      "anchor": [
+        0.5,
+        0.72
+      ]
+    },
+    "frog": {
+      "sheet": "enemies",
+      "index": 1,
+      "trim_alpha": true,
+      "size": [
+        1.25,
+        1.3
+      ],
+      "anchor": [
+        0.5,
+        0.72
+      ]
+    },
+    "yak": {
+      "sheet": "enemies",
+      "index": 2,
+      "trim_alpha": true,
+      "size": [
+        1.25,
+        1.3
+      ],
+      "anchor": [
+        0.5,
+        0.72
+      ]
+    },
+    "courier_robot": {
+      "sheet": "enemies",
+      "index": 3,
+      "trim_alpha": true,
+      "size": [
+        1.25,
+        1.3
+      ],
+      "anchor": [
+        0.5,
+        0.72
+      ],
+      "motion": {
+        "frequency": 11.0,
+        "bounce": 0.025,
+        "squash": 0.01,
+        "sway": 0.01
+      }
+    },
+    "blue_courier": {
+      "sheet": "enemies",
+      "index": 4,
+      "trim_alpha": true,
+      "size": [
+        1.25,
+        1.3
+      ],
+      "anchor": [
+        0.5,
+        0.72
+      ]
+    },
+    "spider": {
+      "sheet": "enemies",
+      "index": 5,
+      "trim_alpha": true,
+      "size": [
+        1.25,
+        1.3
+      ],
+      "anchor": [
+        0.5,
+        0.72
+      ],
+      "region": [
+        362,
+        362,
+        362,
+        338
+      ],
+      "motion": {
+        "frequency": 12.0,
+        "bounce": 0.02,
+        "sway": 0.015
+      }
+    },
+    "lizard": {
+      "sheet": "enemies",
+      "index": 6,
+      "trim_alpha": true,
+      "size": [
+        1.25,
+        1.3
+      ],
+      "anchor": [
+        0.5,
+        0.72
+      ],
+      "region": [
+        724,
+        362,
+        362,
+        338
+      ]
+    },
+    "red_courier": {
+      "sheet": "enemies",
+      "index": 7,
+      "trim_alpha": true,
+      "size": [
+        1.25,
+        1.3
+      ],
+      "anchor": [
+        0.5,
+        0.72
+      ]
+    },
+    "hound": {
+      "sheet": "enemies",
+      "index": 8,
+      "trim_alpha": true,
+      "size": [
+        1.25,
+        1.3
+      ],
+      "anchor": [
+        0.5,
+        0.72
+      ]
+    },
+    "boss_hound": {
+      "sheet": "enemies",
+      "index": 9,
+      "trim_alpha": true,
+      "size": [
+        1.85,
+        1.9
+      ],
+      "anchor": [
+        0.5,
+        0.72
+      ],
+      "region": [
+        350,
+        700,
+        470,
+        386
+      ],
+      "motion": {
+        "frequency": 5.0,
+        "bounce": 0.035,
+        "sway": 0.02
+      }
+    },
+    "rocks": {
+      "sheet": "enemies",
+      "index": 10,
+      "trim_alpha": true,
+      "size": [
+        1.25,
+        1.3
+      ],
+      "anchor": [
+        0.5,
+        0.72
+      ],
+      "region": [
+        820,
+        760,
+        266,
+        326
+      ]
+    },
+    "dry_grass": {
+      "sheet": "enemies",
+      "index": 11,
+      "trim_alpha": true,
+      "size": [
+        1.25,
+        1.3
+      ],
+      "anchor": [
+        0.5,
+        0.72
+      ]
+    },
+    "sapphire_2_v2": {
+      "sheet": "qualities_v2",
+      "index": 0,
+      "trim_alpha": true,
+      "size": [
+        1.24,
+        2.0
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "effect_color": "#62c8ff"
+    },
+    "sapphire_3_v2": {
+      "sheet": "qualities_v2",
+      "index": 1,
+      "trim_alpha": true,
+      "size": [
+        1.28,
+        2.12
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "effect_color": "#62c8ff"
+    },
+    "diamond_2_v2": {
+      "sheet": "qualities_v2",
+      "index": 2,
+      "trim_alpha": true,
+      "size": [
+        1.24,
+        2.0
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "effect_color": "#e1edf7"
+    },
+    "diamond_3_v2": {
+      "sheet": "qualities_v2",
+      "index": 3,
+      "trim_alpha": true,
+      "size": [
+        1.28,
+        2.12
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "effect_color": "#e1edf7"
+    },
+    "aquamarine_2_v2": {
+      "sheet": "qualities_v2",
+      "index": 4,
+      "trim_alpha": true,
+      "size": [
+        1.24,
+        2.0
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "effect_color": "#5bf0d4"
+    },
+    "aquamarine_3_v2": {
+      "sheet": "qualities_v2",
+      "index": 5,
+      "trim_alpha": true,
+      "size": [
+        1.28,
+        2.12
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "effect_color": "#5bf0d4"
+    },
+    "opal_2_v2": {
+      "sheet": "qualities_v2",
+      "index": 6,
+      "trim_alpha": true,
+      "size": [
+        1.24,
+        2.0
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "effect_color": "#f2afdc"
+    },
+    "opal_3_v2": {
+      "sheet": "qualities_v2",
+      "index": 7,
+      "trim_alpha": true,
+      "size": [
+        1.28,
+        2.12
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "effect_color": "#f2afdc"
+    },
+    "emerald_2_v2": {
+      "sheet": "qualities_v2",
+      "index": 8,
+      "trim_alpha": true,
+      "size": [
+        1.24,
+        2.0
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "effect_color": "#83d46a"
+    },
+    "emerald_3_v2": {
+      "sheet": "qualities_v2",
+      "index": 9,
+      "trim_alpha": true,
+      "size": [
+        1.28,
+        2.12
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "effect_color": "#83d46a"
+    },
+    "topaz_2_v2": {
+      "sheet": "qualities_v2",
+      "index": 10,
+      "trim_alpha": true,
+      "size": [
+        1.24,
+        2.0
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "effect_color": "#f4ce65"
+    },
+    "topaz_3_v2": {
+      "sheet": "qualities_v2",
+      "index": 11,
+      "trim_alpha": true,
+      "size": [
+        1.28,
+        2.12
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "effect_color": "#f4ce65"
+    },
+    "ruby_2_v2": {
+      "sheet": "qualities_v2",
+      "index": 12,
+      "trim_alpha": true,
+      "size": [
+        1.24,
+        2.0
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "effect_color": "#f1757b"
+    },
+    "ruby_3_v2": {
+      "sheet": "qualities_v2",
+      "index": 13,
+      "trim_alpha": true,
+      "size": [
+        1.28,
+        2.12
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "effect_color": "#f1757b"
+    },
+    "amethyst_2_v2": {
+      "sheet": "qualities_v2",
+      "index": 14,
+      "trim_alpha": true,
+      "size": [
+        1.24,
+        2.0
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "effect_color": "#b79afa"
+    },
+    "amethyst_3_v2": {
+      "sheet": "qualities_v2",
+      "index": 15,
+      "trim_alpha": true,
+      "size": [
+        1.28,
+        2.12
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "effect_color": "#b79afa"
+    }
+  },
+  "bindings": {
+    "gems": {
+      "sapphire": {
+        "default": "sapphire",
+        "2": "sapphire_2_v2",
+        "3": "sapphire_3_v2",
+        "4": "sapphire_3_v2",
+        "5": "sapphire_3_v2",
+        "6": "sapphire_3_v2"
+      },
+      "diamond": {
+        "default": "diamond",
+        "2": "diamond_2_v2",
+        "3": "diamond_3_v2",
+        "4": "diamond_3_v2",
+        "5": "diamond_3_v2",
+        "6": "diamond_3_v2"
+      },
+      "aquamarine": {
+        "default": "aquamarine",
+        "2": "aquamarine_2_v2",
+        "3": "aquamarine_3_v2",
+        "4": "aquamarine_3_v2",
+        "5": "aquamarine_3_v2",
+        "6": "aquamarine_3_v2"
+      },
+      "opal": {
+        "default": "opal",
+        "2": "opal_2_v2",
+        "3": "opal_3_v2",
+        "4": "opal_3_v2",
+        "5": "opal_3_v2",
+        "6": "opal_3_v2"
+      },
+      "emerald": {
+        "default": "emerald",
+        "2": "emerald_2_v2",
+        "3": "emerald_3_v2",
+        "4": "emerald_3_v2",
+        "5": "emerald_3_v2",
+        "6": "emerald_3_v2"
+      },
+      "topaz": {
+        "default": "topaz",
+        "2": "topaz_2_v2",
+        "3": "topaz_3_v2",
+        "4": "topaz_3_v2",
+        "5": "topaz_3_v2",
+        "6": "topaz_3_v2"
+      },
+      "ruby": {
+        "default": "ruby",
+        "2": "ruby_2_v2",
+        "3": "ruby_3_v2",
+        "4": "ruby_3_v2",
+        "5": "ruby_3_v2",
+        "6": "ruby_3_v2"
+      },
+      "amethyst": {
+        "default": "amethyst",
+        "2": "amethyst_2_v2",
+        "3": "amethyst_3_v2",
+        "4": "amethyst_3_v2",
+        "5": "amethyst_3_v2",
+        "6": "amethyst_3_v2"
+      },
+      "silver": {
+        "default": "silver"
+      },
+      "malachite": {
+        "default": "malachite"
+      },
+      "asteriated_ruby": {
+        "default": "asteriated_ruby"
+      },
+      "stone": {
+        "default": "stone"
+      },
+      "jade": {
+        "default": "emerald_3_v2"
+      },
+      "aijijin": {
+        "default": "aquamarine_3_v2"
+      },
+      "baiyinqishi": {
+        "default": "sapphire_3_v2"
+      },
+      "feicuimoxiang": {
+        "default": "aquamarine_3_v2"
+      },
+      "fenhongzuanshi": {
+        "default": "diamond_3_v2"
+      },
+      "furongshi": {
+        "default": "aquamarine_3_v2"
+      },
+      "geluanshi": {
+        "default": "amethyst_3_v2"
+      },
+      "gudaidejixueshi": {
+        "default": "ruby_3_v2"
+      },
+      "haibao": {
+        "default": "aquamarine_3_v2"
+      },
+      "haiyangqingyu": {
+        "default": "emerald_3_v2"
+      },
+      "haojiaoshiban": {
+        "default": "stone"
+      },
+      "haojiaoshiban_jin": {
+        "default": "stone"
+      },
+      "haojiaoshiban_yin": {
+        "default": "stone"
+      },
+      "heianfeicui": {
+        "default": "aquamarine_3_v2"
+      },
+      "heisemaoyanshi": {
+        "default": "opal_3_v2"
+      },
+      "heiwangzihuangguanhongbaoshi": {
+        "default": "emerald_3_v2"
+      },
+      "heiyaoshi": {
+        "default": "sapphire_3_v2"
+      },
+      "hongliushiban": {
+        "default": "stone"
+      },
+      "hongliushiban_jin": {
+        "default": "stone"
+      },
+      "hongliushiban_yin": {
+        "default": "stone"
+      },
+      "hongshanhu": {
+        "default": "opal_3_v2"
+      },
+      "huaguoshanxiandan": {
+        "default": "emerald_3_v2"
+      },
+      "huangcailanbaoshi": {
+        "default": "aquamarine_3_v2"
+      },
+      "huguoshenyishi": {
+        "default": "aquamarine_3_v2"
+      },
+      "jin": {
+        "default": "aquamarine_3_v2"
+      },
+      "jingangshikulinan": {
+        "default": "diamond_3_v2"
+      },
+      "jingxindiaozhuodepalayibabixi": {
+        "default": "amethyst_3_v2"
+      },
+      "jixiangdezhongguoyu": {
+        "default": "emerald_3_v2"
+      },
+      "jixueshi": {
+        "default": "aquamarine_3_v2"
+      },
+      "juxingfenhongzuanshi": {
+        "default": "sapphire_3_v2"
+      },
+      "keyinuoerguangmingzhishan": {
+        "default": "sapphire_3_v2"
+      },
+      "kongheshiban": {
+        "default": "stone"
+      },
+      "kongheshiban_jin": {
+        "default": "stone"
+      },
+      "kongheshiban_yin": {
+        "default": "stone"
+      },
+      "mabishiban": {
+        "default": "stone"
+      },
+      "mabishiban_jin": {
+        "default": "stone"
+      },
+      "mabishiban_yin": {
+        "default": "stone"
+      },
+      "manao": {
+        "default": "topaz_3_v2"
+      },
+      "mirendeqingjinshi": {
+        "default": "aquamarine_3_v2"
+      },
+      "palayibabixi": {
+        "default": "amethyst_3_v2"
+      },
+      "ranshaozhishi": {
+        "default": "ruby_3_v2"
+      },
+      "shenhaizhenzhu": {
+        "default": "aquamarine_3_v2"
+      },
+      "shuaibiankaipayou": {
+        "default": "topaz_3_v2"
+      },
+      "sililankazhixing": {
+        "default": "emerald_3_v2"
+      },
+      "suanwushiban": {
+        "default": "stone"
+      },
+      "suanwushiban_jin": {
+        "default": "stone"
+      },
+      "suanwushiban_yin": {
+        "default": "stone"
+      },
+      "tianranzumulv": {
+        "default": "aquamarine_3_v2"
+      },
+      "xiameishi": {
+        "default": "aquamarine_3_v2"
+      },
+      "xianyandekongqueshi": {
+        "default": "topaz_3_v2"
+      },
+      "xingguanglanbaoshi": {
+        "default": "sapphire_3_v2"
+      },
+      "xuehonghuoshan": {
+        "default": "ruby_3_v2"
+      },
+      "xuwushiban": {
+        "default": "stone"
+      },
+      "xuwushiban_jin": {
+        "default": "stone"
+      },
+      "xuwushiban_yin": {
+        "default": "stone"
+      },
+      "yijiazhishi": {
+        "default": "opal_3_v2"
+      },
+      "you235": {
+        "default": "topaz_3_v2"
+      },
+      "you238": {
+        "default": "topaz_3_v2"
+      },
+      "youbushiban": {
+        "default": "stone"
+      },
+      "youbushiban_jin": {
+        "default": "stone"
+      },
+      "youbushiban_yin": {
+        "default": "stone"
+      },
+      "zhangqishiban": {
+        "default": "stone"
+      },
+      "zhangqishiban_jin": {
+        "default": "stone"
+      },
+      "zhangqishiban_yin": {
+        "default": "stone"
+      }
+    },
+    "enemies": {
+      "gemtd_kuangbaoyezhu": "boar",
+      "gemtd_kuaidiqingwatiaotiao": "frog",
+      "gemtd_zhongchenggaoshanmaoniu": "yak",
+      "gemtd_moluokedejixiezhushou": "courier_robot",
+      "gemtd_wuweizhihuan_fly": "blue_courier",
+      "gemtd_shudunziranzhizhu": "spider",
+      "gemtd_chaomengjuxi": "lizard",
+      "gemtd_xiaohongmao_fly": "red_courier",
+      "gemtd_dashiqi": "hound",
+      "gemtd_buquzhanquan_boss": "boss_hound",
+      "gemtd_mengzhu": "frog",
+      "gemtd_maorongrongdefeiyangyang": "yak",
+      "gemtd_caonimalama": "lizard",
+      "gemtd_fengtungongzhu": "yak",
+      "gemtd_bugou": "lizard",
+      "gemtd_banzhuduizhang_fly": "red_courier",
+      "gemtd_xunjiemotong": "frog",
+      "gemtd_yonggandexiaoji": "hound",
+      "gemtd_xiaobajie": "spider",
+      "gemtd_shentu": "spider",
+      "gemtd_huxiaotao_boss": "lizard",
+      "gemtd_siwangsiliezhe": "boss_hound",
+      "gemtd_yaorenxiangluoke": "boss_hound",
+      "gemtd_tiezuiyaorenxiang": "yak",
+      "gemtd_jixieyaorenxiang": "lizard",
+      "gemtd_fengbaozhizikesaier_fly": "blue_courier",
+      "gemtd_niepanhuolieniao": "hound",
+      "gemtd_lgddejinmengmeng_fly": "red_courier",
+      "gemtd_youniekesizhinu_fly": "blue_courier",
+      "gemtd_feihuxia_fly": "red_courier",
+      "gemtd_mofafeitanxiaoemo_boss_fly": "blue_courier",
+      "gemtd_modianxiaolong": "hound",
+      "gemtd_xiaoshayu": "yak",
+      "gemtd_feijiangxiaobao": "hound",
+      "gemtd_shangjinbaobao_fly": "red_courier",
+      "gemtd_jinyinhuling_fly": "red_courier",
+      "gemtd_jinyinhuling_fly1": "blue_courier",
+      "gemtd_cuihua": "courier_robot",
+      "gemtd_cuihua1": "courier_robot",
+      "gemtd_xiaobaihu": "courier_robot",
+      "gemtd_xiaoxingyue": "spider",
+      "gemtd_xiaoxingyue1": "courier_robot",
+      "gemtd_liangqiyuhai_fly": "red_courier",
+      "gemtd_guixiaoxieling_boss_fly": "blue_courier",
+      "gemtd_weilanlong": "hound",
+      "gemtd_saodiekupu_fly": "blue_courier",
+      "gemtd_maomaoyu": "courier_robot",
+      "gemtd_xiaomogu": "spider",
+      "gemtd_jiujiu_fly": "blue_courier",
+      "gemtd_siwangxintu": "frog",
+      "gemtd_jilamofashi": "yak",
+      "gemtd_xiaofeixia_fly": "red_courier",
+      "gemtd_juniaoduoduo": "boar",
+      "gemtd_roushan_boss_fly": "blue_courier"
+    }
+  },
+  "palette": {
+    "outside": "#101e23",
+    "grass": "#4b6744",
+    "grass_light": "#536f49",
+    "grid": "#233b30",
+    "border": "#9b966a",
+    "selection": "#ffe3a0",
+    "route_ground": "#b6e6a7",
+    "route_air": "#99d5ff",
+    "ui_background": "#0c161d",
+    "ui_accent": "#e4d4a4",
+    "ui_muted": "#829b95",
+    "ui_section": "#d9c690",
+    "ui_footer": "#778e8d",
+    "health": "#a7df83",
+    "slow": "#77ccff",
+    "poison": "#9ce85f",
+    "quality": "#ffdc85",
+    "armor": "#bd8ded",
+    "placement_ok": "#abe3a3",
+    "placement_blocked": "#f08f83",
+    "route_preview": "#edcf83",
+    "material": "#86dae0",
+    "will_be_stone": "#a8aaa0",
+    "ui_text": "#d4dfd9",
+    "recipe_tracking": "#dab5ed"
+  },
+  "terrain": {
+    "variation": 0.035,
+    "detail_stride": 11,
+    "edge_shade": 0.12
+  },
+  "theme": "res://assets/graphics/ui_theme.tres",
+  "effects": {
+    "enabled": true,
+    "max_events": 240,
+    "hit_flash": 0.08,
+    "damage_numbers": false,
+    "area_color": "#ef8775",
+    "damage_colors": {
+      "physical": "#f8e3b4",
+      "magical": "#a5cbff",
+      "pure": "#ffb3c0"
+    },
+    "shots": {
+      "sapphire": {
+        "style": "shard",
+        "duration": 0.16
+      },
+      "diamond": {
+        "style": "shard",
+        "duration": 0.12
+      },
+      "aquamarine": {
+        "style": "beam",
+        "duration": 0.08
+      },
+      "opal": {
+        "style": "beam",
+        "duration": 0.14
+      },
+      "emerald": {
+        "style": "bolt",
+        "duration": 0.18
+      },
+      "topaz": {
+        "style": "bolt",
+        "duration": 0.12
+      },
+      "ruby": {
+        "style": "ember",
+        "duration": 0.18
+      },
+      "amethyst": {
+        "style": "beam",
+        "duration": 0.14
+      },
+      "silver": {
+        "style": "shard",
+        "duration": 0.16
+      },
+      "malachite": {
+        "style": "bolt",
+        "duration": 0.12
+      }
+    },
+    "muzzle_height": 0.35
+  },
+  "motion": {
+    "enabled": true,
+    "ground": {
+      "frequency": 7.0,
+      "bounce": 0.045,
+      "squash": 0.025,
+      "sway": 0.025,
+      "lift": 0.0
+    },
+    "air": {
+      "frequency": 6.0,
+      "bounce": 0.07,
+      "squash": 0.035,
+      "sway": 0.04,
+      "lift": 0.25
+    }
+  }
+}

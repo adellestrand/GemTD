@@ -1,0 +1,7 @@
+.godot/
+.tools/
+builds/
+output/
+*.tmp
+__pycache__/
+.playwright-cli/

@@ -1,0 +1,2060 @@
+{
+  "content_version": 1.0,
+  "policy": "route coverage, greedy tower upgrades/recipes, early odds purchases; no deliberate maze construction",
+  "runs": [
+    {
+      "gold": 313,
+      "kills": 86,
+      "leaks": 8,
+      "lives": 0,
+      "phase": "lost",
+      "rounds": [
+        {
+          "kills": 8,
+          "kills_before": 0,
+          "lives_after": 30,
+          "lives_before": 30,
+          "quality_odds_level": 0,
+          "seconds": 17.0,
+          "tower": "Diamond  Â·  II",
+          "wave": 1
+        },
+        {
+          "kills": 10,
+          "kills_before": 8,
+          "lives_after": 30,
+          "lives_before": 30,
+          "quality_odds_level": 1,
+          "seconds": 14.6,
+          "tower": "Ruby  Â·  II",
+          "wave": 2
+        },
+        {
+          "kills": 10,
+          "kills_before": 18,
+          "lives_after": 30,
+          "lives_before": 30,
+          "quality_odds_level": 2,
+          "seconds": 18.4,
+          "tower": "Aquamarine  Â·  II",
+          "wave": 3
+        },
+        {
+          "kills": 10,
+          "kills_before": 28,
+          "lives_after": 30,
+          "lives_before": 30,
+          "quality_odds_level": 2,
+          "seconds": 14.4,
+          "tower": "Asteriated Ruby",
+          "wave": 4
+        },
+        {
+          "kills": 10,
+          "kills_before": 38,
+          "lives_after": 30,
+          "lives_before": 30,
+          "quality_odds_level": 2,
+          "seconds": 18.6,
+          "tower": "Aquamarine  Â·  II",
+          "wave": 5
+        },
+        {
+          "kills": 10,
+          "kills_before": 48,
+          "lives_after": 30,
+          "lives_before": 30,
+          "quality_odds_level": 2,
+          "seconds": 22.4,
+          "tower": "Ruby  Â·  I",
+          "wave": 6
+        },
+        {
+          "kills": 12,
+          "kills_before": 58,
+          "lives_after": 30,
+          "lives_before": 30,
+          "quality_odds_level": 2,
+          "seconds": 21.1,
+          "tower": "Aquamarine  Â·  III",
+          "wave": 7
+        },
+        {
+          "kills": 16,
+          "kills_before": 70,
+          "lives_after": 30,
+          "lives_before": 30,
+          "quality_odds_level": 2,
+          "seconds": 23.7,
+          "tower": "Opal  Â·  II",
+          "wave": 8
+        },
+        {
+          "kills": 0,
+          "kills_before": 86,
+          "lives_after": 0,
+          "lives_before": 30,
+          "quality_odds_level": 2,
+          "seconds": 45.0,
+          "tower": "Topaz  Â·  I",
+          "wave": 9
+        }
+      ],
+      "seed": 1,
+      "wave": 9
+    },
+    {
+      "gold": 370,
+      "kills": 95,
+      "leaks": 4,
+      "lives": 0,
+      "phase": "lost",
+      "rounds": [
+        {
+          "kills": 8,
+          "kills_before": 0,
+          "lives_after": 30,
+          "lives_before": 30,
+          "quality_odds_level": 0,
+          "seconds": 15.4,
+          "tower": "Malachite",
+          "wave": 1
+        },
+        {
+          "kills": 10,
+          "kills_before": 8,
+          "lives_after": 30,
+          "lives_before": 30,
+          "quality_odds_level": 1,
+          "seconds": 14.8,
+          "tower": "Emerald  Â·  II",
+          "wave": 2
+        },
+        {
+          "kills": 10,
+          "kills_before": 18,
+          "lives_after": 30,
+          "lives_before": 30,
+          "quality_odds_level": 2,
+          "seconds": 17.0,
+          "tower": "Ruby  Â·  III",
+          "wave": 3
+        },
+        {
+          "kills": 10,
+          "kills_before": 28,
+          "lives_after": 30,
+          "lives_before": 30,
+          "quality_odds_level": 2,
+          "seconds": 23.6,
+          "tower": "Emerald  Â·  II",
+          "wave": 4
+        },
+        {
+          "kills": 10,
+          "kills_before": 38,
+          "lives_after": 30,
+          "lives_before": 30,
+          "quality_odds_level": 2,
+          "seconds": 17.1,
+          "tower": "Amethyst  Â·  II",
+          "wave": 5
+        },
+        {
+          "kills": 10,
+          "kills_before": 48,
+          "lives_after": 30,
+          "lives_before": 30,
+          "quality_odds_level": 2,
+          "seconds": 26.1,
+          "tower": "Aquamarine  Â·  III",
+          "wave": 6
+        },
+        {
+          "kills": 12,
+          "kills_before": 58,
+          "lives_after": 30,
+          "lives_before": 30,
+          "quality_odds_level": 2,
+          "seconds": 33.3,
+          "tower": "Diamond  Â·  III",
+          "wave": 7
+        },
+        {
+          "kills": 16,
+          "kills_before": 70,
+          "lives_after": 30,
+          "lives_before": 30,
+          "quality_odds_level": 2,
+          "seconds": 22.2,
+          "tower": "Topaz  Â·  I",
+          "wave": 8
+        },
+        {
+          "kills": 9,
+          "kills_before": 86,
+          "lives_after": 18,
+          "lives_before": 30,
+          "quality_odds_level": 2,
+          "seconds": 43.7,
+          "tower": "Emerald  Â·  II",
+          "wave": 9
+        },
+        {
+          "kills": 0,
+          "kills_before": 95,
+          "lives_after": 0,
+          "lives_before": 18,
+          "quality_odds_level": 2,
+          "seconds": 31.1,
+          "tower": "Emerald  Â·  I",
+          "wave": 10
+        }
+      ],
+      "seed": 2,
+      "wave": 10
+    },
+    {
+      "gold": 379,
+      "kills": 98,
+      "leaks": 1,
+      "lives": 0,
+      "phase": "lost",
+      "rounds": [
+        {
+          "kills": 8,
+          "kills_before": 0,
+          "lives_after": 30,
+          "lives_before": 30,
+          "quality_odds_level": 0,
+          "seconds": 17.0,
+          "tower": "Diamond  Â·  II",
+          "wave": 1
+        },
+        {
+          "kills": 10,
+          "kills_before": 8,
+          "lives_after": 30,
+          "lives_before": 30,
+          "quality_odds_level": 1,
+          "seconds": 15.0,
+          "tower": "Silver",
+          "wave": 2
+        },
+        {
+          "kills": 10,
+          "kills_before": 18,
+          "lives_after": 30,
+          "lives_before": 30,
+          "quality_odds_level": 2,
+          "seconds": 18.1,
+          "tower": "Emerald  Â·  III",
+          "wave": 3
+        },
+        {
+          "kills": 10,
+          "kills_before": 28,
+          "lives_after": 30,
+          "lives_before": 30,
+          "quality_odds_level": 2,
+          "seconds": 13.8,
+          "tower": "Emerald  Â·  II",
+          "wave": 4
+        },
+        {
+          "kills": 10,
+          "kills_before": 38,
+          "lives_after": 30,
+          "lives_before": 30,
+          "quality_odds_level": 2,
+          "seconds": 18.0,
+          "tower": "Aquamarine  Â·  III",
+          "wave": 5
+        },
+        {
+          "kills": 10,
+          "kills_before": 48,
+          "lives_after": 30,
+          "lives_before": 30,
+          "quality_odds_level": 2,
+          "seconds": 35.2,
+          "tower": "Ruby  Â·  I",
+          "wave": 6
+        },
+        {
+          "kills": 12,
+          "kills_before": 58,
+          "lives_after": 30,
+          "lives_before": 30,
+          "quality_odds_level": 2,
+          "seconds": 36.4,
+          "tower": "Diamond  Â·  III",
+          "wave": 7
+        },
+        {
+          "kills": 16,
+          "kills_before": 70,
+          "lives_after": 30,
+          "lives_before": 30,
+          "quality_odds_level": 2,
+          "seconds": 19.0,
+          "tower": "Silver",
+          "wave": 8
+        },
+        {
+          "kills": 12,
+          "kills_before": 86,
+          "lives_after": 30,
+          "lives_before": 30,
+          "quality_odds_level": 2,
+          "seconds": 20.3,
+          "tower": "Asteriated Ruby",
+          "wave": 9
+        },
+        {
+          "kills": 0,
+          "kills_before": 98,
+          "lives_after": 0,
+          "lives_before": 30,
+          "quality_odds_level": 2,
+          "seconds": 34.6,
+          "tower": "Diamond  Â·  II",
+          "wave": 10
+        }
+      ],
+      "seed": 3,
+      "wave": 10
+    },
+    {
+      "gold": 367,
+      "kills": 94,
+      "leaks": 5,
+      "lives": 0,
+      "phase": "lost",
+      "rounds": [
+        {
+          "kills": 8,
+          "kills_before": 0,
+          "lives_after": 30,
+          "lives_before": 30,
+          "quality_odds_level": 0,
+          "seconds": 16.9,
+          "tower": "Aquamarine  Â·  II",
+          "wave": 1
+        },
+        {
+          "kills": 10,
+          "kills_before": 8,
+          "lives_after": 30,
+          "lives_before": 30,
+          "quality_odds_level": 1,
+          "seconds": 15.3,
+          "tower": "Diamond  Â·  II",
+          "wave": 2
+        },
+        {
+          "kills": 10,
+          "kills_before": 18,
+          "lives_after": 30,
+          "lives_before": 30,
+          "quality_odds_level": 2,
+          "seconds": 17.3,
+          "tower": "Ruby  Â·  II",
+          "wave": 3
+        },
+        {
+          "kills": 10,
+          "kills_before": 28,
+          "lives_after": 30,
+          "lives_before": 30,
+          "quality_odds_level": 2,
+          "seconds": 19.4,
+          "tower": "Diamond  Â·  II",
+          "wave": 4
+        },
+        {
+          "kills": 10,
+          "kills_before": 38,
+          "lives_after": 30,
+          "lives_before": 30,
+          "quality_odds_level": 2,
+          "seconds": 18.6,
+          "tower": "Aquamarine  Â·  II",
+          "wave": 5
+        },
+        {
+          "kills": 10,
+          "kills_before": 48,
+          "lives_after": 30,
+          "lives_before": 30,
+          "quality_odds_level": 2,
+          "seconds": 46.6,
+          "tower": "Topaz  Â·  II",
+          "wave": 6
+        },
+        {
+          "kills": 12,
+          "kills_before": 58,
+          "lives_after": 30,
+          "lives_before": 30,
+          "quality_odds_level": 2,
+          "seconds": 36.4,
+          "tower": "Emerald  Â·  II",
+          "wave": 7
+        },
+        {
+          "kills": 16,
+          "kills_before": 70,
+          "lives_after": 30,
+          "lives_before": 30,
+          "quality_odds_level": 2,
+          "seconds": 23.7,
+          "tower": "Emerald  Â·  II",
+          "wave": 8
+        },
+        {
+          "kills": 8,
+          "kills_before": 86,
+          "lives_after": 14,
+          "lives_before": 30,
+          "quality_odds_level": 2,
+          "seconds": 46.4,
+          "tower": "Diamond  Â·  III",
+          "wave": 9
+        },
+        {
+          "kills": 0,
+          "kills_before": 94,
+          "lives_after": 0,
+          "lives_before": 14,
+          "quality_odds_level": 2,
+          "seconds": 31.7,
+          "tower": "Aquamarine  Â·  II",
+          "wave": 10
+        }
+      ],
+      "seed": 4,
+      "wave": 10
+    },
+    {
+      "gold": 169,
+      "kills": 56,
+      "leaks": 10,
+      "lives": 0,
+      "phase": "lost",
+      "rounds": [
+        {
+          "kills": 8,
+          "kills_before": 0,
+          "lives_after": 30,
+          "lives_before": 30,
+          "quality_odds_level": 0,
+          "seconds": 16.3,
+          "tower": "Topaz  Â·  II",
+          "wave": 1
+        },
+        {
+          "kills": 10,
+          "kills_before": 8,
+          "lives_after": 30,
+          "lives_before": 30,
+          "quality_odds_level": 1,
+          "seconds": 14.7,
+          "tower": "Aquamarine  Â·  II",
+          "wave": 2
+        },
+        {
+          "kills": 10,
+          "kills_before": 18,
+          "lives_after": 30,
+          "lives_before": 30,
+          "quality_odds_level": 2,
+          "seconds": 17.9,
+          "tower": "Ruby  Â·  I",
+          "wave": 3
+        },
+        {
+          "kills": 10,
+          "kills_before": 28,
+          "lives_after": 30,
+          "lives_before": 30,
+          "quality_odds_level": 2,
+          "seconds": 24.7,
+          "tower": "Emerald  Â·  I",
+          "wave": 4
+        },
+        {
+          "kills": 10,
+          "kills_before": 38,
+          "lives_after": 30,
+          "lives_before": 30,
+          "quality_odds_level": 2,
+          "seconds": 18.6,
+          "tower": "Aquamarine  Â·  II",
+          "wave": 5
+        },
+        {
+          "kills": 5,
+          "kills_before": 48,
+          "lives_after": 15,
+          "lives_before": 30,
+          "quality_odds_level": 2,
+          "seconds": 59.1,
+          "tower": "Diamond  Â·  II",
+          "wave": 6
+        },
+        {
+          "kills": 3,
+          "kills_before": 53,
+          "lives_after": 0,
+          "lives_before": 15,
+          "quality_odds_level": 2,
+          "seconds": 45.0,
+          "tower": "Ruby  Â·  II",
+          "wave": 7
+        }
+      ],
+      "seed": 5,
+      "wave": 7
+    },
+    {
+      "gold": 316,
+      "kills": 87,
+      "leaks": 8,
+      "lives": 0,
+      "phase": "lost",
+      "rounds": [
+        {
+          "kills": 8,
+          "kills_before": 0,
+          "lives_after": 30,
+          "lives_before": 30,
+          "quality_odds_level": 0,
+          "seconds": 18.0,
+          "tower": "Emerald  Â·  I",
+          "wave": 1
+        },
+        {
+          "kills": 10,
+          "kills_before": 8,
+          "lives_after": 30,
+          "lives_before": 30,
+          "quality_odds_level": 1,
+          "seconds": 14.8,
+          "tower": "Malachite",
+          "wave": 2
+        },
+        {
+          "kills": 10,
+          "kills_before": 18,
+          "lives_after": 30,
+          "lives_before": 30,
+          "quality_odds_level": 2,
+          "seconds": 16.9,
+          "tower": "Emerald  Â·  II",
+          "wave": 3
+        },
+        {
+          "kills": 10,
+          "kills_before": 28,
+          "lives_after": 30,
+          "lives_before": 30,
+          "quality_odds_level": 2,
+          "seconds": 14.2,
+          "tower": "Amethyst  Â·  III",
+          "wave": 4
+        },
+        {
+          "kills": 10,
+          "kills_before": 38,
+          "lives_after": 30,
+          "lives_before": 30,
+          "quality_odds_level": 2,
+          "seconds": 17.9,
+          "tower": "Emerald  Â·  I",
+          "wave": 5
+        },
+        {
+          "kills": 10,
+          "kills_before": 48,
+          "lives_after": 30,
+          "lives_before": 30,
+          "quality_odds_level": 2,
+          "seconds": 42.3,
+          "tower": "Aquamarine  Â·  III",
+          "wave": 6
+        },
+        {
+          "kills": 12,
+          "kills_before": 58,
+          "lives_after": 30,
+          "lives_before": 30,
+          "quality_odds_level": 2,
+          "seconds": 37.2,
+          "tower": "Malachite",
+          "wave": 7
+        },
+        {
+          "kills": 16,
+          "kills_before": 70,
+          "lives_after": 30,
+          "lives_before": 30,
+          "quality_odds_level": 2,
+          "seconds": 22.2,
+          "tower": "Aquamarine  Â·  III",
+          "wave": 8
+        },
+        {
+          "kills": 1,
+          "kills_before": 86,
+          "lives_after": 0,
+          "lives_before": 30,
+          "quality_odds_level": 2,
+          "seconds": 45.9,
+          "tower": "Topaz  Â·  I",
+          "wave": 9
+        }
+      ],
+      "seed": 6,
+      "wave": 9
+    },
+    {
+      "gold": 322,
+      "kills": 89,
+      "leaks": 8,
+      "lives": 0,
+      "phase": "lost",
+      "rounds": [
+        {
+          "kills": 8,
+          "kills_before": 0,
+          "lives_after": 30,
+          "lives_before": 30,
+          "quality_odds_level": 0,
+          "seconds": 16.3,
+          "tower": "Topaz  Â·  II",
+          "wave": 1
+        },
+        {
+          "kills": 10,
+          "kills_before": 8,
+          "lives_after": 30,
+          "lives_before": 30,
+          "quality_odds_level": 1,
+          "seconds": 15.1,
+          "tower": "Topaz  Â·  II",
+          "wave": 2
+        },
+        {
+          "kills": 10,
+          "kills_before": 18,
+          "lives_after": 30,
+          "lives_before": 30,
+          "quality_odds_level": 2,
+          "seconds": 18.7,
+          "tower": "Topaz  Â·  II",
+          "wave": 3
+        },
+        {
+          "kills": 10,
+          "kills_before": 28,
+          "lives_after": 30,
+          "lives_before": 30,
+          "quality_odds_level": 2,
+          "seconds": 14.2,
+          "tower": "Silver",
+          "wave": 4
+        },
+        {
+          "kills": 10,
+          "kills_before": 38,
+          "lives_after": 30,
+          "lives_before": 30,
+          "quality_odds_level": 2,
+          "seconds": 18.1,
+          "tower": "Opal  Â·  II",
+          "wave": 5
+        },
+        {
+          "kills": 10,
+          "kills_before": 48,
+          "lives_after": 30,
+          "lives_before": 30,
+          "quality_odds_level": 2,
+          "seconds": 22.5,
+          "tower": "Diamond  Â·  II",
+          "wave": 6
+        },
+        {
+          "kills": 12,
+          "kills_before": 58,
+          "lives_after": 30,
+          "lives_before": 30,
+          "quality_odds_level": 2,
+          "seconds": 36.5,
+          "tower": "Diamond  Â·  II",
+          "wave": 7
+        },
+        {
+          "kills": 16,
+          "kills_before": 70,
+          "lives_after": 30,
+          "lives_before": 30,
+          "quality_odds_level": 2,
+          "seconds": 23.3,
+          "tower": "Emerald  Â·  III",
+          "wave": 8
+        },
+        {
+          "kills": 3,
+          "kills_before": 86,
+          "lives_after": 0,
+          "lives_before": 30,
+          "quality_odds_level": 2,
+          "seconds": 46.6,
+          "tower": "Diamond  Â·  III",
+          "wave": 9
+        }
+      ],
+      "seed": 7,
+      "wave": 9
+    },
+    {
+      "gold": 358,
+      "kills": 91,
+      "leaks": 8,
+      "lives": 0,
+      "phase": "lost",
+      "rounds": [
+        {
+          "kills": 8,
+          "kills_before": 0,
+          "lives_after": 30,
+          "lives_before": 30,
+          "quality_odds_level": 0,
+          "seconds": 17.0,
+          "tower": "Ruby  Â·  II",
+          "wave": 1
+        },
+        {
+          "kills": 10,
+          "kills_before": 8,
+          "lives_after": 30,
+          "lives_before": 30,
+          "quality_odds_level": 1,
+          "seconds": 15.0,
+          "tower": "Silver",
+          "wave": 2
+        },
+        {
+          "kills": 10,
+          "kills_before": 18,
+          "lives_after": 30,
+          "lives_before": 30,
+          "quality_odds_level": 2,
+          "seconds": 17.0,
+          "tower": "Emerald  Â·  II",
+          "wave": 3
+        },
+        {
+          "kills": 10,
+          "kills_before": 28,
+          "lives_after": 30,
+          "lives_before": 30,
+          "quality_odds_level": 2,
+          "seconds": 13.8,
+          "tower": "Ruby  Â·  II",
+          "wave": 4
+        },
+        {
+          "kills": 10,
+          "kills_before": 38,
+          "lives_after": 30,
+          "lives_before": 30,
+          "quality_odds_level": 2,
+          "seconds": 18.0,
+          "tower": "Silver",
+          "wave": 5
+        },
+        {
+          "kills": 10,
+          "kills_before": 48,
+          "lives_after": 30,
+          "lives_before": 30,
+          "quality_odds_level": 2,
+          "seconds": 39.0,
+          "tower": "Ruby  Â·  III",
+          "wave": 6
+        },
+        {
+          "kills": 12,
+          "kills_before": 58,
+          "lives_after": 30,
+          "lives_before": 30,
+          "quality_odds_level": 2,
+          "seconds": 36.7,
+          "tower": "Emerald  Â·  II",
+          "wave": 7
+        },
+        {
+          "kills": 16,
+          "kills_before": 70,
+          "lives_after": 30,
+          "lives_before": 30,
+          "quality_odds_level": 2,
+          "seconds": 23.3,
+          "tower": "Aquamarine  Â·  II",
+          "wave": 8
+        },
+        {
+          "kills": 5,
+          "kills_before": 86,
+          "lives_after": 2,
+          "lives_before": 30,
+          "quality_odds_level": 2,
+          "seconds": 49.4,
+          "tower": "Diamond  Â·  III",
+          "wave": 9
+        },
+        {
+          "kills": 0,
+          "kills_before": 91,
+          "lives_after": 0,
+          "lives_before": 2,
+          "quality_odds_level": 2,
+          "seconds": 34.9,
+          "tower": "Amethyst  Â·  II",
+          "wave": 10
+        }
+      ],
+      "seed": 8,
+      "wave": 10
+    },
+    {
+      "gold": 322,
+      "kills": 89,
+      "leaks": 8,
+      "lives": 0,
+      "phase": "lost",
+      "rounds": [
+        {
+          "kills": 8,
+          "kills_before": 0,
+          "lives_after": 30,
+          "lives_before": 30,
+          "quality_odds_level": 0,
+          "seconds": 16.9,
+          "tower": "Silver",
+          "wave": 1
+        },
+        {
+          "kills": 10,
+          "kills_before": 8,
+          "lives_after": 30,
+          "lives_before": 30,
+          "quality_odds_level": 1,
+          "seconds": 16.6,
+          "tower": "Emerald  Â·  II",
+          "wave": 2
+        },
+        {
+          "kills": 10,
+          "kills_before": 18,
+          "lives_after": 30,
+          "lives_before": 30,
+          "quality_odds_level": 2,
+          "seconds": 17.5,
+          "tower": "Ruby  Â·  II",
+          "wave": 3
+        },
+        {
+          "kills": 10,
+          "kills_before": 28,
+          "lives_after": 30,
+          "lives_before": 30,
+          "quality_odds_level": 2,
+          "seconds": 15.8,
+          "tower": "Aquamarine  Â·  III",
+          "wave": 4
+        },
+        {
+          "kills": 10,
+          "kills_before": 38,
+          "lives_after": 30,
+          "lives_before": 30,
+          "quality_odds_level": 2,
+          "seconds": 18.9,
+          "tower": "Sapphire  Â·  II",
+          "wave": 5
+        },
+        {
+          "kills": 10,
+          "kills_before": 48,
+          "lives_after": 30,
+          "lives_before": 30,
+          "quality_odds_level": 2,
+          "seconds": 23.2,
+          "tower": "Amethyst  Â·  I",
+          "wave": 6
+        },
+        {
+          "kills": 12,
+          "kills_before": 58,
+          "lives_after": 30,
+          "lives_before": 30,
+          "quality_odds_level": 2,
+          "seconds": 21.8,
+          "tower": "Diamond  Â·  III",
+          "wave": 7
+        },
+        {
+          "kills": 16,
+          "kills_before": 70,
+          "lives_after": 30,
+          "lives_before": 30,
+          "quality_odds_level": 2,
+          "seconds": 24.0,
+          "tower": "Topaz  Â·  I",
+          "wave": 8
+        },
+        {
+          "kills": 3,
+          "kills_before": 86,
+          "lives_after": 0,
+          "lives_before": 30,
+          "quality_odds_level": 2,
+          "seconds": 48.7,
+          "tower": "Silver",
+          "wave": 9
+        }
+      ],
+      "seed": 9,
+      "wave": 9
+    },
+    {
+      "gold": 325,
+      "kills": 90,
+      "leaks": 8,
+      "lives": 0,
+      "phase": "lost",
+      "rounds": [
+        {
+          "kills": 8,
+          "kills_before": 0,
+          "lives_after": 30,
+          "lives_before": 30,
+          "quality_odds_level": 0,
+          "seconds": 16.2,
+          "tower": "Aquamarine  Â·  II",
+          "wave": 1
+        },
+        {
+          "kills": 10,
+          "kills_before": 8,
+          "lives_after": 30,
+          "lives_before": 30,
+          "quality_odds_level": 1,
+          "seconds": 15.7,
+          "tower": "Diamond  Â·  II",
+          "wave": 2
+        },
+        {
+          "kills": 10,
+          "kills_before": 18,
+          "lives_after": 30,
+          "lives_before": 30,
+          "quality_odds_level": 2,
+          "seconds": 18.9,
+          "tower": "Topaz  Â·  II",
+          "wave": 3
+        },
+        {
+          "kills": 10,
+          "kills_before": 28,
+          "lives_after": 30,
+          "lives_before": 30,
+          "quality_odds_level": 2,
+          "seconds": 14.2,
+          "tower": "Amethyst  Â·  III",
+          "wave": 4
+        },
+        {
+          "kills": 10,
+          "kills_before": 38,
+          "lives_after": 30,
+          "lives_before": 30,
+          "quality_odds_level": 2,
+          "seconds": 18.3,
+          "tower": "Emerald  Â·  II",
+          "wave": 5
+        },
+        {
+          "kills": 9,
+          "kills_before": 48,
+          "lives_after": 27,
+          "lives_before": 30,
+          "quality_odds_level": 2,
+          "seconds": 59.1,
+          "tower": "Opal  Â·  III",
+          "wave": 6
+        },
+        {
+          "kills": 12,
+          "kills_before": 57,
+          "lives_after": 27,
+          "lives_before": 27,
+          "quality_odds_level": 2,
+          "seconds": 42.6,
+          "tower": "Emerald  Â·  II",
+          "wave": 7
+        },
+        {
+          "kills": 16,
+          "kills_before": 69,
+          "lives_after": 27,
+          "lives_before": 27,
+          "quality_odds_level": 2,
+          "seconds": 23.2,
+          "tower": "Silver",
+          "wave": 8
+        },
+        {
+          "kills": 5,
+          "kills_before": 85,
+          "lives_after": 0,
+          "lives_before": 27,
+          "quality_odds_level": 2,
+          "seconds": 49.1,
+          "tower": "Topaz  Â·  III",
+          "wave": 9
+        }
+      ],
+      "seed": 10,
+      "wave": 9
+    },
+    {
+      "gold": 285,
+      "kills": 76,
+      "leaks": 11,
+      "lives": 0,
+      "phase": "lost",
+      "rounds": [
+        {
+          "kills": 8,
+          "kills_before": 0,
+          "lives_after": 30,
+          "lives_before": 30,
+          "quality_odds_level": 0,
+          "seconds": 17.0,
+          "tower": "Ruby  Â·  II",
+          "wave": 1
+        },
+        {
+          "kills": 10,
+          "kills_before": 8,
+          "lives_after": 30,
+          "lives_before": 30,
+          "quality_odds_level": 1,
+          "seconds": 14.6,
+          "tower": "Ruby  Â·  II",
+          "wave": 2
+        },
+        {
+          "kills": 10,
+          "kills_before": 18,
+          "lives_after": 30,
+          "lives_before": 30,
+          "quality_odds_level": 2,
+          "seconds": 16.9,
+          "tower": "Ruby  Â·  II",
+          "wave": 3
+        },
+        {
+          "kills": 10,
+          "kills_before": 28,
+          "lives_after": 30,
+          "lives_before": 30,
+          "quality_odds_level": 2,
+          "seconds": 13.8,
+          "tower": "Ruby  Â·  II",
+          "wave": 4
+        },
+        {
+          "kills": 8,
+          "kills_before": 38,
+          "lives_after": 26,
+          "lives_before": 30,
+          "quality_odds_level": 2,
+          "seconds": 50.3,
+          "tower": "Topaz  Â·  II",
+          "wave": 5
+        },
+        {
+          "kills": 9,
+          "kills_before": 46,
+          "lives_after": 23,
+          "lives_before": 26,
+          "quality_odds_level": 2,
+          "seconds": 59.1,
+          "tower": "Amethyst  Â·  II",
+          "wave": 6
+        },
+        {
+          "kills": 5,
+          "kills_before": 55,
+          "lives_after": 2,
+          "lives_before": 23,
+          "quality_odds_level": 2,
+          "seconds": 47.9,
+          "tower": "Amethyst  Â·  II",
+          "wave": 7
+        },
+        {
+          "kills": 16,
+          "kills_before": 60,
+          "lives_after": 2,
+          "lives_before": 2,
+          "quality_odds_level": 2,
+          "seconds": 17.4,
+          "tower": "Aquamarine  Â·  III",
+          "wave": 8
+        },
+        {
+          "kills": 0,
+          "kills_before": 76,
+          "lives_after": 0,
+          "lives_before": 2,
+          "quality_odds_level": 2,
+          "seconds": 39.1,
+          "tower": "Emerald  Â·  II",
+          "wave": 9
+        }
+      ],
+      "seed": 11,
+      "wave": 9
+    },
+    {
+      "gold": 316,
+      "kills": 87,
+      "leaks": 8,
+      "lives": 0,
+      "phase": "lost",
+      "rounds": [
+        {
+          "kills": 8,
+          "kills_before": 0,
+          "lives_after": 30,
+          "lives_before": 30,
+          "quality_odds_level": 0,
+          "seconds": 17.0,
+          "tower": "Emerald  Â·  II",
+          "wave": 1
+        },
+        {
+          "kills": 10,
+          "kills_before": 8,
+          "lives_after": 30,
+          "lives_before": 30,
+          "quality_odds_level": 1,
+          "seconds": 15.9,
+          "tower": "Silver",
+          "wave": 2
+        },
+        {
+          "kills": 10,
+          "kills_before": 18,
+          "lives_after": 30,
+          "lives_before": 30,
+          "quality_odds_level": 2,
+          "seconds": 18.1,
+          "tower": "Amethyst  Â·  II",
+          "wave": 3
+        },
+        {
+          "kills": 10,
+          "kills_before": 28,
+          "lives_after": 30,
+          "lives_before": 30,
+          "quality_odds_level": 2,
+          "seconds": 13.8,
+          "tower": "Topaz  Â·  III",
+          "wave": 4
+        },
+        {
+          "kills": 10,
+          "kills_before": 38,
+          "lives_after": 30,
+          "lives_before": 30,
+          "quality_odds_level": 2,
+          "seconds": 18.0,
+          "tower": "Emerald  Â·  II",
+          "wave": 5
+        },
+        {
+          "kills": 10,
+          "kills_before": 48,
+          "lives_after": 30,
+          "lives_before": 30,
+          "quality_odds_level": 2,
+          "seconds": 34.6,
+          "tower": "Topaz  Â·  I",
+          "wave": 6
+        },
+        {
+          "kills": 12,
+          "kills_before": 58,
+          "lives_after": 30,
+          "lives_before": 30,
+          "quality_odds_level": 2,
+          "seconds": 37.1,
+          "tower": "Ruby  Â·  III",
+          "wave": 7
+        },
+        {
+          "kills": 16,
+          "kills_before": 70,
+          "lives_after": 30,
+          "lives_before": 30,
+          "quality_odds_level": 2,
+          "seconds": 24.1,
+          "tower": "Aquamarine  Â·  III",
+          "wave": 8
+        },
+        {
+          "kills": 1,
+          "kills_before": 86,
+          "lives_after": 0,
+          "lives_before": 30,
+          "quality_odds_level": 2,
+          "seconds": 47.0,
+          "tower": "Opal  Â·  II",
+          "wave": 9
+        }
+      ],
+      "seed": 12,
+      "wave": 9
+    },
+    {
+      "gold": 379,
+      "kills": 98,
+      "leaks": 1,
+      "lives": 0,
+      "phase": "lost",
+      "rounds": [
+        {
+          "kills": 8,
+          "kills_before": 0,
+          "lives_after": 30,
+          "lives_before": 30,
+          "quality_odds_level": 0,
+          "seconds": 18.2,
+          "tower": "Emerald  Â·  I",
+          "wave": 1
+        },
+        {
+          "kills": 10,
+          "kills_before": 8,
+          "lives_after": 30,
+          "lives_before": 30,
+          "quality_odds_level": 1,
+          "seconds": 15.8,
+          "tower": "Topaz  Â·  II",
+          "wave": 2
+        },
+        {
+          "kills": 10,
+          "kills_before": 18,
+          "lives_after": 30,
+          "lives_before": 30,
+          "quality_odds_level": 2,
+          "seconds": 18.2,
+          "tower": "Emerald  Â·  II",
+          "wave": 3
+        },
+        {
+          "kills": 10,
+          "kills_before": 28,
+          "lives_after": 30,
+          "lives_before": 30,
+          "quality_odds_level": 2,
+          "seconds": 18.7,
+          "tower": "Emerald  Â·  I",
+          "wave": 4
+        },
+        {
+          "kills": 10,
+          "kills_before": 38,
+          "lives_after": 30,
+          "lives_before": 30,
+          "quality_odds_level": 2,
+          "seconds": 18.3,
+          "tower": "Emerald  Â·  III",
+          "wave": 5
+        },
+        {
+          "kills": 10,
+          "kills_before": 48,
+          "lives_after": 30,
+          "lives_before": 30,
+          "quality_odds_level": 2,
+          "seconds": 43.0,
+          "tower": "Ruby  Â·  II",
+          "wave": 6
+        },
+        {
+          "kills": 12,
+          "kills_before": 58,
+          "lives_after": 30,
+          "lives_before": 30,
+          "quality_odds_level": 2,
+          "seconds": 36.6,
+          "tower": "Sapphire  Â·  I",
+          "wave": 7
+        },
+        {
+          "kills": 16,
+          "kills_before": 70,
+          "lives_after": 30,
+          "lives_before": 30,
+          "quality_odds_level": 2,
+          "seconds": 21.4,
+          "tower": "Asteriated Ruby",
+          "wave": 8
+        },
+        {
+          "kills": 12,
+          "kills_before": 86,
+          "lives_after": 30,
+          "lives_before": 30,
+          "quality_odds_level": 2,
+          "seconds": 37.9,
+          "tower": "Ruby  Â·  III",
+          "wave": 9
+        },
+        {
+          "kills": 0,
+          "kills_before": 98,
+          "lives_after": 0,
+          "lives_before": 30,
+          "quality_odds_level": 2,
+          "seconds": 31.9,
+          "tower": "Ruby  Â·  III",
+          "wave": 10
+        }
+      ],
+      "seed": 13,
+      "wave": 10
+    },
+    {
+      "gold": 178,
+      "kills": 59,
+      "leaks": 10,
+      "lives": 0,
+      "phase": "lost",
+      "rounds": [
+        {
+          "kills": 8,
+          "kills_before": 0,
+          "lives_after": 30,
+          "lives_before": 30,
+          "quality_odds_level": 0,
+          "seconds": 17.2,
+          "tower": "Ruby  Â·  I",
+          "wave": 1
+        },
+        {
+          "kills": 10,
+          "kills_before": 8,
+          "lives_after": 30,
+          "lives_before": 30,
+          "quality_odds_level": 1,
+          "seconds": 15.8,
+          "tower": "Aquamarine  Â·  II",
+          "wave": 2
+        },
+        {
+          "kills": 10,
+          "kills_before": 18,
+          "lives_after": 30,
+          "lives_before": 30,
+          "quality_odds_level": 2,
+          "seconds": 34.9,
+          "tower": "Emerald  Â·  II",
+          "wave": 3
+        },
+        {
+          "kills": 10,
+          "kills_before": 28,
+          "lives_after": 30,
+          "lives_before": 30,
+          "quality_odds_level": 2,
+          "seconds": 14.1,
+          "tower": "Diamond  Â·  III",
+          "wave": 4
+        },
+        {
+          "kills": 10,
+          "kills_before": 38,
+          "lives_after": 30,
+          "lives_before": 30,
+          "quality_odds_level": 2,
+          "seconds": 19.6,
+          "tower": "Topaz  Â·  II",
+          "wave": 5
+        },
+        {
+          "kills": 10,
+          "kills_before": 48,
+          "lives_after": 30,
+          "lives_before": 30,
+          "quality_odds_level": 2,
+          "seconds": 43.4,
+          "tower": "Diamond  Â·  II",
+          "wave": 6
+        },
+        {
+          "kills": 1,
+          "kills_before": 58,
+          "lives_after": 0,
+          "lives_before": 30,
+          "quality_odds_level": 2,
+          "seconds": 47.4,
+          "tower": "Aquamarine  Â·  II",
+          "wave": 7
+        }
+      ],
+      "seed": 14,
+      "wave": 7
+    },
+    {
+      "gold": 361,
+      "kills": 92,
+      "leaks": 7,
+      "lives": 0,
+      "phase": "lost",
+      "rounds": [
+        {
+          "kills": 8,
+          "kills_before": 0,
+          "lives_after": 30,
+          "lives_before": 30,
+          "quality_odds_level": 0,
+          "seconds": 17.0,
+          "tower": "Diamond  Â·  II",
+          "wave": 1
+        },
+        {
+          "kills": 10,
+          "kills_before": 8,
+          "lives_after": 30,
+          "lives_before": 30,
+          "quality_odds_level": 1,
+          "seconds": 15.0,
+          "tower": "Silver",
+          "wave": 2
+        },
+        {
+          "kills": 10,
+          "kills_before": 18,
+          "lives_after": 30,
+          "lives_before": 30,
+          "quality_odds_level": 2,
+          "seconds": 18.3,
+          "tower": "Emerald  Â·  III",
+          "wave": 3
+        },
+        {
+          "kills": 10,
+          "kills_before": 28,
+          "lives_after": 30,
+          "lives_before": 30,
+          "quality_odds_level": 2,
+          "seconds": 13.8,
+          "tower": "Emerald  Â·  II",
+          "wave": 4
+        },
+        {
+          "kills": 10,
+          "kills_before": 38,
+          "lives_after": 30,
+          "lives_before": 30,
+          "quality_odds_level": 2,
+          "seconds": 18.1,
+          "tower": "Ruby  Â·  III",
+          "wave": 5
+        },
+        {
+          "kills": 10,
+          "kills_before": 48,
+          "lives_after": 30,
+          "lives_before": 30,
+          "quality_odds_level": 2,
+          "seconds": 35.1,
+          "tower": "Aquamarine  Â·  II",
+          "wave": 6
+        },
+        {
+          "kills": 12,
+          "kills_before": 58,
+          "lives_after": 30,
+          "lives_before": 30,
+          "quality_odds_level": 2,
+          "seconds": 32.0,
+          "tower": "Aquamarine  Â·  I",
+          "wave": 7
+        },
+        {
+          "kills": 16,
+          "kills_before": 70,
+          "lives_after": 30,
+          "lives_before": 30,
+          "quality_odds_level": 2,
+          "seconds": 24.3,
+          "tower": "Topaz  Â·  II",
+          "wave": 8
+        },
+        {
+          "kills": 6,
+          "kills_before": 86,
+          "lives_after": 6,
+          "lives_before": 30,
+          "quality_odds_level": 2,
+          "seconds": 48.9,
+          "tower": "Ruby  Â·  II",
+          "wave": 9
+        },
+        {
+          "kills": 0,
+          "kills_before": 92,
+          "lives_after": 0,
+          "lives_before": 6,
+          "quality_odds_level": 2,
+          "seconds": 31.6,
+          "tower": "Emerald  Â·  III",
+          "wave": 10
+        }
+      ],
+      "seed": 15,
+      "wave": 10
+    },
+    {
+      "gold": 322,
+      "kills": 89,
+      "leaks": 8,
+      "lives": 0,
+      "phase": "lost",
+      "rounds": [
+        {
+          "kills": 8,
+          "kills_before": 0,
+          "lives_after": 30,
+          "lives_before": 30,
+          "quality_odds_level": 0,
+          "seconds": 17.4,
+          "tower": "Ruby  Â·  I",
+          "wave": 1
+        },
+        {
+          "kills": 10,
+          "kills_before": 8,
+          "lives_after": 30,
+          "lives_before": 30,
+          "quality_odds_level": 1,
+          "seconds": 16.9,
+          "tower": "Emerald  Â·  II",
+          "wave": 2
+        },
+        {
+          "kills": 10,
+          "kills_before": 18,
+          "lives_after": 30,
+          "lives_before": 30,
+          "quality_odds_level": 2,
+          "seconds": 19.3,
+          "tower": "Topaz  Â·  II",
+          "wave": 3
+        },
+        {
+          "kills": 10,
+          "kills_before": 28,
+          "lives_after": 30,
+          "lives_before": 30,
+          "quality_odds_level": 2,
+          "seconds": 22.3,
+          "tower": "Ruby  Â·  III",
+          "wave": 4
+        },
+        {
+          "kills": 10,
+          "kills_before": 38,
+          "lives_after": 30,
+          "lives_before": 30,
+          "quality_odds_level": 2,
+          "seconds": 18.4,
+          "tower": "Amethyst  Â·  II",
+          "wave": 5
+        },
+        {
+          "kills": 10,
+          "kills_before": 48,
+          "lives_after": 30,
+          "lives_before": 30,
+          "quality_odds_level": 2,
+          "seconds": 21.1,
+          "tower": "Malachite",
+          "wave": 6
+        },
+        {
+          "kills": 12,
+          "kills_before": 58,
+          "lives_after": 30,
+          "lives_before": 30,
+          "quality_odds_level": 2,
+          "seconds": 36.1,
+          "tower": "Emerald  Â·  II",
+          "wave": 7
+        },
+        {
+          "kills": 16,
+          "kills_before": 70,
+          "lives_after": 30,
+          "lives_before": 30,
+          "quality_odds_level": 2,
+          "seconds": 22.1,
+          "tower": "Emerald  Â·  II",
+          "wave": 8
+        },
+        {
+          "kills": 3,
+          "kills_before": 86,
+          "lives_after": 0,
+          "lives_before": 30,
+          "quality_odds_level": 2,
+          "seconds": 47.6,
+          "tower": "Emerald  Â·  II",
+          "wave": 9
+        }
+      ],
+      "seed": 16,
+      "wave": 9
+    },
+    {
+      "gold": 379,
+      "kills": 98,
+      "leaks": 1,
+      "lives": 0,
+      "phase": "lost",
+      "rounds": [
+        {
+          "kills": 8,
+          "kills_before": 0,
+          "lives_after": 30,
+          "lives_before": 30,
+          "quality_odds_level": 0,
+          "seconds": 17.0,
+          "tower": "Ruby  Â·  II",
+          "wave": 1
+        },
+        {
+          "kills": 10,
+          "kills_before": 8,
+          "lives_after": 30,
+          "lives_before": 30,
+          "quality_odds_level": 1,
+          "seconds": 14.8,
+          "tower": "Ruby  Â·  II",
+          "wave": 2
+        },
+        {
+          "kills": 10,
+          "kills_before": 18,
+          "lives_after": 30,
+          "lives_before": 30,
+          "quality_odds_level": 2,
+          "seconds": 17.0,
+          "tower": "Emerald  Â·  I",
+          "wave": 3
+        },
+        {
+          "kills": 10,
+          "kills_before": 28,
+          "lives_after": 30,
+          "lives_before": 30,
+          "quality_odds_level": 2,
+          "seconds": 14.7,
+          "tower": "Asteriated Ruby",
+          "wave": 4
+        },
+        {
+          "kills": 10,
+          "kills_before": 38,
+          "lives_after": 30,
+          "lives_before": 30,
+          "quality_odds_level": 2,
+          "seconds": 18.7,
+          "tower": "Emerald  Â·  I",
+          "wave": 5
+        },
+        {
+          "kills": 10,
+          "kills_before": 48,
+          "lives_after": 30,
+          "lives_before": 30,
+          "quality_odds_level": 2,
+          "seconds": 23.8,
+          "tower": "Diamond  Â·  II",
+          "wave": 6
+        },
+        {
+          "kills": 12,
+          "kills_before": 58,
+          "lives_after": 30,
+          "lives_before": 30,
+          "quality_odds_level": 2,
+          "seconds": 20.6,
+          "tower": "Ruby  Â·  II",
+          "wave": 7
+        },
+        {
+          "kills": 16,
+          "kills_before": 70,
+          "lives_after": 30,
+          "lives_before": 30,
+          "quality_odds_level": 2,
+          "seconds": 18.3,
+          "tower": "Topaz  Â·  III",
+          "wave": 8
+        },
+        {
+          "kills": 12,
+          "kills_before": 86,
+          "lives_after": 30,
+          "lives_before": 30,
+          "quality_odds_level": 2,
+          "seconds": 38.2,
+          "tower": "Sapphire  Â·  III",
+          "wave": 9
+        },
+        {
+          "kills": 0,
+          "kills_before": 98,
+          "lives_after": 0,
+          "lives_before": 30,
+          "quality_odds_level": 2,
+          "seconds": 32.4,
+          "tower": "Aquamarine  Â·  I",
+          "wave": 10
+        }
+      ],
+      "seed": 17,
+      "wave": 10
+    },
+    {
+      "gold": 178,
+      "kills": 59,
+      "leaks": 10,
+      "lives": 0,
+      "phase": "lost",
+      "rounds": [
+        {
+          "kills": 8,
+          "kills_before": 0,
+          "lives_after": 30,
+          "lives_before": 30,
+          "quality_odds_level": 0,
+          "seconds": 17.0,
+          "tower": "Ruby  Â·  I",
+          "wave": 1
+        },
+        {
+          "kills": 10,
+          "kills_before": 8,
+          "lives_after": 30,
+          "lives_before": 30,
+          "quality_odds_level": 1,
+          "seconds": 30.2,
+          "tower": "Emerald  Â·  II",
+          "wave": 2
+        },
+        {
+          "kills": 10,
+          "kills_before": 18,
+          "lives_after": 30,
+          "lives_before": 30,
+          "quality_odds_level": 2,
+          "seconds": 39.2,
+          "tower": "Sapphire  Â·  II",
+          "wave": 3
+        },
+        {
+          "kills": 10,
+          "kills_before": 28,
+          "lives_after": 30,
+          "lives_before": 30,
+          "quality_odds_level": 2,
+          "seconds": 24.9,
+          "tower": "Aquamarine  Â·  II",
+          "wave": 4
+        },
+        {
+          "kills": 10,
+          "kills_before": 38,
+          "lives_after": 30,
+          "lives_before": 30,
+          "quality_odds_level": 2,
+          "seconds": 19.5,
+          "tower": "Ruby  Â·  II",
+          "wave": 5
+        },
+        {
+          "kills": 10,
+          "kills_before": 48,
+          "lives_after": 30,
+          "lives_before": 30,
+          "quality_odds_level": 2,
+          "seconds": 47.2,
+          "tower": "Topaz  Â·  III",
+          "wave": 6
+        },
+        {
+          "kills": 1,
+          "kills_before": 58,
+          "lives_after": 0,
+          "lives_before": 30,
+          "quality_odds_level": 2,
+          "seconds": 48.2,
+          "tower": "Diamond  Â·  I",
+          "wave": 7
+        }
+      ],
+      "seed": 18,
+      "wave": 7
+    },
+    {
+      "gold": 313,
+      "kills": 86,
+      "leaks": 8,
+      "lives": 0,
+      "phase": "lost",
+      "rounds": [
+        {
+          "kills": 8,
+          "kills_before": 0,
+          "lives_after": 30,
+          "lives_before": 30,
+          "quality_odds_level": 0,
+          "seconds": 15.6,
+          "tower": "Malachite",
+          "wave": 1
+        },
+        {
+          "kills": 10,
+          "kills_before": 8,
+          "lives_after": 30,
+          "lives_before": 30,
+          "quality_odds_level": 1,
+          "seconds": 14.9,
+          "tower": "Aquamarine  Â·  II",
+          "wave": 2
+        },
+        {
+          "kills": 10,
+          "kills_before": 18,
+          "lives_after": 30,
+          "lives_before": 30,
+          "quality_odds_level": 2,
+          "seconds": 17.3,
+          "tower": "Diamond  Â·  II",
+          "wave": 3
+        },
+        {
+          "kills": 10,
+          "kills_before": 28,
+          "lives_after": 30,
+          "lives_before": 30,
+          "quality_odds_level": 2,
+          "seconds": 13.4,
+          "tower": "Ruby  Â·  I",
+          "wave": 4
+        },
+        {
+          "kills": 10,
+          "kills_before": 38,
+          "lives_after": 30,
+          "lives_before": 30,
+          "quality_odds_level": 2,
+          "seconds": 17.4,
+          "tower": "Aquamarine  Â·  III",
+          "wave": 5
+        },
+        {
+          "kills": 10,
+          "kills_before": 48,
+          "lives_after": 30,
+          "lives_before": 30,
+          "quality_odds_level": 2,
+          "seconds": 42.1,
+          "tower": "Aquamarine  Â·  III",
+          "wave": 6
+        },
+        {
+          "kills": 12,
+          "kills_before": 58,
+          "lives_after": 30,
+          "lives_before": 30,
+          "quality_odds_level": 2,
+          "seconds": 38.1,
+          "tower": "Diamond  Â·  III",
+          "wave": 7
+        },
+        {
+          "kills": 16,
+          "kills_before": 70,
+          "lives_after": 30,
+          "lives_before": 30,
+          "quality_odds_level": 2,
+          "seconds": 21.2,
+          "tower": "Topaz  Â·  II",
+          "wave": 8
+        },
+        {
+          "kills": 0,
+          "kills_before": 86,
+          "lives_after": 0,
+          "lives_before": 30,
+          "quality_odds_level": 2,
+          "seconds": 44.8,
+          "tower": "Aquamarine  Â·  II",
+          "wave": 9
+        }
+      ],
+      "seed": 19,
+      "wave": 9
+    },
+    {
+      "gold": 367,
+      "kills": 94,
+      "leaks": 5,
+      "lives": 0,
+      "phase": "lost",
+      "rounds": [
+        {
+          "kills": 8,
+          "kills_before": 0,
+          "lives_after": 30,
+          "lives_before": 30,
+          "quality_odds_level": 0,
+          "seconds": 18.0,
+          "tower": "Emerald  Â·  I",
+          "wave": 1
+        },
+        {
+          "kills": 10,
+          "kills_before": 8,
+          "lives_after": 30,
+          "lives_before": 30,
+          "quality_odds_level": 1,
+          "seconds": 14.8,
+          "tower": "Malachite",
+          "wave": 2
+        },
+        {
+          "kills": 10,
+          "kills_before": 18,
+          "lives_after": 30,
+          "lives_before": 30,
+          "quality_odds_level": 2,
+          "seconds": 16.9,
+          "tower": "Diamond  Â·  III",
+          "wave": 3
+        },
+        {
+          "kills": 10,
+          "kills_before": 28,
+          "lives_after": 30,
+          "lives_before": 30,
+          "quality_odds_level": 2,
+          "seconds": 14.2,
+          "tower": "Emerald  Â·  II",
+          "wave": 4
+        },
+        {
+          "kills": 10,
+          "kills_before": 38,
+          "lives_after": 30,
+          "lives_before": 30,
+          "quality_odds_level": 2,
+          "seconds": 17.9,
+          "tower": "Emerald  Â·  II",
+          "wave": 5
+        },
+        {
+          "kills": 10,
+          "kills_before": 48,
+          "lives_after": 30,
+          "lives_before": 30,
+          "quality_odds_level": 2,
+          "seconds": 44.8,
+          "tower": "Topaz  Â·  III",
+          "wave": 6
+        },
+        {
+          "kills": 11,
+          "kills_before": 58,
+          "lives_after": 27,
+          "lives_before": 30,
+          "quality_odds_level": 2,
+          "seconds": 45.9,
+          "tower": "Diamond  Â·  III",
+          "wave": 7
+        },
+        {
+          "kills": 16,
+          "kills_before": 69,
+          "lives_after": 27,
+          "lives_before": 27,
+          "quality_odds_level": 2,
+          "seconds": 23.4,
+          "tower": "Emerald  Â·  II",
+          "wave": 8
+        },
+        {
+          "kills": 9,
+          "kills_before": 85,
+          "lives_after": 15,
+          "lives_before": 27,
+          "quality_odds_level": 2,
+          "seconds": 48.2,
+          "tower": "Emerald  Â·  III",
+          "wave": 9
+        },
+        {
+          "kills": 0,
+          "kills_before": 94,
+          "lives_after": 0,
+          "lives_before": 15,
+          "quality_odds_level": 2,
+          "seconds": 31.1,
+          "tower": "Diamond  Â·  II",
+          "wave": 10
+        }
+      ],
+      "seed": 20,
+      "wave": 10
+    }
+  ],
+  "total": 20,
+  "wins": 0,
+  "recorded_date": "2026-10-23",
+  "engine": "4.7.2.stable.official.ed1daf0bf",
+  "source_sha256": {
+    "data/catalog.json": "70acd784499cdd4f3f9b82b8bf198ba856d5d5f77069637163955e1978dcf527",
+    "game/core/board.gd": "15460bd40dacfcab800784def5e2541b4fd3f862631068061945f395dac99b4c",
+    "game/core/catalog.gd": "65e404b6750b0f36cc3c9ec84473dd115fa7e898f5281ac02795d5b9d3fb1bfa",
+    "game/core/combat.gd": "ef3fba025611566762dc1a5c761f761e8a36e83cd2708eb913e5dafcd7ef7321",
+    "game/core/damage.gd": "e6148b15457f37ca9cd5eeb65604801bcb2eb9135d0fc96e2ff485c14a495ae2",
+    "game/core/run_state.gd": "220cf3806c1fe57c3d5c68c876217c618a1baaaccb8e9d0f00aa0e9c465ef72e",
+    "game/core/save_store.gd": "1c1d68e03ba9ddc5626085ed2df607e5b44c6bd3c0cdf10435b1d77fc34c7af0",
+    "tools/audit_runs.gd": "a3338d8d5fbd13debd3497a145516914f5bdc5a1c289a948a6825f0b60180cdb"
+  }
+}

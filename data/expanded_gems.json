@@ -1,0 +1,668 @@
+{
+  "version": 2,
+  "profile": "expanded-gems-dev",
+  "gems": {
+    "sapphire": {
+      "name": "Sapphire",
+      "color": "#62c8ff",
+      "effect": "Slow: -60 / -90 / -120 world units/s for 3 seconds.",
+      "levels": [
+        {
+          "source_id": "gemtd_b1",
+          "damage": 2.0,
+          "interval": 1.0,
+          "range": 4.6875,
+          "source_ability": "tower_slow1"
+        },
+        {
+          "source_id": "gemtd_b11",
+          "damage": 4.0,
+          "interval": 1.0,
+          "range": 4.6875,
+          "source_ability": "tower_slow2"
+        },
+        {
+          "source_id": "gemtd_b111",
+          "damage": 6.0,
+          "interval": 1.0,
+          "range": 4.6875,
+          "source_ability": "tower_slow3"
+        },
+        {
+          "source_id": "gemtd_b1111",
+          "damage": 8.0,
+          "interval": 1.0,
+          "range": 4.6875,
+          "source_ability": "tower_slow4"
+        },
+        {
+          "source_id": "gemtd_b11111",
+          "damage": 10.0,
+          "interval": 1.0,
+          "range": 4.6875,
+          "source_ability": "tower_slow5"
+        },
+        {
+          "source_id": "gemtd_b111111",
+          "damage": 36.0,
+          "interval": 0.6,
+          "range": 4.6875,
+          "source_ability": "tower_slow6"
+        }
+      ],
+      "targets": "both"
+    },
+    "diamond": {
+      "name": "Diamond",
+      "color": "#e1edf7",
+      "effect": "High physical attack damage.",
+      "levels": [
+        {
+          "source_id": "gemtd_d1",
+          "damage": 5.0,
+          "interval": 1.0,
+          "range": 3.90625,
+          "source_ability": ""
+        },
+        {
+          "source_id": "gemtd_d11",
+          "damage": 10.0,
+          "interval": 1.0,
+          "range": 3.90625,
+          "source_ability": ""
+        },
+        {
+          "source_id": "gemtd_d111",
+          "damage": 20.0,
+          "interval": 1.0,
+          "range": 3.90625,
+          "source_ability": ""
+        },
+        {
+          "source_id": "gemtd_d1111",
+          "damage": 20.0,
+          "interval": 1.0,
+          "range": 3.90625,
+          "source_ability": "tower_attack1"
+        },
+        {
+          "source_id": "gemtd_d11111",
+          "damage": 40.0,
+          "interval": 1.0,
+          "range": 3.90625,
+          "source_ability": "tower_attack2"
+        },
+        {
+          "source_id": "gemtd_d111111",
+          "damage": 140.0,
+          "interval": 0.7,
+          "range": 3.90625,
+          "source_ability": "tower_attack5"
+        }
+      ],
+      "targets": "ground"
+    },
+    "aquamarine": {
+      "name": "Aquamarine",
+      "color": "#5bf0d4",
+      "effect": "Rapid attacks: +200 attack speed.",
+      "levels": [
+        {
+          "source_id": "gemtd_q1",
+          "damage": 2.0,
+          "interval": 1.0,
+          "range": 3.125,
+          "source_ability": "tower_speed1"
+        },
+        {
+          "source_id": "gemtd_q11",
+          "damage": 4.0,
+          "interval": 0.9,
+          "range": 3.125,
+          "source_ability": "tower_speed1"
+        },
+        {
+          "source_id": "gemtd_q111",
+          "damage": 8.0,
+          "interval": 0.8,
+          "range": 3.125,
+          "source_ability": "tower_speed1"
+        },
+        {
+          "source_id": "gemtd_q1111",
+          "damage": 16.0,
+          "interval": 0.7,
+          "range": 3.125,
+          "source_ability": "tower_speed1"
+        },
+        {
+          "source_id": "gemtd_q11111",
+          "damage": 24.0,
+          "interval": 0.6,
+          "range": 3.125,
+          "source_ability": "tower_speed1"
+        },
+        {
+          "source_id": "gemtd_q111111",
+          "damage": 80.0,
+          "interval": 0.5,
+          "range": 3.90625,
+          "source_ability": "tower_speed2"
+        }
+      ],
+      "targets": "both"
+    },
+    "opal": {
+      "name": "Opal",
+      "color": "#f2afdc",
+      "effect": "Nearby towers: +20 / +30 / +40 attack speed. Different quality auras stack; identical quality does not.",
+      "levels": [
+        {
+          "source_id": "gemtd_e1",
+          "damage": 1.0,
+          "interval": 1.0,
+          "range": 3.90625,
+          "source_ability": "tower_speed_aura1"
+        },
+        {
+          "source_id": "gemtd_e11",
+          "damage": 2.0,
+          "interval": 1.0,
+          "range": 3.90625,
+          "source_ability": "tower_speed_aura2"
+        },
+        {
+          "source_id": "gemtd_e111",
+          "damage": 3.0,
+          "interval": 1.0,
+          "range": 3.90625,
+          "source_ability": "tower_speed_aura3"
+        },
+        {
+          "source_id": "gemtd_e1111",
+          "damage": 4.0,
+          "interval": 1.0,
+          "range": 3.90625,
+          "source_ability": "tower_speed_aura4"
+        },
+        {
+          "source_id": "gemtd_e11111",
+          "damage": 5.0,
+          "interval": 1.0,
+          "range": 3.90625,
+          "source_ability": "tower_speed_aura5"
+        },
+        {
+          "source_id": "gemtd_e111111",
+          "damage": 6.0,
+          "interval": 1.0,
+          "range": 3.90625,
+          "source_ability": "tower_speed_aura6"
+        }
+      ],
+      "targets": "both"
+    },
+    "emerald": {
+      "name": "Emerald",
+      "color": "#83d46a",
+      "effect": "Poison: 2 / 4 / 8 magic damage per second for 10 seconds.",
+      "levels": [
+        {
+          "source_id": "gemtd_g1",
+          "damage": 2.0,
+          "interval": 1.0,
+          "range": 3.90625,
+          "source_ability": "tower_du1"
+        },
+        {
+          "source_id": "gemtd_g11",
+          "damage": 4.0,
+          "interval": 1.0,
+          "range": 3.90625,
+          "source_ability": "tower_du2"
+        },
+        {
+          "source_id": "gemtd_g111",
+          "damage": 6.0,
+          "interval": 1.0,
+          "range": 3.90625,
+          "source_ability": "tower_du3"
+        },
+        {
+          "source_id": "gemtd_g1111",
+          "damage": 8.0,
+          "interval": 1.0,
+          "range": 3.90625,
+          "source_ability": "tower_du4"
+        },
+        {
+          "source_id": "gemtd_g11111",
+          "damage": 10.0,
+          "interval": 1.0,
+          "range": 3.90625,
+          "source_ability": "tower_du5"
+        },
+        {
+          "source_id": "gemtd_g111111",
+          "damage": 12.0,
+          "interval": 1.0,
+          "range": 3.90625,
+          "source_ability": "tower_du6"
+        }
+      ],
+      "targets": "both"
+    },
+    "topaz": {
+      "name": "Topaz",
+      "color": "#f4ce65",
+      "effect": "Primary attack plus up to three nearest secondary targets. Secondary hits bypass evasion.",
+      "levels": [
+        {
+          "source_id": "gemtd_y1",
+          "damage": 3.0,
+          "interval": 1.3,
+          "range": 4.6875,
+          "source_ability": "tower_fenliejian"
+        },
+        {
+          "source_id": "gemtd_y11",
+          "damage": 6.0,
+          "interval": 1.3,
+          "range": 3.90625,
+          "source_ability": "tower_fenliejian"
+        },
+        {
+          "source_id": "gemtd_y111",
+          "damage": 9.0,
+          "interval": 1.3,
+          "range": 3.90625,
+          "source_ability": "tower_fenliejian"
+        },
+        {
+          "source_id": "gemtd_y1111",
+          "damage": 18.0,
+          "interval": 1.3,
+          "range": 3.90625,
+          "source_ability": "tower_fenliejian"
+        },
+        {
+          "source_id": "gemtd_y11111",
+          "damage": 36.0,
+          "interval": 1.3,
+          "range": 3.90625,
+          "source_ability": "tower_fenliejian"
+        },
+        {
+          "source_id": "gemtd_y111111",
+          "damage": 200.0,
+          "interval": 0.6,
+          "range": 39.0625,
+          "source_ability": "tower_fenliejian"
+        }
+      ],
+      "targets": "both"
+    },
+    "ruby": {
+      "name": "Ruby",
+      "color": "#f1757b",
+      "effect": "Pure splash: 30% / 40% / 50% in radius 300 / 350 / 400.",
+      "levels": [
+        {
+          "source_id": "gemtd_r1",
+          "damage": 4.0,
+          "interval": 1.0,
+          "range": 3.90625,
+          "source_ability": "tower_jianshe1"
+        },
+        {
+          "source_id": "gemtd_r11",
+          "damage": 8.0,
+          "interval": 1.0,
+          "range": 3.90625,
+          "source_ability": "tower_jianshe2"
+        },
+        {
+          "source_id": "gemtd_r111",
+          "damage": 12.0,
+          "interval": 1.0,
+          "range": 3.90625,
+          "source_ability": "tower_jianshe3"
+        },
+        {
+          "source_id": "gemtd_r1111",
+          "damage": 24.0,
+          "interval": 1.0,
+          "range": 3.90625,
+          "source_ability": "tower_jianshe4"
+        },
+        {
+          "source_id": "gemtd_r11111",
+          "damage": 48.0,
+          "interval": 1.0,
+          "range": 3.90625,
+          "source_ability": "tower_jianshe5"
+        },
+        {
+          "source_id": "gemtd_r111111",
+          "damage": 150.0,
+          "interval": 1.0,
+          "range": 3.90625,
+          "source_ability": "tower_jianshe6"
+        }
+      ],
+      "targets": "ground"
+    },
+    "amethyst": {
+      "name": "Amethyst",
+      "color": "#b79afa",
+      "effect": "Armor reduction: -2 / -4 / -8 for 3 seconds.",
+      "levels": [
+        {
+          "source_id": "gemtd_p1",
+          "damage": 2.0,
+          "interval": 0.6,
+          "range": 3.90625,
+          "source_ability": "tower_jianjia1"
+        },
+        {
+          "source_id": "gemtd_p11",
+          "damage": 4.0,
+          "interval": 0.6,
+          "range": 3.90625,
+          "source_ability": "tower_jianjia2"
+        },
+        {
+          "source_id": "gemtd_p111",
+          "damage": 6.0,
+          "interval": 0.6,
+          "range": 3.90625,
+          "source_ability": "tower_jianjia3"
+        },
+        {
+          "source_id": "gemtd_p1111",
+          "damage": 8.0,
+          "interval": 0.6,
+          "range": 3.90625,
+          "source_ability": "tower_jianjia4"
+        },
+        {
+          "source_id": "gemtd_p11111",
+          "damage": 10.0,
+          "interval": 0.6,
+          "range": 3.90625,
+          "source_ability": "tower_jianjia5"
+        },
+        {
+          "source_id": "gemtd_p111111",
+          "damage": 70.0,
+          "interval": 0.6,
+          "range": 3.90625,
+          "source_ability": "tower_jianjia6"
+        }
+      ],
+      "targets": "both"
+    }
+  },
+  "effects": {
+    "sapphire": {
+      "slow": [
+        60.0,
+        90.0,
+        120.0,
+        150.0,
+        180.0,
+        480.0
+      ],
+      "duration": [
+        3.0,
+        3.0,
+        3.0,
+        3.0,
+        3.0,
+        3.0
+      ]
+    },
+    "silver": {
+      "slow": [
+        90
+      ],
+      "duration": 3
+    },
+    "amethyst": {
+      "armor_reduction": [
+        2.0,
+        4.0,
+        8.0,
+        16.0,
+        32.0,
+        64.0
+      ],
+      "duration": [
+        3.0,
+        3.0,
+        3.0,
+        3.0,
+        3.0,
+        5.0
+      ]
+    },
+    "emerald": {
+      "damage": [
+        2.0,
+        4.0,
+        8.0,
+        16.0,
+        32.0,
+        128.0
+      ],
+      "duration": [
+        10.0,
+        10.0,
+        10.0,
+        10.0,
+        10.0,
+        10.0
+      ],
+      "interval": 1
+    },
+    "aquamarine": {
+      "attack_speed": [
+        200.0,
+        200.0,
+        200.0,
+        200.0,
+        200.0,
+        500.0
+      ]
+    },
+    "opal": {
+      "attack_speed": [
+        20.0,
+        30.0,
+        40.0,
+        50.0,
+        60.0,
+        70.0
+      ],
+      "radius": 5.1875
+    },
+    "ruby": {
+      "fraction": [
+        0.3,
+        0.4,
+        0.5,
+        0.6,
+        0.7,
+        1.0
+      ],
+      "radius": [
+        2.34375,
+        2.734375,
+        3.125,
+        3.515625,
+        3.90625,
+        5.46875
+      ]
+    },
+    "topaz": {
+      "secondary_count": 3
+    },
+    "malachite": {
+      "secondary_count": 3
+    },
+    "asteriated_ruby": {
+      "damage": 20,
+      "interval": 0.25,
+      "radius": 3.90625
+    }
+  },
+  "specials": {
+    "silver": {
+      "name": "Silver",
+      "source_id": "gemtd_baiyin",
+      "color": "#c5e4e7",
+      "ingredients": [
+        [
+          "sapphire",
+          1
+        ],
+        [
+          "topaz",
+          1
+        ],
+        [
+          "diamond",
+          1
+        ]
+      ],
+      "damage": 40.0,
+      "interval": 1.0,
+      "range": 4.6875,
+      "effect": "Physical attack; -90 movement speed for 3 seconds.",
+      "targets": "both"
+    },
+    "malachite": {
+      "name": "Malachite",
+      "source_id": "gemtd_kongqueshi",
+      "color": "#86e1a7",
+      "ingredients": [
+        [
+          "opal",
+          1
+        ],
+        [
+          "aquamarine",
+          1
+        ],
+        [
+          "emerald",
+          1
+        ]
+      ],
+      "damage": 15.0,
+      "interval": 0.8,
+      "range": 4.6875,
+      "effect": "Primary attack plus up to three nearest secondary targets. Secondary hits bypass evasion.",
+      "targets": "both"
+    },
+    "asteriated_ruby": {
+      "name": "Asteriated Ruby",
+      "source_id": "gemtd_xingcaihongbaoshi",
+      "color": "#ff9ab1",
+      "ingredients": [
+        [
+          "ruby",
+          2
+        ],
+        [
+          "ruby",
+          1
+        ],
+        [
+          "amethyst",
+          1
+        ]
+      ],
+      "damage": 0.0,
+      "interval": 1.0,
+      "range": 4.6875,
+      "effect": "Burning aura: 20 magic damage every 0.25 seconds in radius 500.",
+      "targets": "both"
+    },
+    "jade": {
+      "name": "Jade",
+      "source_id": "gemtd_yu",
+      "color": "#60d4a0",
+      "ingredients": [
+        [
+          "emerald",
+          3
+        ],
+        [
+          "opal",
+          3
+        ],
+        [
+          "sapphire",
+          2
+        ]
+      ],
+      "damage": 30.0,
+      "interval": 0.5,
+      "range": 6.25,
+      "targets": "both",
+      "effect_kind": "emerald",
+      "effect_tier": 4,
+      "effect": "Poison: 16 magic damage per second for 10 seconds."
+    }
+  },
+  "quality_odds": [
+    [
+      100,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      80,
+      20,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      60,
+      30,
+      10,
+      0,
+      0,
+      0
+    ],
+    [
+      40,
+      30,
+      20,
+      10,
+      0,
+      0
+    ],
+    [
+      10,
+      30,
+      30,
+      20,
+      10,
+      0
+    ]
+  ],
+  "quality_costs": [
+    20,
+    45,
+    80,
+    125
+  ],
+  "balance_note": "Development profile: original six-quality tower facts; ten curated waves. Gold prices 20/45/80/125 are provisional adaptations, not Dota hero-XP progression. Quality VI comes from combinations. Higher-tier art uses replaceable fallback sprites."
+}

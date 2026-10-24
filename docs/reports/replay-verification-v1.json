@@ -1,0 +1,205 @@
+{
+  "reports": [
+    {
+      "report": "coverage-01.json",
+      "sha256": "acda73d9af65c96958119426ee53c4768b05d4bbde8ed2a80fa9e4bf03431161",
+      "error": "",
+      "lives": 0,
+      "ok": true,
+      "outcome": "lost",
+      "ticks": 6112,
+      "wave": 10
+    },
+    {
+      "report": "coverage-02.json",
+      "sha256": "0c192e0adf2268c2270a0a721b214b34100abba4a1c99d0cb9083a095c19d70d",
+      "error": "",
+      "lives": 0,
+      "ok": true,
+      "outcome": "lost",
+      "ticks": 7400,
+      "wave": 10
+    },
+    {
+      "report": "coverage-03.json",
+      "sha256": "cd3f314a6e8e70deff80e947a387ccb161e56ac4df8a870f6391522467a40b75",
+      "error": "",
+      "lives": 0,
+      "ok": true,
+      "outcome": "lost",
+      "ticks": 8132,
+      "wave": 10
+    },
+    {
+      "report": "coverage-04.json",
+      "sha256": "84875f8ff059fb32eab7c17c2cf8ed5fbe0d15d64b7380cacfb90ca08a47f72e",
+      "error": "",
+      "lives": 0,
+      "ok": true,
+      "outcome": "lost",
+      "ticks": 8000,
+      "wave": 10
+    },
+    {
+      "report": "coverage-05.json",
+      "sha256": "131bb62a7eda1ec93ced106e564b910d4d3b193b39fae2aed73357f8e6522081",
+      "error": "",
+      "lives": 0,
+      "ok": true,
+      "outcome": "lost",
+      "ticks": 7986,
+      "wave": 10
+    },
+    {
+      "report": "coverage-06.json",
+      "sha256": "59914173d1a0accc7a135eb25c7ecb7263f94b4e78b011ed638afdf7246f51c1",
+      "error": "",
+      "lives": 0,
+      "ok": true,
+      "outcome": "lost",
+      "ticks": 6933,
+      "wave": 10
+    },
+    {
+      "report": "coverage-07.json",
+      "sha256": "5bc87fcbf9da9abf227023ac69b6fbceaea60b878c1b5bcc4ef0176dbbb65a7e",
+      "error": "",
+      "lives": 0,
+      "ok": true,
+      "outcome": "lost",
+      "ticks": 6457,
+      "wave": 9
+    },
+    {
+      "report": "coverage-08.json",
+      "sha256": "5da6ddd64a3fed72e650a20871bbeb3864213275cb86f660947b0acfc614bdae",
+      "error": "",
+      "lives": 0,
+      "ok": true,
+      "outcome": "lost",
+      "ticks": 7837,
+      "wave": 10
+    },
+    {
+      "report": "coverage-09.json",
+      "sha256": "6cab1504b53b754cb653d2db609c396647a7ec50ecbfd1706cfe3c3cca2896f8",
+      "error": "",
+      "lives": 0,
+      "ok": true,
+      "outcome": "lost",
+      "ticks": 8219,
+      "wave": 10
+    },
+    {
+      "report": "coverage-10.json",
+      "sha256": "9a33fd9567a8f0a260dc113717737e036d4565f283f7bfca6686536579660ed8",
+      "error": "",
+      "lives": 0,
+      "ok": true,
+      "outcome": "lost",
+      "ticks": 7165,
+      "wave": 9
+    },
+    {
+      "report": "maze-01.json",
+      "sha256": "d97d8318e075b71d6e238cbb40262f1658709f7fcde92247b0cc3c75192337ae",
+      "error": "",
+      "lives": 0,
+      "ok": true,
+      "outcome": "lost",
+      "ticks": 13077,
+      "wave": 10
+    },
+    {
+      "report": "maze-02.json",
+      "sha256": "e12308ffe96d060c223c62152f727dc51003881c2c710d9ed8aa3e1584b5c4c3",
+      "error": "",
+      "lives": 0,
+      "ok": true,
+      "outcome": "lost",
+      "ticks": 12389,
+      "wave": 10
+    },
+    {
+      "report": "maze-03.json",
+      "sha256": "12001ba2cd0de7785bfb4e51203812b0f9a018f736d362b4ae675c64f1ce77ac",
+      "error": "",
+      "lives": 0,
+      "ok": true,
+      "outcome": "lost",
+      "ticks": 11670,
+      "wave": 10
+    },
+    {
+      "report": "maze-04.json",
+      "sha256": "8cb199bfdecd78b06bf2dfea7157bbcd0673c74e6ff111fadf0f0daba5b32e6a",
+      "error": "",
+      "lives": 0,
+      "ok": true,
+      "outcome": "lost",
+      "ticks": 10825,
+      "wave": 10
+    },
+    {
+      "report": "maze-05.json",
+      "sha256": "676c9d72d7ad053e1ad79d95dc1281b5bacec87da1415e1e9ea606fe97a02a3d",
+      "error": "",
+      "lives": 0,
+      "ok": true,
+      "outcome": "lost",
+      "ticks": 11514,
+      "wave": 10
+    },
+    {
+      "report": "maze-06.json",
+      "sha256": "0b99d0d15993c27cfb650a89ffb42f847b6c108c74f34bafacca99c72ff1a531",
+      "error": "",
+      "lives": 0,
+      "ok": true,
+      "outcome": "lost",
+      "ticks": 13054,
+      "wave": 10
+    },
+    {
+      "report": "maze-07.json",
+      "sha256": "e5be824a133f056ca9fecee574d32f8c7779a7058e9fbcff467088c99f831516",
+      "error": "",
+      "lives": 0,
+      "ok": true,
+      "outcome": "lost",
+      "ticks": 13988,
+      "wave": 10
+    },
+    {
+      "report": "maze-08.json",
+      "sha256": "939805e0418368c288e32f342eb9f351bbb55855861311feba58c4651342b737",
+      "error": "",
+      "lives": 30,
+      "ok": true,
+      "outcome": "won",
+      "ticks": 10450,
+      "wave": 10
+    },
+    {
+      "report": "maze-09.json",
+      "sha256": "25056245d082de95e84aab4c3819daf9d4202d02971ed3c48f00a383f4d17a67",
+      "error": "",
+      "lives": 0,
+      "ok": true,
+      "outcome": "lost",
+      "ticks": 14207,
+      "wave": 10
+    },
+    {
+      "report": "maze-10.json",
+      "sha256": "8330f4a41a3dfe3fc503bc4ee9d2ad6e21bae7aadd8672f69303ed057a06d54d",
+      "error": "",
+      "lives": 0,
+      "ok": true,
+      "outcome": "lost",
+      "ticks": 13496,
+      "wave": 10
+    }
+  ],
+  "all_passed": true
+}

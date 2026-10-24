@@ -1,0 +1,5138 @@
+{
+  "schema": 1,
+  "reference_date": "2026-08-01",
+  "source_hashes": {
+    "mode.lua": "f7b84401f2d24f3f2249879b18aa75bab0ec66dd0043713b49dbb54be802b75b",
+    "units.txt": "19af24c6a0a1151965d9ab8d1962344893ef924954eca179156da91efa7a060e",
+    "abilities.txt": "1c46eaa37834bb53be854ffa35c720bd8b53bc614385fcd0488c4e49add250f4"
+  },
+  "implementation_status": "staging-not-active-gameplay",
+  "progression": {
+    "base_waves": 50,
+    "trial_waves": 50,
+    "trial_base_offset": 50,
+    "trials_random_abilities": 2,
+    "solo_hp_multiplier": 0.69,
+    "solo_speed_multiplier": 0.69,
+    "source_starting_lives": 100,
+    "source_default_wave_count": 10,
+    "trial_ability_pool": [
+      "enemy_bukeqinfan",
+      "guai_shanbi",
+      "guai_jiaoxieguanghuan",
+      "tidehunter_blubber",
+      "enemy_wumian",
+      "enemy_momian",
+      "enemy_zheguang",
+      "enemy_shanshuo",
+      "runrunrun",
+      "enemy_thief",
+      "enemy_high_armor",
+      "enemy_jili",
+      "mars_bulwark"
+    ]
+  },
+  "base_towers": [
+    {
+      "kind": "sapphire",
+      "tier": 1,
+      "source_id": "gemtd_b1",
+      "values": {
+        "AttackDamageMin": 2.0,
+        "AttackDamageMax": 2.0,
+        "AttackRate": 1.0,
+        "AttackRange": 600.0,
+        "ProjectileSpeed": 3000.0,
+        "AttackAnimationPoint": 0.0,
+        "StatusHealth": 1.0,
+        "MovementSpeed": 0.0,
+        "ArmorPhysical": 10.0,
+        "MagicalResistance": 0.0
+      },
+      "abilities": [
+        "tower_slow1"
+      ],
+      "movement": "DOTA_UNIT_CAP_MOVE_NONE",
+      "attack_capabilities": "DOTA_UNIT_CAP_RANGED_ATTACK",
+      "combat_class": "DOTA_COMBAT_CLASS_ATTACK_SIEGE",
+      "combat_class_defend": "DOTA_COMBAT_CLASS_DEFEND_STRUCTURE",
+      "ancient": false
+    },
+    {
+      "kind": "sapphire",
+      "tier": 2,
+      "source_id": "gemtd_b11",
+      "values": {
+        "AttackDamageMin": 4.0,
+        "AttackDamageMax": 4.0,
+        "AttackRate": 1.0,
+        "AttackRange": 600.0,
+        "ProjectileSpeed": 3000.0,
+        "AttackAnimationPoint": 0.0,
+        "StatusHealth": 1.0,
+        "MovementSpeed": 0.0,
+        "ArmorPhysical": 10.0,
+        "MagicalResistance": 0.0
+      },
+      "abilities": [
+        "tower_slow2"
+      ],
+      "movement": "DOTA_UNIT_CAP_MOVE_NONE",
+      "attack_capabilities": "DOTA_UNIT_CAP_RANGED_ATTACK",
+      "combat_class": "DOTA_COMBAT_CLASS_ATTACK_SIEGE",
+      "combat_class_defend": "DOTA_COMBAT_CLASS_DEFEND_STRUCTURE",
+      "ancient": false
+    },
+    {
+      "kind": "sapphire",
+      "tier": 3,
+      "source_id": "gemtd_b111",
+      "values": {
+        "AttackDamageMin": 6.0,
+        "AttackDamageMax": 6.0,
+        "AttackRate": 1.0,
+        "AttackRange": 600.0,
+        "ProjectileSpeed": 3000.0,
+        "AttackAnimationPoint": 0.0,
+        "StatusHealth": 1.0,
+        "MovementSpeed": 0.0,
+        "ArmorPhysical": 10.0,
+        "MagicalResistance": 0.0
+      },
+      "abilities": [
+        "tower_slow3"
+      ],
+      "movement": "DOTA_UNIT_CAP_MOVE_NONE",
+      "attack_capabilities": "DOTA_UNIT_CAP_RANGED_ATTACK",
+      "combat_class": "DOTA_COMBAT_CLASS_ATTACK_SIEGE",
+      "combat_class_defend": "DOTA_COMBAT_CLASS_DEFEND_STRUCTURE",
+      "ancient": false
+    },
+    {
+      "kind": "sapphire",
+      "tier": 4,
+      "source_id": "gemtd_b1111",
+      "values": {
+        "AttackDamageMin": 8.0,
+        "AttackDamageMax": 8.0,
+        "AttackRate": 1.0,
+        "AttackRange": 600.0,
+        "ProjectileSpeed": 3000.0,
+        "AttackAnimationPoint": 0.0,
+        "StatusHealth": 1.0,
+        "MovementSpeed": 0.0,
+        "ArmorPhysical": 10.0,
+        "MagicalResistance": 0.0
+      },
+      "abilities": [
+        "tower_slow4"
+      ],
+      "movement": "DOTA_UNIT_CAP_MOVE_NONE",
+      "attack_capabilities": "DOTA_UNIT_CAP_RANGED_ATTACK",
+      "combat_class": "DOTA_COMBAT_CLASS_ATTACK_SIEGE",
+      "combat_class_defend": "DOTA_COMBAT_CLASS_DEFEND_STRUCTURE",
+      "ancient": false
+    },
+    {
+      "kind": "sapphire",
+      "tier": 5,
+      "source_id": "gemtd_b11111",
+      "values": {
+        "AttackDamageMin": 10.0,
+        "AttackDamageMax": 10.0,
+        "AttackRate": 1.0,
+        "AttackRange": 600.0,
+        "ProjectileSpeed": 3000.0,
+        "AttackAnimationPoint": 0.0,
+        "StatusHealth": 1.0,
+        "MovementSpeed": 0.0,
+        "ArmorPhysical": 10.0,
+        "MagicalResistance": 0.0
+      },
+      "abilities": [
+        "tower_slow5"
+      ],
+      "movement": "DOTA_UNIT_CAP_MOVE_NONE",
+      "attack_capabilities": "DOTA_UNIT_CAP_RANGED_ATTACK",
+      "combat_class": "DOTA_COMBAT_CLASS_ATTACK_SIEGE",
+      "combat_class_defend": "DOTA_COMBAT_CLASS_DEFEND_STRUCTURE",
+      "ancient": false
+    },
+    {
+      "kind": "sapphire",
+      "tier": 6,
+      "source_id": "gemtd_b111111",
+      "values": {
+        "AttackDamageMin": 36.0,
+        "AttackDamageMax": 36.0,
+        "AttackRate": 0.6,
+        "AttackRange": 600.0,
+        "ProjectileSpeed": 3000.0,
+        "AttackAnimationPoint": 0.0,
+        "StatusHealth": 1.0,
+        "MovementSpeed": 0.0,
+        "ArmorPhysical": 10.0,
+        "MagicalResistance": 0.0
+      },
+      "abilities": [
+        "tower_slow6"
+      ],
+      "movement": "DOTA_UNIT_CAP_MOVE_NONE",
+      "attack_capabilities": "DOTA_UNIT_CAP_RANGED_ATTACK",
+      "combat_class": "DOTA_COMBAT_CLASS_ATTACK_SIEGE",
+      "combat_class_defend": "DOTA_COMBAT_CLASS_DEFEND_STRUCTURE",
+      "ancient": false
+    },
+    {
+      "kind": "diamond",
+      "tier": 1,
+      "source_id": "gemtd_d1",
+      "values": {
+        "AttackDamageMin": 5.0,
+        "AttackDamageMax": 5.0,
+        "AttackRate": 1.0,
+        "AttackRange": 500.0,
+        "ProjectileSpeed": 3000.0,
+        "AttackAnimationPoint": 0.0,
+        "StatusHealth": 1.0,
+        "MovementSpeed": 0.0,
+        "ArmorPhysical": 0.0,
+        "MagicalResistance": 0.0
+      },
+      "abilities": [],
+      "movement": "DOTA_UNIT_CAP_MOVE_NONE",
+      "attack_capabilities": "DOTA_UNIT_CAP_RANGED_ATTACK",
+      "combat_class": "DOTA_COMBAT_CLASS_ATTACK_SIEGE",
+      "combat_class_defend": "DOTA_COMBAT_CLASS_DEFEND_STRUCTURE",
+      "ancient": false
+    },
+    {
+      "kind": "diamond",
+      "tier": 2,
+      "source_id": "gemtd_d11",
+      "values": {
+        "AttackDamageMin": 10.0,
+        "AttackDamageMax": 10.0,
+        "AttackRate": 1.0,
+        "AttackRange": 500.0,
+        "ProjectileSpeed": 3000.0,
+        "AttackAnimationPoint": 0.0,
+        "StatusHealth": 1.0,
+        "MovementSpeed": 0.0,
+        "ArmorPhysical": 0.0,
+        "MagicalResistance": 0.0
+      },
+      "abilities": [],
+      "movement": "DOTA_UNIT_CAP_MOVE_NONE",
+      "attack_capabilities": "DOTA_UNIT_CAP_RANGED_ATTACK",
+      "combat_class": "DOTA_COMBAT_CLASS_ATTACK_SIEGE",
+      "combat_class_defend": "DOTA_COMBAT_CLASS_DEFEND_STRUCTURE",
+      "ancient": false
+    },
+    {
+      "kind": "diamond",
+      "tier": 3,
+      "source_id": "gemtd_d111",
+      "values": {
+        "AttackDamageMin": 20.0,
+        "AttackDamageMax": 20.0,
+        "AttackRate": 1.0,
+        "AttackRange": 500.0,
+        "ProjectileSpeed": 3000.0,
+        "AttackAnimationPoint": 0.0,
+        "StatusHealth": 1.0,
+        "MovementSpeed": 0.0,
+        "ArmorPhysical": 0.0,
+        "MagicalResistance": 0.0
+      },
+      "abilities": [],
+      "movement": "DOTA_UNIT_CAP_MOVE_NONE",
+      "attack_capabilities": "DOTA_UNIT_CAP_RANGED_ATTACK",
+      "combat_class": "DOTA_COMBAT_CLASS_ATTACK_SIEGE",
+      "combat_class_defend": "DOTA_COMBAT_CLASS_DEFEND_STRUCTURE",
+      "ancient": false
+    },
+    {
+      "kind": "diamond",
+      "tier": 4,
+      "source_id": "gemtd_d1111",
+      "values": {
+        "AttackDamageMin": 20.0,
+        "AttackDamageMax": 20.0,
+        "AttackRate": 1.0,
+        "AttackRange": 500.0,
+        "ProjectileSpeed": 3000.0,
+        "AttackAnimationPoint": 0.0,
+        "StatusHealth": 1.0,
+        "MovementSpeed": 0.0,
+        "ArmorPhysical": 0.0,
+        "MagicalResistance": 0.0
+      },
+      "abilities": [
+        "tower_attack1"
+      ],
+      "movement": "DOTA_UNIT_CAP_MOVE_NONE",
+      "attack_capabilities": "DOTA_UNIT_CAP_RANGED_ATTACK",
+      "combat_class": "DOTA_COMBAT_CLASS_ATTACK_SIEGE",
+      "combat_class_defend": "DOTA_COMBAT_CLASS_DEFEND_STRUCTURE",
+      "ancient": false
+    },
+    {
+      "kind": "diamond",
+      "tier": 5,
+      "source_id": "gemtd_d11111",
+      "values": {
+        "AttackDamageMin": 40.0,
+        "AttackDamageMax": 40.0,
+        "AttackRate": 1.0,
+        "AttackRange": 500.0,
+        "ProjectileSpeed": 3000.0,
+        "AttackAnimationPoint": 0.0,
+        "StatusHealth": 1.0,
+        "MovementSpeed": 0.0,
+        "ArmorPhysical": 0.0,
+        "MagicalResistance": 0.0
+      },
+      "abilities": [
+        "tower_attack2"
+      ],
+      "movement": "DOTA_UNIT_CAP_MOVE_NONE",
+      "attack_capabilities": "DOTA_UNIT_CAP_RANGED_ATTACK",
+      "combat_class": "DOTA_COMBAT_CLASS_ATTACK_SIEGE",
+      "combat_class_defend": "DOTA_COMBAT_CLASS_DEFEND_STRUCTURE",
+      "ancient": false
+    },
+    {
+      "kind": "diamond",
+      "tier": 6,
+      "source_id": "gemtd_d111111",
+      "values": {
+        "AttackDamageMin": 140.0,
+        "AttackDamageMax": 140.0,
+        "AttackRate": 0.7,
+        "AttackRange": 500.0,
+        "ProjectileSpeed": 3000.0,
+        "AttackAnimationPoint": 0.0,
+        "StatusHealth": 1.0,
+        "MovementSpeed": 0.0,
+        "ArmorPhysical": 0.0,
+        "MagicalResistance": 0.0
+      },
+      "abilities": [
+        "tower_attack5"
+      ],
+      "movement": "DOTA_UNIT_CAP_MOVE_NONE",
+      "attack_capabilities": "DOTA_UNIT_CAP_RANGED_ATTACK",
+      "combat_class": "DOTA_COMBAT_CLASS_ATTACK_SIEGE",
+      "combat_class_defend": "DOTA_COMBAT_CLASS_DEFEND_STRUCTURE",
+      "ancient": false
+    },
+    {
+      "kind": "aquamarine",
+      "tier": 1,
+      "source_id": "gemtd_q1",
+      "values": {
+        "AttackDamageMin": 2.0,
+        "AttackDamageMax": 2.0,
+        "AttackRate": 1.0,
+        "AttackRange": 400.0,
+        "ProjectileSpeed": 3000.0,
+        "AttackAnimationPoint": 0.0,
+        "StatusHealth": 1.0,
+        "MovementSpeed": 0.0,
+        "ArmorPhysical": 10.0,
+        "MagicalResistance": 0.0
+      },
+      "abilities": [
+        "tower_speed1"
+      ],
+      "movement": "DOTA_UNIT_CAP_MOVE_NONE",
+      "attack_capabilities": "DOTA_UNIT_CAP_RANGED_ATTACK",
+      "combat_class": "DOTA_COMBAT_CLASS_ATTACK_SIEGE",
+      "combat_class_defend": "DOTA_COMBAT_CLASS_DEFEND_STRUCTURE",
+      "ancient": false
+    },
+    {
+      "kind": "aquamarine",
+      "tier": 2,
+      "source_id": "gemtd_q11",
+      "values": {
+        "AttackDamageMin": 4.0,
+        "AttackDamageMax": 4.0,
+        "AttackRate": 0.9,
+        "AttackRange": 400.0,
+        "ProjectileSpeed": 3000.0,
+        "AttackAnimationPoint": 0.0,
+        "StatusHealth": 1.0,
+        "MovementSpeed": 0.0,
+        "ArmorPhysical": 10.0,
+        "MagicalResistance": 0.0
+      },
+      "abilities": [
+        "tower_speed1"
+      ],
+      "movement": "DOTA_UNIT_CAP_MOVE_NONE",
+      "attack_capabilities": "DOTA_UNIT_CAP_RANGED_ATTACK",
+      "combat_class": "DOTA_COMBAT_CLASS_ATTACK_SIEGE",
+      "combat_class_defend": "DOTA_COMBAT_CLASS_DEFEND_STRUCTURE",
+      "ancient": false
+    },
+    {
+      "kind": "aquamarine",
+      "tier": 3,
+      "source_id": "gemtd_q111",
+      "values": {
+        "AttackDamageMin": 8.0,
+        "AttackDamageMax": 8.0,
+        "AttackRate": 0.8,
+        "AttackRange": 400.0,
+        "ProjectileSpeed": 3000.0,
+        "AttackAnimationPoint": 0.0,
+        "StatusHealth": 1.0,
+        "MovementSpeed": 0.0,
+        "ArmorPhysical": 10.0,
+        "MagicalResistance": 0.0
+      },
+      "abilities": [
+        "tower_speed1"
+      ],
+      "movement": "DOTA_UNIT_CAP_MOVE_NONE",
+      "attack_capabilities": "DOTA_UNIT_CAP_RANGED_ATTACK",
+      "combat_class": "DOTA_COMBAT_CLASS_ATTACK_SIEGE",
+      "combat_class_defend": "DOTA_COMBAT_CLASS_DEFEND_STRUCTURE",
+      "ancient": false
+    },
+    {
+      "kind": "aquamarine",
+      "tier": 4,
+      "source_id": "gemtd_q1111",
+      "values": {
+        "AttackDamageMin": 16.0,
+        "AttackDamageMax": 16.0,
+        "AttackRate": 0.7,
+        "AttackRange": 400.0,
+        "ProjectileSpeed": 3000.0,
+        "AttackAnimationPoint": 0.0,
+        "StatusHealth": 1.0,
+        "MovementSpeed": 0.0,
+        "ArmorPhysical": 10.0,
+        "MagicalResistance": 0.0
+      },
+      "abilities": [
+        "tower_speed1"
+      ],
+      "movement": "DOTA_UNIT_CAP_MOVE_NONE",
+      "attack_capabilities": "DOTA_UNIT_CAP_RANGED_ATTACK",
+      "combat_class": "DOTA_COMBAT_CLASS_ATTACK_SIEGE",
+      "combat_class_defend": "DOTA_COMBAT_CLASS_DEFEND_STRUCTURE",
+      "ancient": false
+    },
+    {
+      "kind": "aquamarine",
+      "tier": 5,
+      "source_id": "gemtd_q11111",
+      "values": {
+        "AttackDamageMin": 24.0,
+        "AttackDamageMax": 24.0,
+        "AttackRate": 0.6,
+        "AttackRange": 400.0,
+        "ProjectileSpeed": 3000.0,
+        "AttackAnimationPoint": 0.0,
+        "StatusHealth": 1.0,
+        "MovementSpeed": 0.0,
+        "ArmorPhysical": 10.0,
+        "MagicalResistance": 0.0
+      },
+      "abilities": [
+        "tower_speed1"
+      ],
+      "movement": "DOTA_UNIT_CAP_MOVE_NONE",
+      "attack_capabilities": "DOTA_UNIT_CAP_RANGED_ATTACK",
+      "combat_class": "DOTA_COMBAT_CLASS_ATTACK_SIEGE",
+      "combat_class_defend": "DOTA_COMBAT_CLASS_DEFEND_STRUCTURE",
+      "ancient": false
+    },
+    {
+      "kind": "aquamarine",
+      "tier": 6,
+      "source_id": "gemtd_q111111",
+      "values": {
+        "AttackDamageMin": 80.0,
+        "AttackDamageMax": 80.0,
+        "AttackRate": 0.5,
+        "AttackRange": 500.0,
+        "ProjectileSpeed": 3000.0,
+        "AttackAnimationPoint": 0.0,
+        "StatusHealth": 1.0,
+        "MovementSpeed": 0.0,
+        "ArmorPhysical": 10.0,
+        "MagicalResistance": 0.0
+      },
+      "abilities": [
+        "tower_speed2"
+      ],
+      "movement": "DOTA_UNIT_CAP_MOVE_NONE",
+      "attack_capabilities": "DOTA_UNIT_CAP_RANGED_ATTACK",
+      "combat_class": "DOTA_COMBAT_CLASS_ATTACK_SIEGE",
+      "combat_class_defend": "DOTA_COMBAT_CLASS_DEFEND_STRUCTURE",
+      "ancient": false
+    },
+    {
+      "kind": "opal",
+      "tier": 1,
+      "source_id": "gemtd_e1",
+      "values": {
+        "AttackDamageMin": 1.0,
+        "AttackDamageMax": 1.0,
+        "AttackRate": 1.0,
+        "AttackRange": 500.0,
+        "ProjectileSpeed": 3000.0,
+        "AttackAnimationPoint": 0.0,
+        "StatusHealth": 1.0,
+        "MovementSpeed": 0.0,
+        "ArmorPhysical": 10.0,
+        "MagicalResistance": 0.0
+      },
+      "abilities": [
+        "tower_true_sight",
+        "tower_speed_aura1"
+      ],
+      "movement": "DOTA_UNIT_CAP_MOVE_NONE",
+      "attack_capabilities": "DOTA_UNIT_CAP_RANGED_ATTACK",
+      "combat_class": "DOTA_COMBAT_CLASS_ATTACK_SIEGE",
+      "combat_class_defend": "DOTA_COMBAT_CLASS_DEFEND_STRUCTURE",
+      "ancient": false
+    },
+    {
+      "kind": "opal",
+      "tier": 2,
+      "source_id": "gemtd_e11",
+      "values": {
+        "AttackDamageMin": 2.0,
+        "AttackDamageMax": 2.0,
+        "AttackRate": 1.0,
+        "AttackRange": 500.0,
+        "ProjectileSpeed": 3000.0,
+        "AttackAnimationPoint": 0.0,
+        "StatusHealth": 1.0,
+        "MovementSpeed": 0.0,
+        "ArmorPhysical": 10.0,
+        "MagicalResistance": 0.0
+      },
+      "abilities": [
+        "tower_true_sight",
+        "tower_speed_aura2"
+      ],
+      "movement": "DOTA_UNIT_CAP_MOVE_NONE",
+      "attack_capabilities": "DOTA_UNIT_CAP_RANGED_ATTACK",
+      "combat_class": "DOTA_COMBAT_CLASS_ATTACK_SIEGE",
+      "combat_class_defend": "DOTA_COMBAT_CLASS_DEFEND_STRUCTURE",
+      "ancient": false
+    },
+    {
+      "kind": "opal",
+      "tier": 3,
+      "source_id": "gemtd_e111",
+      "values": {
+        "AttackDamageMin": 3.0,
+        "AttackDamageMax": 3.0,
+        "AttackRate": 1.0,
+        "AttackRange": 500.0,
+        "ProjectileSpeed": 3000.0,
+        "AttackAnimationPoint": 0.0,
+        "StatusHealth": 1.0,
+        "MovementSpeed": 0.0,
+        "ArmorPhysical": 10.0,
+        "MagicalResistance": 0.0
+      },
+      "abilities": [
+        "tower_true_sight",
+        "tower_speed_aura3"
+      ],
+      "movement": "DOTA_UNIT_CAP_MOVE_NONE",
+      "attack_capabilities": "DOTA_UNIT_CAP_RANGED_ATTACK",
+      "combat_class": "DOTA_COMBAT_CLASS_ATTACK_SIEGE",
+      "combat_class_defend": "DOTA_COMBAT_CLASS_DEFEND_STRUCTURE",
+      "ancient": false
+    },
+    {
+      "kind": "opal",
+      "tier": 4,
+      "source_id": "gemtd_e1111",
+      "values": {
+        "AttackDamageMin": 4.0,
+        "AttackDamageMax": 4.0,
+        "AttackRate": 1.0,
+        "AttackRange": 500.0,
+        "ProjectileSpeed": 3000.0,
+        "AttackAnimationPoint": 0.0,
+        "StatusHealth": 1.0,
+        "MovementSpeed": 0.0,
+        "ArmorPhysical": 10.0,
+        "MagicalResistance": 0.0
+      },
+      "abilities": [
+        "tower_true_sight",
+        "tower_speed_aura4"
+      ],
+      "movement": "DOTA_UNIT_CAP_MOVE_NONE",
+      "attack_capabilities": "DOTA_UNIT_CAP_RANGED_ATTACK",
+      "combat_class": "DOTA_COMBAT_CLASS_ATTACK_SIEGE",
+      "combat_class_defend": "DOTA_COMBAT_CLASS_DEFEND_STRUCTURE",
+      "ancient": false
+    },
+    {
+      "kind": "opal",
+      "tier": 5,
+      "source_id": "gemtd_e11111",
+      "values": {
+        "AttackDamageMin": 5.0,
+        "AttackDamageMax": 5.0,
+        "AttackRate": 1.0,
+        "AttackRange": 500.0,
+        "ProjectileSpeed": 3000.0,
+        "AttackAnimationPoint": 0.0,
+        "StatusHealth": 1.0,
+        "MovementSpeed": 0.0,
+        "ArmorPhysical": 10.0,
+        "MagicalResistance": 0.0
+      },
+      "abilities": [
+        "tower_true_sight",
+        "tower_speed_aura5"
+      ],
+      "movement": "DOTA_UNIT_CAP_MOVE_NONE",
+      "attack_capabilities": "DOTA_UNIT_CAP_RANGED_ATTACK",
+      "combat_class": "DOTA_COMBAT_CLASS_ATTACK_SIEGE",
+      "combat_class_defend": "DOTA_COMBAT_CLASS_DEFEND_STRUCTURE",
+      "ancient": false
+    },
+    {
+      "kind": "opal",
+      "tier": 6,
+      "source_id": "gemtd_e111111",
+      "values": {
+        "AttackDamageMin": 6.0,
+        "AttackDamageMax": 6.0,
+        "AttackRate": 1.0,
+        "AttackRange": 500.0,
+        "ProjectileSpeed": 3000.0,
+        "AttackAnimationPoint": 0.0,
+        "StatusHealth": 1.0,
+        "MovementSpeed": 0.0,
+        "ArmorPhysical": 10.0,
+        "MagicalResistance": 0.0
+      },
+      "abilities": [
+        "tower_true_sight",
+        "tower_speed_aura6"
+      ],
+      "movement": "DOTA_UNIT_CAP_MOVE_NONE",
+      "attack_capabilities": "DOTA_UNIT_CAP_RANGED_ATTACK",
+      "combat_class": "DOTA_COMBAT_CLASS_ATTACK_SIEGE",
+      "combat_class_defend": "DOTA_COMBAT_CLASS_DEFEND_STRUCTURE",
+      "ancient": false
+    },
+    {
+      "kind": "emerald",
+      "tier": 1,
+      "source_id": "gemtd_g1",
+      "values": {
+        "AttackDamageMin": 2.0,
+        "AttackDamageMax": 2.0,
+        "AttackRate": 1.0,
+        "AttackRange": 500.0,
+        "ProjectileSpeed": 3000.0,
+        "AttackAnimationPoint": 0.0,
+        "StatusHealth": 1.0,
+        "MovementSpeed": 0.0,
+        "ArmorPhysical": 10.0,
+        "MagicalResistance": 0.0
+      },
+      "abilities": [
+        "tower_du1"
+      ],
+      "movement": "DOTA_UNIT_CAP_MOVE_NONE",
+      "attack_capabilities": "DOTA_UNIT_CAP_RANGED_ATTACK",
+      "combat_class": "DOTA_COMBAT_CLASS_ATTACK_SIEGE",
+      "combat_class_defend": "DOTA_COMBAT_CLASS_DEFEND_STRUCTURE",
+      "ancient": false
+    },
+    {
+      "kind": "emerald",
+      "tier": 2,
+      "source_id": "gemtd_g11",
+      "values": {
+        "AttackDamageMin": 4.0,
+        "AttackDamageMax": 4.0,
+        "AttackRate": 1.0,
+        "AttackRange": 500.0,
+        "ProjectileSpeed": 3000.0,
+        "AttackAnimationPoint": 0.0,
+        "StatusHealth": 1.0,
+        "MovementSpeed": 0.0,
+        "ArmorPhysical": 10.0,
+        "MagicalResistance": 0.0
+      },
+      "abilities": [
+        "tower_du2"
+      ],
+      "movement": "DOTA_UNIT_CAP_MOVE_NONE",
+      "attack_capabilities": "DOTA_UNIT_CAP_RANGED_ATTACK",
+      "combat_class": "DOTA_COMBAT_CLASS_ATTACK_SIEGE",
+      "combat_class_defend": "DOTA_COMBAT_CLASS_DEFEND_STRUCTURE",
+      "ancient": false
+    },
+    {
+      "kind": "emerald",
+      "tier": 3,
+      "source_id": "gemtd_g111",
+      "values": {
+        "AttackDamageMin": 6.0,
+        "AttackDamageMax": 6.0,
+        "AttackRate": 1.0,
+        "AttackRange": 500.0,
+        "ProjectileSpeed": 3000.0,
+        "AttackAnimationPoint": 0.0,
+        "StatusHealth": 1.0,
+        "MovementSpeed": 0.0,
+        "ArmorPhysical": 10.0,
+        "MagicalResistance": 0.0
+      },
+      "abilities": [
+        "tower_du3"
+      ],
+      "movement": "DOTA_UNIT_CAP_MOVE_NONE",
+      "attack_capabilities": "DOTA_UNIT_CAP_RANGED_ATTACK",
+      "combat_class": "DOTA_COMBAT_CLASS_ATTACK_SIEGE",
+      "combat_class_defend": "DOTA_COMBAT_CLASS_DEFEND_STRUCTURE",
+      "ancient": false
+    },
+    {
+      "kind": "emerald",
+      "tier": 4,
+      "source_id": "gemtd_g1111",
+      "values": {
+        "AttackDamageMin": 8.0,
+        "AttackDamageMax": 8.0,
+        "AttackRate": 1.0,
+        "AttackRange": 500.0,
+        "ProjectileSpeed": 3000.0,
+        "AttackAnimationPoint": 0.0,
+        "StatusHealth": 1.0,
+        "MovementSpeed": 0.0,
+        "ArmorPhysical": 10.0,
+        "MagicalResistance": 0.0
+      },
+      "abilities": [
+        "tower_du4"
+      ],
+      "movement": "DOTA_UNIT_CAP_MOVE_NONE",
+      "attack_capabilities": "DOTA_UNIT_CAP_RANGED_ATTACK",
+      "combat_class": "DOTA_COMBAT_CLASS_ATTACK_SIEGE",
+      "combat_class_defend": "DOTA_COMBAT_CLASS_DEFEND_STRUCTURE",
+      "ancient": false
+    },
+    {
+      "kind": "emerald",
+      "tier": 5,
+      "source_id": "gemtd_g11111",
+      "values": {
+        "AttackDamageMin": 10.0,
+        "AttackDamageMax": 10.0,
+        "AttackRate": 1.0,
+        "AttackRange": 500.0,
+        "ProjectileSpeed": 3000.0,
+        "AttackAnimationPoint": 0.0,
+        "StatusHealth": 1.0,
+        "MovementSpeed": 0.0,
+        "ArmorPhysical": 10.0,
+        "MagicalResistance": 0.0
+      },
+      "abilities": [
+        "tower_du5"
+      ],
+      "movement": "DOTA_UNIT_CAP_MOVE_NONE",
+      "attack_capabilities": "DOTA_UNIT_CAP_RANGED_ATTACK",
+      "combat_class": "DOTA_COMBAT_CLASS_ATTACK_SIEGE",
+      "combat_class_defend": "DOTA_COMBAT_CLASS_DEFEND_STRUCTURE",
+      "ancient": false
+    },
+    {
+      "kind": "emerald",
+      "tier": 6,
+      "source_id": "gemtd_g111111",
+      "values": {
+        "AttackDamageMin": 12.0,
+        "AttackDamageMax": 12.0,
+        "AttackRate": 1.0,
+        "AttackRange": 500.0,
+        "ProjectileSpeed": 3000.0,
+        "AttackAnimationPoint": 0.0,
+        "StatusHealth": 1.0,
+        "MovementSpeed": 0.0,
+        "ArmorPhysical": 10.0,
+        "MagicalResistance": 0.0
+      },
+      "abilities": [
+        "tower_du6"
+      ],
+      "movement": "DOTA_UNIT_CAP_MOVE_NONE",
+      "attack_capabilities": "DOTA_UNIT_CAP_RANGED_ATTACK",
+      "combat_class": "DOTA_COMBAT_CLASS_ATTACK_SIEGE",
+      "combat_class_defend": "DOTA_COMBAT_CLASS_DEFEND_STRUCTURE",
+      "ancient": false
+    },
+    {
+      "kind": "topaz",
+      "tier": 1,
+      "source_id": "gemtd_y1",
+      "values": {
+        "AttackDamageMin": 3.0,
+        "AttackDamageMax": 3.0,
+        "AttackRate": 1.3,
+        "AttackRange": 600.0,
+        "ProjectileSpeed": 3000.0,
+        "AttackAnimationPoint": 0.0,
+        "StatusHealth": 1.0,
+        "MovementSpeed": 0.0,
+        "ArmorPhysical": 10.0,
+        "MagicalResistance": 0.0
+      },
+      "abilities": [
+        "tower_fenliejian"
+      ],
+      "movement": "DOTA_UNIT_CAP_MOVE_NONE",
+      "attack_capabilities": "DOTA_UNIT_CAP_RANGED_ATTACK",
+      "combat_class": "DOTA_COMBAT_CLASS_ATTACK_SIEGE",
+      "combat_class_defend": "DOTA_COMBAT_CLASS_DEFEND_STRUCTURE",
+      "ancient": false
+    },
+    {
+      "kind": "topaz",
+      "tier": 2,
+      "source_id": "gemtd_y11",
+      "values": {
+        "AttackDamageMin": 6.0,
+        "AttackDamageMax": 6.0,
+        "AttackRate": 1.3,
+        "AttackRange": 500.0,
+        "ProjectileSpeed": 3000.0,
+        "AttackAnimationPoint": 0.0,
+        "StatusHealth": 1.0,
+        "MovementSpeed": 0.0,
+        "ArmorPhysical": 10.0,
+        "MagicalResistance": 0.0
+      },
+      "abilities": [
+        "tower_fenliejian"
+      ],
+      "movement": "DOTA_UNIT_CAP_MOVE_NONE",
+      "attack_capabilities": "DOTA_UNIT_CAP_RANGED_ATTACK",
+      "combat_class": "DOTA_COMBAT_CLASS_ATTACK_SIEGE",
+      "combat_class_defend": "DOTA_COMBAT_CLASS_DEFEND_STRUCTURE",
+      "ancient": false
+    },
+    {
+      "kind": "topaz",
+      "tier": 3,
+      "source_id": "gemtd_y111",
+      "values": {
+        "AttackDamageMin": 9.0,
+        "AttackDamageMax": 9.0,
+        "AttackRate": 1.3,
+        "AttackRange": 500.0,
+        "ProjectileSpeed": 3000.0,
+        "AttackAnimationPoint": 0.0,
+        "StatusHealth": 1.0,
+        "MovementSpeed": 0.0,
+        "ArmorPhysical": 10.0,
+        "MagicalResistance": 0.0
+      },
+      "abilities": [
+        "tower_fenliejian"
+      ],
+      "movement": "DOTA_UNIT_CAP_MOVE_NONE",
+      "attack_capabilities": "DOTA_UNIT_CAP_RANGED_ATTACK",
+      "combat_class": "DOTA_COMBAT_CLASS_ATTACK_SIEGE",
+      "combat_class_defend": "DOTA_COMBAT_CLASS_DEFEND_STRUCTURE",
+      "ancient": false
+    },
+    {
+      "kind": "topaz",
+      "tier": 4,
+      "source_id": "gemtd_y1111",
+      "values": {
+        "AttackDamageMin": 18.0,
+        "AttackDamageMax": 18.0,
+        "AttackRate": 1.3,
+        "AttackRange": 500.0,
+        "ProjectileSpeed": 3000.0,
+        "AttackAnimationPoint": 0.0,
+        "StatusHealth": 1.0,
+        "MovementSpeed": 0.0,
+        "ArmorPhysical": 10.0,
+        "MagicalResistance": 0.0
+      },
+      "abilities": [
+        "tower_fenliejian"
+      ],
+      "movement": "DOTA_UNIT_CAP_MOVE_NONE",
+      "attack_capabilities": "DOTA_UNIT_CAP_RANGED_ATTACK",
+      "combat_class": "DOTA_COMBAT_CLASS_ATTACK_SIEGE",
+      "combat_class_defend": "DOTA_COMBAT_CLASS_DEFEND_STRUCTURE",
+      "ancient": false
+    },
+    {
+      "kind": "topaz",
+      "tier": 5,
+      "source_id": "gemtd_y11111",
+      "values": {
+        "AttackDamageMin": 36.0,
+        "AttackDamageMax": 36.0,
+        "AttackRate": 1.3,
+        "AttackRange": 500.0,
+        "ProjectileSpeed": 3000.0,
+        "AttackAnimationPoint": 0.0,
+        "StatusHealth": 1.0,
+        "MovementSpeed": 0.0,
+        "ArmorPhysical": 10.0,
+        "MagicalResistance": 0.0
+      },
+      "abilities": [
+        "tower_fenliejian"
+      ],
+      "movement": "DOTA_UNIT_CAP_MOVE_NONE",
+      "attack_capabilities": "DOTA_UNIT_CAP_RANGED_ATTACK",
+      "combat_class": "DOTA_COMBAT_CLASS_ATTACK_SIEGE",
+      "combat_class_defend": "DOTA_COMBAT_CLASS_DEFEND_STRUCTURE",
+      "ancient": false
+    },
+    {
+      "kind": "topaz",
+      "tier": 6,
+      "source_id": "gemtd_y111111",
+      "values": {
+        "AttackDamageMin": 200.0,
+        "AttackDamageMax": 200.0,
+        "AttackRate": 0.6,
+        "AttackRange": 5000.0,
+        "ProjectileSpeed": 3000.0,
+        "AttackAnimationPoint": 0.0,
+        "StatusHealth": 1.0,
+        "MovementSpeed": 0.0,
+        "ArmorPhysical": 10.0,
+        "MagicalResistance": 0.0
+      },
+      "abilities": [
+        "tower_fenliejian"
+      ],
+      "movement": "DOTA_UNIT_CAP_MOVE_NONE",
+      "attack_capabilities": "DOTA_UNIT_CAP_RANGED_ATTACK",
+      "combat_class": "DOTA_COMBAT_CLASS_ATTACK_SIEGE",
+      "combat_class_defend": "DOTA_COMBAT_CLASS_DEFEND_STRUCTURE",
+      "ancient": false
+    },
+    {
+      "kind": "ruby",
+      "tier": 1,
+      "source_id": "gemtd_r1",
+      "values": {
+        "AttackDamageMin": 4.0,
+        "AttackDamageMax": 4.0,
+        "AttackRate": 1.0,
+        "AttackRange": 500.0,
+        "ProjectileSpeed": 3000.0,
+        "AttackAnimationPoint": 0.0,
+        "StatusHealth": 1.0,
+        "MovementSpeed": 0.0,
+        "ArmorPhysical": 10.0,
+        "MagicalResistance": 0.0
+      },
+      "abilities": [
+        "tower_jianshe1"
+      ],
+      "movement": "DOTA_UNIT_CAP_MOVE_NONE",
+      "attack_capabilities": "DOTA_UNIT_CAP_RANGED_ATTACK",
+      "combat_class": "DOTA_COMBAT_CLASS_ATTACK_SIEGE",
+      "combat_class_defend": "DOTA_COMBAT_CLASS_DEFEND_STRUCTURE",
+      "ancient": false
+    },
+    {
+      "kind": "ruby",
+      "tier": 2,
+      "source_id": "gemtd_r11",
+      "values": {
+        "AttackDamageMin": 8.0,
+        "AttackDamageMax": 8.0,
+        "AttackRate": 1.0,
+        "AttackRange": 500.0,
+        "ProjectileSpeed": 3000.0,
+        "AttackAnimationPoint": 0.0,
+        "StatusHealth": 1.0,
+        "MovementSpeed": 0.0,
+        "ArmorPhysical": 10.0,
+        "MagicalResistance": 0.0
+      },
+      "abilities": [
+        "tower_jianshe2"
+      ],
+      "movement": "DOTA_UNIT_CAP_MOVE_NONE",
+      "attack_capabilities": "DOTA_UNIT_CAP_RANGED_ATTACK",
+      "combat_class": "DOTA_COMBAT_CLASS_ATTACK_SIEGE",
+      "combat_class_defend": "DOTA_COMBAT_CLASS_DEFEND_STRUCTURE",
+      "ancient": false
+    },
+    {
+      "kind": "ruby",
+      "tier": 3,
+      "source_id": "gemtd_r111",
+      "values": {
+        "AttackDamageMin": 12.0,
+        "AttackDamageMax": 12.0,
+        "AttackRate": 1.0,
+        "AttackRange": 500.0,
+        "ProjectileSpeed": 3000.0,
+        "AttackAnimationPoint": 0.0,
+        "StatusHealth": 1.0,
+        "MovementSpeed": 0.0,
+        "ArmorPhysical": 10.0,
+        "MagicalResistance": 0.0
+      },
+      "abilities": [
+        "tower_jianshe3"
+      ],
+      "movement": "DOTA_UNIT_CAP_MOVE_NONE",
+      "attack_capabilities": "DOTA_UNIT_CAP_RANGED_ATTACK",
+      "combat_class": "DOTA_COMBAT_CLASS_ATTACK_SIEGE",
+      "combat_class_defend": "DOTA_COMBAT_CLASS_DEFEND_STRUCTURE",
+      "ancient": false
+    },
+    {
+      "kind": "ruby",
+      "tier": 4,
+      "source_id": "gemtd_r1111",
+      "values": {
+        "AttackDamageMin": 24.0,
+        "AttackDamageMax": 24.0,
+        "AttackRate": 1.0,
+        "AttackRange": 500.0,
+        "ProjectileSpeed": 3000.0,
+        "AttackAnimationPoint": 0.0,
+        "StatusHealth": 1.0,
+        "MovementSpeed": 0.0,
+        "ArmorPhysical": 10.0,
+        "MagicalResistance": 0.0
+      },
+      "abilities": [
+        "tower_jianshe4"
+      ],
+      "movement": "DOTA_UNIT_CAP_MOVE_NONE",
+      "attack_capabilities": "DOTA_UNIT_CAP_RANGED_ATTACK",
+      "combat_class": "DOTA_COMBAT_CLASS_ATTACK_SIEGE",
+      "combat_class_defend": "DOTA_COMBAT_CLASS_DEFEND_STRUCTURE",
+      "ancient": false
+    },
+    {
+      "kind": "ruby",
+      "tier": 5,
+      "source_id": "gemtd_r11111",
+      "values": {
+        "AttackDamageMin": 48.0,
+        "AttackDamageMax": 48.0,
+        "AttackRate": 1.0,
+        "AttackRange": 500.0,
+        "ProjectileSpeed": 3000.0,
+        "AttackAnimationPoint": 0.0,
+        "StatusHealth": 1.0,
+        "MovementSpeed": 0.0,
+        "ArmorPhysical": 10.0,
+        "MagicalResistance": 0.0
+      },
+      "abilities": [
+        "tower_jianshe5"
+      ],
+      "movement": "DOTA_UNIT_CAP_MOVE_NONE",
+      "attack_capabilities": "DOTA_UNIT_CAP_RANGED_ATTACK",
+      "combat_class": "DOTA_COMBAT_CLASS_ATTACK_SIEGE",
+      "combat_class_defend": "DOTA_COMBAT_CLASS_DEFEND_STRUCTURE",
+      "ancient": false
+    },
+    {
+      "kind": "ruby",
+      "tier": 6,
+      "source_id": "gemtd_r111111",
+      "values": {
+        "AttackDamageMin": 150.0,
+        "AttackDamageMax": 150.0,
+        "AttackRate": 1.0,
+        "AttackRange": 500.0,
+        "ProjectileSpeed": 3000.0,
+        "AttackAnimationPoint": 0.0,
+        "StatusHealth": 1.0,
+        "MovementSpeed": 0.0,
+        "ArmorPhysical": 10.0,
+        "MagicalResistance": 0.0
+      },
+      "abilities": [
+        "tower_jianshe6"
+      ],
+      "movement": "DOTA_UNIT_CAP_MOVE_NONE",
+      "attack_capabilities": "DOTA_UNIT_CAP_RANGED_ATTACK",
+      "combat_class": "DOTA_COMBAT_CLASS_ATTACK_SIEGE",
+      "combat_class_defend": "DOTA_COMBAT_CLASS_DEFEND_STRUCTURE",
+      "ancient": false
+    },
+    {
+      "kind": "amethyst",
+      "tier": 1,
+      "source_id": "gemtd_p1",
+      "values": {
+        "AttackDamageMin": 2.0,
+        "AttackDamageMax": 2.0,
+        "AttackRate": 0.6,
+        "AttackRange": 500.0,
+        "ProjectileSpeed": 3000.0,
+        "AttackAnimationPoint": 0.0,
+        "StatusHealth": 1.0,
+        "MovementSpeed": 0.0,
+        "ArmorPhysical": 10.0,
+        "MagicalResistance": 0.0
+      },
+      "abilities": [
+        "tower_jianjia1"
+      ],
+      "movement": "DOTA_UNIT_CAP_MOVE_NONE",
+      "attack_capabilities": "DOTA_UNIT_CAP_RANGED_ATTACK",
+      "combat_class": "DOTA_COMBAT_CLASS_ATTACK_SIEGE",
+      "combat_class_defend": "DOTA_COMBAT_CLASS_DEFEND_STRUCTURE",
+      "ancient": false
+    },
+    {
+      "kind": "amethyst",
+      "tier": 2,
+      "source_id": "gemtd_p11",
+      "values": {
+        "AttackDamageMin": 4.0,
+        "AttackDamageMax": 4.0,
+        "AttackRate": 0.6,
+        "AttackRange": 500.0,
+        "ProjectileSpeed": 3000.0,
+        "AttackAnimationPoint": 0.0,
+        "StatusHealth": 1.0,
+        "MovementSpeed": 0.0,
+        "ArmorPhysical": 10.0,
+        "MagicalResistance": 0.0
+      },
+      "abilities": [
+        "tower_jianjia2"
+      ],
+      "movement": "DOTA_UNIT_CAP_MOVE_NONE",
+      "attack_capabilities": "DOTA_UNIT_CAP_RANGED_ATTACK",
+      "combat_class": "DOTA_COMBAT_CLASS_ATTACK_SIEGE",
+      "combat_class_defend": "DOTA_COMBAT_CLASS_DEFEND_STRUCTURE",
+      "ancient": false
+    },
+    {
+      "kind": "amethyst",
+      "tier": 3,
+      "source_id": "gemtd_p111",
+      "values": {
+        "AttackDamageMin": 6.0,
+        "AttackDamageMax": 6.0,
+        "AttackRate": 0.6,
+        "AttackRange": 500.0,
+        "ProjectileSpeed": 3000.0,
+        "AttackAnimationPoint": 0.0,
+        "StatusHealth": 1.0,
+        "MovementSpeed": 0.0,
+        "ArmorPhysical": 10.0,
+        "MagicalResistance": 0.0
+      },
+      "abilities": [
+        "tower_jianjia3"
+      ],
+      "movement": "DOTA_UNIT_CAP_MOVE_NONE",
+      "attack_capabilities": "DOTA_UNIT_CAP_RANGED_ATTACK",
+      "combat_class": "DOTA_COMBAT_CLASS_ATTACK_SIEGE",
+      "combat_class_defend": "DOTA_COMBAT_CLASS_DEFEND_STRUCTURE",
+      "ancient": false
+    },
+    {
+      "kind": "amethyst",
+      "tier": 4,
+      "source_id": "gemtd_p1111",
+      "values": {
+        "AttackDamageMin": 8.0,
+        "AttackDamageMax": 8.0,
+        "AttackRate": 0.6,
+        "AttackRange": 500.0,
+        "ProjectileSpeed": 3000.0,
+        "AttackAnimationPoint": 0.0,
+        "StatusHealth": 1.0,
+        "MovementSpeed": 0.0,
+        "ArmorPhysical": 10.0,
+        "MagicalResistance": 0.0
+      },
+      "abilities": [
+        "tower_jianjia4"
+      ],
+      "movement": "DOTA_UNIT_CAP_MOVE_NONE",
+      "attack_capabilities": "DOTA_UNIT_CAP_RANGED_ATTACK",
+      "combat_class": "DOTA_COMBAT_CLASS_ATTACK_SIEGE",
+      "combat_class_defend": "DOTA_COMBAT_CLASS_DEFEND_STRUCTURE",
+      "ancient": false
+    },
+    {
+      "kind": "amethyst",
+      "tier": 5,
+      "source_id": "gemtd_p11111",
+      "values": {
+        "AttackDamageMin": 10.0,
+        "AttackDamageMax": 10.0,
+        "AttackRate": 0.6,
+        "AttackRange": 500.0,
+        "ProjectileSpeed": 3000.0,
+        "AttackAnimationPoint": 0.0,
+        "StatusHealth": 1.0,
+        "MovementSpeed": 0.0,
+        "ArmorPhysical": 10.0,
+        "MagicalResistance": 0.0
+      },
+      "abilities": [
+        "tower_jianjia5"
+      ],
+      "movement": "DOTA_UNIT_CAP_MOVE_NONE",
+      "attack_capabilities": "DOTA_UNIT_CAP_RANGED_ATTACK",
+      "combat_class": "DOTA_COMBAT_CLASS_ATTACK_SIEGE",
+      "combat_class_defend": "DOTA_COMBAT_CLASS_DEFEND_STRUCTURE",
+      "ancient": false
+    },
+    {
+      "kind": "amethyst",
+      "tier": 6,
+      "source_id": "gemtd_p111111",
+      "values": {
+        "AttackDamageMin": 70.0,
+        "AttackDamageMax": 70.0,
+        "AttackRate": 0.6,
+        "AttackRange": 500.0,
+        "ProjectileSpeed": 3000.0,
+        "AttackAnimationPoint": 0.0,
+        "StatusHealth": 1.0,
+        "MovementSpeed": 0.0,
+        "ArmorPhysical": 10.0,
+        "MagicalResistance": 0.0
+      },
+      "abilities": [
+        "tower_jianjia6"
+      ],
+      "movement": "DOTA_UNIT_CAP_MOVE_NONE",
+      "attack_capabilities": "DOTA_UNIT_CAP_RANGED_ATTACK",
+      "combat_class": "DOTA_COMBAT_CLASS_ATTACK_SIEGE",
+      "combat_class_defend": "DOTA_COMBAT_CLASS_DEFEND_STRUCTURE",
+      "ancient": false
+    }
+  ],
+  "special_towers": {
+    "gemtd_aijijin": {
+      "source_id": "gemtd_aijijin",
+      "values": {
+        "AttackDamageMin": 40.0,
+        "AttackDamageMax": 40.0,
+        "AttackRate": 0.8,
+        "AttackRange": 700.0,
+        "ProjectileSpeed": 2000.0,
+        "AttackAnimationPoint": 0.0,
+        "StatusHealth": 1.0,
+        "MovementSpeed": 0.0,
+        "ArmorPhysical": 0.0,
+        "MagicalResistance": 0.0
+      },
+      "abilities": [
+        "tower_jin2",
+        "tower_tanlan",
+        "tower_attack4"
+      ],
+      "movement": "DOTA_UNIT_CAP_MOVE_NONE",
+      "attack_capabilities": "DOTA_UNIT_CAP_RANGED_ATTACK",
+      "combat_class": "DOTA_COMBAT_CLASS_ATTACK_SIEGE",
+      "combat_class_defend": "DOTA_COMBAT_CLASS_DEFEND_STRUCTURE",
+      "ancient": false
+    },
+    "gemtd_baiyin": {
+      "source_id": "gemtd_baiyin",
+      "values": {
+        "AttackDamageMin": 40.0,
+        "AttackDamageMax": 40.0,
+        "AttackRate": 1.0,
+        "AttackRange": 600.0,
+        "ProjectileSpeed": 3000.0,
+        "AttackAnimationPoint": 0.0,
+        "StatusHealth": 1.0,
+        "MovementSpeed": 0.0,
+        "ArmorPhysical": 0.0,
+        "MagicalResistance": 0.0
+      },
+      "abilities": [
+        "tower_slow2"
+      ],
+      "movement": "DOTA_UNIT_CAP_MOVE_NONE",
+      "attack_capabilities": "DOTA_UNIT_CAP_RANGED_ATTACK",
+      "combat_class": "DOTA_COMBAT_CLASS_ATTACK_SIEGE",
+      "combat_class_defend": "DOTA_COMBAT_CLASS_DEFEND_STRUCTURE",
+      "ancient": false
+    },
+    "gemtd_baiyinqishi": {
+      "source_id": "gemtd_baiyinqishi",
+      "values": {
+        "AttackDamageMin": 140.0,
+        "AttackDamageMax": 140.0,
+        "AttackRate": 0.8,
+        "AttackRange": 800.0,
+        "ProjectileSpeed": 3000.0,
+        "AttackAnimationPoint": 0.0,
+        "StatusHealth": 1.0,
+        "MovementSpeed": 0.0,
+        "ArmorPhysical": 0.0,
+        "MagicalResistance": 0.0
+      },
+      "abilities": [
+        "tower_jianshe3",
+        "tower_slow3"
+      ],
+      "movement": "DOTA_UNIT_CAP_MOVE_NONE",
+      "attack_capabilities": "DOTA_UNIT_CAP_RANGED_ATTACK",
+      "combat_class": "DOTA_COMBAT_CLASS_ATTACK_SIEGE",
+      "combat_class_defend": "DOTA_COMBAT_CLASS_DEFEND_STRUCTURE",
+      "ancient": false
+    },
+    "gemtd_feicuimoxiang": {
+      "source_id": "gemtd_feicuimoxiang",
+      "values": {
+        "AttackDamageMin": 80.0,
+        "AttackDamageMax": 80.0,
+        "AttackRate": 0.5,
+        "AttackRange": 700.0,
+        "ProjectileSpeed": 3000.0,
+        "AttackAnimationPoint": 0.0,
+        "StatusHealth": 1.0,
+        "MovementSpeed": 0.0,
+        "ArmorPhysical": 0.0,
+        "MagicalResistance": 0.0
+      },
+      "abilities": [
+        "tower_10jiyun",
+        "tower_jin",
+        "tower_shihua_new",
+        "tower_attack4"
+      ],
+      "movement": "DOTA_UNIT_CAP_MOVE_NONE",
+      "attack_capabilities": "DOTA_UNIT_CAP_RANGED_ATTACK",
+      "combat_class": "DOTA_COMBAT_CLASS_ATTACK_SIEGE",
+      "combat_class_defend": "DOTA_COMBAT_CLASS_DEFEND_STRUCTURE",
+      "ancient": false
+    },
+    "gemtd_fenhongzuanshi": {
+      "source_id": "gemtd_fenhongzuanshi",
+      "values": {
+        "AttackDamageMin": 50.0,
+        "AttackDamageMax": 50.0,
+        "AttackRate": 0.75,
+        "AttackRange": 800.0,
+        "ProjectileSpeed": 3000.0,
+        "AttackAnimationPoint": 0.0,
+        "StatusHealth": 1.0,
+        "MovementSpeed": 0.0,
+        "ArmorPhysical": 0.0,
+        "MagicalResistance": 0.0
+      },
+      "abilities": [
+        "tower_baoji1",
+        "tower_attack3"
+      ],
+      "movement": "DOTA_UNIT_CAP_MOVE_NONE",
+      "attack_capabilities": "DOTA_UNIT_CAP_RANGED_ATTACK",
+      "combat_class": "DOTA_COMBAT_CLASS_ATTACK_SIEGE",
+      "combat_class_defend": "DOTA_COMBAT_CLASS_DEFEND_STRUCTURE",
+      "ancient": false
+    },
+    "gemtd_furongshi": {
+      "source_id": "gemtd_furongshi",
+      "values": {
+        "AttackDamageMin": 15.0,
+        "AttackDamageMax": 15.0,
+        "AttackRate": 0.6,
+        "AttackRange": 500.0,
+        "ProjectileSpeed": 3000.0,
+        "AttackAnimationPoint": 0.0,
+        "StatusHealth": 1.0,
+        "MovementSpeed": 0.0,
+        "ArmorPhysical": 0.0,
+        "MagicalResistance": 0.0
+      },
+      "abilities": [
+        "tower_zheyi"
+      ],
+      "movement": "DOTA_UNIT_CAP_MOVE_NONE",
+      "attack_capabilities": "DOTA_UNIT_CAP_RANGED_ATTACK",
+      "combat_class": "DOTA_COMBAT_CLASS_ATTACK_SIEGE",
+      "combat_class_defend": "DOTA_COMBAT_CLASS_DEFEND_STRUCTURE",
+      "ancient": false
+    },
+    "gemtd_geluanshi": {
+      "source_id": "gemtd_geluanshi",
+      "values": {
+        "AttackDamageMin": 140.0,
+        "AttackDamageMax": 140.0,
+        "AttackRate": 1.0,
+        "AttackRange": 800.0,
+        "ProjectileSpeed": 3000.0,
+        "AttackAnimationPoint": 0.0,
+        "StatusHealth": 1.0,
+        "MovementSpeed": 0.0,
+        "ArmorPhysical": 10.0,
+        "MagicalResistance": 0.0
+      },
+      "abilities": [
+        "tower_bixi2",
+        "tower_jianjia6",
+        "tower_zheyi3",
+        "e10013"
+      ],
+      "movement": "DOTA_UNIT_CAP_MOVE_NONE",
+      "attack_capabilities": "DOTA_UNIT_CAP_RANGED_ATTACK",
+      "combat_class": "DOTA_COMBAT_CLASS_ATTACK_SIEGE",
+      "combat_class_defend": "DOTA_COMBAT_CLASS_DEFEND_STRUCTURE",
+      "ancient": false
+    },
+    "gemtd_gudaidejixueshi": {
+      "source_id": "gemtd_gudaidejixueshi",
+      "values": {
+        "AttackDamageMin": 70.0,
+        "AttackDamageMax": 70.0,
+        "AttackRate": 1.0,
+        "AttackRange": 800.0,
+        "ProjectileSpeed": 3000.0,
+        "AttackAnimationPoint": 0.0,
+        "StatusHealth": 1.0,
+        "MovementSpeed": 0.0,
+        "ArmorPhysical": 0.0,
+        "MagicalResistance": 0.0
+      },
+      "abilities": [
+        "tower_chazhuangshandian",
+        "tower_huiyao2"
+      ],
+      "movement": "DOTA_UNIT_CAP_MOVE_NONE",
+      "attack_capabilities": "DOTA_UNIT_CAP_RANGED_ATTACK",
+      "combat_class": "DOTA_COMBAT_CLASS_ATTACK_SIEGE",
+      "combat_class_defend": "DOTA_COMBAT_CLASS_DEFEND_STRUCTURE",
+      "ancient": false
+    },
+    "gemtd_haibao": {
+      "source_id": "gemtd_haibao",
+      "values": {
+        "AttackDamageMin": 60.0,
+        "AttackDamageMax": 60.0,
+        "AttackRate": 1.0,
+        "AttackRange": 500.0,
+        "ProjectileSpeed": 3000.0,
+        "AttackAnimationPoint": 0.0,
+        "StatusHealth": 1.0,
+        "MovementSpeed": 0.0,
+        "ArmorPhysical": 0.0,
+        "MagicalResistance": 0.0
+      },
+      "abilities": [
+        "tower_lanbaoshi",
+        "tower_chain_frost"
+      ],
+      "movement": "DOTA_UNIT_CAP_MOVE_NONE",
+      "attack_capabilities": "DOTA_UNIT_CAP_RANGED_ATTACK",
+      "combat_class": "DOTA_COMBAT_CLASS_ATTACK_SIEGE",
+      "combat_class_defend": "DOTA_COMBAT_CLASS_DEFEND_STRUCTURE",
+      "ancient": false
+    },
+    "gemtd_haiyangqingyu": {
+      "source_id": "gemtd_haiyangqingyu",
+      "values": {
+        "AttackDamageMin": 100.0,
+        "AttackDamageMax": 100.0,
+        "AttackRate": 0.5,
+        "AttackRange": 800.0,
+        "ProjectileSpeed": 3000.0,
+        "AttackAnimationPoint": 0.0,
+        "StatusHealth": 1.0,
+        "MovementSpeed": 0.0,
+        "ArmorPhysical": 0.0,
+        "MagicalResistance": 0.0
+      },
+      "abilities": [
+        "tower_shechengguanghuan",
+        "tower_du5"
+      ],
+      "movement": "DOTA_UNIT_CAP_MOVE_NONE",
+      "attack_capabilities": "DOTA_UNIT_CAP_RANGED_ATTACK",
+      "combat_class": "DOTA_COMBAT_CLASS_ATTACK_SIEGE",
+      "combat_class_defend": "DOTA_COMBAT_CLASS_DEFEND_STRUCTURE",
+      "ancient": false
+    },
+    "gemtd_haojiaoshiban": {
+      "source_id": "gemtd_haojiaoshiban",
+      "values": {
+        "AttackDamageMin": 0.0,
+        "AttackDamageMax": 0.0,
+        "AttackRate": 1.0,
+        "AttackRange": 0.0,
+        "ProjectileSpeed": 3000.0,
+        "AttackAnimationPoint": 0.0,
+        "StatusHealth": 1.0,
+        "MovementSpeed": 0.0,
+        "ArmorPhysical": 10.0,
+        "MagicalResistance": 0.0
+      },
+      "abilities": [],
+      "movement": "DOTA_UNIT_CAP_MOVE_NONE",
+      "attack_capabilities": "DOTA_UNIT_CAP_NO_ATTACK",
+      "combat_class": "DOTA_COMBAT_CLASS_ATTACK_SIEGE",
+      "combat_class_defend": "DOTA_COMBAT_CLASS_DEFEND_STRUCTURE",
+      "ancient": false,
+      "activated_ability": "new_haojiao"
+    },
+    "gemtd_haojiaoshiban_jin": {
+      "source_id": "gemtd_haojiaoshiban_jin",
+      "values": {
+        "AttackDamageMin": 0.0,
+        "AttackDamageMax": 0.0,
+        "AttackRate": 1.0,
+        "AttackRange": 0.0,
+        "ProjectileSpeed": 3000.0,
+        "AttackAnimationPoint": 0.0,
+        "StatusHealth": 1.0,
+        "MovementSpeed": 0.0,
+        "ArmorPhysical": 10.0,
+        "MagicalResistance": 0.0
+      },
+      "abilities": [],
+      "movement": "DOTA_UNIT_CAP_MOVE_NONE",
+      "attack_capabilities": "DOTA_UNIT_CAP_NO_ATTACK",
+      "combat_class": "DOTA_COMBAT_CLASS_ATTACK_SIEGE",
+      "combat_class_defend": "DOTA_COMBAT_CLASS_DEFEND_STRUCTURE",
+      "ancient": false,
+      "activated_ability": "new_haojiao3"
+    },
+    "gemtd_haojiaoshiban_yin": {
+      "source_id": "gemtd_haojiaoshiban_yin",
+      "values": {
+        "AttackDamageMin": 0.0,
+        "AttackDamageMax": 0.0,
+        "AttackRate": 1.0,
+        "AttackRange": 0.0,
+        "ProjectileSpeed": 3000.0,
+        "AttackAnimationPoint": 0.0,
+        "StatusHealth": 1.0,
+        "MovementSpeed": 0.0,
+        "ArmorPhysical": 10.0,
+        "MagicalResistance": 0.0
+      },
+      "abilities": [],
+      "movement": "DOTA_UNIT_CAP_MOVE_NONE",
+      "attack_capabilities": "DOTA_UNIT_CAP_NO_ATTACK",
+      "combat_class": "DOTA_COMBAT_CLASS_ATTACK_SIEGE",
+      "combat_class_defend": "DOTA_COMBAT_CLASS_DEFEND_STRUCTURE",
+      "ancient": false,
+      "activated_ability": "new_haojiao2"
+    },
+    "gemtd_heianfeicui": {
+      "source_id": "gemtd_heianfeicui",
+      "values": {
+        "AttackDamageMin": 80.0,
+        "AttackDamageMax": 80.0,
+        "AttackRate": 0.5,
+        "AttackRange": 700.0,
+        "ProjectileSpeed": 3000.0,
+        "AttackAnimationPoint": 0.0,
+        "StatusHealth": 1.0,
+        "MovementSpeed": 0.0,
+        "ArmorPhysical": 0.0,
+        "MagicalResistance": 0.0
+      },
+      "abilities": [
+        "tower_10jiyun"
+      ],
+      "movement": "DOTA_UNIT_CAP_MOVE_NONE",
+      "attack_capabilities": "DOTA_UNIT_CAP_RANGED_ATTACK",
+      "combat_class": "DOTA_COMBAT_CLASS_ATTACK_SIEGE",
+      "combat_class_defend": "DOTA_COMBAT_CLASS_DEFEND_STRUCTURE",
+      "ancient": false
+    },
+    "gemtd_heisemaoyanshi": {
+      "source_id": "gemtd_heisemaoyanshi",
+      "values": {
+        "AttackDamageMin": 6.0,
+        "AttackDamageMax": 6.0,
+        "AttackRate": 1.0,
+        "AttackRange": 500.0,
+        "ProjectileSpeed": 3000.0,
+        "AttackAnimationPoint": 0.0,
+        "StatusHealth": 1.0,
+        "MovementSpeed": 0.0,
+        "ArmorPhysical": 0.0,
+        "MagicalResistance": 0.0
+      },
+      "abilities": [
+        "tower_speed_aura5",
+        "tower_true_sight",
+        "tower_maoyan"
+      ],
+      "movement": "DOTA_UNIT_CAP_MOVE_NONE",
+      "attack_capabilities": "DOTA_UNIT_CAP_RANGED_ATTACK",
+      "combat_class": "DOTA_COMBAT_CLASS_ATTACK_SIEGE",
+      "combat_class_defend": "DOTA_COMBAT_CLASS_DEFEND_STRUCTURE",
+      "ancient": false
+    },
+    "gemtd_heiwangzihuangguanhongbaoshi": {
+      "source_id": "gemtd_heiwangzihuangguanhongbaoshi",
+      "values": {
+        "AttackDamageMin": 70.0,
+        "AttackDamageMax": 70.0,
+        "AttackRate": 1.0,
+        "AttackRange": 800.0,
+        "ProjectileSpeed": 3000.0,
+        "AttackAnimationPoint": 0.0,
+        "StatusHealth": 1.0,
+        "MovementSpeed": 0.0,
+        "ArmorPhysical": 0.0,
+        "MagicalResistance": 0.0
+      },
+      "abilities": [
+        "e10002",
+        "tower_chazhuangshandian",
+        "tower_huiyao3",
+        "tower_du6"
+      ],
+      "movement": "DOTA_UNIT_CAP_MOVE_NONE",
+      "attack_capabilities": "DOTA_UNIT_CAP_RANGED_ATTACK",
+      "combat_class": "DOTA_COMBAT_CLASS_ATTACK_SIEGE",
+      "combat_class_defend": "DOTA_COMBAT_CLASS_DEFEND_STRUCTURE",
+      "ancient": false
+    },
+    "gemtd_heiyaoshi": {
+      "source_id": "gemtd_heiyaoshi",
+      "values": {
+        "AttackDamageMin": 180.0,
+        "AttackDamageMax": 180.0,
+        "AttackRate": 0.7,
+        "AttackRange": 1600.0,
+        "ProjectileSpeed": 3000.0,
+        "AttackAnimationPoint": 0.0,
+        "StatusHealth": 1.0,
+        "MovementSpeed": 0.0,
+        "ArmorPhysical": 0.0,
+        "MagicalResistance": 0.0
+      },
+      "abilities": [
+        "tower_attack6",
+        "tower_jianshe5",
+        "tower_slow5",
+        "e10011"
+      ],
+      "movement": "DOTA_UNIT_CAP_MOVE_NONE",
+      "attack_capabilities": "DOTA_UNIT_CAP_RANGED_ATTACK",
+      "combat_class": "DOTA_COMBAT_CLASS_ATTACK_SIEGE",
+      "combat_class_defend": "DOTA_COMBAT_CLASS_DEFEND_STRUCTURE",
+      "ancient": false
+    },
+    "gemtd_hongliushiban": {
+      "source_id": "gemtd_hongliushiban",
+      "values": {
+        "AttackDamageMin": 0.0,
+        "AttackDamageMax": 0.0,
+        "AttackRate": 1.0,
+        "AttackRange": 0.0,
+        "ProjectileSpeed": 3000.0,
+        "AttackAnimationPoint": 0.0,
+        "StatusHealth": 1.0,
+        "MovementSpeed": 0.0,
+        "ArmorPhysical": 10.0,
+        "MagicalResistance": 0.0
+      },
+      "abilities": [],
+      "movement": "DOTA_UNIT_CAP_MOVE_NONE",
+      "attack_capabilities": "DOTA_UNIT_CAP_NO_ATTACK",
+      "combat_class": "DOTA_COMBAT_CLASS_ATTACK_SIEGE",
+      "combat_class_defend": "DOTA_COMBAT_CLASS_DEFEND_STRUCTURE",
+      "ancient": false,
+      "activated_ability": "new_torrent"
+    },
+    "gemtd_hongliushiban_jin": {
+      "source_id": "gemtd_hongliushiban_jin",
+      "values": {
+        "AttackDamageMin": 0.0,
+        "AttackDamageMax": 0.0,
+        "AttackRate": 1.0,
+        "AttackRange": 0.0,
+        "ProjectileSpeed": 3000.0,
+        "AttackAnimationPoint": 0.0,
+        "StatusHealth": 1.0,
+        "MovementSpeed": 0.0,
+        "ArmorPhysical": 10.0,
+        "MagicalResistance": 0.0
+      },
+      "abilities": [],
+      "movement": "DOTA_UNIT_CAP_MOVE_NONE",
+      "attack_capabilities": "DOTA_UNIT_CAP_NO_ATTACK",
+      "combat_class": "DOTA_COMBAT_CLASS_ATTACK_SIEGE",
+      "combat_class_defend": "DOTA_COMBAT_CLASS_DEFEND_STRUCTURE",
+      "ancient": false,
+      "activated_ability": "new_torrent3"
+    },
+    "gemtd_hongliushiban_yin": {
+      "source_id": "gemtd_hongliushiban_yin",
+      "values": {
+        "AttackDamageMin": 0.0,
+        "AttackDamageMax": 0.0,
+        "AttackRate": 1.0,
+        "AttackRange": 0.0,
+        "ProjectileSpeed": 3000.0,
+        "AttackAnimationPoint": 0.0,
+        "StatusHealth": 1.0,
+        "MovementSpeed": 0.0,
+        "ArmorPhysical": 10.0,
+        "MagicalResistance": 0.0
+      },
+      "abilities": [],
+      "movement": "DOTA_UNIT_CAP_MOVE_NONE",
+      "attack_capabilities": "DOTA_UNIT_CAP_NO_ATTACK",
+      "combat_class": "DOTA_COMBAT_CLASS_ATTACK_SIEGE",
+      "combat_class_defend": "DOTA_COMBAT_CLASS_DEFEND_STRUCTURE",
+      "ancient": false,
+      "activated_ability": "new_torrent2"
+    },
+    "gemtd_hongshanhu": {
+      "source_id": "gemtd_hongshanhu",
+      "values": {
+        "AttackDamageMin": 120.0,
+        "AttackDamageMax": 120.0,
+        "AttackRate": 0.6,
+        "AttackRange": 500.0,
+        "ProjectileSpeed": 3000.0,
+        "AttackAnimationPoint": 0.0,
+        "StatusHealth": 1.0,
+        "MovementSpeed": 0.0,
+        "ArmorPhysical": 0.0,
+        "MagicalResistance": 0.0
+      },
+      "abilities": [
+        "tower_speed_aura5",
+        "tower_speed_aura4",
+        "tower_true_sight",
+        "tower_maoyan",
+        "tower_chenmoguanghuan"
+      ],
+      "movement": "DOTA_UNIT_CAP_MOVE_NONE",
+      "attack_capabilities": "DOTA_UNIT_CAP_RANGED_ATTACK",
+      "combat_class": "DOTA_COMBAT_CLASS_ATTACK_SIEGE",
+      "combat_class_defend": "DOTA_COMBAT_CLASS_DEFEND_STRUCTURE",
+      "ancient": false
+    },
+    "gemtd_huaguoshanxiandan": {
+      "source_id": "gemtd_huaguoshanxiandan",
+      "values": {
+        "AttackDamageMin": 40.0,
+        "AttackDamageMax": 40.0,
+        "AttackRate": 0.5,
+        "AttackRange": 1000.0,
+        "ProjectileSpeed": 3000.0,
+        "AttackAnimationPoint": 0.0,
+        "StatusHealth": 1.0,
+        "MovementSpeed": 0.0,
+        "ArmorPhysical": 10.0,
+        "MagicalResistance": 0.0
+      },
+      "abilities": [
+        "tower_du5",
+        "tower_shechengguanghuan",
+        "tower_jingzhun",
+        "tower_attack4"
+      ],
+      "movement": "DOTA_UNIT_CAP_MOVE_NONE",
+      "attack_capabilities": "DOTA_UNIT_CAP_RANGED_ATTACK",
+      "combat_class": "DOTA_COMBAT_CLASS_ATTACK_SIEGE",
+      "combat_class_defend": "DOTA_COMBAT_CLASS_DEFEND_STRUCTURE",
+      "ancient": false
+    },
+    "gemtd_huangcailanbaoshi": {
+      "source_id": "gemtd_huangcailanbaoshi",
+      "values": {
+        "AttackDamageMin": 20.0,
+        "AttackDamageMax": 20.0,
+        "AttackRate": 1.0,
+        "AttackRange": 600.0,
+        "ProjectileSpeed": 3000.0,
+        "AttackAnimationPoint": 0.0,
+        "StatusHealth": 1.0,
+        "MovementSpeed": 0.0,
+        "ArmorPhysical": 0.0,
+        "MagicalResistance": 0.0
+      },
+      "abilities": [
+        "tower_lanbaoshi"
+      ],
+      "movement": "DOTA_UNIT_CAP_MOVE_NONE",
+      "attack_capabilities": "DOTA_UNIT_CAP_RANGED_ATTACK",
+      "combat_class": "DOTA_COMBAT_CLASS_ATTACK_SIEGE",
+      "combat_class_defend": "DOTA_COMBAT_CLASS_DEFEND_STRUCTURE",
+      "ancient": false
+    },
+    "gemtd_huguoshenyishi": {
+      "source_id": "gemtd_huguoshenyishi",
+      "values": {
+        "AttackDamageMin": 512.0,
+        "AttackDamageMax": 512.0,
+        "AttackRate": 0.7,
+        "AttackRange": 800.0,
+        "ProjectileSpeed": 3000.0,
+        "AttackAnimationPoint": 0.0,
+        "StatusHealth": 1.0,
+        "MovementSpeed": 0.0,
+        "ArmorPhysical": 10.0,
+        "MagicalResistance": 0.0
+      },
+      "abilities": [
+        "tower_zheyi3",
+        "tower_ranjin",
+        "e10006"
+      ],
+      "movement": "DOTA_UNIT_CAP_MOVE_NONE",
+      "attack_capabilities": "DOTA_UNIT_CAP_RANGED_ATTACK",
+      "combat_class": "DOTA_COMBAT_CLASS_ATTACK_SIEGE",
+      "combat_class_defend": "DOTA_COMBAT_CLASS_DEFEND_STRUCTURE",
+      "ancient": false
+    },
+    "gemtd_jin": {
+      "source_id": "gemtd_jin",
+      "values": {
+        "AttackDamageMin": 100.0,
+        "AttackDamageMax": 100.0,
+        "AttackRate": 0.8,
+        "AttackRange": 600.0,
+        "ProjectileSpeed": 3000.0,
+        "AttackAnimationPoint": 0.0,
+        "StatusHealth": 1.0,
+        "MovementSpeed": 0.0,
+        "ArmorPhysical": 0.0,
+        "MagicalResistance": 0.0
+      },
+      "abilities": [
+        "tower_jin"
+      ],
+      "movement": "DOTA_UNIT_CAP_MOVE_NONE",
+      "attack_capabilities": "DOTA_UNIT_CAP_RANGED_ATTACK",
+      "combat_class": "DOTA_COMBAT_CLASS_ATTACK_SIEGE",
+      "combat_class_defend": "DOTA_COMBAT_CLASS_DEFEND_STRUCTURE",
+      "ancient": false
+    },
+    "gemtd_jingangshikulinan": {
+      "source_id": "gemtd_jingangshikulinan",
+      "values": {
+        "AttackDamageMin": 2514.0,
+        "AttackDamageMax": 2514.0,
+        "AttackRate": 1.0,
+        "AttackRange": 1200.0,
+        "ProjectileSpeed": 3000.0,
+        "AttackAnimationPoint": 0.0,
+        "StatusHealth": 1.0,
+        "MovementSpeed": 0.0,
+        "ArmorPhysical": 10.0,
+        "MagicalResistance": 0.0
+      },
+      "abilities": [
+        "tower_jingzhun",
+        "tower_shechengguanghuan",
+        "tower_attack6",
+        "tower_baoji1",
+        "e10005"
+      ],
+      "movement": "DOTA_UNIT_CAP_MOVE_NONE",
+      "attack_capabilities": "DOTA_UNIT_CAP_RANGED_ATTACK",
+      "combat_class": "DOTA_COMBAT_CLASS_ATTACK_SIEGE",
+      "combat_class_defend": "DOTA_COMBAT_CLASS_DEFEND_STRUCTURE",
+      "ancient": false
+    },
+    "gemtd_jingxindiaozhuodepalayibabixi": {
+      "source_id": "gemtd_jingxindiaozhuodepalayibabixi",
+      "values": {
+        "AttackDamageMin": 130.0,
+        "AttackDamageMax": 130.0,
+        "AttackRate": 0.6,
+        "AttackRange": 700.0,
+        "ProjectileSpeed": 3000.0,
+        "AttackAnimationPoint": 0.0,
+        "StatusHealth": 1.0,
+        "MovementSpeed": 0.0,
+        "ArmorPhysical": 0.0,
+        "MagicalResistance": 0.0
+      },
+      "abilities": [
+        "tower_10jiyun",
+        "tower_bixi2"
+      ],
+      "movement": "DOTA_UNIT_CAP_MOVE_NONE",
+      "attack_capabilities": "DOTA_UNIT_CAP_RANGED_ATTACK",
+      "combat_class": "DOTA_COMBAT_CLASS_ATTACK_SIEGE",
+      "combat_class_defend": "DOTA_COMBAT_CLASS_DEFEND_STRUCTURE",
+      "ancient": false
+    },
+    "gemtd_jixiangdezhongguoyu": {
+      "source_id": "gemtd_jixiangdezhongguoyu",
+      "values": {
+        "AttackDamageMin": 30.0,
+        "AttackDamageMax": 30.0,
+        "AttackRate": 0.5,
+        "AttackRange": 900.0,
+        "ProjectileSpeed": 3000.0,
+        "AttackAnimationPoint": 0.0,
+        "StatusHealth": 1.0,
+        "MovementSpeed": 0.0,
+        "ArmorPhysical": 0.0,
+        "MagicalResistance": 0.0
+      },
+      "abilities": [
+        "tower_du5",
+        "tower_huichun_aura",
+        "tower_zheyi",
+        "tower_attack4"
+      ],
+      "movement": "DOTA_UNIT_CAP_MOVE_NONE",
+      "attack_capabilities": "DOTA_UNIT_CAP_RANGED_ATTACK",
+      "combat_class": "DOTA_COMBAT_CLASS_ATTACK_SIEGE",
+      "combat_class_defend": "DOTA_COMBAT_CLASS_DEFEND_STRUCTURE",
+      "ancient": false
+    },
+    "gemtd_jixueshi": {
+      "source_id": "gemtd_jixueshi",
+      "values": {
+        "AttackDamageMin": 35.0,
+        "AttackDamageMax": 35.0,
+        "AttackRate": 1.0,
+        "AttackRange": 700.0,
+        "ProjectileSpeed": 3000.0,
+        "AttackAnimationPoint": 0.0,
+        "StatusHealth": 1.0,
+        "MovementSpeed": 0.0,
+        "ArmorPhysical": 0.0,
+        "MagicalResistance": 0.0
+      },
+      "abilities": [
+        "tower_shandianlian"
+      ],
+      "movement": "DOTA_UNIT_CAP_MOVE_NONE",
+      "attack_capabilities": "DOTA_UNIT_CAP_RANGED_ATTACK",
+      "combat_class": "DOTA_COMBAT_CLASS_ATTACK_SIEGE",
+      "combat_class_defend": "DOTA_COMBAT_CLASS_DEFEND_STRUCTURE",
+      "ancient": false
+    },
+    "gemtd_juxingfenhongzuanshi": {
+      "source_id": "gemtd_juxingfenhongzuanshi",
+      "values": {
+        "AttackDamageMin": 240.0,
+        "AttackDamageMax": 240.0,
+        "AttackRate": 0.8,
+        "AttackRange": 1100.0,
+        "ProjectileSpeed": 3000.0,
+        "AttackAnimationPoint": 0.0,
+        "StatusHealth": 1.0,
+        "MovementSpeed": 0.0,
+        "ArmorPhysical": 0.0,
+        "MagicalResistance": 0.0
+      },
+      "abilities": [
+        "tower_jianshe3",
+        "tower_baoji1",
+        "tower_attack4",
+        "tower_slow3"
+      ],
+      "movement": "DOTA_UNIT_CAP_MOVE_NONE",
+      "attack_capabilities": "DOTA_UNIT_CAP_RANGED_ATTACK",
+      "combat_class": "DOTA_COMBAT_CLASS_ATTACK_SIEGE",
+      "combat_class_defend": "DOTA_COMBAT_CLASS_DEFEND_STRUCTURE",
+      "ancient": false
+    },
+    "gemtd_keyinuoerguangmingzhishan": {
+      "source_id": "gemtd_keyinuoerguangmingzhishan",
+      "values": {
+        "AttackDamageMin": 660.0,
+        "AttackDamageMax": 660.0,
+        "AttackRate": 0.8,
+        "AttackRange": 1000.0,
+        "ProjectileSpeed": 3000.0,
+        "AttackAnimationPoint": 0.0,
+        "StatusHealth": 1.0,
+        "MovementSpeed": 0.0,
+        "ArmorPhysical": 0.0,
+        "MagicalResistance": 0.0
+      },
+      "abilities": [
+        "e301",
+        "tower_slow3",
+        "tower_jianshe4",
+        "tower_baoji1",
+        "tower_attack6",
+        "tower_jianjia6"
+      ],
+      "movement": "DOTA_UNIT_CAP_MOVE_NONE",
+      "attack_capabilities": "DOTA_UNIT_CAP_RANGED_ATTACK",
+      "combat_class": "DOTA_COMBAT_CLASS_ATTACK_SIEGE",
+      "combat_class_defend": "DOTA_COMBAT_CLASS_DEFEND_STRUCTURE",
+      "ancient": false
+    },
+    "gemtd_kongheshiban": {
+      "source_id": "gemtd_kongheshiban",
+      "values": {
+        "AttackDamageMin": 0.0,
+        "AttackDamageMax": 0.0,
+        "AttackRate": 1.0,
+        "AttackRange": 0.0,
+        "ProjectileSpeed": 3000.0,
+        "AttackAnimationPoint": 0.0,
+        "StatusHealth": 1.0,
+        "MovementSpeed": 0.0,
+        "ArmorPhysical": 10.0,
+        "MagicalResistance": 0.0
+      },
+      "abilities": [],
+      "movement": "DOTA_UNIT_CAP_MOVE_NONE",
+      "attack_capabilities": "DOTA_UNIT_CAP_NO_ATTACK",
+      "combat_class": "DOTA_COMBAT_CLASS_ATTACK_SIEGE",
+      "combat_class_defend": "DOTA_COMBAT_CLASS_DEFEND_STRUCTURE",
+      "ancient": false,
+      "activated_ability": "new_konghe"
+    },
+    "gemtd_kongheshiban_jin": {
+      "source_id": "gemtd_kongheshiban_jin",
+      "values": {
+        "AttackDamageMin": 0.0,
+        "AttackDamageMax": 0.0,
+        "AttackRate": 1.0,
+        "AttackRange": 0.0,
+        "ProjectileSpeed": 3000.0,
+        "AttackAnimationPoint": 0.0,
+        "StatusHealth": 1.0,
+        "MovementSpeed": 0.0,
+        "ArmorPhysical": 10.0,
+        "MagicalResistance": 0.0
+      },
+      "abilities": [],
+      "movement": "DOTA_UNIT_CAP_MOVE_NONE",
+      "attack_capabilities": "DOTA_UNIT_CAP_NO_ATTACK",
+      "combat_class": "DOTA_COMBAT_CLASS_ATTACK_SIEGE",
+      "combat_class_defend": "DOTA_COMBAT_CLASS_DEFEND_STRUCTURE",
+      "ancient": false,
+      "activated_ability": "new_konghe3"
+    },
+    "gemtd_kongheshiban_yin": {
+      "source_id": "gemtd_kongheshiban_yin",
+      "values": {
+        "AttackDamageMin": 0.0,
+        "AttackDamageMax": 0.0,
+        "AttackRate": 1.0,
+        "AttackRange": 0.0,
+        "ProjectileSpeed": 3000.0,
+        "AttackAnimationPoint": 0.0,
+        "StatusHealth": 1.0,
+        "MovementSpeed": 0.0,
+        "ArmorPhysical": 10.0,
+        "MagicalResistance": 0.0
+      },
+      "abilities": [],
+      "movement": "DOTA_UNIT_CAP_MOVE_NONE",
+      "attack_capabilities": "DOTA_UNIT_CAP_NO_ATTACK",
+      "combat_class": "DOTA_COMBAT_CLASS_ATTACK_SIEGE",
+      "combat_class_defend": "DOTA_COMBAT_CLASS_DEFEND_STRUCTURE",
+      "ancient": false,
+      "activated_ability": "new_konghe2"
+    },
+    "gemtd_kongqueshi": {
+      "source_id": "gemtd_kongqueshi",
+      "values": {
+        "AttackDamageMin": 15.0,
+        "AttackDamageMax": 15.0,
+        "AttackRate": 0.8,
+        "AttackRange": 600.0,
+        "ProjectileSpeed": 3000.0,
+        "AttackAnimationPoint": 0.0,
+        "StatusHealth": 1.0,
+        "MovementSpeed": 0.0,
+        "ArmorPhysical": 0.0,
+        "MagicalResistance": 0.0
+      },
+      "abilities": [
+        "tower_fenliejian"
+      ],
+      "movement": "DOTA_UNIT_CAP_MOVE_NONE",
+      "attack_capabilities": "DOTA_UNIT_CAP_RANGED_ATTACK",
+      "combat_class": "DOTA_COMBAT_CLASS_ATTACK_SIEGE",
+      "combat_class_defend": "DOTA_COMBAT_CLASS_DEFEND_STRUCTURE",
+      "ancient": false
+    },
+    "gemtd_mabishiban": {
+      "source_id": "gemtd_mabishiban",
+      "values": {
+        "AttackDamageMin": 0.0,
+        "AttackDamageMax": 0.0,
+        "AttackRate": 1.0,
+        "AttackRange": 0.0,
+        "ProjectileSpeed": 3000.0,
+        "AttackAnimationPoint": 0.0,
+        "StatusHealth": 1.0,
+        "MovementSpeed": 0.0,
+        "ArmorPhysical": 10.0,
+        "MagicalResistance": 0.0
+      },
+      "abilities": [],
+      "movement": "DOTA_UNIT_CAP_MOVE_NONE",
+      "attack_capabilities": "DOTA_UNIT_CAP_NO_ATTACK",
+      "combat_class": "DOTA_COMBAT_CLASS_ATTACK_SIEGE",
+      "combat_class_defend": "DOTA_COMBAT_CLASS_DEFEND_STRUCTURE",
+      "ancient": false,
+      "activated_ability": "new_cask"
+    },
+    "gemtd_mabishiban_jin": {
+      "source_id": "gemtd_mabishiban_jin",
+      "values": {
+        "AttackDamageMin": 0.0,
+        "AttackDamageMax": 0.0,
+        "AttackRate": 1.0,
+        "AttackRange": 0.0,
+        "ProjectileSpeed": 3000.0,
+        "AttackAnimationPoint": 0.0,
+        "StatusHealth": 1.0,
+        "MovementSpeed": 0.0,
+        "ArmorPhysical": 10.0,
+        "MagicalResistance": 0.0
+      },
+      "abilities": [],
+      "movement": "DOTA_UNIT_CAP_MOVE_NONE",
+      "attack_capabilities": "DOTA_UNIT_CAP_NO_ATTACK",
+      "combat_class": "DOTA_COMBAT_CLASS_ATTACK_SIEGE",
+      "combat_class_defend": "DOTA_COMBAT_CLASS_DEFEND_STRUCTURE",
+      "ancient": false,
+      "activated_ability": "new_cask3"
+    },
+    "gemtd_mabishiban_yin": {
+      "source_id": "gemtd_mabishiban_yin",
+      "values": {
+        "AttackDamageMin": 0.0,
+        "AttackDamageMax": 0.0,
+        "AttackRate": 1.0,
+        "AttackRange": 0.0,
+        "ProjectileSpeed": 3000.0,
+        "AttackAnimationPoint": 0.0,
+        "StatusHealth": 1.0,
+        "MovementSpeed": 0.0,
+        "ArmorPhysical": 10.0,
+        "MagicalResistance": 0.0
+      },
+      "abilities": [],
+      "movement": "DOTA_UNIT_CAP_MOVE_NONE",
+      "attack_capabilities": "DOTA_UNIT_CAP_NO_ATTACK",
+      "combat_class": "DOTA_COMBAT_CLASS_ATTACK_SIEGE",
+      "combat_class_defend": "DOTA_COMBAT_CLASS_DEFEND_STRUCTURE",
+      "ancient": false,
+      "activated_ability": "new_cask2"
+    },
+    "gemtd_manao": {
+      "source_id": "gemtd_manao",
+      "values": {
+        "AttackDamageMin": 110.0,
+        "AttackDamageMax": 110.0,
+        "AttackRate": 0.4,
+        "AttackRange": 5000.0,
+        "ProjectileSpeed": 3000.0,
+        "AttackAnimationPoint": 0.0,
+        "StatusHealth": 1.0,
+        "MovementSpeed": 0.0,
+        "ArmorPhysical": 0.0,
+        "MagicalResistance": 0.0
+      },
+      "abilities": [
+        "tower_attack5",
+        "tower_fenliejian_xianyan",
+        "e10012"
+      ],
+      "movement": "DOTA_UNIT_CAP_MOVE_NONE",
+      "attack_capabilities": "DOTA_UNIT_CAP_RANGED_ATTACK",
+      "combat_class": "DOTA_COMBAT_CLASS_ATTACK_SIEGE",
+      "combat_class_defend": "DOTA_COMBAT_CLASS_DEFEND_STRUCTURE",
+      "ancient": false
+    },
+    "gemtd_mirendeqingjinshi": {
+      "source_id": "gemtd_mirendeqingjinshi",
+      "values": {
+        "AttackDamageMin": 30.0,
+        "AttackDamageMax": 30.0,
+        "AttackRate": 0.6,
+        "AttackRange": 800.0,
+        "ProjectileSpeed": 3000.0,
+        "AttackAnimationPoint": 0.0,
+        "StatusHealth": 1.0,
+        "MovementSpeed": 0.0,
+        "ArmorPhysical": 0.0,
+        "MagicalResistance": 0.0
+      },
+      "abilities": [
+        "tower_zheyi2"
+      ],
+      "movement": "DOTA_UNIT_CAP_MOVE_NONE",
+      "attack_capabilities": "DOTA_UNIT_CAP_RANGED_ATTACK",
+      "combat_class": "DOTA_COMBAT_CLASS_ATTACK_SIEGE",
+      "combat_class_defend": "DOTA_COMBAT_CLASS_DEFEND_STRUCTURE",
+      "ancient": false
+    },
+    "gemtd_palayibabixi": {
+      "source_id": "gemtd_palayibabixi",
+      "values": {
+        "AttackDamageMin": 30.0,
+        "AttackDamageMax": 30.0,
+        "AttackRate": 0.6,
+        "AttackRange": 600.0,
+        "ProjectileSpeed": 3000.0,
+        "AttackAnimationPoint": 0.0,
+        "StatusHealth": 1.0,
+        "MovementSpeed": 0.0,
+        "ArmorPhysical": 0.0,
+        "MagicalResistance": 0.0
+      },
+      "abilities": [
+        "tower_bixi"
+      ],
+      "movement": "DOTA_UNIT_CAP_MOVE_NONE",
+      "attack_capabilities": "DOTA_UNIT_CAP_RANGED_ATTACK",
+      "combat_class": "DOTA_COMBAT_CLASS_ATTACK_SIEGE",
+      "combat_class_defend": "DOTA_COMBAT_CLASS_DEFEND_STRUCTURE",
+      "ancient": false
+    },
+    "gemtd_ranshaozhishi": {
+      "source_id": "gemtd_ranshaozhishi",
+      "values": {
+        "AttackDamageMin": 0.0,
+        "AttackDamageMax": 0.0,
+        "AttackRate": 0.5,
+        "AttackRange": 600.0,
+        "ProjectileSpeed": 3000.0,
+        "AttackAnimationPoint": 0.0,
+        "StatusHealth": 1.0,
+        "MovementSpeed": 0.0,
+        "ArmorPhysical": 0.0,
+        "MagicalResistance": 0.0
+      },
+      "abilities": [
+        "tower_huiyao3",
+        "e10010"
+      ],
+      "movement": "DOTA_UNIT_CAP_MOVE_NONE",
+      "attack_capabilities": "DOTA_UNIT_CAP_RANGED_ATTACK",
+      "combat_class": "DOTA_COMBAT_CLASS_ATTACK_SIEGE",
+      "combat_class_defend": "DOTA_COMBAT_CLASS_DEFEND_STRUCTURE",
+      "ancient": false
+    },
+    "gemtd_shenhaizhenzhu": {
+      "source_id": "gemtd_shenhaizhenzhu",
+      "values": {
+        "AttackDamageMin": 80.0,
+        "AttackDamageMax": 80.0,
+        "AttackRate": 0.6,
+        "AttackRange": 500.0,
+        "ProjectileSpeed": 3000.0,
+        "AttackAnimationPoint": 0.0,
+        "StatusHealth": 1.0,
+        "MovementSpeed": 0.0,
+        "ArmorPhysical": 0.0,
+        "MagicalResistance": 0.0
+      },
+      "abilities": [
+        "tower_chenmoguanghuan"
+      ],
+      "movement": "DOTA_UNIT_CAP_MOVE_NONE",
+      "attack_capabilities": "DOTA_UNIT_CAP_RANGED_ATTACK",
+      "combat_class": "DOTA_COMBAT_CLASS_ATTACK_SIEGE",
+      "combat_class_defend": "DOTA_COMBAT_CLASS_DEFEND_STRUCTURE",
+      "ancient": false
+    },
+    "gemtd_shuaibiankaipayou": {
+      "source_id": "gemtd_shuaibiankaipayou",
+      "values": {
+        "AttackDamageMin": 90.0,
+        "AttackDamageMax": 90.0,
+        "AttackRate": 0.4,
+        "AttackRange": 5000.0,
+        "ProjectileSpeed": 3000.0,
+        "AttackAnimationPoint": 0.0,
+        "StatusHealth": 1.0,
+        "MovementSpeed": 0.0,
+        "ArmorPhysical": 0.0,
+        "MagicalResistance": 0.0
+      },
+      "abilities": [
+        "tower_attack5",
+        "tower_fenliejian_you",
+        "e10003"
+      ],
+      "movement": "DOTA_UNIT_CAP_MOVE_NONE",
+      "attack_capabilities": "DOTA_UNIT_CAP_RANGED_ATTACK",
+      "combat_class": "DOTA_COMBAT_CLASS_ATTACK_SIEGE",
+      "combat_class_defend": "DOTA_COMBAT_CLASS_DEFEND_STRUCTURE",
+      "ancient": false
+    },
+    "gemtd_sililankazhixing": {
+      "source_id": "gemtd_sililankazhixing",
+      "values": {
+        "AttackDamageMin": 120.0,
+        "AttackDamageMax": 120.0,
+        "AttackRate": 0.8,
+        "AttackRange": 1200.0,
+        "ProjectileSpeed": 3000.0,
+        "AttackAnimationPoint": 0.0,
+        "StatusHealth": 1.0,
+        "MovementSpeed": 0.0,
+        "ArmorPhysical": 10.0,
+        "MagicalResistance": 0.0
+      },
+      "abilities": [
+        "tower_du6",
+        "tower_jianjia6",
+        "tower_bixi2",
+        "tower_jihan",
+        "e10004"
+      ],
+      "movement": "DOTA_UNIT_CAP_MOVE_NONE",
+      "attack_capabilities": "DOTA_UNIT_CAP_RANGED_ATTACK",
+      "combat_class": "DOTA_COMBAT_CLASS_ATTACK_SIEGE",
+      "combat_class_defend": "DOTA_COMBAT_CLASS_DEFEND_STRUCTURE",
+      "ancient": false
+    },
+    "gemtd_suanwushiban": {
+      "source_id": "gemtd_suanwushiban",
+      "values": {
+        "AttackDamageMin": 0.0,
+        "AttackDamageMax": 0.0,
+        "AttackRate": 1.0,
+        "AttackRange": 0.0,
+        "ProjectileSpeed": 3000.0,
+        "AttackAnimationPoint": 0.0,
+        "StatusHealth": 1.0,
+        "MovementSpeed": 0.0,
+        "ArmorPhysical": 10.0,
+        "MagicalResistance": 0.0
+      },
+      "abilities": [],
+      "movement": "DOTA_UNIT_CAP_MOVE_NONE",
+      "attack_capabilities": "DOTA_UNIT_CAP_NO_ATTACK",
+      "combat_class": "DOTA_COMBAT_CLASS_ATTACK_SIEGE",
+      "combat_class_defend": "DOTA_COMBAT_CLASS_DEFEND_STRUCTURE",
+      "ancient": false,
+      "activated_ability": "new_acid_spray"
+    },
+    "gemtd_suanwushiban_jin": {
+      "source_id": "gemtd_suanwushiban_jin",
+      "values": {
+        "AttackDamageMin": 0.0,
+        "AttackDamageMax": 0.0,
+        "AttackRate": 1.0,
+        "AttackRange": 0.0,
+        "ProjectileSpeed": 3000.0,
+        "AttackAnimationPoint": 0.0,
+        "StatusHealth": 1.0,
+        "MovementSpeed": 0.0,
+        "ArmorPhysical": 10.0,
+        "MagicalResistance": 0.0
+      },
+      "abilities": [],
+      "movement": "DOTA_UNIT_CAP_MOVE_NONE",
+      "attack_capabilities": "DOTA_UNIT_CAP_NO_ATTACK",
+      "combat_class": "DOTA_COMBAT_CLASS_ATTACK_SIEGE",
+      "combat_class_defend": "DOTA_COMBAT_CLASS_DEFEND_STRUCTURE",
+      "ancient": false,
+      "activated_ability": "new_acid_spray3"
+    },
+    "gemtd_suanwushiban_yin": {
+      "source_id": "gemtd_suanwushiban_yin",
+      "values": {
+        "AttackDamageMin": 0.0,
+        "AttackDamageMax": 0.0,
+        "AttackRate": 1.0,
+        "AttackRange": 0.0,
+        "ProjectileSpeed": 3000.0,
+        "AttackAnimationPoint": 0.0,
+        "StatusHealth": 1.0,
+        "MovementSpeed": 0.0,
+        "ArmorPhysical": 10.0,
+        "MagicalResistance": 0.0
+      },
+      "abilities": [],
+      "movement": "DOTA_UNIT_CAP_MOVE_NONE",
+      "attack_capabilities": "DOTA_UNIT_CAP_NO_ATTACK",
+      "combat_class": "DOTA_COMBAT_CLASS_ATTACK_SIEGE",
+      "combat_class_defend": "DOTA_COMBAT_CLASS_DEFEND_STRUCTURE",
+      "ancient": false,
+      "activated_ability": "new_acid_spray2"
+    },
+    "gemtd_tianranzumulv": {
+      "source_id": "gemtd_tianranzumulv",
+      "values": {
+        "AttackDamageMin": 80.0,
+        "AttackDamageMax": 80.0,
+        "AttackRate": 1.0,
+        "AttackRange": 500.0,
+        "ProjectileSpeed": 3000.0,
+        "AttackAnimationPoint": 0.0,
+        "StatusHealth": 1.0,
+        "MovementSpeed": 0.0,
+        "ArmorPhysical": 0.0,
+        "MagicalResistance": 0.0
+      },
+      "abilities": [],
+      "movement": "DOTA_UNIT_CAP_MOVE_NONE",
+      "attack_capabilities": "DOTA_UNIT_CAP_RANGED_ATTACK",
+      "combat_class": "DOTA_COMBAT_CLASS_ATTACK_SIEGE",
+      "combat_class_defend": "DOTA_COMBAT_CLASS_DEFEND_STRUCTURE",
+      "ancient": false
+    },
+    "gemtd_xiameishi": {
+      "source_id": "gemtd_xiameishi",
+      "values": {
+        "AttackDamageMin": 585.0,
+        "AttackDamageMax": 585.0,
+        "AttackRate": 0.5,
+        "AttackRange": 1000.0,
+        "ProjectileSpeed": 3000.0,
+        "AttackAnimationPoint": 0.0,
+        "StatusHealth": 1.0,
+        "MovementSpeed": 0.0,
+        "ArmorPhysical": 0.0,
+        "MagicalResistance": 0.0
+      },
+      "abilities": [
+        "tower_aojiao",
+        "tower_shandianlian",
+        "tower_chazhuangshandian",
+        "e10008",
+        "tower_attack6"
+      ],
+      "movement": "DOTA_UNIT_CAP_MOVE_NONE",
+      "attack_capabilities": "DOTA_UNIT_CAP_RANGED_ATTACK",
+      "combat_class": "DOTA_COMBAT_CLASS_ATTACK_SIEGE",
+      "combat_class_defend": "DOTA_COMBAT_CLASS_DEFEND_STRUCTURE",
+      "ancient": false
+    },
+    "gemtd_xianyandekongqueshi": {
+      "source_id": "gemtd_xianyandekongqueshi",
+      "values": {
+        "AttackDamageMin": 50.0,
+        "AttackDamageMax": 50.0,
+        "AttackRate": 0.7,
+        "AttackRange": 800.0,
+        "ProjectileSpeed": 3000.0,
+        "AttackAnimationPoint": 0.0,
+        "StatusHealth": 1.0,
+        "MovementSpeed": 0.0,
+        "ArmorPhysical": 0.0,
+        "MagicalResistance": 0.0
+      },
+      "abilities": [
+        "tower_fenliejian_xianyan"
+      ],
+      "movement": "DOTA_UNIT_CAP_MOVE_NONE",
+      "attack_capabilities": "DOTA_UNIT_CAP_RANGED_ATTACK",
+      "combat_class": "DOTA_COMBAT_CLASS_ATTACK_SIEGE",
+      "combat_class_defend": "DOTA_COMBAT_CLASS_DEFEND_STRUCTURE",
+      "ancient": false
+    },
+    "gemtd_xingcaihongbaoshi": {
+      "source_id": "gemtd_xingcaihongbaoshi",
+      "values": {
+        "AttackDamageMin": 0.0,
+        "AttackDamageMax": 0.0,
+        "AttackRate": 1.0,
+        "AttackRange": 600.0,
+        "ProjectileSpeed": 1200.0,
+        "AttackAnimationPoint": 0.0,
+        "StatusHealth": 1.0,
+        "MovementSpeed": 0.0,
+        "ArmorPhysical": 0.0,
+        "MagicalResistance": 0.0
+      },
+      "abilities": [
+        "tower_huiyao"
+      ],
+      "movement": "DOTA_UNIT_CAP_MOVE_NONE",
+      "attack_capabilities": "DOTA_UNIT_CAP_RANGED_ATTACK",
+      "combat_class": "DOTA_COMBAT_CLASS_ATTACK_SIEGE",
+      "combat_class_defend": "DOTA_COMBAT_CLASS_DEFEND_STRUCTURE",
+      "ancient": false
+    },
+    "gemtd_xingguanglanbaoshi": {
+      "source_id": "gemtd_xingguanglanbaoshi",
+      "values": {
+        "AttackDamageMin": 20.0,
+        "AttackDamageMax": 20.0,
+        "AttackRate": 1.0,
+        "AttackRange": 600.0,
+        "ProjectileSpeed": 3000.0,
+        "AttackAnimationPoint": 0.0,
+        "StatusHealth": 1.0,
+        "MovementSpeed": 0.0,
+        "ArmorPhysical": 0.0,
+        "MagicalResistance": 0.0
+      },
+      "abilities": [
+        "tower_true_sight",
+        "tower_speed_aura6",
+        "tower_slow6",
+        "tower_lanbaoshi2",
+        "e10001"
+      ],
+      "movement": "DOTA_UNIT_CAP_MOVE_NONE",
+      "attack_capabilities": "DOTA_UNIT_CAP_RANGED_ATTACK",
+      "combat_class": "DOTA_COMBAT_CLASS_ATTACK_SIEGE",
+      "combat_class_defend": "DOTA_COMBAT_CLASS_DEFEND_STRUCTURE",
+      "ancient": false
+    },
+    "gemtd_xuehonghuoshan": {
+      "source_id": "gemtd_xuehonghuoshan",
+      "values": {
+        "AttackDamageMin": 0.0,
+        "AttackDamageMax": 0.0,
+        "AttackRate": 1.0,
+        "AttackRange": 600.0,
+        "ProjectileSpeed": 1200.0,
+        "AttackAnimationPoint": 0.0,
+        "StatusHealth": 1.0,
+        "MovementSpeed": 0.0,
+        "ArmorPhysical": 0.0,
+        "MagicalResistance": 0.0
+      },
+      "abilities": [
+        "tower_huiyao2"
+      ],
+      "movement": "DOTA_UNIT_CAP_MOVE_NONE",
+      "attack_capabilities": "DOTA_UNIT_CAP_RANGED_ATTACK",
+      "combat_class": "DOTA_COMBAT_CLASS_ATTACK_SIEGE",
+      "combat_class_defend": "DOTA_COMBAT_CLASS_DEFEND_STRUCTURE",
+      "ancient": false
+    },
+    "gemtd_xuwushiban": {
+      "source_id": "gemtd_xuwushiban",
+      "values": {
+        "AttackDamageMin": 0.0,
+        "AttackDamageMax": 0.0,
+        "AttackRate": 1.0,
+        "AttackRange": 0.0,
+        "ProjectileSpeed": 3000.0,
+        "AttackAnimationPoint": 0.0,
+        "StatusHealth": 1.0,
+        "MovementSpeed": 0.0,
+        "ArmorPhysical": 10.0,
+        "MagicalResistance": 0.0
+      },
+      "abilities": [],
+      "movement": "DOTA_UNIT_CAP_MOVE_NONE",
+      "attack_capabilities": "DOTA_UNIT_CAP_NO_ATTACK",
+      "combat_class": "DOTA_COMBAT_CLASS_ATTACK_SIEGE",
+      "combat_class_defend": "DOTA_COMBAT_CLASS_DEFEND_STRUCTURE",
+      "ancient": false,
+      "activated_ability": "new_xuwu"
+    },
+    "gemtd_xuwushiban_jin": {
+      "source_id": "gemtd_xuwushiban_jin",
+      "values": {
+        "AttackDamageMin": 0.0,
+        "AttackDamageMax": 0.0,
+        "AttackRate": 1.0,
+        "AttackRange": 0.0,
+        "ProjectileSpeed": 3000.0,
+        "AttackAnimationPoint": 0.0,
+        "StatusHealth": 1.0,
+        "MovementSpeed": 0.0,
+        "ArmorPhysical": 10.0,
+        "MagicalResistance": 0.0
+      },
+      "abilities": [],
+      "movement": "DOTA_UNIT_CAP_MOVE_NONE",
+      "attack_capabilities": "DOTA_UNIT_CAP_NO_ATTACK",
+      "combat_class": "DOTA_COMBAT_CLASS_ATTACK_SIEGE",
+      "combat_class_defend": "DOTA_COMBAT_CLASS_DEFEND_STRUCTURE",
+      "ancient": false,
+      "activated_ability": "new_xuwu3"
+    },
+    "gemtd_xuwushiban_yin": {
+      "source_id": "gemtd_xuwushiban_yin",
+      "values": {
+        "AttackDamageMin": 0.0,
+        "AttackDamageMax": 0.0,
+        "AttackRate": 1.0,
+        "AttackRange": 0.0,
+        "ProjectileSpeed": 3000.0,
+        "AttackAnimationPoint": 0.0,
+        "StatusHealth": 1.0,
+        "MovementSpeed": 0.0,
+        "ArmorPhysical": 10.0,
+        "MagicalResistance": 0.0
+      },
+      "abilities": [],
+      "movement": "DOTA_UNIT_CAP_MOVE_NONE",
+      "attack_capabilities": "DOTA_UNIT_CAP_NO_ATTACK",
+      "combat_class": "DOTA_COMBAT_CLASS_ATTACK_SIEGE",
+      "combat_class_defend": "DOTA_COMBAT_CLASS_DEFEND_STRUCTURE",
+      "ancient": false,
+      "activated_ability": "new_xuwu2"
+    },
+    "gemtd_yijiazhishi": {
+      "source_id": "gemtd_yijiazhishi",
+      "values": {
+        "AttackDamageMin": 6.0,
+        "AttackDamageMax": 6.0,
+        "AttackRate": 1.0,
+        "AttackRange": 500.0,
+        "ProjectileSpeed": 3000.0,
+        "AttackAnimationPoint": 0.0,
+        "StatusHealth": 1.0,
+        "MovementSpeed": 0.0,
+        "ArmorPhysical": 10.0,
+        "MagicalResistance": 0.0
+      },
+      "abilities": [
+        "tower_chenmoguanghuan",
+        "tower_maoyan",
+        "tower_speed_aura_guichu",
+        "tower_true_sight",
+        "e10009"
+      ],
+      "movement": "DOTA_UNIT_CAP_MOVE_NONE",
+      "attack_capabilities": "DOTA_UNIT_CAP_RANGED_ATTACK",
+      "combat_class": "DOTA_COMBAT_CLASS_ATTACK_SIEGE",
+      "combat_class_defend": "DOTA_COMBAT_CLASS_DEFEND_STRUCTURE",
+      "ancient": false
+    },
+    "gemtd_you235": {
+      "source_id": "gemtd_you235",
+      "values": {
+        "AttackDamageMin": 100.0,
+        "AttackDamageMax": 100.0,
+        "AttackRate": 0.7,
+        "AttackRange": 800.0,
+        "ProjectileSpeed": 3000.0,
+        "AttackAnimationPoint": 0.0,
+        "StatusHealth": 1.0,
+        "MovementSpeed": 0.0,
+        "ArmorPhysical": 0.0,
+        "MagicalResistance": 0.0
+      },
+      "abilities": [
+        "tower_fenliejian_you",
+        "tower_attack4"
+      ],
+      "movement": "DOTA_UNIT_CAP_MOVE_NONE",
+      "attack_capabilities": "DOTA_UNIT_CAP_RANGED_ATTACK",
+      "combat_class": "DOTA_COMBAT_CLASS_ATTACK_SIEGE",
+      "combat_class_defend": "DOTA_COMBAT_CLASS_DEFEND_STRUCTURE",
+      "ancient": false
+    },
+    "gemtd_you238": {
+      "source_id": "gemtd_you238",
+      "values": {
+        "AttackDamageMin": 120.0,
+        "AttackDamageMax": 120.0,
+        "AttackRate": 0.7,
+        "AttackRange": 700.0,
+        "ProjectileSpeed": 3000.0,
+        "AttackAnimationPoint": 0.0,
+        "StatusHealth": 1.0,
+        "MovementSpeed": 0.0,
+        "ArmorPhysical": 0.0,
+        "MagicalResistance": 0.0
+      },
+      "abilities": [
+        "tower_fenliejian_you"
+      ],
+      "movement": "DOTA_UNIT_CAP_MOVE_NONE",
+      "attack_capabilities": "DOTA_UNIT_CAP_RANGED_ATTACK",
+      "combat_class": "DOTA_COMBAT_CLASS_ATTACK_SIEGE",
+      "combat_class_defend": "DOTA_COMBAT_CLASS_DEFEND_STRUCTURE",
+      "ancient": false
+    },
+    "gemtd_youbushiban": {
+      "source_id": "gemtd_youbushiban",
+      "values": {
+        "AttackDamageMin": 0.0,
+        "AttackDamageMax": 0.0,
+        "AttackRate": 1.0,
+        "AttackRange": 0.0,
+        "ProjectileSpeed": 3000.0,
+        "AttackAnimationPoint": 0.0,
+        "StatusHealth": 1.0,
+        "MovementSpeed": 0.0,
+        "ArmorPhysical": 10.0,
+        "MagicalResistance": 0.0
+      },
+      "abilities": [],
+      "movement": "DOTA_UNIT_CAP_MOVE_NONE",
+      "attack_capabilities": "DOTA_UNIT_CAP_NO_ATTACK",
+      "combat_class": "DOTA_COMBAT_CLASS_ATTACK_SIEGE",
+      "combat_class_defend": "DOTA_COMBAT_CLASS_DEFEND_STRUCTURE",
+      "ancient": false,
+      "activated_ability": "new_youbu1"
+    },
+    "gemtd_youbushiban_jin": {
+      "source_id": "gemtd_youbushiban_jin",
+      "values": {
+        "AttackDamageMin": 0.0,
+        "AttackDamageMax": 0.0,
+        "AttackRate": 1.0,
+        "AttackRange": 0.0,
+        "ProjectileSpeed": 3000.0,
+        "AttackAnimationPoint": 0.0,
+        "StatusHealth": 1.0,
+        "MovementSpeed": 0.0,
+        "ArmorPhysical": 10.0,
+        "MagicalResistance": 0.0
+      },
+      "abilities": [],
+      "movement": "DOTA_UNIT_CAP_MOVE_NONE",
+      "attack_capabilities": "DOTA_UNIT_CAP_NO_ATTACK",
+      "combat_class": "DOTA_COMBAT_CLASS_ATTACK_SIEGE",
+      "combat_class_defend": "DOTA_COMBAT_CLASS_DEFEND_STRUCTURE",
+      "ancient": false,
+      "activated_ability": "new_youbu3"
+    },
+    "gemtd_youbushiban_yin": {
+      "source_id": "gemtd_youbushiban_yin",
+      "values": {
+        "AttackDamageMin": 0.0,
+        "AttackDamageMax": 0.0,
+        "AttackRate": 1.0,
+        "AttackRange": 0.0,
+        "ProjectileSpeed": 3000.0,
+        "AttackAnimationPoint": 0.0,
+        "StatusHealth": 1.0,
+        "MovementSpeed": 0.0,
+        "ArmorPhysical": 10.0,
+        "MagicalResistance": 0.0
+      },
+      "abilities": [],
+      "movement": "DOTA_UNIT_CAP_MOVE_NONE",
+      "attack_capabilities": "DOTA_UNIT_CAP_NO_ATTACK",
+      "combat_class": "DOTA_COMBAT_CLASS_ATTACK_SIEGE",
+      "combat_class_defend": "DOTA_COMBAT_CLASS_DEFEND_STRUCTURE",
+      "ancient": false,
+      "activated_ability": "new_youbu2"
+    },
+    "gemtd_yu": {
+      "source_id": "gemtd_yu",
+      "values": {
+        "AttackDamageMin": 30.0,
+        "AttackDamageMax": 30.0,
+        "AttackRate": 0.5,
+        "AttackRange": 800.0,
+        "ProjectileSpeed": 3000.0,
+        "AttackAnimationPoint": 0.0,
+        "StatusHealth": 1.0,
+        "MovementSpeed": 0.0,
+        "ArmorPhysical": 0.0,
+        "MagicalResistance": 0.0
+      },
+      "abilities": [
+        "tower_du4"
+      ],
+      "movement": "DOTA_UNIT_CAP_MOVE_NONE",
+      "attack_capabilities": "DOTA_UNIT_CAP_RANGED_ATTACK",
+      "combat_class": "DOTA_COMBAT_CLASS_ATTACK_SIEGE",
+      "combat_class_defend": "DOTA_COMBAT_CLASS_DEFEND_STRUCTURE",
+      "ancient": false
+    },
+    "gemtd_zhangqishiban": {
+      "source_id": "gemtd_zhangqishiban",
+      "values": {
+        "AttackDamageMin": 0.0,
+        "AttackDamageMax": 0.0,
+        "AttackRate": 1.0,
+        "AttackRange": 0.0,
+        "ProjectileSpeed": 3000.0,
+        "AttackAnimationPoint": 0.0,
+        "StatusHealth": 1.0,
+        "MovementSpeed": 0.0,
+        "ArmorPhysical": 10.0,
+        "MagicalResistance": 0.0
+      },
+      "abilities": [],
+      "movement": "DOTA_UNIT_CAP_MOVE_NONE",
+      "attack_capabilities": "DOTA_UNIT_CAP_NO_ATTACK",
+      "combat_class": "DOTA_COMBAT_CLASS_ATTACK_SIEGE",
+      "combat_class_defend": "DOTA_COMBAT_CLASS_DEFEND_STRUCTURE",
+      "ancient": false,
+      "activated_ability": "new_venomous_gale"
+    },
+    "gemtd_zhangqishiban_jin": {
+      "source_id": "gemtd_zhangqishiban_jin",
+      "values": {
+        "AttackDamageMin": 0.0,
+        "AttackDamageMax": 0.0,
+        "AttackRate": 1.0,
+        "AttackRange": 0.0,
+        "ProjectileSpeed": 3000.0,
+        "AttackAnimationPoint": 0.0,
+        "StatusHealth": 1.0,
+        "MovementSpeed": 0.0,
+        "ArmorPhysical": 10.0,
+        "MagicalResistance": 0.0
+      },
+      "abilities": [],
+      "movement": "DOTA_UNIT_CAP_MOVE_NONE",
+      "attack_capabilities": "DOTA_UNIT_CAP_NO_ATTACK",
+      "combat_class": "DOTA_COMBAT_CLASS_ATTACK_SIEGE",
+      "combat_class_defend": "DOTA_COMBAT_CLASS_DEFEND_STRUCTURE",
+      "ancient": false,
+      "activated_ability": "new_venomous_gale3"
+    },
+    "gemtd_zhangqishiban_yin": {
+      "source_id": "gemtd_zhangqishiban_yin",
+      "values": {
+        "AttackDamageMin": 0.0,
+        "AttackDamageMax": 0.0,
+        "AttackRate": 1.0,
+        "AttackRange": 0.0,
+        "ProjectileSpeed": 3000.0,
+        "AttackAnimationPoint": 0.0,
+        "StatusHealth": 1.0,
+        "MovementSpeed": 0.0,
+        "ArmorPhysical": 10.0,
+        "MagicalResistance": 0.0
+      },
+      "abilities": [],
+      "movement": "DOTA_UNIT_CAP_MOVE_NONE",
+      "attack_capabilities": "DOTA_UNIT_CAP_NO_ATTACK",
+      "combat_class": "DOTA_COMBAT_CLASS_ATTACK_SIEGE",
+      "combat_class_defend": "DOTA_COMBAT_CLASS_DEFEND_STRUCTURE",
+      "ancient": false,
+      "activated_ability": "new_venomous_gale2"
+    }
+  },
+  "recipes": [
+    {
+      "id": "standard:gemtd_baiyin",
+      "family": "standard",
+      "result": "gemtd_baiyin",
+      "ingredients": [
+        "gemtd_b1",
+        "gemtd_y1",
+        "gemtd_d1"
+      ],
+      "effect_status": "pending"
+    },
+    {
+      "id": "standard:gemtd_kongqueshi",
+      "family": "standard",
+      "result": "gemtd_kongqueshi",
+      "ingredients": [
+        "gemtd_e1",
+        "gemtd_q1",
+        "gemtd_g1"
+      ],
+      "effect_status": "pending"
+    },
+    {
+      "id": "standard:gemtd_xingcaihongbaoshi",
+      "family": "standard",
+      "result": "gemtd_xingcaihongbaoshi",
+      "ingredients": [
+        "gemtd_r11",
+        "gemtd_r1",
+        "gemtd_p1"
+      ],
+      "effect_status": "pending"
+    },
+    {
+      "id": "standard:gemtd_yu",
+      "family": "standard",
+      "result": "gemtd_yu",
+      "ingredients": [
+        "gemtd_g111",
+        "gemtd_e111",
+        "gemtd_b11"
+      ],
+      "effect_status": "pending"
+    },
+    {
+      "id": "standard:gemtd_furongshi",
+      "family": "standard",
+      "result": "gemtd_furongshi",
+      "ingredients": [
+        "gemtd_g1111",
+        "gemtd_r111",
+        "gemtd_p11"
+      ],
+      "effect_status": "pending"
+    },
+    {
+      "id": "standard:gemtd_heianfeicui",
+      "family": "standard",
+      "result": "gemtd_heianfeicui",
+      "ingredients": [
+        "gemtd_g11111",
+        "gemtd_b1111",
+        "gemtd_y11"
+      ],
+      "effect_status": "pending"
+    },
+    {
+      "id": "standard:gemtd_huangcailanbaoshi",
+      "family": "standard",
+      "result": "gemtd_huangcailanbaoshi",
+      "ingredients": [
+        "gemtd_b11111",
+        "gemtd_y1111",
+        "gemtd_r1111"
+      ],
+      "effect_status": "pending"
+    },
+    {
+      "id": "standard:gemtd_palayibabixi",
+      "family": "standard",
+      "result": "gemtd_palayibabixi",
+      "ingredients": [
+        "gemtd_q11111",
+        "gemtd_e1111",
+        "gemtd_g11"
+      ],
+      "effect_status": "pending"
+    },
+    {
+      "id": "standard:gemtd_heisemaoyanshi",
+      "family": "standard",
+      "result": "gemtd_heisemaoyanshi",
+      "ingredients": [
+        "gemtd_e11111",
+        "gemtd_d1111",
+        "gemtd_q111"
+      ],
+      "effect_status": "pending"
+    },
+    {
+      "id": "standard:gemtd_jin",
+      "family": "standard",
+      "result": "gemtd_jin",
+      "ingredients": [
+        "gemtd_p11111",
+        "gemtd_p1111",
+        "gemtd_d11"
+      ],
+      "effect_status": "pending"
+    },
+    {
+      "id": "standard:gemtd_fenhongzuanshi",
+      "family": "standard",
+      "result": "gemtd_fenhongzuanshi",
+      "ingredients": [
+        "gemtd_d11111",
+        "gemtd_y111",
+        "gemtd_d111"
+      ],
+      "effect_status": "pending"
+    },
+    {
+      "id": "standard:gemtd_jixueshi",
+      "family": "standard",
+      "result": "gemtd_jixueshi",
+      "ingredients": [
+        "gemtd_r11111",
+        "gemtd_q1111",
+        "gemtd_p111"
+      ],
+      "effect_status": "pending"
+    },
+    {
+      "id": "standard:gemtd_you238",
+      "family": "standard",
+      "result": "gemtd_you238",
+      "ingredients": [
+        "gemtd_y11111",
+        "gemtd_e11",
+        "gemtd_b111"
+      ],
+      "effect_status": "pending"
+    },
+    {
+      "id": "standard:gemtd_baiyinqishi",
+      "family": "standard",
+      "result": "gemtd_baiyinqishi",
+      "ingredients": [
+        "gemtd_baiyin",
+        "gemtd_q11",
+        "gemtd_r111"
+      ],
+      "effect_status": "pending"
+    },
+    {
+      "id": "standard:gemtd_xianyandekongqueshi",
+      "family": "standard",
+      "result": "gemtd_xianyandekongqueshi",
+      "ingredients": [
+        "gemtd_kongqueshi",
+        "gemtd_d11",
+        "gemtd_y111"
+      ],
+      "effect_status": "pending"
+    },
+    {
+      "id": "standard:gemtd_xuehonghuoshan",
+      "family": "standard",
+      "result": "gemtd_xuehonghuoshan",
+      "ingredients": [
+        "gemtd_xingcaihongbaoshi",
+        "gemtd_r1111",
+        "gemtd_p111"
+      ],
+      "effect_status": "pending"
+    },
+    {
+      "id": "standard:gemtd_shenhaizhenzhu",
+      "family": "standard",
+      "result": "gemtd_shenhaizhenzhu",
+      "ingredients": [
+        "gemtd_q1111",
+        "gemtd_d1111",
+        "gemtd_e11"
+      ],
+      "effect_status": "pending"
+    },
+    {
+      "id": "standard:gemtd_haiyangqingyu",
+      "family": "standard",
+      "result": "gemtd_haiyangqingyu",
+      "ingredients": [
+        "gemtd_yu",
+        "gemtd_b1111",
+        "gemtd_q111"
+      ],
+      "effect_status": "pending"
+    },
+    {
+      "id": "standard:gemtd_jixiangdezhongguoyu",
+      "family": "standard",
+      "result": "gemtd_jixiangdezhongguoyu",
+      "ingredients": [
+        "gemtd_yu",
+        "gemtd_furongshi",
+        "gemtd_g111"
+      ],
+      "effect_status": "pending"
+    },
+    {
+      "id": "standard:gemtd_juxingfenhongzuanshi",
+      "family": "standard",
+      "result": "gemtd_juxingfenhongzuanshi",
+      "ingredients": [
+        "gemtd_fenhongzuanshi",
+        "gemtd_baiyinqishi",
+        "gemtd_baiyin"
+      ],
+      "effect_status": "pending"
+    },
+    {
+      "id": "standard:gemtd_you235",
+      "family": "standard",
+      "result": "gemtd_you235",
+      "ingredients": [
+        "gemtd_you238",
+        "gemtd_xianyandekongqueshi",
+        "gemtd_kongqueshi"
+      ],
+      "effect_status": "pending"
+    },
+    {
+      "id": "standard:gemtd_jingxindiaozhuodepalayibabixi",
+      "family": "standard",
+      "result": "gemtd_jingxindiaozhuodepalayibabixi",
+      "ingredients": [
+        "gemtd_palayibabixi",
+        "gemtd_heianfeicui",
+        "gemtd_g11"
+      ],
+      "effect_status": "pending"
+    },
+    {
+      "id": "standard:gemtd_gudaidejixueshi",
+      "family": "standard",
+      "result": "gemtd_gudaidejixueshi",
+      "ingredients": [
+        "gemtd_jixueshi",
+        "gemtd_xuehonghuoshan",
+        "gemtd_r11"
+      ],
+      "effect_status": "pending"
+    },
+    {
+      "id": "standard:gemtd_mirendeqingjinshi",
+      "family": "standard",
+      "result": "gemtd_mirendeqingjinshi",
+      "ingredients": [
+        "gemtd_furongshi",
+        "gemtd_p1111",
+        "gemtd_y11"
+      ],
+      "effect_status": "pending"
+    },
+    {
+      "id": "standard:gemtd_aijijin",
+      "family": "standard",
+      "result": "gemtd_aijijin",
+      "ingredients": [
+        "gemtd_jin",
+        "gemtd_p11111",
+        "gemtd_q11"
+      ],
+      "effect_status": "pending"
+    },
+    {
+      "id": "standard:gemtd_hongshanhu",
+      "family": "standard",
+      "result": "gemtd_hongshanhu",
+      "ingredients": [
+        "gemtd_heisemaoyanshi",
+        "gemtd_shenhaizhenzhu",
+        "gemtd_e1111"
+      ],
+      "effect_status": "pending"
+    },
+    {
+      "id": "standard:gemtd_feicuimoxiang",
+      "family": "standard",
+      "result": "gemtd_feicuimoxiang",
+      "ingredients": [
+        "gemtd_jin",
+        "gemtd_heianfeicui",
+        "gemtd_d111"
+      ],
+      "effect_status": "pending"
+    },
+    {
+      "id": "standard:gemtd_huaguoshanxiandan",
+      "family": "standard",
+      "result": "gemtd_huaguoshanxiandan",
+      "ingredients": [
+        "gemtd_haiyangqingyu",
+        "gemtd_g1111",
+        "gemtd_p11"
+      ],
+      "effect_status": "pending"
+    },
+    {
+      "id": "standard:gemtd_tianranzumulv",
+      "family": "standard",
+      "result": "gemtd_tianranzumulv",
+      "ingredients": [
+        "gemtd_shenhaizhenzhu",
+        "gemtd_g11111",
+        "gemtd_d111"
+      ],
+      "effect_status": "pending"
+    },
+    {
+      "id": "standard:gemtd_haibao",
+      "family": "standard",
+      "result": "gemtd_haibao",
+      "ingredients": [
+        "gemtd_huangcailanbaoshi",
+        "gemtd_jixueshi",
+        "gemtd_b11111"
+      ],
+      "effect_status": "pending"
+    },
+    {
+      "id": "standard:gemtd_keyinuoerguangmingzhishan",
+      "family": "standard",
+      "result": "gemtd_keyinuoerguangmingzhishan",
+      "ingredients": [
+        "gemtd_juxingfenhongzuanshi",
+        "gemtd_p111111",
+        "gemtd_d111111"
+      ],
+      "effect_status": "pending"
+    },
+    {
+      "id": "standard:gemtd_shuaibiankaipayou",
+      "family": "standard",
+      "result": "gemtd_shuaibiankaipayou",
+      "ingredients": [
+        "gemtd_you235",
+        "gemtd_q111111",
+        "gemtd_y111111"
+      ],
+      "effect_status": "pending"
+    },
+    {
+      "id": "standard:gemtd_heiwangzihuangguanhongbaoshi",
+      "family": "standard",
+      "result": "gemtd_heiwangzihuangguanhongbaoshi",
+      "ingredients": [
+        "gemtd_gudaidejixueshi",
+        "gemtd_r111111",
+        "gemtd_g111111"
+      ],
+      "effect_status": "pending"
+    },
+    {
+      "id": "standard:gemtd_xingguanglanbaoshi",
+      "family": "standard",
+      "result": "gemtd_xingguanglanbaoshi",
+      "ingredients": [
+        "gemtd_huangcailanbaoshi",
+        "gemtd_b111111",
+        "gemtd_e111111"
+      ],
+      "effect_status": "pending"
+    },
+    {
+      "id": "standard:gemtd_yijiazhishi",
+      "family": "standard",
+      "result": "gemtd_yijiazhishi",
+      "ingredients": [
+        "gemtd_hongshanhu",
+        "gemtd_e111111",
+        "gemtd_q111111"
+      ],
+      "effect_status": "pending"
+    },
+    {
+      "id": "standard:gemtd_huguoshenyishi",
+      "family": "standard",
+      "result": "gemtd_huguoshenyishi",
+      "ingredients": [
+        "gemtd_mirendeqingjinshi",
+        "gemtd_y111111",
+        "gemtd_r111111"
+      ],
+      "effect_status": "pending"
+    },
+    {
+      "id": "standard:gemtd_jingangshikulinan",
+      "family": "standard",
+      "result": "gemtd_jingangshikulinan",
+      "ingredients": [
+        "gemtd_huaguoshanxiandan",
+        "gemtd_d111111",
+        "gemtd_b111111"
+      ],
+      "effect_status": "pending"
+    },
+    {
+      "id": "standard:gemtd_sililankazhixing",
+      "family": "standard",
+      "result": "gemtd_sililankazhixing",
+      "ingredients": [
+        "gemtd_jingxindiaozhuodepalayibabixi",
+        "gemtd_g111111",
+        "gemtd_p111111"
+      ],
+      "effect_status": "pending"
+    },
+    {
+      "id": "secret:gemtd_keyinuoerguangmingzhishan",
+      "family": "secret",
+      "result": "gemtd_keyinuoerguangmingzhishan",
+      "ingredients": [
+        "gemtd_p1",
+        "gemtd_p11",
+        "gemtd_p111",
+        "gemtd_p1111",
+        "gemtd_p11111"
+      ],
+      "effect_status": "pending"
+    },
+    {
+      "id": "secret:gemtd_shuaibiankaipayou",
+      "family": "secret",
+      "result": "gemtd_shuaibiankaipayou",
+      "ingredients": [
+        "gemtd_q1",
+        "gemtd_q11",
+        "gemtd_q111",
+        "gemtd_q1111",
+        "gemtd_q11111"
+      ],
+      "effect_status": "pending"
+    },
+    {
+      "id": "secret:gemtd_heiwangzihuangguanhongbaoshi",
+      "family": "secret",
+      "result": "gemtd_heiwangzihuangguanhongbaoshi",
+      "ingredients": [
+        "gemtd_r1",
+        "gemtd_r11",
+        "gemtd_r111",
+        "gemtd_r1111",
+        "gemtd_r11111"
+      ],
+      "effect_status": "pending"
+    },
+    {
+      "id": "secret:gemtd_xingguanglanbaoshi",
+      "family": "secret",
+      "result": "gemtd_xingguanglanbaoshi",
+      "ingredients": [
+        "gemtd_b1",
+        "gemtd_b11",
+        "gemtd_b111",
+        "gemtd_b1111",
+        "gemtd_b11111"
+      ],
+      "effect_status": "pending"
+    },
+    {
+      "id": "secret:gemtd_yijiazhishi",
+      "family": "secret",
+      "result": "gemtd_yijiazhishi",
+      "ingredients": [
+        "gemtd_e1",
+        "gemtd_e11",
+        "gemtd_e111",
+        "gemtd_e1111",
+        "gemtd_e11111"
+      ],
+      "effect_status": "pending"
+    },
+    {
+      "id": "secret:gemtd_huguoshenyishi",
+      "family": "secret",
+      "result": "gemtd_huguoshenyishi",
+      "ingredients": [
+        "gemtd_y1",
+        "gemtd_y11",
+        "gemtd_y111",
+        "gemtd_y1111",
+        "gemtd_y11111"
+      ],
+      "effect_status": "pending"
+    },
+    {
+      "id": "secret:gemtd_jingangshikulinan",
+      "family": "secret",
+      "result": "gemtd_jingangshikulinan",
+      "ingredients": [
+        "gemtd_d1",
+        "gemtd_d11",
+        "gemtd_d111",
+        "gemtd_d1111",
+        "gemtd_d11111"
+      ],
+      "effect_status": "pending"
+    },
+    {
+      "id": "secret:gemtd_sililankazhixing",
+      "family": "secret",
+      "result": "gemtd_sililankazhixing",
+      "ingredients": [
+        "gemtd_g1",
+        "gemtd_g11",
+        "gemtd_g111",
+        "gemtd_g1111",
+        "gemtd_g11111"
+      ],
+      "effect_status": "pending"
+    },
+    {
+      "id": "secret:gemtd_heiyaoshi",
+      "family": "secret",
+      "result": "gemtd_heiyaoshi",
+      "ingredients": [
+        "gemtd_b11111",
+        "gemtd_y11111",
+        "gemtd_d11111"
+      ],
+      "effect_status": "pending"
+    },
+    {
+      "id": "secret:gemtd_manao",
+      "family": "secret",
+      "result": "gemtd_manao",
+      "ingredients": [
+        "gemtd_q11111",
+        "gemtd_e11111",
+        "gemtd_g11111"
+      ],
+      "effect_status": "pending"
+    },
+    {
+      "id": "secret:gemtd_xiameishi",
+      "family": "secret",
+      "result": "gemtd_xiameishi",
+      "ingredients": [
+        "gemtd_r11111",
+        "gemtd_g11111",
+        "gemtd_b11111"
+      ],
+      "effect_status": "pending"
+    },
+    {
+      "id": "secret:gemtd_ranshaozhishi",
+      "family": "secret",
+      "result": "gemtd_ranshaozhishi",
+      "ingredients": [
+        "gemtd_r11111",
+        "gemtd_p11111",
+        "gemtd_r1111",
+        "gemtd_p1111"
+      ],
+      "effect_status": "pending"
+    },
+    {
+      "id": "secret:gemtd_geluanshi",
+      "family": "secret",
+      "result": "gemtd_geluanshi",
+      "ingredients": [
+        "gemtd_b11111",
+        "gemtd_g11111",
+        "gemtd_b1111",
+        "gemtd_g1111"
+      ],
+      "effect_status": "pending"
+    },
+    {
+      "id": "slab:gemtd_youbushiban",
+      "family": "slab",
+      "result": "gemtd_youbushiban",
+      "ingredients": [
+        "gemtd_y111",
+        "gemtd_d11"
+      ],
+      "effect_status": "pending"
+    },
+    {
+      "id": "slab:gemtd_zhangqishiban",
+      "family": "slab",
+      "result": "gemtd_zhangqishiban",
+      "ingredients": [
+        "gemtd_g111",
+        "gemtd_e11"
+      ],
+      "effect_status": "pending"
+    },
+    {
+      "id": "slab:gemtd_hongliushiban",
+      "family": "slab",
+      "result": "gemtd_hongliushiban",
+      "ingredients": [
+        "gemtd_b111",
+        "gemtd_q11"
+      ],
+      "effect_status": "pending"
+    },
+    {
+      "id": "slab:gemtd_haojiaoshiban",
+      "family": "slab",
+      "result": "gemtd_haojiaoshiban",
+      "ingredients": [
+        "gemtd_p111",
+        "gemtd_r11"
+      ],
+      "effect_status": "pending"
+    },
+    {
+      "id": "slab:gemtd_suanwushiban",
+      "family": "slab",
+      "result": "gemtd_suanwushiban",
+      "ingredients": [
+        "gemtd_q111",
+        "gemtd_y11"
+      ],
+      "effect_status": "pending"
+    },
+    {
+      "id": "slab:gemtd_mabishiban",
+      "family": "slab",
+      "result": "gemtd_mabishiban",
+      "ingredients": [
+        "gemtd_r111",
+        "gemtd_g11"
+      ],
+      "effect_status": "pending"
+    },
+    {
+      "id": "slab:gemtd_kongheshiban",
+      "family": "slab",
+      "result": "gemtd_kongheshiban",
+      "ingredients": [
+        "gemtd_d111",
+        "gemtd_p11"
+      ],
+      "effect_status": "pending"
+    },
+    {
+      "id": "slab:gemtd_xuwushiban",
+      "family": "slab",
+      "result": "gemtd_xuwushiban",
+      "ingredients": [
+        "gemtd_e111",
+        "gemtd_b11"
+      ],
+      "effect_status": "pending"
+    }
+  ],
+  "random_events": {
+    "tower_baoji1": {
+      "chance": 0.1,
+      "event": "OnAttackStart",
+      "owner": "attacker",
+      "model": "pseudo_random",
+      "source_id": "tower_baoji1"
+    },
+    "tower_aojiao": {
+      "chance": 0.02,
+      "event": "OnAttackStart",
+      "owner": "attacker",
+      "model": "pseudo_random",
+      "source_id": "tower_aojiao"
+    },
+    "enemy_bukeqinfan": {
+      "chance": 0.5,
+      "event": "OnAttacked",
+      "owner": "defender",
+      "model": "pseudo_random",
+      "source_id": "enemy_bukeqinfan"
+    }
+  },
+  "slab_upgrades": [
+    {
+      "source": "gemtd_youbushiban",
+      "result": "gemtd_youbushiban_yin",
+      "mechanic_status": "pending"
+    },
+    {
+      "source": "gemtd_zhangqishiban",
+      "result": "gemtd_zhangqishiban_yin",
+      "mechanic_status": "pending"
+    },
+    {
+      "source": "gemtd_hongliushiban",
+      "result": "gemtd_hongliushiban_yin",
+      "mechanic_status": "pending"
+    },
+    {
+      "source": "gemtd_haojiaoshiban",
+      "result": "gemtd_haojiaoshiban_yin",
+      "mechanic_status": "pending"
+    },
+    {
+      "source": "gemtd_suanwushiban",
+      "result": "gemtd_suanwushiban_yin",
+      "mechanic_status": "pending"
+    },
+    {
+      "source": "gemtd_mabishiban",
+      "result": "gemtd_mabishiban_yin",
+      "mechanic_status": "pending"
+    },
+    {
+      "source": "gemtd_kongheshiban",
+      "result": "gemtd_kongheshiban_yin",
+      "mechanic_status": "pending"
+    },
+    {
+      "source": "gemtd_xuwushiban",
+      "result": "gemtd_xuwushiban_yin",
+      "mechanic_status": "pending"
+    },
+    {
+      "source": "gemtd_youbushiban_yin",
+      "result": "gemtd_youbushiban_jin",
+      "mechanic_status": "pending"
+    },
+    {
+      "source": "gemtd_zhangqishiban_yin",
+      "result": "gemtd_zhangqishiban_jin",
+      "mechanic_status": "pending"
+    },
+    {
+      "source": "gemtd_hongliushiban_yin",
+      "result": "gemtd_hongliushiban_jin",
+      "mechanic_status": "pending"
+    },
+    {
+      "source": "gemtd_haojiaoshiban_yin",
+      "result": "gemtd_haojiaoshiban_jin",
+      "mechanic_status": "pending"
+    },
+    {
+      "source": "gemtd_suanwushiban_yin",
+      "result": "gemtd_suanwushiban_jin",
+      "mechanic_status": "pending"
+    },
+    {
+      "source": "gemtd_mabishiban_yin",
+      "result": "gemtd_mabishiban_jin",
+      "mechanic_status": "pending"
+    },
+    {
+      "source": "gemtd_kongheshiban_yin",
+      "result": "gemtd_kongheshiban_jin",
+      "mechanic_status": "pending"
+    },
+    {
+      "source": "gemtd_xuwushiban_yin",
+      "result": "gemtd_xuwushiban_jin",
+      "mechanic_status": "pending"
+    }
+  ],
+  "quality_odds": [
+    {
+      "level": 1,
+      "weights": [
+        100,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "level": 2,
+      "weights": [
+        80,
+        20,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "level": 3,
+      "weights": [
+        60,
+        30,
+        10,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "level": 4,
+      "weights": [
+        40,
+        30,
+        20,
+        10,
+        0,
+        0
+      ]
+    },
+    {
+      "level": 5,
+      "weights": [
+        10,
+        30,
+        30,
+        20,
+        10,
+        0
+      ]
+    }
+  ],
+  "waves": [
+    {
+      "index": 1,
+      "source_id": "gemtd_kuangbaoyezhu",
+      "values": {
+        "StatusHealth": 5.0,
+        "MovementSpeed": 525.0,
+        "ArmorPhysical": 0.0,
+        "MagicalResistance": -10.0
+      },
+      "abilities": [],
+      "movement": "DOTA_UNIT_CAP_MOVE_GROUND",
+      "attack_capabilities": "DOTA_UNIT_CAP_NO_ATTACK",
+      "combat_class": "DOTA_COMBAT_CLASS_ATTACK_PIERCE",
+      "combat_class_defend": "DOTA_COMBAT_CLASS_DEFEND_SOFT",
+      "ancient": true,
+      "boss": false,
+      "air": false,
+      "added_abilities": [],
+      "variants": []
+    },
+    {
+      "index": 2,
+      "source_id": "gemtd_kuaidiqingwatiaotiao",
+      "values": {
+        "StatusHealth": 10.0,
+        "MovementSpeed": 700.0,
+        "ArmorPhysical": 0.0,
+        "MagicalResistance": -10.0
+      },
+      "abilities": [],
+      "movement": "DOTA_UNIT_CAP_MOVE_GROUND",
+      "attack_capabilities": "DOTA_UNIT_CAP_NO_ATTACK",
+      "combat_class": "DOTA_COMBAT_CLASS_ATTACK_PIERCE",
+      "combat_class_defend": "DOTA_COMBAT_CLASS_DEFEND_SOFT",
+      "ancient": true,
+      "boss": false,
+      "air": false,
+      "added_abilities": [],
+      "variants": []
+    },
+    {
+      "index": 3,
+      "source_id": "gemtd_zhongchenggaoshanmaoniu",
+      "values": {
+        "StatusHealth": 20.0,
+        "MovementSpeed": 525.0,
+        "ArmorPhysical": 0.0,
+        "MagicalResistance": -10.0
+      },
+      "abilities": [],
+      "movement": "DOTA_UNIT_CAP_MOVE_GROUND",
+      "attack_capabilities": "DOTA_UNIT_CAP_NO_ATTACK",
+      "combat_class": "DOTA_COMBAT_CLASS_ATTACK_PIERCE",
+      "combat_class_defend": "DOTA_COMBAT_CLASS_DEFEND_SOFT",
+      "ancient": true,
+      "boss": false,
+      "air": false,
+      "added_abilities": [],
+      "variants": []
+    },
+    {
+      "index": 4,
+      "source_id": "gemtd_moluokedejixiezhushou",
+      "values": {
+        "StatusHealth": 18.0,
+        "MovementSpeed": 1000.0,
+        "ArmorPhysical": 5.0,
+        "MagicalResistance": -10.0
+      },
+      "abilities": [],
+      "movement": "DOTA_UNIT_CAP_MOVE_GROUND",
+      "attack_capabilities": "DOTA_UNIT_CAP_NO_ATTACK",
+      "combat_class": "DOTA_COMBAT_CLASS_ATTACK_PIERCE",
+      "combat_class_defend": "DOTA_COMBAT_CLASS_DEFEND_SOFT",
+      "ancient": true,
+      "boss": false,
+      "air": false,
+      "added_abilities": [],
+      "variants": []
+    },
+    {
+      "index": 5,
+      "source_id": "gemtd_wuweizhihuan_fly",
+      "values": {
+        "StatusHealth": 22.0,
+        "MovementSpeed": 500.0,
+        "ArmorPhysical": 0.0,
+        "MagicalResistance": -10.0
+      },
+      "abilities": [
+        "enemy_fly"
+      ],
+      "movement": "DOTA_UNIT_CAP_MOVE_FLY",
+      "attack_capabilities": "DOTA_UNIT_CAP_NO_ATTACK",
+      "combat_class": "DOTA_COMBAT_CLASS_ATTACK_PIERCE",
+      "combat_class_defend": "DOTA_COMBAT_CLASS_DEFEND_SOFT",
+      "ancient": false,
+      "boss": false,
+      "air": true,
+      "added_abilities": [],
+      "variants": []
+    },
+    {
+      "index": 6,
+      "source_id": "gemtd_shudunziranzhizhu",
+      "values": {
+        "StatusHealth": 80.0,
+        "MovementSpeed": 450.0,
+        "ArmorPhysical": 5.0,
+        "MagicalResistance": -10.0
+      },
+      "abilities": [],
+      "movement": "DOTA_UNIT_CAP_MOVE_GROUND",
+      "attack_capabilities": "DOTA_UNIT_CAP_NO_ATTACK",
+      "combat_class": "DOTA_COMBAT_CLASS_ATTACK_PIERCE",
+      "combat_class_defend": "DOTA_COMBAT_CLASS_DEFEND_SOFT",
+      "ancient": true,
+      "boss": false,
+      "air": false,
+      "added_abilities": [],
+      "variants": []
+    },
+    {
+      "index": 7,
+      "source_id": "gemtd_chaomengjuxi",
+      "values": {
+        "StatusHealth": 120.0,
+        "MovementSpeed": 600.0,
+        "ArmorPhysical": 5.0,
+        "MagicalResistance": -10.0
+      },
+      "abilities": [],
+      "movement": "DOTA_UNIT_CAP_MOVE_GROUND",
+      "attack_capabilities": "DOTA_UNIT_CAP_NO_ATTACK",
+      "combat_class": "DOTA_COMBAT_CLASS_ATTACK_PIERCE",
+      "combat_class_defend": "DOTA_COMBAT_CLASS_DEFEND_SOFT",
+      "ancient": true,
+      "boss": false,
+      "air": false,
+      "added_abilities": [],
+      "variants": []
+    },
+    {
+      "index": 8,
+      "source_id": "gemtd_mengzhu",
+      "values": {
+        "StatusHealth": 80.0,
+        "MovementSpeed": 750.0,
+        "ArmorPhysical": 5.0,
+        "MagicalResistance": 0.0
+      },
+      "abilities": [
+        "enemy_jili",
+        "riki_permanent_invisibility"
+      ],
+      "movement": "DOTA_UNIT_CAP_MOVE_GROUND",
+      "attack_capabilities": "DOTA_UNIT_CAP_NO_ATTACK",
+      "combat_class": "DOTA_COMBAT_CLASS_ATTACK_PIERCE",
+      "combat_class_defend": "DOTA_COMBAT_CLASS_DEFEND_SOFT",
+      "ancient": true,
+      "boss": false,
+      "air": false,
+      "added_abilities": [],
+      "variants": []
+    },
+    {
+      "index": 9,
+      "source_id": "gemtd_dashiqi",
+      "values": {
+        "StatusHealth": 180.0,
+        "MovementSpeed": 600.0,
+        "ArmorPhysical": 5.0,
+        "MagicalResistance": -10.0
+      },
+      "abilities": [],
+      "movement": "DOTA_UNIT_CAP_MOVE_GROUND",
+      "attack_capabilities": "DOTA_UNIT_CAP_NO_ATTACK",
+      "combat_class": "DOTA_COMBAT_CLASS_ATTACK_PIERCE",
+      "combat_class_defend": "DOTA_COMBAT_CLASS_DEFEND_SOFT",
+      "ancient": true,
+      "boss": false,
+      "air": false,
+      "added_abilities": [
+        "guai_shanbi"
+      ],
+      "variants": []
+    },
+    {
+      "index": 10,
+      "source_id": "gemtd_buquzhanquan_boss",
+      "values": {
+        "StatusHealth": 2100.0,
+        "MovementSpeed": 750.0,
+        "ArmorPhysical": 5.0,
+        "MagicalResistance": -10.0
+      },
+      "abilities": [],
+      "movement": "DOTA_UNIT_CAP_MOVE_GROUND",
+      "attack_capabilities": "DOTA_UNIT_CAP_NO_ATTACK",
+      "combat_class": "DOTA_COMBAT_CLASS_ATTACK_PIERCE",
+      "combat_class_defend": "DOTA_COMBAT_CLASS_DEFEND_SOFT",
+      "ancient": true,
+      "boss": true,
+      "air": false,
+      "added_abilities": [],
+      "variants": []
+    },
+    {
+      "index": 11,
+      "source_id": "gemtd_maorongrongdefeiyangyang",
+      "values": {
+        "StatusHealth": 400.0,
+        "MovementSpeed": 525.0,
+        "ArmorPhysical": 10.0,
+        "MagicalResistance": -5.0
+      },
+      "abilities": [],
+      "movement": "DOTA_UNIT_CAP_MOVE_GROUND",
+      "attack_capabilities": "DOTA_UNIT_CAP_NO_ATTACK",
+      "combat_class": "DOTA_COMBAT_CLASS_ATTACK_PIERCE",
+      "combat_class_defend": "DOTA_COMBAT_CLASS_DEFEND_SOFT",
+      "ancient": true,
+      "boss": false,
+      "air": false,
+      "added_abilities": [],
+      "variants": []
+    },
+    {
+      "index": 12,
+      "source_id": "gemtd_caonimalama",
+      "values": {
+        "StatusHealth": 500.0,
+        "MovementSpeed": 600.0,
+        "ArmorPhysical": 10.0,
+        "MagicalResistance": -5.0
+      },
+      "abilities": [],
+      "movement": "DOTA_UNIT_CAP_MOVE_GROUND",
+      "attack_capabilities": "DOTA_UNIT_CAP_NO_ATTACK",
+      "combat_class": "DOTA_COMBAT_CLASS_ATTACK_PIERCE",
+      "combat_class_defend": "DOTA_COMBAT_CLASS_DEFEND_SOFT",
+      "ancient": true,
+      "boss": false,
+      "air": false,
+      "added_abilities": [
+        "guai_jiaoxieguanghuan"
+      ],
+      "variants": []
+    },
+    {
+      "index": 13,
+      "source_id": "gemtd_fengtungongzhu",
+      "values": {
+        "StatusHealth": 900.0,
+        "MovementSpeed": 600.0,
+        "ArmorPhysical": 10.0,
+        "MagicalResistance": -5.0
+      },
+      "abilities": [],
+      "movement": "DOTA_UNIT_CAP_MOVE_GROUND",
+      "attack_capabilities": "DOTA_UNIT_CAP_NO_ATTACK",
+      "combat_class": "DOTA_COMBAT_CLASS_ATTACK_PIERCE",
+      "combat_class_defend": "DOTA_COMBAT_CLASS_DEFEND_SOFT",
+      "ancient": true,
+      "boss": false,
+      "air": false,
+      "added_abilities": [],
+      "variants": []
+    },
+    {
+      "index": 14,
+      "source_id": "gemtd_bugou",
+      "values": {
+        "StatusHealth": 1100.0,
+        "MovementSpeed": 600.0,
+        "ArmorPhysical": 10.0,
+        "MagicalResistance": -5.0
+      },
+      "abilities": [],
+      "movement": "DOTA_UNIT_CAP_MOVE_GROUND",
+      "attack_capabilities": "DOTA_UNIT_CAP_NO_ATTACK",
+      "combat_class": "DOTA_COMBAT_CLASS_ATTACK_PIERCE",
+      "combat_class_defend": "DOTA_COMBAT_CLASS_DEFEND_SOFT",
+      "ancient": true,
+      "boss": false,
+      "air": false,
+      "added_abilities": [
+        "enemy_zheguang"
+      ],
+      "variants": []
+    },
+    {
+      "index": 15,
+      "source_id": "gemtd_banzhuduizhang_fly",
+      "values": {
+        "StatusHealth": 270.0,
+        "MovementSpeed": 600.0,
+        "ArmorPhysical": 10.0,
+        "MagicalResistance": -5.0
+      },
+      "abilities": [
+        "enemy_fly",
+        "enemy_jili"
+      ],
+      "movement": "DOTA_UNIT_CAP_MOVE_FLY",
+      "attack_capabilities": "DOTA_UNIT_CAP_NO_ATTACK",
+      "combat_class": "DOTA_COMBAT_CLASS_ATTACK_PIERCE",
+      "combat_class_defend": "DOTA_COMBAT_CLASS_DEFEND_SOFT",
+      "ancient": false,
+      "boss": false,
+      "air": true,
+      "added_abilities": [],
+      "variants": []
+    },
+    {
+      "index": 16,
+      "source_id": "gemtd_xunjiemotong",
+      "values": {
+        "StatusHealth": 950.0,
+        "MovementSpeed": 800.0,
+        "ArmorPhysical": 10.0,
+        "MagicalResistance": -5.0
+      },
+      "abilities": [
+        "enemy_thief",
+        "enemy_momian"
+      ],
+      "movement": "DOTA_UNIT_CAP_MOVE_GROUND",
+      "attack_capabilities": "DOTA_UNIT_CAP_NO_ATTACK",
+      "combat_class": "DOTA_COMBAT_CLASS_ATTACK_PIERCE",
+      "combat_class_defend": "DOTA_COMBAT_CLASS_DEFEND_SOFT",
+      "ancient": true,
+      "boss": false,
+      "air": false,
+      "added_abilities": [],
+      "variants": []
+    },
+    {
+      "index": 17,
+      "source_id": "gemtd_yonggandexiaoji",
+      "values": {
+        "StatusHealth": 2200.0,
+        "MovementSpeed": 600.0,
+        "ArmorPhysical": 10.0,
+        "MagicalResistance": 40.0
+      },
+      "abilities": [],
+      "movement": "DOTA_UNIT_CAP_MOVE_GROUND",
+      "attack_capabilities": "DOTA_UNIT_CAP_NO_ATTACK",
+      "combat_class": "DOTA_COMBAT_CLASS_ATTACK_PIERCE",
+      "combat_class_defend": "DOTA_COMBAT_CLASS_DEFEND_SOFT",
+      "ancient": true,
+      "boss": false,
+      "air": false,
+      "added_abilities": [
+        "enemy_bukeqinfan"
+      ],
+      "variants": []
+    },
+    {
+      "index": 18,
+      "source_id": "gemtd_xiaobajie",
+      "values": {
+        "StatusHealth": 3300.0,
+        "MovementSpeed": 675.0,
+        "ArmorPhysical": 10.0,
+        "MagicalResistance": -5.0
+      },
+      "abilities": [
+        "riki_permanent_invisibility"
+      ],
+      "movement": "DOTA_UNIT_CAP_MOVE_GROUND",
+      "attack_capabilities": "DOTA_UNIT_CAP_NO_ATTACK",
+      "combat_class": "DOTA_COMBAT_CLASS_ATTACK_PIERCE",
+      "combat_class_defend": "DOTA_COMBAT_CLASS_DEFEND_SOFT",
+      "ancient": true,
+      "boss": false,
+      "air": false,
+      "added_abilities": [
+        "guai_jiaoxieguanghuan"
+      ],
+      "variants": []
+    },
+    {
+      "index": 19,
+      "source_id": "gemtd_shentu",
+      "values": {
+        "StatusHealth": 3200.0,
+        "MovementSpeed": 1000.0,
+        "ArmorPhysical": 10.0,
+        "MagicalResistance": -5.0
+      },
+      "abilities": [],
+      "movement": "DOTA_UNIT_CAP_MOVE_GROUND",
+      "attack_capabilities": "DOTA_UNIT_CAP_NO_ATTACK",
+      "combat_class": "DOTA_COMBAT_CLASS_ATTACK_PIERCE",
+      "combat_class_defend": "DOTA_COMBAT_CLASS_DEFEND_SOFT",
+      "ancient": true,
+      "boss": false,
+      "air": false,
+      "added_abilities": [
+        "runrunrun"
+      ],
+      "variants": []
+    },
+    {
+      "index": 20,
+      "source_id": "gemtd_huxiaotao_boss",
+      "values": {
+        "StatusHealth": 30000.0,
+        "MovementSpeed": 900.0,
+        "ArmorPhysical": 10.0,
+        "MagicalResistance": -5.0
+      },
+      "abilities": [],
+      "movement": "DOTA_UNIT_CAP_MOVE_GROUND",
+      "attack_capabilities": "DOTA_UNIT_CAP_NO_ATTACK",
+      "combat_class": "DOTA_COMBAT_CLASS_ATTACK_PIERCE",
+      "combat_class_defend": "DOTA_COMBAT_CLASS_DEFEND_SOFT",
+      "ancient": true,
+      "boss": true,
+      "air": false,
+      "added_abilities": [],
+      "variants": []
+    },
+    {
+      "index": 21,
+      "source_id": "gemtd_siwangsiliezhe",
+      "values": {
+        "StatusHealth": 7500.0,
+        "MovementSpeed": 675.0,
+        "ArmorPhysical": 20.0,
+        "MagicalResistance": 0.0
+      },
+      "abilities": [],
+      "movement": "DOTA_UNIT_CAP_MOVE_GROUND",
+      "attack_capabilities": "DOTA_UNIT_CAP_NO_ATTACK",
+      "combat_class": "DOTA_COMBAT_CLASS_ATTACK_PIERCE",
+      "combat_class_defend": "DOTA_COMBAT_CLASS_DEFEND_SOFT",
+      "ancient": true,
+      "boss": false,
+      "air": false,
+      "added_abilities": [],
+      "variants": []
+    },
+    {
+      "index": 22,
+      "source_id": "gemtd_yaorenxiangluoke",
+      "values": {
+        "StatusHealth": 11000.0,
+        "MovementSpeed": 600.0,
+        "ArmorPhysical": 15.0,
+        "MagicalResistance": 0.0
+      },
+      "abilities": [],
+      "movement": "DOTA_UNIT_CAP_MOVE_GROUND",
+      "attack_capabilities": "DOTA_UNIT_CAP_NO_ATTACK",
+      "combat_class": "DOTA_COMBAT_CLASS_ATTACK_PIERCE",
+      "combat_class_defend": "DOTA_COMBAT_CLASS_DEFEND_SOFT",
+      "ancient": true,
+      "boss": false,
+      "air": false,
+      "added_abilities": [
+        "enemy_high_armor"
+      ],
+      "variants": []
+    },
+    {
+      "index": 23,
+      "source_id": "gemtd_tiezuiyaorenxiang",
+      "values": {
+        "StatusHealth": 10000.0,
+        "MovementSpeed": 625.0,
+        "ArmorPhysical": 15.0,
+        "MagicalResistance": 0.0
+      },
+      "abilities": [
+        "enemy_wumian"
+      ],
+      "movement": "DOTA_UNIT_CAP_MOVE_GROUND",
+      "attack_capabilities": "DOTA_UNIT_CAP_NO_ATTACK",
+      "combat_class": "DOTA_COMBAT_CLASS_ATTACK_PIERCE",
+      "combat_class_defend": "DOTA_COMBAT_CLASS_DEFEND_SOFT",
+      "ancient": true,
+      "boss": false,
+      "air": false,
+      "added_abilities": [
+        "enemy_zheguang"
+      ],
+      "variants": []
+    },
+    {
+      "index": 24,
+      "source_id": "gemtd_jixieyaorenxiang",
+      "values": {
+        "StatusHealth": 20000.0,
+        "MovementSpeed": 675.0,
+        "ArmorPhysical": 20.0,
+        "MagicalResistance": 0.0
+      },
+      "abilities": [],
+      "movement": "DOTA_UNIT_CAP_MOVE_GROUND",
+      "attack_capabilities": "DOTA_UNIT_CAP_NO_ATTACK",
+      "combat_class": "DOTA_COMBAT_CLASS_ATTACK_PIERCE",
+      "combat_class_defend": "DOTA_COMBAT_CLASS_DEFEND_SOFT",
+      "ancient": true,
+      "boss": false,
+      "air": false,
+      "added_abilities": [
+        "mars_bulwark"
+      ],
+      "variants": []
+    },
+    {
+      "index": 25,
+      "source_id": "gemtd_fengbaozhizikesaier_fly",
+      "values": {
+        "StatusHealth": 4500.0,
+        "MovementSpeed": 400.0,
+        "ArmorPhysical": 15.0,
+        "MagicalResistance": 20.0
+      },
+      "abilities": [
+        "enemy_fly"
+      ],
+      "movement": "DOTA_UNIT_CAP_MOVE_FLY",
+      "attack_capabilities": "DOTA_UNIT_CAP_NO_ATTACK",
+      "combat_class": "DOTA_COMBAT_CLASS_ATTACK_PIERCE",
+      "combat_class_defend": "DOTA_COMBAT_CLASS_DEFEND_SOFT",
+      "ancient": false,
+      "boss": false,
+      "air": true,
+      "added_abilities": [
+        "enemy_high_armor"
+      ],
+      "variants": []
+    },
+    {
+      "index": 26,
+      "source_id": "gemtd_niepanhuolieniao",
+      "values": {
+        "StatusHealth": 11000.0,
+        "MovementSpeed": 900.0,
+        "ArmorPhysical": 15.0,
+        "MagicalResistance": 0.0
+      },
+      "abilities": [
+        "enemy_momian"
+      ],
+      "movement": "DOTA_UNIT_CAP_MOVE_GROUND",
+      "attack_capabilities": "DOTA_UNIT_CAP_NO_ATTACK",
+      "combat_class": "DOTA_COMBAT_CLASS_ATTACK_PIERCE",
+      "combat_class_defend": "DOTA_COMBAT_CLASS_DEFEND_SOFT",
+      "ancient": true,
+      "boss": false,
+      "air": false,
+      "added_abilities": [],
+      "variants": []
+    },
+    {
+      "index": 27,
+      "source_id": "gemtd_lgddejinmengmeng_fly",
+      "values": {
+        "StatusHealth": 3000.0,
+        "MovementSpeed": 625.0,
+        "ArmorPhysical": 15.0,
+        "MagicalResistance": 40.0
+      },
+      "abilities": [
+        "enemy_fly",
+        "enemy_jili"
+      ],
+      "movement": "DOTA_UNIT_CAP_MOVE_FLY",
+      "attack_capabilities": "DOTA_UNIT_CAP_NO_ATTACK",
+      "combat_class": "DOTA_COMBAT_CLASS_ATTACK_PIERCE",
+      "combat_class_defend": "DOTA_COMBAT_CLASS_DEFEND_SOFT",
+      "ancient": false,
+      "boss": false,
+      "air": true,
+      "added_abilities": [
+        "enemy_bukeqinfan"
+      ],
+      "variants": []
+    },
+    {
+      "index": 28,
+      "source_id": "gemtd_youniekesizhinu_fly",
+      "values": {
+        "StatusHealth": 5000.0,
+        "MovementSpeed": 750.0,
+        "ArmorPhysical": 15.0,
+        "MagicalResistance": 0.0
+      },
+      "abilities": [
+        "enemy_fly"
+      ],
+      "movement": "DOTA_UNIT_CAP_MOVE_FLY",
+      "attack_capabilities": "DOTA_UNIT_CAP_NO_ATTACK",
+      "combat_class": "DOTA_COMBAT_CLASS_ATTACK_PIERCE",
+      "combat_class_defend": "DOTA_COMBAT_CLASS_DEFEND_SOFT",
+      "ancient": false,
+      "boss": false,
+      "air": true,
+      "added_abilities": [
+        "mars_bulwark"
+      ],
+      "variants": []
+    },
+    {
+      "index": 29,
+      "source_id": "gemtd_feihuxia_fly",
+      "values": {
+        "StatusHealth": 6000.0,
+        "MovementSpeed": 775.0,
+        "ArmorPhysical": 15.0,
+        "MagicalResistance": 0.0
+      },
+      "abilities": [
+        "enemy_fly"
+      ],
+      "movement": "DOTA_UNIT_CAP_MOVE_FLY",
+      "attack_capabilities": "DOTA_UNIT_CAP_NO_ATTACK",
+      "combat_class": "DOTA_COMBAT_CLASS_ATTACK_PIERCE",
+      "combat_class_defend": "DOTA_COMBAT_CLASS_DEFEND_SOFT",
+      "ancient": false,
+      "boss": false,
+      "air": true,
+      "added_abilities": [
+        "guai_shanbi",
+        "enemy_zheguang"
+      ],
+      "variants": []
+    },
+    {
+      "index": 30,
+      "source_id": "gemtd_mofafeitanxiaoemo_boss_fly",
+      "values": {
+        "StatusHealth": 80000.0,
+        "MovementSpeed": 750.0,
+        "ArmorPhysical": 15.0,
+        "MagicalResistance": 0.0
+      },
+      "abilities": [
+        "enemy_fly"
+      ],
+      "movement": "DOTA_UNIT_CAP_MOVE_FLY",
+      "attack_capabilities": "DOTA_UNIT_CAP_NO_ATTACK",
+      "combat_class": "DOTA_COMBAT_CLASS_ATTACK_PIERCE",
+      "combat_class_defend": "DOTA_COMBAT_CLASS_DEFEND_SOFT",
+      "ancient": false,
+      "boss": true,
+      "air": true,
+      "added_abilities": [],
+      "variants": []
+    },
+    {
+      "index": 31,
+      "source_id": "gemtd_modianxiaolong",
+      "values": {
+        "StatusHealth": 24000.0,
+        "MovementSpeed": 900.0,
+        "ArmorPhysical": 20.0,
+        "MagicalResistance": 5.0
+      },
+      "abilities": [
+        "enemy_momian"
+      ],
+      "movement": "DOTA_UNIT_CAP_MOVE_GROUND",
+      "attack_capabilities": "DOTA_UNIT_CAP_NO_ATTACK",
+      "combat_class": "DOTA_COMBAT_CLASS_ATTACK_PIERCE",
+      "combat_class_defend": "DOTA_COMBAT_CLASS_DEFEND_SOFT",
+      "ancient": true,
+      "boss": false,
+      "air": false,
+      "added_abilities": [
+        "enemy_zheguang"
+      ],
+      "variants": []
+    },
+    {
+      "index": 32,
+      "source_id": "gemtd_xiaoshayu",
+      "values": {
+        "StatusHealth": 95000.0,
+        "MovementSpeed": 600.0,
+        "ArmorPhysical": 20.0,
+        "MagicalResistance": 15.0
+      },
+      "abilities": [],
+      "movement": "DOTA_UNIT_CAP_MOVE_GROUND",
+      "attack_capabilities": "DOTA_UNIT_CAP_NO_ATTACK",
+      "combat_class": "DOTA_COMBAT_CLASS_ATTACK_PIERCE",
+      "combat_class_defend": "DOTA_COMBAT_CLASS_DEFEND_SOFT",
+      "ancient": true,
+      "boss": false,
+      "air": false,
+      "added_abilities": [
+        "enemy_recharge"
+      ],
+      "variants": []
+    },
+    {
+      "index": 33,
+      "source_id": "gemtd_feijiangxiaobao",
+      "values": {
+        "StatusHealth": 85000.0,
+        "MovementSpeed": 700.0,
+        "ArmorPhysical": 20.0,
+        "MagicalResistance": 5.0
+      },
+      "abilities": [
+        "enemy_wumian",
+        "enemy_thief"
+      ],
+      "movement": "DOTA_UNIT_CAP_MOVE_GROUND",
+      "attack_capabilities": "DOTA_UNIT_CAP_NO_ATTACK",
+      "combat_class": "DOTA_COMBAT_CLASS_ATTACK_PIERCE",
+      "combat_class_defend": "DOTA_COMBAT_CLASS_DEFEND_SOFT",
+      "ancient": true,
+      "boss": false,
+      "air": false,
+      "added_abilities": [
+        "enemy_shanshuo"
+      ],
+      "variants": []
+    },
+    {
+      "index": 34,
+      "source_id": "gemtd_shangjinbaobao_fly",
+      "values": {
+        "StatusHealth": 19000.0,
+        "MovementSpeed": 725.0,
+        "ArmorPhysical": 25.0,
+        "MagicalResistance": 5.0
+      },
+      "abilities": [
+        "enemy_fly",
+        "enemy_thief"
+      ],
+      "movement": "DOTA_UNIT_CAP_MOVE_FLY",
+      "attack_capabilities": "DOTA_UNIT_CAP_NO_ATTACK",
+      "combat_class": "DOTA_COMBAT_CLASS_ATTACK_PIERCE",
+      "combat_class_defend": "DOTA_COMBAT_CLASS_DEFEND_SOFT",
+      "ancient": false,
+      "boss": false,
+      "air": true,
+      "added_abilities": [
+        "guai_shanbi"
+      ],
+      "variants": []
+    },
+    {
+      "index": 35,
+      "source_id": "gemtd_jinyinhuling_fly",
+      "values": {
+        "StatusHealth": 9500.0,
+        "MovementSpeed": 700.0,
+        "ArmorPhysical": 20.0,
+        "MagicalResistance": 5.0
+      },
+      "abilities": [
+        "enemy_fly",
+        "enemy_momian"
+      ],
+      "movement": "DOTA_UNIT_CAP_MOVE_FLY",
+      "attack_capabilities": "DOTA_UNIT_CAP_NO_ATTACK",
+      "combat_class": "DOTA_COMBAT_CLASS_ATTACK_PIERCE",
+      "combat_class_defend": "DOTA_COMBAT_CLASS_DEFEND_SOFT",
+      "ancient": false,
+      "boss": false,
+      "air": true,
+      "added_abilities": [],
+      "variants": [
+        {
+          "source_id": "gemtd_jinyinhuling_fly1",
+          "values": {
+            "StatusHealth": 11000.0,
+            "MovementSpeed": 700.0,
+            "ArmorPhysical": 20.0,
+            "MagicalResistance": 5.0
+          },
+          "abilities": [
+            "enemy_fly",
+            "enemy_wumian"
+          ],
+          "movement": "DOTA_UNIT_CAP_MOVE_FLY",
+          "attack_capabilities": "DOTA_UNIT_CAP_NO_ATTACK",
+          "combat_class": "DOTA_COMBAT_CLASS_ATTACK_PIERCE",
+          "combat_class_defend": "DOTA_COMBAT_CLASS_DEFEND_SOFT",
+          "ancient": false
+        }
+      ]
+    },
+    {
+      "index": 36,
+      "source_id": "gemtd_cuihua",
+      "values": {
+        "StatusHealth": 65000.0,
+        "MovementSpeed": 1000.0,
+        "ArmorPhysical": 20.0,
+        "MagicalResistance": 5.0
+      },
+      "abilities": [
+        "enemy_momian"
+      ],
+      "movement": "DOTA_UNIT_CAP_MOVE_GROUND",
+      "attack_capabilities": "DOTA_UNIT_CAP_NO_ATTACK",
+      "combat_class": "DOTA_COMBAT_CLASS_ATTACK_PIERCE",
+      "combat_class_defend": "DOTA_COMBAT_CLASS_DEFEND_SOFT",
+      "ancient": true,
+      "boss": false,
+      "air": false,
+      "added_abilities": [],
+      "variants": [
+        {
+          "source_id": "gemtd_cuihua1",
+          "values": {
+            "StatusHealth": 110000.0,
+            "MovementSpeed": 1000.0,
+            "ArmorPhysical": 20.0,
+            "MagicalResistance": 5.0
+          },
+          "abilities": [
+            "enemy_wumian"
+          ],
+          "movement": "DOTA_UNIT_CAP_MOVE_GROUND",
+          "attack_capabilities": "DOTA_UNIT_CAP_NO_ATTACK",
+          "combat_class": "DOTA_COMBAT_CLASS_ATTACK_PIERCE",
+          "combat_class_defend": "DOTA_COMBAT_CLASS_DEFEND_SOFT",
+          "ancient": true
+        }
+      ]
+    },
+    {
+      "index": 37,
+      "source_id": "gemtd_xiaobaihu",
+      "values": {
+        "StatusHealth": 160000.0,
+        "MovementSpeed": 1200.0,
+        "ArmorPhysical": 20.0,
+        "MagicalResistance": 5.0
+      },
+      "abilities": [],
+      "movement": "DOTA_UNIT_CAP_MOVE_GROUND",
+      "attack_capabilities": "DOTA_UNIT_CAP_NO_ATTACK",
+      "combat_class": "DOTA_COMBAT_CLASS_ATTACK_PIERCE",
+      "combat_class_defend": "DOTA_COMBAT_CLASS_DEFEND_SOFT",
+      "ancient": true,
+      "boss": false,
+      "air": false,
+      "added_abilities": [
+        "enemy_shanshuo"
+      ],
+      "variants": []
+    },
+    {
+      "index": 38,
+      "source_id": "gemtd_xiaoxingyue",
+      "values": {
+        "StatusHealth": 150000.0,
+        "MovementSpeed": 1000.0,
+        "ArmorPhysical": 20.0,
+        "MagicalResistance": 5.0
+      },
+      "abilities": [
+        "enemy_jili"
+      ],
+      "movement": "DOTA_UNIT_CAP_MOVE_GROUND",
+      "attack_capabilities": "DOTA_UNIT_CAP_NO_ATTACK",
+      "combat_class": "DOTA_COMBAT_CLASS_ATTACK_PIERCE",
+      "combat_class_defend": "DOTA_COMBAT_CLASS_DEFEND_SOFT",
+      "ancient": true,
+      "boss": false,
+      "air": false,
+      "added_abilities": [],
+      "variants": [
+        {
+          "source_id": "gemtd_xiaoxingyue1",
+          "values": {
+            "StatusHealth": 200000.0,
+            "MovementSpeed": 1000.0,
+            "ArmorPhysical": 20.0,
+            "MagicalResistance": 5.0
+          },
+          "abilities": [
+            "riki_permanent_invisibility"
+          ],
+          "movement": "DOTA_UNIT_CAP_MOVE_GROUND",
+          "attack_capabilities": "DOTA_UNIT_CAP_NO_ATTACK",
+          "combat_class": "DOTA_COMBAT_CLASS_ATTACK_PIERCE",
+          "combat_class_defend": "DOTA_COMBAT_CLASS_DEFEND_SOFT",
+          "ancient": true
+        }
+      ]
+    },
+    {
+      "index": 39,
+      "source_id": "gemtd_liangqiyuhai_fly",
+      "values": {
+        "StatusHealth": 55000.0,
+        "MovementSpeed": 600.0,
+        "ArmorPhysical": 20.0,
+        "MagicalResistance": 25.0
+      },
+      "abilities": [
+        "enemy_fly"
+      ],
+      "movement": "DOTA_UNIT_CAP_MOVE_FLY",
+      "attack_capabilities": "DOTA_UNIT_CAP_NO_ATTACK",
+      "combat_class": "DOTA_COMBAT_CLASS_ATTACK_PIERCE",
+      "combat_class_defend": "DOTA_COMBAT_CLASS_DEFEND_SOFT",
+      "ancient": false,
+      "boss": false,
+      "air": true,
+      "added_abilities": [
+        "enemy_bukeqinfan",
+        "tidehunter_blubber",
+        "guai_shanbi"
+      ],
+      "variants": []
+    },
+    {
+      "index": 40,
+      "source_id": "gemtd_guixiaoxieling_boss_fly",
+      "values": {
+        "StatusHealth": 330000.0,
+        "MovementSpeed": 800.0,
+        "ArmorPhysical": 20.0,
+        "MagicalResistance": 5.0
+      },
+      "abilities": [
+        "enemy_fly"
+      ],
+      "movement": "DOTA_UNIT_CAP_MOVE_FLY",
+      "attack_capabilities": "DOTA_UNIT_CAP_NO_ATTACK",
+      "combat_class": "DOTA_COMBAT_CLASS_ATTACK_PIERCE",
+      "combat_class_defend": "DOTA_COMBAT_CLASS_DEFEND_SOFT",
+      "ancient": false,
+      "boss": true,
+      "air": true,
+      "added_abilities": [
+        "tidehunter_blubber"
+      ],
+      "variants": []
+    },
+    {
+      "index": 41,
+      "source_id": "gemtd_weilanlong",
+      "values": {
+        "StatusHealth": 170000.0,
+        "MovementSpeed": 1300.0,
+        "ArmorPhysical": 25.0,
+        "MagicalResistance": 20.0
+      },
+      "abilities": [],
+      "movement": "DOTA_UNIT_CAP_MOVE_GROUND",
+      "attack_capabilities": "DOTA_UNIT_CAP_NO_ATTACK",
+      "combat_class": "DOTA_COMBAT_CLASS_ATTACK_PIERCE",
+      "combat_class_defend": "DOTA_COMBAT_CLASS_DEFEND_SOFT",
+      "ancient": true,
+      "boss": false,
+      "air": false,
+      "added_abilities": [
+        "enemy_high_armor"
+      ],
+      "variants": []
+    },
+    {
+      "index": 42,
+      "source_id": "gemtd_saodiekupu_fly",
+      "values": {
+        "StatusHealth": 18000.0,
+        "MovementSpeed": 700.0,
+        "ArmorPhysical": 25.0,
+        "MagicalResistance": 10.0
+      },
+      "abilities": [
+        "enemy_fly",
+        "enemy_momian"
+      ],
+      "movement": "DOTA_UNIT_CAP_MOVE_FLY",
+      "attack_capabilities": "DOTA_UNIT_CAP_NO_ATTACK",
+      "combat_class": "DOTA_COMBAT_CLASS_ATTACK_PIERCE",
+      "combat_class_defend": "DOTA_COMBAT_CLASS_DEFEND_SOFT",
+      "ancient": false,
+      "boss": false,
+      "air": true,
+      "added_abilities": [
+        "runrunrun"
+      ],
+      "variants": []
+    },
+    {
+      "index": 43,
+      "source_id": "gemtd_maomaoyu",
+      "values": {
+        "StatusHealth": 200000.0,
+        "MovementSpeed": 800.0,
+        "ArmorPhysical": 25.0,
+        "MagicalResistance": 40.0
+      },
+      "abilities": [],
+      "movement": "DOTA_UNIT_CAP_MOVE_GROUND",
+      "attack_capabilities": "DOTA_UNIT_CAP_NO_ATTACK",
+      "combat_class": "DOTA_COMBAT_CLASS_ATTACK_PIERCE",
+      "combat_class_defend": "DOTA_COMBAT_CLASS_DEFEND_SOFT",
+      "ancient": true,
+      "boss": false,
+      "air": false,
+      "added_abilities": [
+        "enemy_bukeqinfan",
+        "guai_shanbi",
+        "enemy_recharge"
+      ],
+      "variants": []
+    },
+    {
+      "index": 44,
+      "source_id": "gemtd_xiaomogu",
+      "values": {
+        "StatusHealth": 240000.0,
+        "MovementSpeed": 500.0,
+        "ArmorPhysical": 25.0,
+        "MagicalResistance": 10.0
+      },
+      "abilities": [
+        "enemy_momian"
+      ],
+      "movement": "DOTA_UNIT_CAP_MOVE_GROUND",
+      "attack_capabilities": "DOTA_UNIT_CAP_NO_ATTACK",
+      "combat_class": "DOTA_COMBAT_CLASS_ATTACK_PIERCE",
+      "combat_class_defend": "DOTA_COMBAT_CLASS_DEFEND_SOFT",
+      "ancient": true,
+      "boss": false,
+      "air": false,
+      "added_abilities": [
+        "enemy_shanshuo"
+      ],
+      "variants": []
+    },
+    {
+      "index": 45,
+      "source_id": "gemtd_jiujiu_fly",
+      "values": {
+        "StatusHealth": 120000.0,
+        "MovementSpeed": 2000.0,
+        "ArmorPhysical": 25.0,
+        "MagicalResistance": 10.0
+      },
+      "abilities": [
+        "enemy_fly",
+        "guai_xietong"
+      ],
+      "movement": "DOTA_UNIT_CAP_MOVE_FLY",
+      "attack_capabilities": "DOTA_UNIT_CAP_NO_ATTACK",
+      "combat_class": "DOTA_COMBAT_CLASS_ATTACK_PIERCE",
+      "combat_class_defend": "DOTA_COMBAT_CLASS_DEFEND_SOFT",
+      "ancient": false,
+      "boss": false,
+      "air": true,
+      "added_abilities": [
+        "guai_jiaoxieguanghuan"
+      ],
+      "variants": []
+    },
+    {
+      "index": 46,
+      "source_id": "gemtd_siwangxintu",
+      "values": {
+        "StatusHealth": 550000.0,
+        "MovementSpeed": 800.0,
+        "ArmorPhysical": 25.0,
+        "MagicalResistance": 20.0
+      },
+      "abilities": [
+        "enemy_wumian"
+      ],
+      "movement": "DOTA_UNIT_CAP_MOVE_GROUND",
+      "attack_capabilities": "DOTA_UNIT_CAP_NO_ATTACK",
+      "combat_class": "DOTA_COMBAT_CLASS_ATTACK_PIERCE",
+      "combat_class_defend": "DOTA_COMBAT_CLASS_DEFEND_SOFT",
+      "ancient": true,
+      "boss": false,
+      "air": false,
+      "added_abilities": [],
+      "variants": []
+    },
+    {
+      "index": 47,
+      "source_id": "gemtd_jilamofashi",
+      "values": {
+        "StatusHealth": 550000.0,
+        "MovementSpeed": 600.0,
+        "ArmorPhysical": 25.0,
+        "MagicalResistance": 60.0
+      },
+      "abilities": [],
+      "movement": "DOTA_UNIT_CAP_MOVE_GROUND",
+      "attack_capabilities": "DOTA_UNIT_CAP_NO_ATTACK",
+      "combat_class": "DOTA_COMBAT_CLASS_ATTACK_PIERCE",
+      "combat_class_defend": "DOTA_COMBAT_CLASS_DEFEND_SOFT",
+      "ancient": true,
+      "boss": false,
+      "air": false,
+      "added_abilities": [
+        "enemy_bukeqinfan",
+        "runrunrun"
+      ],
+      "variants": []
+    },
+    {
+      "index": 48,
+      "source_id": "gemtd_xiaofeixia_fly",
+      "values": {
+        "StatusHealth": 50000.0,
+        "MovementSpeed": 500.0,
+        "ArmorPhysical": 25.0,
+        "MagicalResistance": 10.0
+      },
+      "abilities": [
+        "enemy_fly",
+        "enemy_thief",
+        "enemy_momian"
+      ],
+      "movement": "DOTA_UNIT_CAP_MOVE_FLY",
+      "attack_capabilities": "DOTA_UNIT_CAP_NO_ATTACK",
+      "combat_class": "DOTA_COMBAT_CLASS_ATTACK_PIERCE",
+      "combat_class_defend": "DOTA_COMBAT_CLASS_DEFEND_SOFT",
+      "ancient": false,
+      "boss": false,
+      "air": true,
+      "added_abilities": [
+        "guai_jiaoxieguanghuan",
+        "guai_shanbi"
+      ],
+      "variants": []
+    },
+    {
+      "index": 49,
+      "source_id": "gemtd_juniaoduoduo",
+      "values": {
+        "StatusHealth": 650000.0,
+        "MovementSpeed": 700.0,
+        "ArmorPhysical": 35.0,
+        "MagicalResistance": 50.0
+      },
+      "abilities": [],
+      "movement": "DOTA_UNIT_CAP_MOVE_GROUND",
+      "attack_capabilities": "DOTA_UNIT_CAP_NO_ATTACK",
+      "combat_class": "DOTA_COMBAT_CLASS_ATTACK_PIERCE",
+      "combat_class_defend": "DOTA_COMBAT_CLASS_DEFEND_SOFT",
+      "ancient": true,
+      "boss": false,
+      "air": false,
+      "added_abilities": [
+        "tidehunter_blubber",
+        "enemy_recharge"
+      ],
+      "variants": []
+    },
+    {
+      "index": 50,
+      "source_id": "gemtd_roushan_boss_fly",
+      "values": {
+        "StatusHealth": 1000000.0,
+        "MovementSpeed": 1000.0,
+        "ArmorPhysical": 25.0,
+        "MagicalResistance": 20.0
+      },
+      "abilities": [
+        "enemy_fly"
+      ],
+      "movement": "DOTA_UNIT_CAP_MOVE_FLY",
+      "attack_capabilities": "DOTA_UNIT_CAP_NO_ATTACK",
+      "combat_class": "DOTA_COMBAT_CLASS_ATTACK_PIERCE",
+      "combat_class_defend": "DOTA_COMBAT_CLASS_DEFEND_SOFT",
+      "ancient": false,
+      "boss": true,
+      "air": true,
+      "added_abilities": [
+        "tidehunter_blubber"
+      ],
+      "variants": []
+    }
+  ],
+  "alternate_waves": [
+    {
+      "index": 105,
+      "source_id": "gemtd_xiaohongmao_fly",
+      "values": {
+        "StatusHealth": 22.0,
+        "MovementSpeed": 500.0,
+        "ArmorPhysical": 0.0,
+        "MagicalResistance": -10.0
+      },
+      "abilities": [
+        "enemy_fly"
+      ],
+      "movement": "DOTA_UNIT_CAP_MOVE_FLY",
+      "attack_capabilities": "DOTA_UNIT_CAP_NO_ATTACK",
+      "combat_class": "DOTA_COMBAT_CLASS_ATTACK_PIERCE",
+      "combat_class_defend": "DOTA_COMBAT_CLASS_DEFEND_SOFT",
+      "ancient": false
+    },
+    {
+      "index": 115,
+      "source_id": "gemtd_tianmaodigou_fly",
+      "values": {
+        "StatusHealth": 350.0,
+        "MovementSpeed": 700.0,
+        "ArmorPhysical": 10.0,
+        "MagicalResistance": -5.0
+      },
+      "abilities": [
+        "enemy_fly"
+      ],
+      "movement": "DOTA_UNIT_CAP_MOVE_FLY",
+      "attack_capabilities": "DOTA_UNIT_CAP_NO_ATTACK",
+      "combat_class": "DOTA_COMBAT_CLASS_ATTACK_PIERCE",
+      "combat_class_defend": "DOTA_COMBAT_CLASS_DEFEND_SOFT",
+      "ancient": false
+    },
+    {
+      "index": 119,
+      "source_id": "gemtd_yaobaidelvgemi",
+      "values": {
+        "StatusHealth": 3700.0,
+        "MovementSpeed": 700.0,
+        "ArmorPhysical": 10.0,
+        "MagicalResistance": -5.0
+      },
+      "abilities": [],
+      "movement": "DOTA_UNIT_CAP_MOVE_GROUND",
+      "attack_capabilities": "DOTA_UNIT_CAP_NO_ATTACK",
+      "combat_class": "DOTA_COMBAT_CLASS_ATTACK_PIERCE",
+      "combat_class_defend": "DOTA_COMBAT_CLASS_DEFEND_SOFT",
+      "ancient": true
+    },
+    {
+      "index": 121,
+      "source_id": "gemtd_xiexiaowo",
+      "values": {
+        "StatusHealth": 5500.0,
+        "MovementSpeed": 700.0,
+        "ArmorPhysical": 15.0,
+        "MagicalResistance": 20.0
+      },
+      "abilities": [
+        "enemy_jili"
+      ],
+      "movement": "DOTA_UNIT_CAP_MOVE_GROUND",
+      "attack_capabilities": "DOTA_UNIT_CAP_NO_ATTACK",
+      "combat_class": "DOTA_COMBAT_CLASS_ATTACK_PIERCE",
+      "combat_class_defend": "DOTA_COMBAT_CLASS_DEFEND_SOFT",
+      "ancient": true
+    },
+    {
+      "index": 123,
+      "source_id": "gemtd_dazuiyaorenxiang",
+      "values": {
+        "StatusHealth": 12000.0,
+        "MovementSpeed": 575.0,
+        "ArmorPhysical": 15.0,
+        "MagicalResistance": 0.0
+      },
+      "abilities": [
+        "enemy_wumian"
+      ],
+      "movement": "DOTA_UNIT_CAP_MOVE_GROUND",
+      "attack_capabilities": "DOTA_UNIT_CAP_NO_ATTACK",
+      "combat_class": "DOTA_COMBAT_CLASS_ATTACK_PIERCE",
+      "combat_class_defend": "DOTA_COMBAT_CLASS_DEFEND_SOFT",
+      "ancient": true
+    },
+    {
+      "index": 124,
+      "source_id": "gemtd_jixiezhanlv",
+      "values": {
+        "StatusHealth": 10000.0,
+        "MovementSpeed": 775.0,
+        "ArmorPhysical": 20.0,
+        "MagicalResistance": 0.0
+      },
+      "abilities": [],
+      "movement": "DOTA_UNIT_CAP_MOVE_GROUND",
+      "attack_capabilities": "DOTA_UNIT_CAP_NO_ATTACK",
+      "combat_class": "DOTA_COMBAT_CLASS_ATTACK_PIERCE",
+      "combat_class_defend": "DOTA_COMBAT_CLASS_DEFEND_SOFT",
+      "ancient": true
+    },
+    {
+      "index": 125,
+      "source_id": "gemtd_huoxingche_fly",
+      "values": {
+        "StatusHealth": 3500.0,
+        "MovementSpeed": 600.0,
+        "ArmorPhysical": 15.0,
+        "MagicalResistance": 0.0
+      },
+      "abilities": [
+        "enemy_fly"
+      ],
+      "movement": "DOTA_UNIT_CAP_MOVE_FLY",
+      "attack_capabilities": "DOTA_UNIT_CAP_NO_ATTACK",
+      "combat_class": "DOTA_COMBAT_CLASS_ATTACK_PIERCE",
+      "combat_class_defend": "DOTA_COMBAT_CLASS_DEFEND_SOFT",
+      "ancient": false
+    },
+    {
+      "index": 127,
+      "source_id": "gemtd_ruxingshuimu_fly",
+      "values": {
+        "StatusHealth": 2000.0,
+        "MovementSpeed": 625.0,
+        "ArmorPhysical": 15.0,
+        "MagicalResistance": 50.0
+      },
+      "abilities": [
+        "enemy_fly",
+        "enemy_wumian"
+      ],
+      "movement": "DOTA_UNIT_CAP_MOVE_FLY",
+      "attack_capabilities": "DOTA_UNIT_CAP_NO_ATTACK",
+      "combat_class": "DOTA_COMBAT_CLASS_ATTACK_PIERCE",
+      "combat_class_defend": "DOTA_COMBAT_CLASS_DEFEND_SOFT",
+      "ancient": false
+    },
+    {
+      "index": 128,
+      "source_id": "gemtd_xiaofamuji_fly",
+      "values": {
+        "StatusHealth": 5500.0,
+        "MovementSpeed": 600.0,
+        "ArmorPhysical": 30.0,
+        "MagicalResistance": 0.0
+      },
+      "abilities": [
+        "enemy_fly"
+      ],
+      "movement": "DOTA_UNIT_CAP_MOVE_FLY",
+      "attack_capabilities": "DOTA_UNIT_CAP_NO_ATTACK",
+      "combat_class": "DOTA_COMBAT_CLASS_ATTACK_PIERCE",
+      "combat_class_defend": "DOTA_COMBAT_CLASS_DEFEND_SOFT",
+      "ancient": false
+    },
+    {
+      "index": 129,
+      "source_id": "gemtd_yingwuchuanfu_fly",
+      "values": {
+        "StatusHealth": 4000.0,
+        "MovementSpeed": 1000.0,
+        "ArmorPhysical": 15.0,
+        "MagicalResistance": 10.0
+      },
+      "abilities": [
+        "enemy_fly"
+      ],
+      "movement": "DOTA_UNIT_CAP_MOVE_FLY",
+      "attack_capabilities": "DOTA_UNIT_CAP_NO_ATTACK",
+      "combat_class": "DOTA_COMBAT_CLASS_ATTACK_PIERCE",
+      "combat_class_defend": "DOTA_COMBAT_CLASS_DEFEND_SOFT",
+      "ancient": false
+    },
+    {
+      "index": 131,
+      "source_id": "gemtd_talongaosiji",
+      "values": {
+        "StatusHealth": 30000.0,
+        "MovementSpeed": 800.0,
+        "ArmorPhysical": 20.0,
+        "MagicalResistance": 5.0
+      },
+      "abilities": [
+        "enemy_wumian"
+      ],
+      "movement": "DOTA_UNIT_CAP_MOVE_GROUND",
+      "attack_capabilities": "DOTA_UNIT_CAP_NO_ATTACK",
+      "combat_class": "DOTA_COMBAT_CLASS_ATTACK_PIERCE",
+      "combat_class_defend": "DOTA_COMBAT_CLASS_DEFEND_SOFT",
+      "ancient": true
+    },
+    {
+      "index": 133,
+      "source_id": "gemtd_siwangxianzhi",
+      "values": {
+        "StatusHealth": 58000.0,
+        "MovementSpeed": 1000.0,
+        "ArmorPhysical": 20.0,
+        "MagicalResistance": 5.0
+      },
+      "abilities": [
+        "enemy_wumian"
+      ],
+      "movement": "DOTA_UNIT_CAP_MOVE_GROUND",
+      "attack_capabilities": "DOTA_UNIT_CAP_NO_ATTACK",
+      "combat_class": "DOTA_COMBAT_CLASS_ATTACK_PIERCE",
+      "combat_class_defend": "DOTA_COMBAT_CLASS_DEFEND_SOFT",
+      "ancient": true
+    },
+    {
+      "index": 134,
+      "source_id": "gemtd_xuemobaobao_fly",
+      "values": {
+        "StatusHealth": 11000.0,
+        "MovementSpeed": 925.0,
+        "ArmorPhysical": 20.0,
+        "MagicalResistance": 5.0
+      },
+      "abilities": [
+        "enemy_fly",
+        "enemy_thief"
+      ],
+      "movement": "DOTA_UNIT_CAP_MOVE_FLY",
+      "attack_capabilities": "DOTA_UNIT_CAP_NO_ATTACK",
+      "combat_class": "DOTA_COMBAT_CLASS_ATTACK_PIERCE",
+      "combat_class_defend": "DOTA_COMBAT_CLASS_DEFEND_SOFT",
+      "ancient": false
+    },
+    {
+      "index": 139,
+      "source_id": "gemtd_fennenrongyuan_fly",
+      "values": {
+        "StatusHealth": 15000.0,
+        "MovementSpeed": 800.0,
+        "ArmorPhysical": 20.0,
+        "MagicalResistance": 25.0
+      },
+      "abilities": [
+        "enemy_fly"
+      ],
+      "movement": "DOTA_UNIT_CAP_MOVE_FLY",
+      "attack_capabilities": "DOTA_UNIT_CAP_NO_ATTACK",
+      "combat_class": "DOTA_COMBAT_CLASS_ATTACK_PIERCE",
+      "combat_class_defend": "DOTA_COMBAT_CLASS_DEFEND_SOFT",
+      "ancient": false
+    },
+    {
+      "index": 141,
+      "source_id": "gemtd_cuiyuxiaolong",
+      "values": {
+        "StatusHealth": 240000.0,
+        "MovementSpeed": 700.0,
+        "ArmorPhysical": 25.0,
+        "MagicalResistance": 20.0
+      },
+      "abilities": [
+        "enemy_jili"
+      ],
+      "movement": "DOTA_UNIT_CAP_MOVE_GROUND",
+      "attack_capabilities": "DOTA_UNIT_CAP_NO_ATTACK",
+      "combat_class": "DOTA_COMBAT_CLASS_ATTACK_PIERCE",
+      "combat_class_defend": "DOTA_COMBAT_CLASS_DEFEND_SOFT",
+      "ancient": true
+    },
+    {
+      "index": 147,
+      "source_id": "gemtd_xunjieyuanzumaolv",
+      "values": {
+        "StatusHealth": 250000.0,
+        "MovementSpeed": 500.0,
+        "ArmorPhysical": 25.0,
+        "MagicalResistance": 50.0
+      },
+      "abilities": [
+        "enemy_momian"
+      ],
+      "movement": "DOTA_UNIT_CAP_MOVE_GROUND",
+      "attack_capabilities": "DOTA_UNIT_CAP_NO_ATTACK",
+      "combat_class": "DOTA_COMBAT_CLASS_ATTACK_PIERCE",
+      "combat_class_defend": "DOTA_COMBAT_CLASS_DEFEND_SOFT",
+      "ancient": true
+    },
+    {
+      "index": 148,
+      "source_id": "gemtd_jiwanghaidao_fly",
+      "values": {
+        "StatusHealth": 85000.0,
+        "MovementSpeed": 350.0,
+        "ArmorPhysical": 25.0,
+        "MagicalResistance": 30.0
+      },
+      "abilities": [
+        "enemy_thief",
+        "enemy_momian"
+      ],
+      "movement": "DOTA_UNIT_CAP_MOVE_FLY",
+      "attack_capabilities": "DOTA_UNIT_CAP_NO_ATTACK",
+      "combat_class": "DOTA_COMBAT_CLASS_ATTACK_PIERCE",
+      "combat_class_defend": "DOTA_COMBAT_CLASS_DEFEND_SOFT",
+      "ancient": false
+    }
+  ]
+}

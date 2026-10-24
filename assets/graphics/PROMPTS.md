@@ -1,0 +1,47 @@
+# Generation record — art pass v1
+
+Generated 2026-10-23 using the built-in **image_gen** tool through the **imagegen** skill. Transparent background was requested for both calls. No CLI/API fallback was used. The output PNGs were copied unchanged into this directory's `generated/` folder; atlas cropping happens in Godot's presentation layer.
+
+The supplied pixel image is a style reference, not an edit target. The second call additionally uses the first generated atlas as a style reference. Both files are original generated artwork inspired by the requested references.
+
+## towers-v1.png
+
+Actual saved image: 1254×1254 RGBA, 4×4 regions. Generation may return a different pixel size from the prompt; the manifest uses proportional atlas coordinates.
+
+Final prompt:
+
+```text
+Use case: stylized-concept. Asset type: ONE production sprite-atlas PNG for an original Godot fantasy tower-defense game inspired by the gem wards, circular stone pedestals and magical energy of Dota 2 GemTD. Input image 1 is STYLE REFERENCE ONLY: emulate its crisp chunky pixel art, dark outlines, slate roofs, stonework, limited palette and visible roof/front, not the exact blacksmith building or green background. Create an exactly regular 4-column by 4-row square atlas, 1024 x 1024, each logical cell exactly 256 x 256 pixels. TRANSPARENT alpha background everywhere outside the sprites. No labels, text, grid lines, backdrop, ground squares or checkerboard. Sixteen isolated sprites, one centered in each cell, fully contained within central 192x192 area, same scale, baseline y=220 in each cell. Crisp pixel edges, no soft painted gradients. All towers occupy a small circular stone base, a compact squat medieval turret with a dark slate roof showing top and front, bronze brackets and one large prominent glowing faceted jewel. Readable as tiny 24px-high pieces and as 96px portraits; roughly 32x40 logical pixel detail, displayed enlarged. Above-view game camera 30 degrees down from top/front, non-isometric SQUARE board placement. Lighting top left. Consistent footprints and palette; gem hue is brightest part. Exact cell contents in READING ORDER: row1 col1 blue SAPPHIRE frost crystal turret; col2 ivory DIAMOND angular heavy turret; col3 turquoise AQUAMARINE slim rapid-fire turret; col4 soft pink iridescent OPAL aura lantern turret. Row2 col1 green EMERALD poison alchemist turret; col2 golden yellow TOPAZ triple-spout jewel turret; col3 red RUBY squat brazier turret; col4 violet AMETHYST pointed runic turret. Row3 col1 SILVER ornate silver-metal turret with a white-blue jewel and small ice fins; col2 MALACHITE ornate green layered crystal turret with three launch apertures; col3 ASTERIATED RUBY ornate red star-shaped crystal shrine with small warm flame wisps, visibly special; col4 ordinary GRAY STONE low cylindrical broken pillar, no magic. Row4 col1 circular ancient CHECKPOINT stone platform with gold rim and cyan runes, empty center for a number added in game; col2 tiny grass tuft with two small pale flowers; col3 low fern and two mossy stones; col4 slender dark green conifer tree. Entire image is a neatly aligned sprite sheet ready to sample as 16 equal-sized atlas regions. No copied logos or game characters.
+```
+
+## enemies-v1.png
+
+Actual saved image: 1448×1086 RGBA, 4×3 regions.
+
+Final prompt:
+
+```text
+Use case: stylized-concept. Asset type: ONE production enemy sprite atlas PNG for an original Godot GemTD-inspired game. Image 1 is our approved-in-progress TOWER ATLAS and determines pixel scale, lighting, outlines and limited palette; image 2 is the user's pixel style reference only. Create a perfectly regular 4-column by 3-row sprite sheet, aspect ratio 4:3, ideally 1280x960. Each cell contains exactly ONE complete isolated creature, centered with lots of transparent padding (at least 15% cell width each side), all sprite feet grounded at the same local baseline. Genuine transparent alpha background. No backdrop, checkerboard, text, labels, borders, numbers, ground tiles or scenery. Same chunky crisp pixel-art technique as our tower atlas: dark navy/brown outlines, solid pixel clusters, top-left light, warm highlights and rich restrained colors. Camera viewed down at top/front, suitable for a top-down square-board fantasy strategy game; creatures stand facing diagonally down-right. Roughly 32x32 or 40x40 logical pixel density, enlarged crisp edges, no smooth painting, blur or photorealism. Tiny gameplay silhouettes must be distinct. READING ORDER EXACTLY: Row1 col1 sturdy small brown wild boar with ivory tusks; col2 bright moss-green courier frog with a small tan saddlebag; col3 shaggy tan mountain yak with curved ivory horns and a tiny blue cloth; col4 squat bronze mechanical courier with 4 short articulated feet, one blue eye, compact metal shell. Row2 col1 blue winged courier, a round tiny griffin-like animal with two broad pale-blue feather wings and golden feet; col2 dark brown woodland spider with 8 distinct legs and moss on its back; col3 stocky green giant lizard with a ridged orange-spined back and long tail; col4 scarlet winged courier, a red batlike tiny beast with broad rust-red wings and cream belly. Row3 col1 gray guard hound with a bronze collar and fierce amber eyes; col2 BOSS war hound, larger and more powerful dark wolf with two curved tusks, bronze armor and glowing red markings, make silhouette visibly different from regular hound; col3 a very small low pile of two gray mossy stones, a decorative prop; col4 a very small tuft of golden meadow grass with one white flower, a decorative prop. Consistent styling across the whole sheet. The wolf boss may be larger within its cell but may not cross the cell boundary. All creatures are original designs, not copied Dota models. This is a game-ready sprite atlas, not a concept board.
+```
+
+Future changes: retain these v1 files, generate/edit a versioned sibling and update `manifest.json`. A single sprite may be a standalone PNG; regenerating either complete atlas is not required.
+
+## qualities-v2.png
+
+Generated 2026-10-23 with the built-in image_gen tool and imagegen skill; no CLI/API fallback. Actual saved image: 1254×1254 RGBA, 4×4 regions. Existing towers-v1.png was the style/identity reference, not an edit target. The generated PNG was copied unchanged, preserving transparent alpha. Sixteen regions: quality II and III for each of the eight base gem types. Quality I, specials, enemies and scenery retain their v1 assets.
+
+Final prompt:
+
+```text
+Use case: stylized-concept.
+Asset type: ONE production transparent sprite atlas PNG for the quality upgrades of an original Godot GemTD fantasy tower defense game.
+Input image 1 is STYLE AND GEM IDENTITY REFERENCE ONLY: existing quality-I turrets. Keep their chunky pixel technique, dark navy outlines, slate roofs, gray stone, bronze fittings, top-left light, above-front camera, tiny square-board footprint. Create NEW quality-II and quality-III turrets, not copies of the reference atlas. The artwork must fit with the existing towers.
+Layout: exactly regular FOUR columns and FOUR rows, square sheet ideally 1536x1536. Sixteen isolated complete tower sprites. Each occupies the central 72% of its cell, same foot baseline and ample transparent gutters all four sides. No sprite may touch or cross its cell boundary. Real transparent alpha, no background, shadows must be compact beneath each base, no ground squares, text, labels, numbers, grid, checkerboard.
+Quality design rule: each adjacent pair shows SAME gem identity upgraded from II to III. II has a reinforced stone body, twin stepped roof shoulders and two smaller side jewels alongside its dominant central gem. III has a clearly different crown silhouette: raised central crystal cluster with three tips, higher stepped stone neck and a bronze crown/rune collar. III should be taller and more powerful but still a compact turret, not a castle. Do not merely enlarge the same image. Keep the same footprint and readable bold shapes at 30 pixels tall. Restrained details, crisp square pixel clusters, no blur or smooth illustrated gradients. Consistent pixel density and perspective across all sixteen.
+Exact reading order:
+Row1 col1 SAPPHIRE II blue frost turret; col2 SAPPHIRE III blue frost crystal crown; col3 DIAMOND II ivory-white angular heavy turret; col4 DIAMOND III ivory-white heavy crystalline crown.
+Row2 col1 AQUAMARINE II turquoise narrow rapid-fire turret; col2 AQUAMARINE III turquoise multi-prong crystal crown; col3 OPAL II pink-iridescent aura lantern turret; col4 OPAL III pink-iridescent luminous crystal crown.
+Row3 col1 EMERALD II deep green poison alchemist turret with small green vessels; col2 EMERALD III green crystal crown and reinforced vessels; col3 TOPAZ II golden yellow turret with three dark cannon apertures; col4 TOPAZ III golden-yellow crystal crown above triple cannon apertures.
+Row4 col1 RUBY II saturated red brazier turret with two compact orange flame bowls; col2 RUBY III red crystal crown with two compact orange flame bowls; col3 AMETHYST II violet pointed rune turret; col4 AMETHYST III violet crystal crown with rune collar.
+Gem colors are dominant highlights and are distinct: sapphire blue, diamond ivory, aquamarine turquoise, opal pale pink rainbow, emerald green, topaz yellow, ruby red, amethyst purple. Bronze only accents, not overwhelming gold. All sprites must be centered and entirely contained in separate equal grid cells. These are original game-ready sprites, no copied logos or Dota models.
+```

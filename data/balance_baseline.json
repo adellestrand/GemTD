@@ -1,0 +1,666 @@
+{
+  "schema": 1,
+  "reference": {
+    "workshop_id": "474619917",
+    "installed_publish_date": "2026-08-01",
+    "file_hashes": {
+      "mode.lua": "f7b84401f2d24f3f2249879b18aa75bab0ec66dd0043713b49dbb54be802b75b",
+      "units.txt": "19af24c6a0a1151965d9ab8d1962344893ef924954eca179156da91efa7a060e",
+      "abilities.txt": "1c46eaa37834bb53be854ffa35c720bd8b53bc614385fcd0488c4e49add250f4",
+      "entities.txt": "3f6ae19395be4ae9620531d25c86257656270bae2cc21024808edafbed6d9a74"
+    }
+  },
+  "units_per_cell": 128,
+  "solo_factor": 0.69,
+  "towers": {
+    "gemtd_b1": {
+      "damage": 2.0,
+      "damage_max": 2.0,
+      "interval": 1.0,
+      "world_range": 600.0
+    },
+    "gemtd_b11": {
+      "damage": 4.0,
+      "damage_max": 4.0,
+      "interval": 1.0,
+      "world_range": 600.0
+    },
+    "gemtd_b111": {
+      "damage": 6.0,
+      "damage_max": 6.0,
+      "interval": 1.0,
+      "world_range": 600.0
+    },
+    "gemtd_d1": {
+      "damage": 5.0,
+      "damage_max": 5.0,
+      "interval": 1.0,
+      "world_range": 500.0
+    },
+    "gemtd_d11": {
+      "damage": 10.0,
+      "damage_max": 10.0,
+      "interval": 1.0,
+      "world_range": 500.0
+    },
+    "gemtd_d111": {
+      "damage": 20.0,
+      "damage_max": 20.0,
+      "interval": 1.0,
+      "world_range": 500.0
+    },
+    "gemtd_q1": {
+      "damage": 2.0,
+      "damage_max": 2.0,
+      "interval": 1.0,
+      "world_range": 400.0
+    },
+    "gemtd_q11": {
+      "damage": 4.0,
+      "damage_max": 4.0,
+      "interval": 0.9,
+      "world_range": 400.0
+    },
+    "gemtd_q111": {
+      "damage": 8.0,
+      "damage_max": 8.0,
+      "interval": 0.8,
+      "world_range": 400.0
+    },
+    "gemtd_e1": {
+      "damage": 1.0,
+      "damage_max": 1.0,
+      "interval": 1.0,
+      "world_range": 500.0
+    },
+    "gemtd_e11": {
+      "damage": 2.0,
+      "damage_max": 2.0,
+      "interval": 1.0,
+      "world_range": 500.0
+    },
+    "gemtd_e111": {
+      "damage": 3.0,
+      "damage_max": 3.0,
+      "interval": 1.0,
+      "world_range": 500.0
+    },
+    "gemtd_g1": {
+      "damage": 2.0,
+      "damage_max": 2.0,
+      "interval": 1.0,
+      "world_range": 500.0
+    },
+    "gemtd_g11": {
+      "damage": 4.0,
+      "damage_max": 4.0,
+      "interval": 1.0,
+      "world_range": 500.0
+    },
+    "gemtd_g111": {
+      "damage": 6.0,
+      "damage_max": 6.0,
+      "interval": 1.0,
+      "world_range": 500.0
+    },
+    "gemtd_y1": {
+      "damage": 3.0,
+      "damage_max": 3.0,
+      "interval": 1.3,
+      "world_range": 600.0
+    },
+    "gemtd_y11": {
+      "damage": 6.0,
+      "damage_max": 6.0,
+      "interval": 1.3,
+      "world_range": 500.0
+    },
+    "gemtd_y111": {
+      "damage": 9.0,
+      "damage_max": 9.0,
+      "interval": 1.3,
+      "world_range": 500.0
+    },
+    "gemtd_r1": {
+      "damage": 4.0,
+      "damage_max": 4.0,
+      "interval": 1.0,
+      "world_range": 500.0
+    },
+    "gemtd_r11": {
+      "damage": 8.0,
+      "damage_max": 8.0,
+      "interval": 1.0,
+      "world_range": 500.0
+    },
+    "gemtd_r111": {
+      "damage": 12.0,
+      "damage_max": 12.0,
+      "interval": 1.0,
+      "world_range": 500.0
+    },
+    "gemtd_p1": {
+      "damage": 2.0,
+      "damage_max": 2.0,
+      "interval": 0.6,
+      "world_range": 500.0
+    },
+    "gemtd_p11": {
+      "damage": 4.0,
+      "damage_max": 4.0,
+      "interval": 0.6,
+      "world_range": 500.0
+    },
+    "gemtd_p111": {
+      "damage": 6.0,
+      "damage_max": 6.0,
+      "interval": 0.6,
+      "world_range": 500.0
+    },
+    "gemtd_baiyin": {
+      "damage": 40.0,
+      "damage_max": 40.0,
+      "interval": 1.0,
+      "world_range": 600.0
+    },
+    "gemtd_kongqueshi": {
+      "damage": 15.0,
+      "damage_max": 15.0,
+      "interval": 0.8,
+      "world_range": 600.0
+    },
+    "gemtd_xingcaihongbaoshi": {
+      "damage": 0.0,
+      "damage_max": 0.0,
+      "interval": 1.0,
+      "world_range": 600.0
+    }
+  },
+  "enemies": {
+    "gemtd_kuangbaoyezhu": {
+      "world_hp": 5.0,
+      "world_speed": 525.0,
+      "armor": 0.0,
+      "magic_resist_percent": -10.0,
+      "air": false
+    },
+    "gemtd_kuaidiqingwatiaotiao": {
+      "world_hp": 10.0,
+      "world_speed": 700.0,
+      "armor": 0.0,
+      "magic_resist_percent": -10.0,
+      "air": false
+    },
+    "gemtd_zhongchenggaoshanmaoniu": {
+      "world_hp": 20.0,
+      "world_speed": 525.0,
+      "armor": 0.0,
+      "magic_resist_percent": -10.0,
+      "air": false
+    },
+    "gemtd_moluokedejixiezhushou": {
+      "world_hp": 18.0,
+      "world_speed": 1000.0,
+      "armor": 5.0,
+      "magic_resist_percent": -10.0,
+      "air": false
+    },
+    "gemtd_wuweizhihuan_fly": {
+      "world_hp": 22.0,
+      "world_speed": 500.0,
+      "armor": 0.0,
+      "magic_resist_percent": -10.0,
+      "air": true
+    },
+    "gemtd_shudunziranzhizhu": {
+      "world_hp": 80.0,
+      "world_speed": 450.0,
+      "armor": 5.0,
+      "magic_resist_percent": -10.0,
+      "air": false
+    },
+    "gemtd_chaomengjuxi": {
+      "world_hp": 120.0,
+      "world_speed": 600.0,
+      "armor": 5.0,
+      "magic_resist_percent": -10.0,
+      "air": false
+    },
+    "gemtd_xiaohongmao_fly": {
+      "world_hp": 22.0,
+      "world_speed": 500.0,
+      "armor": 0.0,
+      "magic_resist_percent": -10.0,
+      "air": true
+    },
+    "gemtd_dashiqi": {
+      "world_hp": 180.0,
+      "world_speed": 600.0,
+      "armor": 5.0,
+      "magic_resist_percent": -10.0,
+      "air": false
+    },
+    "gemtd_buquzhanquan_boss": {
+      "world_hp": 2100.0,
+      "world_speed": 750.0,
+      "armor": 5.0,
+      "magic_resist_percent": -10.0,
+      "air": false
+    }
+  },
+  "effects": {
+    "sapphire": {
+      "slow": [
+        60,
+        90,
+        120
+      ],
+      "duration": 3
+    },
+    "silver": {
+      "slow": [
+        90
+      ],
+      "duration": 3
+    },
+    "amethyst": {
+      "armor_reduction": [
+        2,
+        4,
+        8
+      ],
+      "duration": 3
+    },
+    "emerald": {
+      "damage": [
+        2,
+        4,
+        8
+      ],
+      "duration": 10,
+      "interval": 1
+    },
+    "aquamarine": {
+      "attack_speed": 200
+    },
+    "opal": {
+      "attack_speed": [
+        20,
+        30,
+        40
+      ],
+      "radius": 5.1875
+    },
+    "ruby": {
+      "fraction": [
+        0.3,
+        0.4,
+        0.5
+      ],
+      "radius": [
+        2.34375,
+        2.734375,
+        3.125
+      ]
+    },
+    "topaz": {
+      "secondary_count": 3
+    },
+    "malachite": {
+      "secondary_count": 3
+    },
+    "asteriated_ruby": {
+      "damage": 20,
+      "interval": 0.25,
+      "radius": 3.90625
+    }
+  },
+  "effects_basis": "Previously inspected ability modifiers, splash functions and split-projectile Lua; see reference inventory.",
+  "recipes": {
+    "silver": [
+      [
+        "sapphire",
+        1
+      ],
+      [
+        "topaz",
+        1
+      ],
+      [
+        "diamond",
+        1
+      ]
+    ],
+    "malachite": [
+      [
+        "opal",
+        1
+      ],
+      [
+        "aquamarine",
+        1
+      ],
+      [
+        "emerald",
+        1
+      ]
+    ],
+    "asteriated_ruby": [
+      [
+        "ruby",
+        2
+      ],
+      [
+        "ruby",
+        1
+      ],
+      [
+        "amethyst",
+        1
+      ]
+    ]
+  },
+  "map": {
+    "size": 37,
+    "checkpoints": [
+      [
+        4,
+        2
+      ],
+      [
+        4,
+        18
+      ],
+      [
+        32,
+        18
+      ],
+      [
+        32,
+        4
+      ],
+      [
+        18,
+        4
+      ],
+      [
+        18,
+        32
+      ],
+      [
+        33,
+        32
+      ]
+    ],
+    "stones": [
+      [
+        0,
+        18
+      ],
+      [
+        1,
+        18
+      ],
+      [
+        2,
+        18
+      ],
+      [
+        3,
+        18
+      ],
+      [
+        36,
+        18
+      ],
+      [
+        35,
+        18
+      ],
+      [
+        34,
+        18
+      ],
+      [
+        33,
+        18
+      ],
+      [
+        18,
+        36
+      ],
+      [
+        18,
+        35
+      ],
+      [
+        18,
+        34
+      ],
+      [
+        18,
+        33
+      ],
+      [
+        18,
+        0
+      ],
+      [
+        18,
+        1
+      ],
+      [
+        18,
+        2
+      ],
+      [
+        18,
+        3
+      ],
+      [
+        5,
+        18
+      ],
+      [
+        6,
+        18
+      ],
+      [
+        7,
+        18
+      ],
+      [
+        8,
+        18
+      ],
+      [
+        31,
+        18
+      ],
+      [
+        30,
+        18
+      ],
+      [
+        29,
+        18
+      ],
+      [
+        28,
+        18
+      ],
+      [
+        18,
+        31
+      ],
+      [
+        18,
+        30
+      ],
+      [
+        18,
+        29
+      ],
+      [
+        18,
+        28
+      ],
+      [
+        18,
+        5
+      ],
+      [
+        18,
+        6
+      ],
+      [
+        18,
+        7
+      ],
+      [
+        18,
+        8
+      ]
+    ]
+  },
+  "quality_odds": [
+    [
+      100,
+      0,
+      0
+    ],
+    [
+      80,
+      20,
+      0
+    ],
+    [
+      60,
+      30,
+      10
+    ]
+  ],
+  "prototype": {
+    "starting_lives": 30,
+    "starting_gold": 0,
+    "quality_costs": [
+      20,
+      45
+    ],
+    "waves": [
+      {
+        "source_id": "gemtd_kuangbaoyezhu",
+        "count": 8,
+        "leak": 1,
+        "boss": false,
+        "reward": 2,
+        "completion": 14,
+        "spawn_interval": 0.85,
+        "evasion": 0.0
+      },
+      {
+        "source_id": "gemtd_kuaidiqingwatiaotiao",
+        "count": 10,
+        "leak": 1,
+        "boss": false,
+        "reward": 2,
+        "completion": 16,
+        "spawn_interval": 0.85,
+        "evasion": 0.0
+      },
+      {
+        "source_id": "gemtd_zhongchenggaoshanmaoniu",
+        "count": 10,
+        "leak": 2,
+        "boss": false,
+        "reward": 2,
+        "completion": 18,
+        "spawn_interval": 0.85,
+        "evasion": 0.0
+      },
+      {
+        "source_id": "gemtd_moluokedejixiezhushou",
+        "count": 10,
+        "leak": 2,
+        "boss": false,
+        "reward": 2,
+        "completion": 20,
+        "spawn_interval": 0.85,
+        "evasion": 0.0
+      },
+      {
+        "source_id": "gemtd_wuweizhihuan_fly",
+        "count": 10,
+        "leak": 2,
+        "boss": false,
+        "reward": 2,
+        "completion": 22,
+        "spawn_interval": 0.85,
+        "evasion": 0.0
+      },
+      {
+        "source_id": "gemtd_shudunziranzhizhu",
+        "count": 10,
+        "leak": 3,
+        "boss": false,
+        "reward": 3,
+        "completion": 24,
+        "spawn_interval": 0.85,
+        "evasion": 0.0
+      },
+      {
+        "source_id": "gemtd_chaomengjuxi",
+        "count": 12,
+        "leak": 3,
+        "boss": false,
+        "reward": 3,
+        "completion": 26,
+        "spawn_interval": 0.85,
+        "evasion": 0.0
+      },
+      {
+        "source_id": "gemtd_xiaohongmao_fly",
+        "count": 16,
+        "leak": 3,
+        "boss": false,
+        "reward": 3,
+        "completion": 28,
+        "spawn_interval": 0.85,
+        "evasion": 0.0
+      },
+      {
+        "source_id": "gemtd_dashiqi",
+        "count": 12,
+        "leak": 4,
+        "boss": false,
+        "reward": 3,
+        "completion": 30,
+        "spawn_interval": 0.85,
+        "evasion": 0.5
+      },
+      {
+        "source_id": "gemtd_buquzhanquan_boss",
+        "count": 1,
+        "leak": 30,
+        "boss": true,
+        "reward": 3,
+        "completion": 32,
+        "spawn_interval": 0.85,
+        "evasion": 0.0
+      }
+    ]
+  },
+  "reference_economy": {
+    "starting_lives": 100,
+    "starting_gold": 0,
+    "ordinary_kill_waves_1_to_9": 5,
+    "boss_wave_10_kill": 150,
+    "quality_costs": null,
+    "clear_reward": null
+  },
+  "notes": [
+    "Original tower damage/rate/range and enemy HP/speed/armor/resistance are retained.",
+    "Thirty lives, fixed leaks, kill/clear rewards, upgrade prices and ten-wave sequence are deliberate compressed-mode values, not exact original economy.",
+    "Source snapshot is dated 2026-08-01. This does not establish latest Workshop parity."
+  ]
+}

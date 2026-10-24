@@ -1,0 +1,1174 @@
+{
+  "version": "1.3.0-dev",
+  "rules": "1.2.2 unchanged; observer only",
+  "runs": [
+    {
+      "seed": "1",
+      "outcome": "lost",
+      "wave": 10,
+      "bosses": [
+        {
+          "wave": 10,
+          "boss": {
+            "defeated": false,
+            "escaped": true,
+            "hp_max": 1449.0,
+            "hp_remaining": 1006.53846153846,
+            "name": "invincible dog",
+            "remaining_percent": 69.46
+          },
+          "route_cells": 292.48,
+          "schema": 1,
+          "seconds": 72.333,
+          "source_count": 10,
+          "top_sources": [
+            {
+              "at": [
+                1,
+                30
+              ],
+              "blocked": 0,
+              "boss_disabled_seconds": 0.0,
+              "boss_range_seconds": 6.133,
+              "boss_targetable_seconds": 6.133,
+              "damage": 164.769,
+              "discarded": 0,
+              "landed": 7,
+              "launched": 7,
+              "magical": 154.0,
+              "missed": 0,
+              "name": "Emerald  ·  I",
+              "overkill": 0.0,
+              "physical": 10.769,
+              "pure": 0.0,
+              "secondary_launched": 0
+            },
+            {
+              "at": [
+                4,
+                20
+              ],
+              "blocked": 0,
+              "boss_disabled_seconds": 0.0,
+              "boss_range_seconds": 2.633,
+              "boss_targetable_seconds": 2.633,
+              "damage": 73.846,
+              "discarded": 0,
+              "landed": 4,
+              "launched": 4,
+              "magical": 0.0,
+              "missed": 0,
+              "name": "Diamond  ·  III",
+              "overkill": 0.0,
+              "physical": 73.846,
+              "pure": 0.0,
+              "secondary_launched": 0
+            },
+            {
+              "at": [
+                13,
+                1
+              ],
+              "blocked": 0,
+              "boss_disabled_seconds": 0.0,
+              "boss_range_seconds": 4.867,
+              "boss_targetable_seconds": 4.867,
+              "damage": 55.385,
+              "discarded": 0,
+              "landed": 6,
+              "launched": 6,
+              "magical": 0.0,
+              "missed": 0,
+              "name": "Diamond  ·  II",
+              "overkill": 0.0,
+              "physical": 55.385,
+              "pure": 0.0,
+              "secondary_launched": 0
+            },
+            {
+              "at": [
+                5,
+                1
+              ],
+              "blocked": 0,
+              "boss_disabled_seconds": 0.0,
+              "boss_range_seconds": 4.333,
+              "boss_targetable_seconds": 4.333,
+              "damage": 49.231,
+              "discarded": 0,
+              "landed": 16,
+              "launched": 16,
+              "magical": 0.0,
+              "missed": 0,
+              "name": "Aquamarine  ·  II",
+              "overkill": 0.0,
+              "physical": 49.231,
+              "pure": 0.0,
+              "secondary_launched": 0
+            },
+            {
+              "at": [
+                7,
+                1
+              ],
+              "blocked": 0,
+              "boss_disabled_seconds": 0.0,
+              "boss_range_seconds": 5.633,
+              "boss_targetable_seconds": 5.633,
+              "damage": 32.308,
+              "discarded": 0,
+              "landed": 7,
+              "launched": 7,
+              "magical": 0.0,
+              "missed": 0,
+              "name": "Topaz  ·  II",
+              "overkill": 0.0,
+              "physical": 32.308,
+              "pure": 0.0,
+              "secondary_launched": 0
+            },
+            {
+              "at": [
+                1,
+                25
+              ],
+              "blocked": 0,
+              "boss_disabled_seconds": 0.0,
+              "boss_range_seconds": 2.933,
+              "boss_targetable_seconds": 2.933,
+              "damage": 30.769,
+              "discarded": 0,
+              "landed": 10,
+              "launched": 10,
+              "magical": 0.0,
+              "missed": 0,
+              "name": "Aquamarine  ·  II",
+              "overkill": 0.0,
+              "physical": 30.769,
+              "pure": 0.0,
+              "secondary_launched": 0
+            },
+            {
+              "at": [
+                16,
+                3
+              ],
+              "blocked": 0,
+              "boss_disabled_seconds": 0.0,
+              "boss_range_seconds": 4.767,
+              "boss_targetable_seconds": 4.767,
+              "damage": 23.077,
+              "discarded": 0,
+              "landed": 5,
+              "launched": 5,
+              "magical": 0.0,
+              "missed": 0,
+              "name": "Topaz  ·  II",
+              "overkill": 0.0,
+              "physical": 23.077,
+              "pure": 0.0,
+              "secondary_launched": 0
+            },
+            {
+              "at": [
+                9,
+                19
+              ],
+              "blocked": 0,
+              "boss_disabled_seconds": 0.0,
+              "boss_range_seconds": 4.4,
+              "boss_targetable_seconds": 4.4,
+              "damage": 9.231,
+              "discarded": 0,
+              "landed": 6,
+              "launched": 6,
+              "magical": 0.0,
+              "missed": 0,
+              "name": "Opal  ·  II",
+              "overkill": 0.0,
+              "physical": 9.231,
+              "pure": 0.0,
+              "secondary_launched": 0
+            },
+            {
+              "at": [
+                17,
+                5
+              ],
+              "blocked": 0,
+              "boss_disabled_seconds": 0.0,
+              "boss_range_seconds": 3.333,
+              "boss_targetable_seconds": 3.333,
+              "damage": 3.846,
+              "discarded": 0,
+              "landed": 5,
+              "launched": 5,
+              "magical": 0.0,
+              "missed": 0,
+              "name": "Opal  ·  I",
+              "overkill": 0.0,
+              "physical": 3.846,
+              "pure": 0.0,
+              "secondary_launched": 0
+            },
+            {
+              "at": [
+                15,
+                18
+              ],
+              "blocked": 0,
+              "boss_disabled_seconds": 0.0,
+              "boss_range_seconds": 0.0,
+              "boss_targetable_seconds": 0.0,
+              "damage": 0.0,
+              "discarded": 0,
+              "landed": 0,
+              "launched": 0,
+              "magical": 0.0,
+              "missed": 0,
+              "name": "Aquamarine  ·  II",
+              "overkill": 0.0,
+              "physical": 0.0,
+              "pure": 0.0,
+              "secondary_launched": 0
+            }
+          ],
+          "totals": {
+            "blocked": 0,
+            "discarded": 0,
+            "landed": 66,
+            "launched": 66,
+            "magical": 154.0,
+            "missed": 0,
+            "overkill": 0.0,
+            "physical": 288.462,
+            "pure": 0.0,
+            "secondary_launched": 0
+          }
+        }
+      ]
+    },
+    {
+      "seed": "2",
+      "outcome": "lost",
+      "wave": 10,
+      "bosses": [
+        {
+          "wave": 10,
+          "boss": {
+            "defeated": false,
+            "escaped": true,
+            "hp_max": 1449.0,
+            "hp_remaining": 809.153846153843,
+            "name": "invincible dog",
+            "remaining_percent": 55.84
+          },
+          "route_cells": 298.723,
+          "schema": 1,
+          "seconds": 77.967,
+          "source_count": 10,
+          "top_sources": [
+            {
+              "at": [
+                11,
+                1
+              ],
+              "blocked": 0,
+              "boss_disabled_seconds": 0.0,
+              "boss_range_seconds": 4.8,
+              "boss_targetable_seconds": 4.8,
+              "damage": 188.308,
+              "discarded": 0,
+              "landed": 8,
+              "launched": 8,
+              "magical": 176.0,
+              "missed": 0,
+              "name": "Emerald  ·  I",
+              "overkill": 0.0,
+              "physical": 12.308,
+              "pure": 0.0,
+              "secondary_launched": 0
+            },
+            {
+              "at": [
+                19,
+                4
+              ],
+              "blocked": 0,
+              "boss_disabled_seconds": 0.0,
+              "boss_range_seconds": 4.033,
+              "boss_targetable_seconds": 4.033,
+              "damage": 153.846,
+              "discarded": 0,
+              "landed": 8,
+              "launched": 8,
+              "magical": 0.0,
+              "missed": 0,
+              "name": "Malachite",
+              "overkill": 0.0,
+              "physical": 153.846,
+              "pure": 0.0,
+              "secondary_launched": 0
+            },
+            {
+              "at": [
+                2,
+                1
+              ],
+              "blocked": 0,
+              "boss_disabled_seconds": 0.0,
+              "boss_range_seconds": 7.867,
+              "boss_targetable_seconds": 7.867,
+              "damage": 135.385,
+              "discarded": 0,
+              "landed": 11,
+              "launched": 11,
+              "magical": 0.0,
+              "missed": 0,
+              "name": "Malachite",
+              "overkill": 0.0,
+              "physical": 135.385,
+              "pure": 0.0,
+              "secondary_launched": 0
+            },
+            {
+              "at": [
+                6,
+                1
+              ],
+              "blocked": 0,
+              "boss_disabled_seconds": 0.0,
+              "boss_range_seconds": 4.167,
+              "boss_targetable_seconds": 4.167,
+              "damage": 46.154,
+              "discarded": 0,
+              "landed": 15,
+              "launched": 15,
+              "magical": 0.0,
+              "missed": 0,
+              "name": "Aquamarine  ·  II",
+              "overkill": 0.0,
+              "physical": 46.154,
+              "pure": 0.0,
+              "secondary_launched": 0
+            },
+            {
+              "at": [
+                2,
+                29
+              ],
+              "blocked": 0,
+              "boss_disabled_seconds": 0.0,
+              "boss_range_seconds": 3.8,
+              "boss_targetable_seconds": 3.8,
+              "damage": 40.0,
+              "discarded": 0,
+              "landed": 13,
+              "launched": 13,
+              "magical": 0.0,
+              "missed": 0,
+              "name": "Aquamarine  ·  II",
+              "overkill": 0.0,
+              "physical": 40.0,
+              "pure": 0.0,
+              "secondary_launched": 0
+            },
+            {
+              "at": [
+                17,
+                27
+              ],
+              "blocked": 0,
+              "boss_disabled_seconds": 0.0,
+              "boss_range_seconds": 9.7,
+              "boss_targetable_seconds": 9.7,
+              "damage": 33.846,
+              "discarded": 0,
+              "landed": 11,
+              "launched": 11,
+              "magical": 0.0,
+              "missed": 0,
+              "name": "Sapphire  ·  II",
+              "overkill": 0.0,
+              "physical": 33.846,
+              "pure": 0.0,
+              "secondary_launched": 0
+            },
+            {
+              "at": [
+                1,
+                21
+              ],
+              "blocked": 0,
+              "boss_disabled_seconds": 0.0,
+              "boss_range_seconds": 6.533,
+              "boss_targetable_seconds": 6.533,
+              "damage": 24.615,
+              "discarded": 0,
+              "landed": 8,
+              "launched": 8,
+              "magical": 0.0,
+              "missed": 0,
+              "name": "Sapphire  ·  II",
+              "overkill": 0.0,
+              "physical": 24.615,
+              "pure": 0.0,
+              "secondary_launched": 0
+            },
+            {
+              "at": [
+                15,
+                3
+              ],
+              "blocked": 0,
+              "boss_disabled_seconds": 0.0,
+              "boss_range_seconds": 5.633,
+              "boss_targetable_seconds": 5.633,
+              "damage": 12.308,
+              "discarded": 0,
+              "landed": 8,
+              "launched": 8,
+              "magical": 0.0,
+              "missed": 0,
+              "name": "Opal  ·  II",
+              "overkill": 0.0,
+              "physical": 12.308,
+              "pure": 0.0,
+              "secondary_launched": 0
+            },
+            {
+              "at": [
+                1,
+                23
+              ],
+              "blocked": 0,
+              "boss_disabled_seconds": 0.0,
+              "boss_range_seconds": 5.0,
+              "boss_targetable_seconds": 5.0,
+              "damage": 5.385,
+              "discarded": 0,
+              "landed": 7,
+              "launched": 7,
+              "magical": 0.0,
+              "missed": 0,
+              "name": "Opal  ·  I",
+              "overkill": 0.0,
+              "physical": 5.385,
+              "pure": 0.0,
+              "secondary_launched": 0
+            },
+            {
+              "at": [
+                15,
+                18
+              ],
+              "blocked": 0,
+              "boss_disabled_seconds": 0.0,
+              "boss_range_seconds": 0.0,
+              "boss_targetable_seconds": 0.0,
+              "damage": 0.0,
+              "discarded": 0,
+              "landed": 0,
+              "launched": 0,
+              "magical": 0.0,
+              "missed": 0,
+              "name": "Amethyst  ·  II",
+              "overkill": 0.0,
+              "physical": 0.0,
+              "pure": 0.0,
+              "secondary_launched": 0
+            }
+          ],
+          "totals": {
+            "blocked": 0,
+            "discarded": 0,
+            "landed": 89,
+            "launched": 89,
+            "magical": 176.0,
+            "missed": 0,
+            "overkill": 0.0,
+            "physical": 463.846,
+            "pure": 0.0,
+            "secondary_launched": 0
+          }
+        }
+      ]
+    },
+    {
+      "seed": "3",
+      "outcome": "lost",
+      "wave": 10,
+      "bosses": [
+        {
+          "wave": 10,
+          "boss": {
+            "defeated": false,
+            "escaped": true,
+            "hp_max": 1449.0,
+            "hp_remaining": 9.9692307692306,
+            "name": "invincible dog",
+            "remaining_percent": 0.69
+          },
+          "route_cells": 292.48,
+          "schema": 1,
+          "seconds": 80.4,
+          "source_count": 10,
+          "top_sources": [
+            {
+              "at": [
+                16,
+                3
+              ],
+              "blocked": 0,
+              "boss_disabled_seconds": 0.0,
+              "boss_range_seconds": 8.033,
+              "boss_targetable_seconds": 8.033,
+              "damage": 387.692,
+              "discarded": 0,
+              "landed": 9,
+              "launched": 9,
+              "magical": 0.0,
+              "missed": 0,
+              "name": "Silver",
+              "overkill": 0.0,
+              "physical": 387.692,
+              "pure": 0.0,
+              "secondary_launched": 0
+            },
+            {
+              "at": [
+                1,
+                22
+              ],
+              "blocked": 0,
+              "boss_disabled_seconds": 0.0,
+              "boss_range_seconds": 7.267,
+              "boss_targetable_seconds": 7.267,
+              "damage": 304.615,
+              "discarded": 0,
+              "landed": 9,
+              "launched": 9,
+              "magical": 0.0,
+              "missed": 0,
+              "name": "Silver",
+              "overkill": 0.0,
+              "physical": 304.615,
+              "pure": 0.0,
+              "secondary_launched": 0
+            },
+            {
+              "at": [
+                9,
+                1
+              ],
+              "blocked": 0,
+              "boss_disabled_seconds": 0.0,
+              "boss_range_seconds": 8.467,
+              "boss_targetable_seconds": 8.467,
+              "damage": 276.923,
+              "discarded": 0,
+              "landed": 9,
+              "launched": 9,
+              "magical": 0.0,
+              "missed": 0,
+              "name": "Silver",
+              "overkill": 0.0,
+              "physical": 276.923,
+              "pure": 0.0,
+              "secondary_launched": 0
+            },
+            {
+              "at": [
+                3,
+                1
+              ],
+              "blocked": 0,
+              "boss_disabled_seconds": 0.0,
+              "boss_range_seconds": 8.733,
+              "boss_targetable_seconds": 8.733,
+              "damage": 235.385,
+              "discarded": 0,
+              "landed": 10,
+              "launched": 10,
+              "magical": 220.0,
+              "missed": 0,
+              "name": "Emerald  ·  I",
+              "overkill": 0.0,
+              "physical": 15.385,
+              "pure": 0.0,
+              "secondary_launched": 0
+            },
+            {
+              "at": [
+                17,
+                27
+              ],
+              "blocked": 0,
+              "boss_disabled_seconds": 0.0,
+              "boss_range_seconds": 6.1,
+              "boss_targetable_seconds": 6.1,
+              "damage": 142.108,
+              "discarded": 0,
+              "landed": 8,
+              "launched": 8,
+              "magical": 129.8,
+              "missed": 0,
+              "name": "Emerald  ·  I",
+              "overkill": 0.0,
+              "physical": 12.308,
+              "pure": 0.0,
+              "secondary_launched": 0
+            },
+            {
+              "at": [
+                1,
+                28
+              ],
+              "blocked": 0,
+              "boss_disabled_seconds": 0.0,
+              "boss_range_seconds": 5.933,
+              "boss_targetable_seconds": 5.933,
+              "damage": 61.538,
+              "discarded": 0,
+              "landed": 8,
+              "launched": 8,
+              "magical": 0.0,
+              "missed": 0,
+              "name": "Diamond  ·  II",
+              "overkill": 0.0,
+              "physical": 61.538,
+              "pure": 0.0,
+              "secondary_launched": 0
+            },
+            {
+              "at": [
+                2,
+                32
+              ],
+              "blocked": 0,
+              "boss_disabled_seconds": 0.0,
+              "boss_range_seconds": 8.533,
+              "boss_targetable_seconds": 8.533,
+              "damage": 15.385,
+              "discarded": 0,
+              "landed": 10,
+              "launched": 10,
+              "magical": 0.0,
+              "missed": 0,
+              "name": "Sapphire  ·  I",
+              "overkill": 0.0,
+              "physical": 15.385,
+              "pure": 0.0,
+              "secondary_launched": 0
+            },
+            {
+              "at": [
+                17,
+                5
+              ],
+              "blocked": 0,
+              "boss_disabled_seconds": 0.0,
+              "boss_range_seconds": 7.033,
+              "boss_targetable_seconds": 7.033,
+              "damage": 12.308,
+              "discarded": 0,
+              "landed": 8,
+              "launched": 8,
+              "magical": 0.0,
+              "missed": 0,
+              "name": "Sapphire  ·  I",
+              "overkill": 0.0,
+              "physical": 12.308,
+              "pure": 0.0,
+              "secondary_launched": 0
+            },
+            {
+              "at": [
+                5,
+                20
+              ],
+              "blocked": 0,
+              "boss_disabled_seconds": 0.0,
+              "boss_range_seconds": 3.233,
+              "boss_targetable_seconds": 3.233,
+              "damage": 3.077,
+              "discarded": 0,
+              "landed": 4,
+              "launched": 4,
+              "magical": 0.0,
+              "missed": 0,
+              "name": "Opal  ·  I",
+              "overkill": 0.0,
+              "physical": 3.077,
+              "pure": 0.0,
+              "secondary_launched": 0
+            },
+            {
+              "at": [
+                15,
+                18
+              ],
+              "blocked": 0,
+              "boss_disabled_seconds": 0.0,
+              "boss_range_seconds": 0.0,
+              "boss_targetable_seconds": 0.0,
+              "damage": 0.0,
+              "discarded": 0,
+              "landed": 0,
+              "launched": 0,
+              "magical": 0.0,
+              "missed": 0,
+              "name": "Emerald  ·  II",
+              "overkill": 0.0,
+              "physical": 0.0,
+              "pure": 0.0,
+              "secondary_launched": 0
+            }
+          ],
+          "totals": {
+            "blocked": 0,
+            "discarded": 0,
+            "landed": 75,
+            "launched": 75,
+            "magical": 349.8,
+            "missed": 0,
+            "overkill": 0.0,
+            "physical": 1089.231,
+            "pure": 0.0,
+            "secondary_launched": 0
+          }
+        }
+      ]
+    },
+    {
+      "seed": "4",
+      "outcome": "lost",
+      "wave": 10,
+      "bosses": [
+        {
+          "wave": 10,
+          "boss": {
+            "defeated": false,
+            "escaped": true,
+            "hp_max": 1449.0,
+            "hp_remaining": 151.153846153843,
+            "name": "invincible dog",
+            "remaining_percent": 10.43
+          },
+          "route_cells": 298.723,
+          "schema": 1,
+          "seconds": 79.133,
+          "source_count": 10,
+          "top_sources": [
+            {
+              "at": [
+                6,
+                1
+              ],
+              "blocked": 0,
+              "boss_disabled_seconds": 0.0,
+              "boss_range_seconds": 8.833,
+              "boss_targetable_seconds": 8.833,
+              "damage": 461.538,
+              "discarded": 0,
+              "landed": 10,
+              "launched": 10,
+              "magical": 0.0,
+              "missed": 0,
+              "name": "Silver",
+              "overkill": 0.0,
+              "physical": 461.538,
+              "pure": 0.0,
+              "secondary_launched": 0
+            },
+            {
+              "at": [
+                1,
+                1
+              ],
+              "blocked": 0,
+              "boss_disabled_seconds": 0.0,
+              "boss_range_seconds": 6.967,
+              "boss_targetable_seconds": 6.967,
+              "damage": 423.692,
+              "discarded": 0,
+              "landed": 9,
+              "launched": 9,
+              "magical": 396.0,
+              "missed": 0,
+              "name": "Emerald  ·  II",
+              "overkill": 0.0,
+              "physical": 27.692,
+              "pure": 0.0,
+              "secondary_launched": 0
+            },
+            {
+              "at": [
+                1,
+                25
+              ],
+              "blocked": 0,
+              "boss_disabled_seconds": 0.0,
+              "boss_range_seconds": 4.967,
+              "boss_targetable_seconds": 4.967,
+              "damage": 329.538,
+              "discarded": 0,
+              "landed": 7,
+              "launched": 7,
+              "magical": 308.0,
+              "missed": 0,
+              "name": "Emerald  ·  II",
+              "overkill": 0.0,
+              "physical": 21.538,
+              "pure": 0.0,
+              "secondary_launched": 0
+            },
+            {
+              "at": [
+                12,
+                1
+              ],
+              "blocked": 0,
+              "boss_disabled_seconds": 0.0,
+              "boss_range_seconds": 5.1,
+              "boss_targetable_seconds": 5.1,
+              "damage": 27.692,
+              "discarded": 0,
+              "landed": 6,
+              "launched": 6,
+              "magical": 0.0,
+              "missed": 0,
+              "name": "Topaz  ·  II",
+              "overkill": 0.0,
+              "physical": 27.692,
+              "pure": 0.0,
+              "secondary_launched": 0
+            },
+            {
+              "at": [
+                2,
+                29
+              ],
+              "blocked": 0,
+              "boss_disabled_seconds": 0.0,
+              "boss_range_seconds": 7.033,
+              "boss_targetable_seconds": 7.033,
+              "damage": 13.846,
+              "discarded": 0,
+              "landed": 9,
+              "launched": 9,
+              "magical": 0.0,
+              "missed": 0,
+              "name": "Sapphire  ·  I",
+              "overkill": 0.0,
+              "physical": 13.846,
+              "pure": 0.0,
+              "secondary_launched": 0
+            },
+            {
+              "at": [
+                1,
+                34
+              ],
+              "blocked": 0,
+              "boss_disabled_seconds": 0.0,
+              "boss_range_seconds": 7.767,
+              "boss_targetable_seconds": 7.767,
+              "damage": 13.846,
+              "discarded": 0,
+              "landed": 9,
+              "launched": 9,
+              "magical": 0.0,
+              "missed": 0,
+              "name": "Sapphire  ·  I",
+              "overkill": 0.0,
+              "physical": 13.846,
+              "pure": 0.0,
+              "secondary_launched": 0
+            },
+            {
+              "at": [
+                1,
+                21
+              ],
+              "blocked": 0,
+              "boss_disabled_seconds": 0.0,
+              "boss_range_seconds": 6.167,
+              "boss_targetable_seconds": 6.167,
+              "damage": 10.769,
+              "discarded": 0,
+              "landed": 7,
+              "launched": 7,
+              "magical": 0.0,
+              "missed": 0,
+              "name": "Sapphire  ·  I",
+              "overkill": 0.0,
+              "physical": 10.769,
+              "pure": 0.0,
+              "secondary_launched": 0
+            },
+            {
+              "at": [
+                19,
+                4
+              ],
+              "blocked": 0,
+              "boss_disabled_seconds": 0.0,
+              "boss_range_seconds": 2.9,
+              "boss_targetable_seconds": 2.9,
+              "damage": 9.231,
+              "discarded": 0,
+              "landed": 6,
+              "launched": 6,
+              "magical": 0.0,
+              "missed": 0,
+              "name": "Opal  ·  II",
+              "overkill": 0.0,
+              "physical": 9.231,
+              "pure": 0.0,
+              "secondary_launched": 0
+            },
+            {
+              "at": [
+                15,
+                3
+              ],
+              "blocked": 0,
+              "boss_disabled_seconds": 0.0,
+              "boss_range_seconds": 5.933,
+              "boss_targetable_seconds": 5.933,
+              "damage": 7.692,
+              "discarded": 0,
+              "landed": 10,
+              "launched": 10,
+              "magical": 0.0,
+              "missed": 0,
+              "name": "Opal  ·  I",
+              "overkill": 0.0,
+              "physical": 7.692,
+              "pure": 0.0,
+              "secondary_launched": 0
+            },
+            {
+              "at": [
+                18,
+                18
+              ],
+              "blocked": 0,
+              "boss_disabled_seconds": 0.0,
+              "boss_range_seconds": 0.0,
+              "boss_targetable_seconds": 0.0,
+              "damage": 0.0,
+              "discarded": 0,
+              "landed": 0,
+              "launched": 0,
+              "magical": 0.0,
+              "missed": 0,
+              "name": "Malachite",
+              "overkill": 0.0,
+              "physical": 0.0,
+              "pure": 0.0,
+              "secondary_launched": 0
+            }
+          ],
+          "totals": {
+            "blocked": 0,
+            "discarded": 0,
+            "landed": 73,
+            "launched": 73,
+            "magical": 704.0,
+            "missed": 0,
+            "overkill": 0.0,
+            "physical": 593.846,
+            "pure": 0.0,
+            "secondary_launched": 0
+          }
+        }
+      ]
+    },
+    {
+      "seed": "5",
+      "outcome": "lost",
+      "wave": 16,
+      "bosses": [
+        {
+          "wave": 10,
+          "boss": {
+            "defeated": true,
+            "escaped": false,
+            "hp_max": 1449.0,
+            "hp_remaining": 0.0,
+            "name": "invincible dog",
+            "remaining_percent": 0.0
+          },
+          "route_cells": 292.48,
+          "schema": 1,
+          "seconds": 20.167,
+          "source_count": 7,
+          "top_sources": [
+            {
+              "at": [
+                1,
+                30
+              ],
+              "blocked": 0,
+              "boss_disabled_seconds": 0.0,
+              "boss_range_seconds": 0.0,
+              "boss_targetable_seconds": 0.0,
+              "damage": 1257.0,
+              "discarded": 0,
+              "landed": 0,
+              "launched": 0,
+              "magical": 1257.0,
+              "missed": 0,
+              "name": "Asteriated Ruby",
+              "overkill": 10.2,
+              "physical": 0.0,
+              "pure": 0.0,
+              "secondary_launched": 0
+            },
+            {
+              "at": [
+                9,
+                19
+              ],
+              "blocked": 0,
+              "boss_disabled_seconds": 0.0,
+              "boss_range_seconds": 2.3,
+              "boss_targetable_seconds": 2.3,
+              "damage": 141.231,
+              "discarded": 0,
+              "landed": 3,
+              "launched": 3,
+              "magical": 132.0,
+              "missed": 0,
+              "name": "Emerald  ·  II",
+              "overkill": 0.0,
+              "physical": 9.231,
+              "pure": 0.0,
+              "secondary_launched": 0
+            },
+            {
+              "at": [
+                4,
+                1
+              ],
+              "blocked": 0,
+              "boss_disabled_seconds": 0.0,
+              "boss_range_seconds": 0.9,
+              "boss_targetable_seconds": 0.9,
+              "damage": 29.231,
+              "discarded": 0,
+              "landed": 2,
+              "launched": 2,
+              "magical": 0.0,
+              "missed": 0,
+              "name": "Malachite",
+              "overkill": 0.0,
+              "physical": 29.231,
+              "pure": 0.0,
+              "secondary_launched": 0
+            },
+            {
+              "at": [
+                4,
+                20
+              ],
+              "blocked": 0,
+              "boss_disabled_seconds": 0.0,
+              "boss_range_seconds": 5.8,
+              "boss_targetable_seconds": 5.8,
+              "damage": 21.538,
+              "discarded": 0,
+              "landed": 7,
+              "launched": 7,
+              "magical": 0.0,
+              "missed": 0,
+              "name": "Sapphire  ·  II",
+              "overkill": 0.0,
+              "physical": 21.538,
+              "pure": 0.0,
+              "secondary_launched": 0
+            },
+            {
+              "at": [
+                14,
+                1
+              ],
+              "blocked": 0,
+              "boss_disabled_seconds": 0.0,
+              "boss_range_seconds": 0.0,
+              "boss_targetable_seconds": 0.0,
+              "damage": 0.0,
+              "discarded": 0,
+              "landed": 0,
+              "launched": 0,
+              "magical": 0.0,
+              "missed": 0,
+              "name": "Opal  ·  II",
+              "overkill": 0.0,
+              "physical": 0.0,
+              "pure": 0.0,
+              "secondary_launched": 0
+            },
+            {
+              "at": [
+                15,
+                18
+              ],
+              "blocked": 0,
+              "boss_disabled_seconds": 0.0,
+              "boss_range_seconds": 0.0,
+              "boss_targetable_seconds": 0.0,
+              "damage": 0.0,
+              "discarded": 0,
+              "landed": 0,
+              "launched": 0,
+              "magical": 0.0,
+              "missed": 0,
+              "name": "Malachite",
+              "overkill": 0.0,
+              "physical": 0.0,
+              "pure": 0.0,
+              "secondary_launched": 0
+            },
+            {
+              "at": [
+                19,
+                32
+              ],
+              "blocked": 0,
+              "boss_disabled_seconds": 0.0,
+              "boss_range_seconds": 0.0,
+              "boss_targetable_seconds": 0.0,
+              "damage": 0.0,
+              "discarded": 0,
+              "landed": 0,
+              "launched": 0,
+              "magical": 0.0,
+              "missed": 0,
+              "name": "Opal  ·  I",
+              "overkill": 0.0,
+              "physical": 0.0,
+              "pure": 0.0,
+              "secondary_launched": 0
+            }
+          ],
+          "totals": {
+            "blocked": 0,
+            "discarded": 0,
+            "landed": 12,
+            "launched": 12,
+            "magical": 1389.0,
+            "missed": 0,
+            "overkill": 10.2,
+            "physical": 60.0,
+            "pure": 0.0,
+            "secondary_launched": 0
+          }
+        }
+      ]
+    }
+  ],
+  "limits": "Five simple natural bot runs, not human win rate; range windows sampled at 30Hz."
+}

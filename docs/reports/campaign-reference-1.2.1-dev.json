@@ -1,0 +1,6 @@
+{
+  "checks": 1710,
+  "failures": 0,
+  "errors": [],
+  "limits": "Numeric source verification and standalone mechanics checks do not establish full Dota engine parity or human win rate."
+}

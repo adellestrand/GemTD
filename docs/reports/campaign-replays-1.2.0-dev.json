@@ -1,0 +1,55 @@
+{
+  "reports": [
+    {
+      "report": "maze-01.json",
+      "sha256": "b7c0dd26bd051b5564790e2f4598de84e32fab53bb68e326385e05b44011ec4e",
+      "error": "",
+      "lives": 0,
+      "ok": true,
+      "outcome": "lost",
+      "ticks": 16319,
+      "wave": 10
+    },
+    {
+      "report": "maze-02.json",
+      "sha256": "5c383ef9a3ad2fc19497e3b5b37b4d8eb34b19e04a6b25ed258decaccd9e7a5a",
+      "error": "",
+      "lives": 0,
+      "ok": true,
+      "outcome": "lost",
+      "ticks": 13729,
+      "wave": 10
+    },
+    {
+      "report": "maze-03.json",
+      "sha256": "42599b88de88996ad210edfe33ec7beacbec83970dd7eaac8da56f8981a522b0",
+      "error": "",
+      "lives": 0,
+      "ok": true,
+      "outcome": "lost",
+      "ticks": 13604,
+      "wave": 10
+    },
+    {
+      "report": "maze-04.json",
+      "sha256": "54e4840d460b9a2888acc7a4cba93ea89de287eff760eb2e53be5dfc8b653fb3",
+      "error": "",
+      "lives": 0,
+      "ok": true,
+      "outcome": "lost",
+      "ticks": 12802,
+      "wave": 10
+    },
+    {
+      "report": "maze-05.json",
+      "sha256": "fa931f14687033a43835ea886f3bb96d94301ed1a453afd7b73c3d8cc19a4454",
+      "error": "",
+      "lives": 0,
+      "ok": true,
+      "outcome": "lost",
+      "ticks": 21286,
+      "wave": 16
+    }
+  ],
+  "all_passed": true
+}

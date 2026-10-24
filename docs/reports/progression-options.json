@@ -1,0 +1,174 @@
+{
+  "reference_date": "2026-08-01",
+  "source_xp_thresholds": [
+    0,
+    250,
+    650,
+    1200,
+    1900
+  ],
+  "current_prices": [
+    250,
+    400,
+    550,
+    700
+  ],
+  "fixed_price_option": [
+    250,
+    350,
+    500,
+    550
+  ],
+  "boss_discount_option": 150,
+  "units": "first building phase where each odds improvement can be used after immediate affordable purchases",
+  "limits": "Economy-only synthetic sequences. All bosses defeated. No adaptive path simulation, Greed, theft, elites, other spending or human delay. This is not a playtest.",
+  "randomized_bookkeeping_cases": 1000,
+  "boss_discount_matches_source_in_all_bookkeeping_cases": true,
+  "cases": [
+    {
+      "ordinary_kills_per_wave": 5,
+      "first_usable_build": {
+        "source_xp": [
+          11,
+          14,
+          21,
+          30
+        ],
+        "current": [
+          11,
+          17,
+          24,
+          32
+        ],
+        "fixed_lower": [
+          11,
+          16,
+          23,
+          30
+        ],
+        "boss_discount": [
+          11,
+          14,
+          21,
+          30
+        ]
+      }
+    },
+    {
+      "ordinary_kills_per_wave": 8,
+      "first_usable_build": {
+        "source_xp": [
+          8,
+          11,
+          18,
+          23
+        ],
+        "current": [
+          8,
+          13,
+          20,
+          26
+        ],
+        "fixed_lower": [
+          8,
+          13,
+          19,
+          24
+        ],
+        "boss_discount": [
+          8,
+          11,
+          18,
+          23
+        ]
+      }
+    },
+    {
+      "ordinary_kills_per_wave": 10,
+      "first_usable_build": {
+        "source_xp": [
+          6,
+          11,
+          16,
+          21
+        ],
+        "current": [
+          6,
+          12,
+          17,
+          23
+        ],
+        "fixed_lower": [
+          6,
+          11,
+          16,
+          21
+        ],
+        "boss_discount": [
+          6,
+          11,
+          16,
+          21
+        ]
+      }
+    },
+    {
+      "ordinary_kills_per_wave": 12,
+      "first_usable_build": {
+        "source_xp": [
+          6,
+          11,
+          14,
+          20
+        ],
+        "current": [
+          6,
+          11,
+          16,
+          21
+        ],
+        "fixed_lower": [
+          6,
+          11,
+          15,
+          19
+        ],
+        "boss_discount": [
+          6,
+          11,
+          14,
+          20
+        ]
+      }
+    },
+    {
+      "ordinary_kills_per_wave": 15,
+      "first_usable_build": {
+        "source_xp": [
+          5,
+          10,
+          13,
+          18
+        ],
+        "current": [
+          5,
+          10,
+          14,
+          19
+        ],
+        "fixed_lower": [
+          5,
+          9,
+          13,
+          17
+        ],
+        "boss_discount": [
+          5,
+          10,
+          13,
+          18
+        ]
+      }
+    }
+  ]
+}

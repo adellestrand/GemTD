@@ -1,0 +1,734 @@
+{
+  "version": 1,
+  "source": {
+    "workshop_id": "474619917",
+    "installed_publish_date": "2026-08-01",
+    "file_hashes": {
+      "mode.lua": "f7b84401f2d24f3f2249879b18aa75bab0ec66dd0043713b49dbb54be802b75b",
+      "units.txt": "19af24c6a0a1151965d9ab8d1962344893ef924954eca179156da91efa7a060e",
+      "abilities.txt": "1c46eaa37834bb53be854ffa35c720bd8b53bc614385fcd0488c4e49add250f4",
+      "entities.txt": "3f6ae19395be4ae9620531d25c86257656270bae2cc21024808edafbed6d9a74"
+    }
+  },
+  "gems": {
+    "sapphire": {
+      "name": "Sapphire",
+      "color": "#62c8ff",
+      "effect": "Slow: -60 / -90 / -120 world units/s for 3 seconds.",
+      "levels": [
+        {
+          "source_id": "gemtd_b1",
+          "damage": 2.0,
+          "interval": 1.0,
+          "range": 4.6875,
+          "source_ability": "tower_slow1"
+        },
+        {
+          "source_id": "gemtd_b11",
+          "damage": 4.0,
+          "interval": 1.0,
+          "range": 4.6875,
+          "source_ability": "tower_slow2"
+        },
+        {
+          "source_id": "gemtd_b111",
+          "damage": 6.0,
+          "interval": 1.0,
+          "range": 4.6875,
+          "source_ability": "tower_slow3"
+        }
+      ],
+      "targets": "both"
+    },
+    "diamond": {
+      "name": "Diamond",
+      "color": "#e1edf7",
+      "effect": "High physical attack damage.",
+      "levels": [
+        {
+          "source_id": "gemtd_d1",
+          "damage": 5.0,
+          "interval": 1.0,
+          "range": 3.90625,
+          "source_ability": ""
+        },
+        {
+          "source_id": "gemtd_d11",
+          "damage": 10.0,
+          "interval": 1.0,
+          "range": 3.90625,
+          "source_ability": ""
+        },
+        {
+          "source_id": "gemtd_d111",
+          "damage": 20.0,
+          "interval": 1.0,
+          "range": 3.90625,
+          "source_ability": ""
+        }
+      ],
+      "targets": "ground"
+    },
+    "aquamarine": {
+      "name": "Aquamarine",
+      "color": "#5bf0d4",
+      "effect": "Rapid attacks: +200 attack speed.",
+      "levels": [
+        {
+          "source_id": "gemtd_q1",
+          "damage": 2.0,
+          "interval": 1.0,
+          "range": 3.125,
+          "source_ability": "tower_speed1"
+        },
+        {
+          "source_id": "gemtd_q11",
+          "damage": 4.0,
+          "interval": 0.9,
+          "range": 3.125,
+          "source_ability": "tower_speed1"
+        },
+        {
+          "source_id": "gemtd_q111",
+          "damage": 8.0,
+          "interval": 0.8,
+          "range": 3.125,
+          "source_ability": "tower_speed1"
+        }
+      ],
+      "targets": "both"
+    },
+    "opal": {
+      "name": "Opal",
+      "color": "#f2afdc",
+      "effect": "Nearby towers: +20 / +30 / +40 attack speed. Different quality auras stack; identical quality does not.",
+      "levels": [
+        {
+          "source_id": "gemtd_e1",
+          "damage": 1.0,
+          "interval": 1.0,
+          "range": 3.90625,
+          "source_ability": "tower_speed_aura1"
+        },
+        {
+          "source_id": "gemtd_e11",
+          "damage": 2.0,
+          "interval": 1.0,
+          "range": 3.90625,
+          "source_ability": "tower_speed_aura2"
+        },
+        {
+          "source_id": "gemtd_e111",
+          "damage": 3.0,
+          "interval": 1.0,
+          "range": 3.90625,
+          "source_ability": "tower_speed_aura3"
+        }
+      ],
+      "targets": "both"
+    },
+    "emerald": {
+      "name": "Emerald",
+      "color": "#83d46a",
+      "effect": "Poison: 2 / 4 / 8 magic damage per second for 10 seconds.",
+      "levels": [
+        {
+          "source_id": "gemtd_g1",
+          "damage": 2.0,
+          "interval": 1.0,
+          "range": 3.90625,
+          "source_ability": "tower_du1"
+        },
+        {
+          "source_id": "gemtd_g11",
+          "damage": 4.0,
+          "interval": 1.0,
+          "range": 3.90625,
+          "source_ability": "tower_du2"
+        },
+        {
+          "source_id": "gemtd_g111",
+          "damage": 6.0,
+          "interval": 1.0,
+          "range": 3.90625,
+          "source_ability": "tower_du3"
+        }
+      ],
+      "targets": "both"
+    },
+    "topaz": {
+      "name": "Topaz",
+      "color": "#f4ce65",
+      "effect": "Primary attack plus up to three nearest secondary targets. Secondary hits bypass evasion.",
+      "levels": [
+        {
+          "source_id": "gemtd_y1",
+          "damage": 3.0,
+          "interval": 1.3,
+          "range": 4.6875,
+          "source_ability": "tower_fenliejian"
+        },
+        {
+          "source_id": "gemtd_y11",
+          "damage": 6.0,
+          "interval": 1.3,
+          "range": 3.90625,
+          "source_ability": "tower_fenliejian"
+        },
+        {
+          "source_id": "gemtd_y111",
+          "damage": 9.0,
+          "interval": 1.3,
+          "range": 3.90625,
+          "source_ability": "tower_fenliejian"
+        }
+      ],
+      "targets": "both"
+    },
+    "ruby": {
+      "name": "Ruby",
+      "color": "#f1757b",
+      "effect": "Pure splash: 30% / 40% / 50% in radius 300 / 350 / 400.",
+      "levels": [
+        {
+          "source_id": "gemtd_r1",
+          "damage": 4.0,
+          "interval": 1.0,
+          "range": 3.90625,
+          "source_ability": "tower_jianshe1"
+        },
+        {
+          "source_id": "gemtd_r11",
+          "damage": 8.0,
+          "interval": 1.0,
+          "range": 3.90625,
+          "source_ability": "tower_jianshe2"
+        },
+        {
+          "source_id": "gemtd_r111",
+          "damage": 12.0,
+          "interval": 1.0,
+          "range": 3.90625,
+          "source_ability": "tower_jianshe3"
+        }
+      ],
+      "targets": "ground"
+    },
+    "amethyst": {
+      "name": "Amethyst",
+      "color": "#b79afa",
+      "effect": "Armor reduction: -2 / -4 / -8 for 3 seconds.",
+      "levels": [
+        {
+          "source_id": "gemtd_p1",
+          "damage": 2.0,
+          "interval": 0.6,
+          "range": 3.90625,
+          "source_ability": "tower_jianjia1"
+        },
+        {
+          "source_id": "gemtd_p11",
+          "damage": 4.0,
+          "interval": 0.6,
+          "range": 3.90625,
+          "source_ability": "tower_jianjia2"
+        },
+        {
+          "source_id": "gemtd_p111",
+          "damage": 6.0,
+          "interval": 0.6,
+          "range": 3.90625,
+          "source_ability": "tower_jianjia3"
+        }
+      ],
+      "targets": "both"
+    }
+  },
+  "specials": {
+    "silver": {
+      "name": "Silver",
+      "source_id": "gemtd_baiyin",
+      "color": "#c5e4e7",
+      "ingredients": [
+        [
+          "sapphire",
+          1
+        ],
+        [
+          "topaz",
+          1
+        ],
+        [
+          "diamond",
+          1
+        ]
+      ],
+      "damage": 40.0,
+      "interval": 1.0,
+      "range": 4.6875,
+      "effect": "Physical attack; -90 movement speed for 3 seconds.",
+      "targets": "both"
+    },
+    "malachite": {
+      "name": "Malachite",
+      "source_id": "gemtd_kongqueshi",
+      "color": "#86e1a7",
+      "ingredients": [
+        [
+          "opal",
+          1
+        ],
+        [
+          "aquamarine",
+          1
+        ],
+        [
+          "emerald",
+          1
+        ]
+      ],
+      "damage": 15.0,
+      "interval": 0.8,
+      "range": 4.6875,
+      "effect": "Primary attack plus up to three nearest secondary targets. Secondary hits bypass evasion.",
+      "targets": "both"
+    },
+    "asteriated_ruby": {
+      "name": "Asteriated Ruby",
+      "source_id": "gemtd_xingcaihongbaoshi",
+      "color": "#ff9ab1",
+      "ingredients": [
+        [
+          "ruby",
+          2
+        ],
+        [
+          "ruby",
+          1
+        ],
+        [
+          "amethyst",
+          1
+        ]
+      ],
+      "damage": 0.0,
+      "interval": 1.0,
+      "range": 4.6875,
+      "effect": "Burning aura: 20 magic damage every 0.25 seconds in radius 500.",
+      "targets": "both"
+    }
+  },
+  "map": {
+    "size": 37,
+    "checkpoints": [
+      [
+        4,
+        2
+      ],
+      [
+        4,
+        18
+      ],
+      [
+        32,
+        18
+      ],
+      [
+        32,
+        4
+      ],
+      [
+        18,
+        4
+      ],
+      [
+        18,
+        32
+      ],
+      [
+        33,
+        32
+      ]
+    ],
+    "stones": [
+      [
+        0,
+        18
+      ],
+      [
+        1,
+        18
+      ],
+      [
+        2,
+        18
+      ],
+      [
+        3,
+        18
+      ],
+      [
+        36,
+        18
+      ],
+      [
+        35,
+        18
+      ],
+      [
+        34,
+        18
+      ],
+      [
+        33,
+        18
+      ],
+      [
+        18,
+        36
+      ],
+      [
+        18,
+        35
+      ],
+      [
+        18,
+        34
+      ],
+      [
+        18,
+        33
+      ],
+      [
+        18,
+        0
+      ],
+      [
+        18,
+        1
+      ],
+      [
+        18,
+        2
+      ],
+      [
+        18,
+        3
+      ],
+      [
+        5,
+        18
+      ],
+      [
+        6,
+        18
+      ],
+      [
+        7,
+        18
+      ],
+      [
+        8,
+        18
+      ],
+      [
+        31,
+        18
+      ],
+      [
+        30,
+        18
+      ],
+      [
+        29,
+        18
+      ],
+      [
+        28,
+        18
+      ],
+      [
+        18,
+        31
+      ],
+      [
+        18,
+        30
+      ],
+      [
+        18,
+        29
+      ],
+      [
+        18,
+        28
+      ],
+      [
+        18,
+        5
+      ],
+      [
+        18,
+        6
+      ],
+      [
+        18,
+        7
+      ],
+      [
+        18,
+        8
+      ]
+    ]
+  },
+  "quality_odds": [
+    [
+      100,
+      0,
+      0
+    ],
+    [
+      80,
+      20,
+      0
+    ],
+    [
+      60,
+      30,
+      10
+    ]
+  ],
+  "quality_costs": [
+    20,
+    45
+  ],
+  "effects": {
+    "sapphire": {
+      "slow": [
+        60,
+        90,
+        120
+      ],
+      "duration": 3
+    },
+    "silver": {
+      "slow": [
+        90
+      ],
+      "duration": 3
+    },
+    "amethyst": {
+      "armor_reduction": [
+        2,
+        4,
+        8
+      ],
+      "duration": 3
+    },
+    "emerald": {
+      "damage": [
+        2,
+        4,
+        8
+      ],
+      "duration": 10,
+      "interval": 1
+    },
+    "aquamarine": {
+      "attack_speed": 200
+    },
+    "opal": {
+      "attack_speed": [
+        20,
+        30,
+        40
+      ],
+      "radius": 5.1875
+    },
+    "ruby": {
+      "fraction": [
+        0.3,
+        0.4,
+        0.5
+      ],
+      "radius": [
+        2.34375,
+        2.734375,
+        3.125
+      ]
+    },
+    "topaz": {
+      "secondary_count": 3
+    },
+    "malachite": {
+      "secondary_count": 3
+    },
+    "asteriated_ruby": {
+      "damage": 20,
+      "interval": 0.25,
+      "radius": 3.90625
+    }
+  },
+  "waves": [
+    {
+      "name": "Wild boars",
+      "source_id": "gemtd_kuangbaoyezhu",
+      "count": 8,
+      "leak": 1,
+      "boss": false,
+      "hp": 3.45,
+      "speed": 2.830078125,
+      "armor": 0.0,
+      "magic_resist": -0.1,
+      "air": false,
+      "reward": 2,
+      "completion": 14,
+      "spawn_interval": 0.85,
+      "evasion": 0.0
+    },
+    {
+      "name": "Courier frogs",
+      "source_id": "gemtd_kuaidiqingwatiaotiao",
+      "count": 10,
+      "leak": 1,
+      "boss": false,
+      "hp": 6.9,
+      "speed": 3.7734374999999996,
+      "armor": 0.0,
+      "magic_resist": -0.1,
+      "air": false,
+      "reward": 2,
+      "completion": 16,
+      "spawn_interval": 0.85,
+      "evasion": 0.0
+    },
+    {
+      "name": "Mountain yaks",
+      "source_id": "gemtd_zhongchenggaoshanmaoniu",
+      "count": 10,
+      "leak": 2,
+      "boss": false,
+      "hp": 13.8,
+      "speed": 2.830078125,
+      "armor": 0.0,
+      "magic_resist": -0.1,
+      "air": false,
+      "reward": 2,
+      "completion": 18,
+      "spawn_interval": 0.85,
+      "evasion": 0.0
+    },
+    {
+      "name": "Mechanical couriers",
+      "source_id": "gemtd_moluokedejixiezhushou",
+      "count": 10,
+      "leak": 2,
+      "boss": false,
+      "hp": 12.42,
+      "speed": 5.390625,
+      "armor": 5.0,
+      "magic_resist": -0.1,
+      "air": false,
+      "reward": 2,
+      "completion": 20,
+      "spawn_interval": 0.85,
+      "evasion": 0.0
+    },
+    {
+      "name": "Flying couriers",
+      "source_id": "gemtd_wuweizhihuan_fly",
+      "count": 10,
+      "leak": 2,
+      "boss": false,
+      "hp": 15.18,
+      "speed": 2.6953125,
+      "armor": 0.0,
+      "magic_resist": -0.1,
+      "air": true,
+      "reward": 2,
+      "completion": 22,
+      "spawn_interval": 0.85,
+      "evasion": 0.0
+    },
+    {
+      "name": "Woodland spiders",
+      "source_id": "gemtd_shudunziranzhizhu",
+      "count": 10,
+      "leak": 3,
+      "boss": false,
+      "hp": 55.2,
+      "speed": 2.42578125,
+      "armor": 5.0,
+      "magic_resist": -0.1,
+      "air": false,
+      "reward": 3,
+      "completion": 24,
+      "spawn_interval": 0.85,
+      "evasion": 0.0
+    },
+    {
+      "name": "Giant lizards",
+      "source_id": "gemtd_chaomengjuxi",
+      "count": 12,
+      "leak": 3,
+      "boss": false,
+      "hp": 82.8,
+      "speed": 3.2343749999999996,
+      "armor": 5.0,
+      "magic_resist": -0.1,
+      "air": false,
+      "reward": 3,
+      "completion": 26,
+      "spawn_interval": 0.85,
+      "evasion": 0.0
+    },
+    {
+      "name": "Scarlet flying couriers",
+      "source_id": "gemtd_xiaohongmao_fly",
+      "count": 16,
+      "leak": 3,
+      "boss": false,
+      "hp": 15.18,
+      "speed": 2.6953125,
+      "armor": 0.0,
+      "magic_resist": -0.1,
+      "air": true,
+      "reward": 3,
+      "completion": 28,
+      "spawn_interval": 0.85,
+      "evasion": 0.0
+    },
+    {
+      "name": "Guard hounds",
+      "source_id": "gemtd_dashiqi",
+      "count": 12,
+      "leak": 4,
+      "boss": false,
+      "hp": 124.2,
+      "speed": 3.2343749999999996,
+      "armor": 5.0,
+      "magic_resist": -0.1,
+      "air": false,
+      "reward": 3,
+      "completion": 30,
+      "spawn_interval": 0.85,
+      "evasion": 0.5
+    },
+    {
+      "name": "Unyielding war hound",
+      "source_id": "gemtd_buquzhanquan_boss",
+      "count": 1,
+      "leak": 30,
+      "boss": true,
+      "hp": 1449.0,
+      "speed": 4.04296875,
+      "armor": 5.0,
+      "magic_resist": -0.1,
+      "air": false,
+      "reward": 3,
+      "completion": 32,
+      "spawn_interval": 0.85,
+      "evasion": 0.0
+    }
+  ]
+}

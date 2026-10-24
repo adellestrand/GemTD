@@ -98,7 +98,9 @@ Se [mekanikuppdateringen](docs/mechanics-update-1.4.md),
 | Mushjul | Zoom |
 | Höger-/mittenknapp + dra, WASD eller piltangenter | Panorera |
 | F / R | Anpassa kameran / visa stridsrutter |
-| Mellanslag / 1 / 2 / M | Paus / normal / dubbel hastighet / mute |
+| X / Delete | Riv vald sten eller valt torn (som Demolish selected) |
+| Mellanslag / M | Paus / mute |
+| 1 / 2 / 3 / 5 | Hastighet 1× / 2× / 3× / 5× (hastighetsknappen växlar mellan dem) |
 | F11 | Helskärm |
 | Run-menyn | Profil, omstart, seed, sparpunkt, rapport och visningsinställningar |
 

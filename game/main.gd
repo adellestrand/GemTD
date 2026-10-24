@@ -664,7 +664,7 @@ func build_ui() -> void:
 	var minor_actions = HBoxContainer.new()
 	minor_actions.add_theme_constant_override("separation",6)
 	action_card.add_child(minor_actions)
-	demolish_button = styled(button_in(minor_actions,"Demolish selected",func(): run.demolish(selection)),"DangerButton") as Button
+	demolish_button = styled(button_in(minor_actions,"Demolish selected  X",func(): run.demolish(selection)),"DangerButton") as Button
 	demolish_button.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	move_trap_button = button_in(minor_actions,"Move path trap",func():
 		cancel_tower_move()
@@ -1238,6 +1238,8 @@ func _unhandled_key_input(event: InputEvent) -> void:
 				if board_view.guide.moving_tower != Vector2i(-1,-1):
 					cancel_tower_move()
 					run.message = "Tower move cancelled. No move used."
+			KEY_X, KEY_DELETE:
+				if demolish_button.is_visible_in_tree() and not demolish_button.disabled: demolish_button.pressed.emit()
 			KEY_F: board_view.fit_board()
 			KEY_F11: toggle_fullscreen()
 			KEY_M: toggle_mute()
@@ -1245,6 +1247,8 @@ func _unhandled_key_input(event: InputEvent) -> void:
 			KEY_G: choose_maze_tip("" if not board_view.maze_tip.is_empty() else last_maze_tip)
 			KEY_1: speed = 1
 			KEY_2: speed = 2
+			KEY_3: speed = 3
+			KEY_5: speed = 5
 		refresh_ui()
 
 func toggle_fullscreen() -> void:
@@ -1284,7 +1288,7 @@ func toggle_pause() -> void:
 	refresh_ui()
 
 func toggle_speed() -> void:
-	speed = 2 if speed == 1 else 1
+	speed = {1:2,2:3,3:5}.get(speed,1)
 	refresh_ui()
 
 func toggle_mute() -> void:

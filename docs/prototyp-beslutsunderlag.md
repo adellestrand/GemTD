@@ -53,7 +53,7 @@ Målet med prototypen är att kunna bedöma om labyrintbygge, slumpade gems, kom
 36. **Gemchanser kan uppgraderas när som helst, även under strid.** Köp påverkar bara framtida gemplaceringar. Redan avslöjade gems ändras inte. Sannolikheterna kan därför ändras mellan placeringar i samma byggfas.
 37. **Både markfiender och flygande fiender ingår i prototypen.** Flygande fiender är inte uppskjutna till senare innehåll.
 38. **Flygande fiender följer samma kontrollpunkter i samma ordning som markfienderna.** De flyger rakt mellan punkterna över torn och stenar. Marklabyrinten förlänger inte flygrutten.
-39. **Ett bestämt urval av torn kan attackera luft.** Vissa torn attackerar mark och luft, andra bara mark. Målbegränsningen ska vara synlig i torninformationen. Vilka grundtyper och specialtorn som har luftattack återstår att fastställa.
+39. **Ett bestämt urval av torn kan attackera luft.** Vissa torn attackerar mark och luft, andra bara mark. Målbegränsningen ska vara synlig i torninformationen. Vilka grundtyper och specialtorn som har luftattack återstår att fastställa.
     *Uppdaterat 2026-10-24 (användarens beslut):* alla torn attackerar mark och luft, som i Dota 2-versionen, där Diamond och Ruby saknar luftbegränsning. Den tidigare tillfälliga uppdelningen (Diamond/Ruby bara mark) är borttagen; målet visas fortfarande i torninformationen.
 40. **Förlagans fulla skademodell.** Skadetyper, motstånd och specialfall ska kartläggas och återskapas. Användaren valde detta framför en förenklad modell med en skadetyp eller enbart fysisk/magisk skada. Exakta regler är ännu inte verifierade.
 41. **Valbar målprioritet per torn.** Spelaren ska kunna välja exempelvis först, sist, starkast eller närmast, varefter tornet väljer mål automatiskt enligt prioriteten.

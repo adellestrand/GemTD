@@ -33,7 +33,7 @@ func run_checks() -> void:
 	check(aura.range == float(GemCatalog.DATA.effects.asteriated_ruby.radius) and aura.targets == "Ground + air","burning aura uses effect radius rather than unused base attack range")
 	check(GemTowerInfo.effect_text(gem("ruby",2)).contains("40%") and not GemTowerInfo.effect_text(gem("ruby",2)).contains("30%"),"effect description shows only the selected quality's splash")
 	check(GemTowerInfo.effect_text(gem("emerald",3)).contains("8 magic") and GemTowerInfo.effect_text(gem("amethyst",2)).contains("−4 armor"),"poison and armor text use the selected quality's actual values")
-	check(GemTowerInfo.profile(gem("diamond"),p,cells).targets == "Ground only" and GemTowerInfo.effect_text(gem("topaz")).contains("3 extra targets"),"target restriction and extra-target count remain explicit")
+	check(GemTowerInfo.profile(gem("diamond"),p,cells).targets == "Ground + air" and GemTowerInfo.effect_text(gem("topaz")).contains("3 extra targets"),"targets (ground + air for every tower) and extra-target count remain explicit")
 	check(cells == before,"reading and formatting tower details never mutates the inventory")
 	var state = GemRun.new(42)
 	state.board.cells[p] = gem("aquamarine",1,true)

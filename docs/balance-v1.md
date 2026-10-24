@@ -24,7 +24,7 @@ Profil: **dota-solo-10w-v1**. Den granskade lokala Dota 2 GemTD-ögonblicksbilde
 | Köp av kvalitetschanser | Direkta motsvarande priser ej verifierade | 20/45 gold; två köp räcker för de tre tillåtna kvaliteterna. |
 | Vågor | Längre originalprogression | Tio kuraterade typer/antal med boss sist, originalens valda enhetsgrundvärden behållna. |
 | Läckor | Originalets läckskada kan slumpas | Fasta 1–4 liv beroende på typ. Bossläcka avslutar direkt. |
-| Luftmål | Exakt originalbegränsning ej fastställd | Diamond/Ruby väljer bara mark; övriga inkluderade torn väljer mark och luft. Tillfällig, dokumenterad uppdelning. |
+| Luftmål | Fastställt 2026-10-24 (se referensinventering) | Alla torn väljer mark och luft, som i Dota-versionen. Den tidigare tillfälliga uppdelningen (Diamond/Ruby bara mark) är borttagen. |
 
 Dessa anpassningar har **inte** buffats för att få en enkel bot att vinna. Tidigare innehållsvärden från 0.6 behålls i 1.0. En korrektionsändring bevarar däremot resttiden mellan fasta simuleringssteg: en aura med 0,25 s intervall ger nu 40 ticks under tio sekunder i stället för att varje tick avrundas uppåt. Torn under tomgång samlar ingen eldskuld.
 

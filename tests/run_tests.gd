@@ -132,7 +132,7 @@ func run_tests() -> void:
 		if state.phase != "combat":
 			break
 	check(state.phase == "build" and state.wave == 2 and state.kills > 0,"real combat simulation spawns, attacks, rewards and completes a wave")
-	# Ground-only selection must not accidentally hit air.
+	# Every tower can hit air, as in the Dota 2 version (Diamond was ground-only before 2026-10-24).
 	state = GemRun.new(5)
 	state.phase = "combat"
 	state.wave = 5
@@ -140,7 +140,7 @@ func run_tests() -> void:
 	sim.start()
 	sim.spawn_enemy()
 	var target_pos = state.board.checkpoints[0]+Vector2i(1,0)
-	check(sim.targets_for(target_pos,gem("diamond"),GemCatalog.stats(gem("diamond"))).is_empty(),"ground-only tower excludes flying targets")
+	check(sim.targets_for(target_pos,gem("diamond"),GemCatalog.stats(gem("diamond"))).size() == 1,"diamond acquires flying targets like every other tower")
 	check(sim.targets_for(target_pos,gem("sapphire"),GemCatalog.stats(gem("sapphire"))).size() == 1,"dual-target tower can acquire flying targets")
 	# Source-derived effects have observable outcomes, not just valid definitions.
 	state = GemRun.new(8)

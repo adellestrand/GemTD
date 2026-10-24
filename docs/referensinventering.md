@@ -55,7 +55,7 @@ Beslut 40 kvarstår som mål. Denna version är en testbar grund, inte en verifi
 | Ekonomi | Exakt ekonomiprogression ej verifierad | Start 0 gold; köp 20/45; kill 2/3 gold; clear 12+2×våg. Testvärden |
 | Liv | Originalets läckskada kan slumpas | 30 startliv, fasta kostnader 1–4 per typ, boss omedelbar förlust. Fasta kostnader är beslutade; siffrorna testvärden |
 | Vågor | Valda enheters grundvärden × solofaktor 0,69 | Egen ordning/antal, wave 8 en tidigare air-variant; inga slumpeliter. Tio kuraterade vågor är beslutat |
-| Luftmål | Exakt begränsning ej säkert fastställd | Diamond/Ruby ground, övriga sex och specialtorn ground+air. Tillfällig uppdelning för beslut 39 |
+| Luftmål | Fastställt 2026-10-24 | Alla torn (även Diamond/Ruby) attackerar mark och luft. Dota-enheterna (`units.json`: `gemtd_d1`, `gemtd_r1` m.fl.) har identiska attackinställningar och ingen luftbegränsning; inget luftfilter i `mode.lua`/`chain.lua`/kartfilen. Tidigare tillfällig uppdelning (Diamond/Ruby bara mark) är borttagen på användarens begäran. |
 | Checkpoints | Ursprungliga world coordinates | Snappas till cellcentrum; själva checkpointcellerna reserveras. Start-/målskyddets exakta område behöver kontroll |
 | Rörelse | Dota-motor och kartskript | Beslutade åtta riktningar utan hörnpassage; air raka etapper; minsta hastighet 100/128 cell/s behöver originalkontroll |
 | Grafik/ljud | Originaltillgångar används inte | Första egna genererade pixelbilderna, procedurritad terräng och syntetiska ljudeffekter; fortsatt grafisk bearbetning/animering återstår |

@@ -32,8 +32,9 @@ for name, code, color, effect in definitions:
         levels.append(dict(source_id=key, damage=float(u['AttackDamageMin']),
                            interval=float(u['AttackRate']), range=float(u['AttackRange']) / 128,
                            source_ability=u.get('Ability8', '')))
-    gems[name] = dict(name=name.title(), color=color, effect=effect, levels=levels,
-                      targets='ground' if name in ('diamond', 'ruby') else 'both')
+    # All eight base towers hit ground and air: the Dota 2 units have identical attack settings and
+    # no air restriction (decision 39, verified 2026-10-24; Diamond/Ruby were ground-only before).
+    gems[name] = dict(name=name.title(), color=color, effect=effect, levels=levels, targets='both')
 specials = {}
 for key, source, title, color, ingredients, effect in [
     ('silver', 'gemtd_baiyin', 'Silver', '#c5e4e7', [['sapphire', 1], ['topaz', 1], ['diamond', 1]], 'Physical attack; -90 movement speed for 3 seconds.'),

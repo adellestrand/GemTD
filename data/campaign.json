@@ -154,7 +154,7 @@
           "projectile_speed": 23.4375
         }
       ],
-      "targets": "ground"
+      "targets": "both"
     },
     "aquamarine": {
       "name": "Aquamarine",
@@ -560,7 +560,7 @@
           "projectile_speed": 23.4375
         }
       ],
-      "targets": "ground"
+      "targets": "both"
     },
     "amethyst": {
       "name": "Amethyst",

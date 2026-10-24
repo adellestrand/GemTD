@@ -62,7 +62,7 @@ func run_checks() -> void:
 	game.run.board.cells[Vector2i(11,10)] = {"kind":"diamond","tier":1,"fresh":false,"priority":"First"}
 	game.show_waves()
 	game.wave_book.wave_buttons[4].pressed.emit()
-	check(game.wave_book.selected_info.coverage.kept == 1 and game.wave_book.selected_info.coverage.kept_total == 2,"reopening reads the current board rather than a stale coverage snapshot")
+	check(game.wave_book.selected_info.coverage.kept == 2 and game.wave_book.selected_info.coverage.kept_total == 2,"reopening reads the current board rather than a stale coverage snapshot (the new Diamond also covers air)")
 	game.new_run(7)
 	await process_frame
 	check(not game.wave_book.visible and game.wave_book.state == null and game.wave_book.wave_buttons.is_empty() and not game.paused,"restart clears the inspected run, dialog and pause state safely")

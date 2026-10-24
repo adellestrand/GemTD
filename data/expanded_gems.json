@@ -100,7 +100,7 @@
           "source_ability": "tower_attack5"
         }
       ],
-      "targets": "ground"
+      "targets": "both"
     },
     "aquamarine": {
       "name": "Aquamarine",
@@ -350,7 +350,7 @@
           "source_ability": "tower_jianshe6"
         }
       ],
-      "targets": "ground"
+      "targets": "both"
     },
     "amethyst": {
       "name": "Amethyst",

@@ -43,7 +43,7 @@ func _initialize() -> void:
 	state.board.cells[Vector2i(14,10)] = gem("opal",true)
 	var air = GemWaveGuide.coverage(state,true)
 	var ground = GemWaveGuide.coverage(state,false)
-	check(air.kept == 2 and air.kept_total == 3 and air.fresh == 1 and air.fresh_total == 2,"air eligibility excludes ground-only towers and separates fresh candidates from kept defense")
+	check(air.kept == 3 and air.kept_total == 3 and air.fresh == 2 and air.fresh_total == 2,"every tower counts against air (Diamond and Ruby included) and fresh candidates stay separate from kept defense")
 	check(ground.kept == 3 and ground.fresh == 2 and ground.kept_total == 3,"ground eligibility includes aura/support towers but never counts stones")
 	info = GemWaveGuide.inspect(state,5)
 	check(info.route.contains("over obstacles") and not GemWaveGuide.inspect(state,4).route.contains("over obstacles"),"route descriptions distinguish air paths from the ground maze")

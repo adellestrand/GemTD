@@ -2,7 +2,7 @@
   "reports": [
     {
       "report": "maze-01.json",
-      "sha256": "ff1535337020a10751cc910e493b88924b904cd5dcdeba8458a11d0ff4a3ed59",
+      "sha256": "021611e6ad3a06409acc9fdfbcd76413bf15f53d596bd398bf2b4eeba390e004",
       "error": "",
       "lives": 0,
       "ok": true,
@@ -12,7 +12,7 @@
     },
     {
       "report": "maze-02.json",
-      "sha256": "3a507cec80dbe08e8ae6316218f2785c8bc3213acd0eec3ff0cdcea6cff3cac2",
+      "sha256": "311d51fb5eefc5fd63643ded51d929bdfabf3da0b8ebddf86d0436b966ae88ba",
       "error": "",
       "lives": 0,
       "ok": true,
@@ -22,7 +22,7 @@
     },
     {
       "report": "maze-03.json",
-      "sha256": "a45aa97b095a2d2389e1a219c83cf5f794a5c1464c6943ee62bd419c63b85046",
+      "sha256": "81bb3284b62662f9c9fc94a19227c0e8b094cc3522d6c994866c8d65f65dcd36",
       "error": "",
       "lives": 0,
       "ok": true,
@@ -32,7 +32,7 @@
     },
     {
       "report": "maze-04.json",
-      "sha256": "e06cbc590509b75bfd563dd38deece776aabea198e3e748d974b622ef8dbe2cd",
+      "sha256": "622a74d948c03ae07783eded41f385d234886841ddb631c6136fe6a184312a78",
       "error": "",
       "lives": 0,
       "ok": true,
@@ -42,7 +42,7 @@
     },
     {
       "report": "maze-05.json",
-      "sha256": "5bbbaaa86b789957539b4e75de5dab8937243982bc3a882e7d2b81039fcda8a3",
+      "sha256": "caadd6facd1c8e966ab9202e1673d025185f576d42ac41229f7b0227769308ef",
       "error": "",
       "lives": 0,
       "ok": true,

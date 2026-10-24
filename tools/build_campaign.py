@@ -268,6 +268,18 @@ def build():
         alternatives[str(index)] = [enemy(dict(**unit_facts(key,raw_units),added_abilities=source['waves'][index-1]['added_abilities']),index) for key in ids]
     stealable = source['progression']['stealable_abilities']
     random_models={key:dict(**fact,coefficient=prd_coefficient(fact['chance'])) for key,fact in source['random_events'].items()}
+    # User-ordered gold spells (package A): source hero abilities at level 1.
+    # Costs/chances come from AbilityValues; the gem type and quality suffix
+    # ("111" = III) a pray targets are read from mode.lua by hand, not evaluated.
+    def level_one(name,key): return int(abilities[name]['AbilityValues'][key].split()[0])
+    spells={}
+    for name,kind in [('lanse','sapphire'),('baise','diamond'),('fense','aquamarine'),('danbai','opal'),
+                      ('lvse','emerald'),('huangse','topaz'),('hongse','ruby'),('zise','amethyst')]:
+        spells['pray_'+kind]=dict(group='type',kind=kind,source='gemtd_hero_'+name,cost=level_one('gemtd_hero_'+name,'cost'),chance=level_one('gemtd_hero_'+name,'gailv'))
+    for name,tier,label in [('putong',3,'common'),('wuxia',4,'flawless'),('wanmei',5,'perfect')]:
+        spells['pray_'+label]=dict(group='quality',tier=tier,source='gemtd_hero_'+name,cost=level_one('gemtd_hero_'+name,'cost'),chance=level_one('gemtd_hero_'+name,'gailv'))
+    spells['heal']=dict(group='heal',source='gemtd_hero_huichun',cost=level_one('gemtd_hero_huichun','cost'),
+                        min_heal=level_one('gemtd_hero_huichun','min_heal'),max_heal=level_one('gemtd_hero_huichun','max_heal'))
     payload=dict(version=10,profile='full-solo-dev',gems=gems,specials=specials,recipes=recipes,random_models=random_models,
                  mechanics=dict(tower_moves_per_run=5,stealable_abilities=stealable,downgrade_weights={'2':[100],'3':[34,66],'4':[20,30,50],'5':[10,15,25,50],'6':[20,20,20,20,20]},berserk_seconds=180,berserk_move_percent=100,trial_intermission_seconds=3),
                  wave_alternatives=alternatives,
@@ -278,11 +290,12 @@ def build():
                  quality_costs=[250,400,550,700],waves=waves,starting_lives=100,
                  economy=dict(source_xp_thresholds=[0,250,650,1200,1900],boss_odds_discount=150,boss_discount_last_wave=50,
                               odds_purchase='Base gold prices equal source XP threshold differences. Each defeated base boss grants 150 gold and 150 banked odds-only discount. Unused discount carries forward; purchases remain manual.'),
+                 spells=spells,
                  slab_upgrades={names[r['source']]:names[r['result']] for r in source['slab_upgrades']},
                  trial_pool=source['progression']['trial_ability_pool'],
                  mvp=dict(last_award_wave=50,maximum_level=10,damage_percent_per_level=10,max_level_aura_radius=290/128,max_level_aura_percent=100,damage_percent_cap=500),
                  balance_note='Solo campaign: source snapshot 2026-08-01, 50 base waves plus 50 trials. '
-                 'Gold odds purchases are an adaptation; hero abilities, weekly themes and random elites are excluded. '
+                 'Gold odds purchases are an adaptation. Gem prays and castle heal are source hero spells at level 1, bought with gold during building; other hero abilities, weekly themes and random elites are excluded. '
                  'Tracking attacks use source projectile speeds and a documented Dota total attack-speed cap of 700. '
                  'Explicit source PRD events use calibrated standalone smoothing; exact Valve RNG and engine event ordering are not match-verified.')
     (ROOT/'data/campaign.json').write_text(json.dumps(payload,indent=2)+'\n',encoding='utf8')

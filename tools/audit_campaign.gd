@@ -1,6 +1,10 @@
 extends "res://tools/audit_v1.gd"
 
 var planning_state: GemRun
+var spells = false
+var spells_first = false
+# Control for the spell comparison: no odds purchases before wave 11.
+var late_odds = false
 
 func value(gem_data: Dictionary, wave: Dictionary) -> float:
 	var planning_wave = wave.duplicate()
@@ -19,6 +23,9 @@ func audit() -> void:
 	for argument in OS.get_cmdline_user_args():
 		if argument.begins_with("--output=res://output/") and ".." not in argument: output_dir = argument.trim_prefix("--output=")
 	policy = "maze"
+	spells_first = "--spells-first" in OS.get_cmdline_user_args()
+	late_odds = "--late-odds" in OS.get_cmdline_user_args()
+	spells = spells_first or "--spells" in OS.get_cmdline_user_args()
 	DirAccess.make_dir_recursive_absolute(output_dir)
 	var runs = 3
 	for argument in OS.get_cmdline_user_args():
@@ -32,7 +39,7 @@ func audit() -> void:
 		index.append({"seed":seed_value,"outcome":report.outcome,"wave":report.wave,"lives":report.lives,"kills":report.kills,"error":report.get("error","")})
 		print("CAMPAIGN_AUDIT seed=%d wave=%d outcome=%s" % [seed_value,report.wave,report.outcome])
 	var file = FileAccess.open(output_dir+"/index.json",FileAccess.WRITE)
-	file.store_string(JSON.stringify({"profile":GemCatalog.DATA.profile,"policy":"greedy route maze, no long-term recipe planning; real RNG and economy, no fixtures or stat buffs","results":index},"  "))
+	file.store_string(JSON.stringify({"profile":GemCatalog.DATA.profile,"policy":"greedy route maze, no long-term recipe planning; real RNG and economy, no fixtures or stat buffs"+("; casts a Flawless pray every round before odds purchases, then heals at lives <= 90" if spells_first else "; spends gold above the next odds price on heal (lives <= 90) and a Flawless pray before the first gem" if spells else "")+("; no odds purchases before wave 11" if late_odds else ""),"results":index},"  "))
 	file.close()
 	print("CAMPAIGN_AUDIT_OK runs=%d" % runs)
 	quit(1 if index.any(func(r): return not str(r.error).is_empty()) else 0)
@@ -60,8 +67,11 @@ func campaign_run(seed_value: int) -> Dictionary:
 			if state.wave == before and state.phase not in ["won","lost"]:
 				error = "Trial exceeded 3000 simulation seconds"
 				break
+			if spells and state.phase == "intermission": cast_spells(state)
 			continue
-		while state.quality < GemCatalog.max_quality_upgrade() and state.gold >= state.quality_price(): state.buy_quality()
+		if spells_first: state.cast_spell("pray_flawless")
+		while state.quality < GemCatalog.max_quality_upgrade() and state.gold >= state.quality_price() and not (late_odds and state.wave <= 10): state.buy_quality()
+		if spells: cast_spells(state)
 		combine_old(state)
 		for p in state.board.slabs.keys():
 			for point in state.board.ground_route:
@@ -69,6 +79,7 @@ func campaign_run(seed_value: int) -> Dictionary:
 				if state.slab_error(q).is_empty():
 					state.move_slab(p,q)
 					break
+		if spells and state.placed == 0 and state.gold-reserve(state) >= int(GemRun.spell("pray_flawless").cost): state.cast_spell("pray_flawless")
 		while state.placed < 5:
 			var placed = false
 			for candidate in positions(state):
@@ -98,3 +109,9 @@ func campaign_run(seed_value: int) -> Dictionary:
 	state.action_recorded.disconnect(record)
 	state.combat_started.disconnect(start)
 	return report
+
+func reserve(state: GemRun) -> int:
+	return state.quality_price() if state.quality < GemCatalog.max_quality_upgrade() and state.wave <= 50 else 0
+
+func cast_spells(state: GemRun) -> void:
+	while state.lives <= 90 and state.gold-reserve(state) >= int(GemRun.spell("heal").cost) and state.cast_spell("heal"): pass

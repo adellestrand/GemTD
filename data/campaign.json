@@ -7590,6 +7590,92 @@
     "boss_discount_last_wave": 50,
     "odds_purchase": "Base gold prices equal source XP threshold differences. Each defeated base boss grants 150 gold and 150 banked odds-only discount. Unused discount carries forward; purchases remain manual."
   },
+  "spells": {
+    "pray_sapphire": {
+      "group": "type",
+      "kind": "sapphire",
+      "source": "gemtd_hero_lanse",
+      "cost": 200,
+      "chance": 40
+    },
+    "pray_diamond": {
+      "group": "type",
+      "kind": "diamond",
+      "source": "gemtd_hero_baise",
+      "cost": 200,
+      "chance": 40
+    },
+    "pray_aquamarine": {
+      "group": "type",
+      "kind": "aquamarine",
+      "source": "gemtd_hero_fense",
+      "cost": 200,
+      "chance": 40
+    },
+    "pray_opal": {
+      "group": "type",
+      "kind": "opal",
+      "source": "gemtd_hero_danbai",
+      "cost": 200,
+      "chance": 40
+    },
+    "pray_emerald": {
+      "group": "type",
+      "kind": "emerald",
+      "source": "gemtd_hero_lvse",
+      "cost": 200,
+      "chance": 40
+    },
+    "pray_topaz": {
+      "group": "type",
+      "kind": "topaz",
+      "source": "gemtd_hero_huangse",
+      "cost": 200,
+      "chance": 40
+    },
+    "pray_ruby": {
+      "group": "type",
+      "kind": "ruby",
+      "source": "gemtd_hero_hongse",
+      "cost": 200,
+      "chance": 40
+    },
+    "pray_amethyst": {
+      "group": "type",
+      "kind": "amethyst",
+      "source": "gemtd_hero_zise",
+      "cost": 200,
+      "chance": 40
+    },
+    "pray_common": {
+      "group": "quality",
+      "tier": 3,
+      "source": "gemtd_hero_putong",
+      "cost": 200,
+      "chance": 50
+    },
+    "pray_flawless": {
+      "group": "quality",
+      "tier": 4,
+      "source": "gemtd_hero_wuxia",
+      "cost": 200,
+      "chance": 29
+    },
+    "pray_perfect": {
+      "group": "quality",
+      "tier": 5,
+      "source": "gemtd_hero_wanmei",
+      "cost": 400,
+      "chance": 6
+    },
+    "heal": {
+      "group": "heal",
+      "source": "gemtd_hero_huichun",
+      "cost": 300,
+      "min_heal": 1,
+      "max_heal": 10
+    }
+  },
   "slab_upgrades": {
     "youbushiban": "youbushiban_yin",
     "zhangqishiban": "zhangqishiban_yin",
@@ -7631,5 +7717,5 @@
     "max_level_aura_percent": 100,
     "damage_percent_cap": 500
   },
-  "balance_note": "Solo campaign: source snapshot 2026-08-01, 50 base waves plus 50 trials. Gold odds purchases are an adaptation; hero abilities, weekly themes and random elites are excluded. Tracking attacks use source projectile speeds and a documented Dota total attack-speed cap of 700. Explicit source PRD events use calibrated standalone smoothing; exact Valve RNG and engine event ordering are not match-verified."
+  "balance_note": "Solo campaign: source snapshot 2026-08-01, 50 base waves plus 50 trials. Gold odds purchases are an adaptation. Gem prays and castle heal are source hero spells at level 1, bought with gold during building; other hero abilities, weekly themes and random elites are excluded. Tracking attacks use source projectile speeds and a documented Dota total attack-speed cap of 700. Explicit source PRD events use calibrated standalone smoothing; exact Valve RNG and engine event ordering are not match-verified."
 }

@@ -203,6 +203,9 @@ var display_mode = "fullscreen"
 var last_window_mode = "1080p"
 const WINDOW_SIZES = {"1080p":Vector2i(1920,1080),"1440p":Vector2i(2560,1440),"2160p":Vector2i(3840,2160)}
 var action_panel: Control
+var spells_card: Control
+var spell_buttons: Dictionary = {}
+var spell_status: Label
 
 func glyph(rows: Array, color: Color, scale: int = 2) -> ImageTexture:
 	var img = Image.create(rows[0].length()*scale,rows.size()*scale,false,Image.FORMAT_RGBA8)
@@ -705,6 +708,36 @@ func build_ui() -> void:
 	odds_discount = styled(label_in(odds_card,"",12),"MutedLabel") as Label
 	odds_discount.visible = false
 	quality_button = styled(button_in(odds_card,"",func(): run.buy_quality()),"AccentButton") as Button
+	# gold spells: source hero prays (next gem) and castle heal, campaign only
+	var spell_box = card_in(info)
+	spells_card = spell_box.get_parent()
+	spell_box.add_theme_constant_override("separation",6)
+	styled(label_in(spell_box,"Gold spells",15),"SectionLabel").remove_theme_font_size_override("font_size")
+	var type_row = GridContainer.new()
+	type_row.columns = 8
+	type_row.add_theme_constant_override("h_separation",3)
+	spell_box.add_child(type_row)
+	var quality_row = HBoxContainer.new()
+	quality_row.add_theme_constant_override("separation",4)
+	spell_box.add_child(quality_row)
+	for id in GemCatalog.DATA.get("spells",{}):
+		var data: Dictionary = GemCatalog.DATA.spells[id]
+		var button: Button
+		if data.group == "type":
+			button = styled(button_in(type_row,"",func(): run.cast_spell(id)),"ToolButton") as Button
+			button.icon = GemArt.texture(GemArt.sprite_id("gems",data.kind,1))
+			button.expand_icon = true
+			button.custom_minimum_size = Vector2(38,38)
+			button.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
+		elif data.group == "quality":
+			button = styled(button_in(quality_row,"%s · %dg" % [GemCatalog.quality_name(int(data.tier)),int(data.cost)],func(): run.cast_spell(id)),"ToolButton") as Button
+			button.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+		else:
+			button = styled(button_in(spell_box,"Heal %d–%d lives · %d gold" % [int(data.min_heal),int(data.max_heal),int(data.cost)],func(): run.cast_spell(id)),"AccentButton") as Button
+		button.focus_mode = Control.FOCUS_NONE
+		spell_buttons[id] = button
+	spell_status = styled(label_in(spell_box,"",12),"MutedLabel") as Label
+	spell_status.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	var settings_panel = PanelContainer.new()
 	settings_panel.theme_type_variation = "Log"
 	info.add_child(settings_panel)
@@ -984,6 +1017,7 @@ func refresh_ui() -> void:
 	save_label.visible = not save_label.text.is_empty()
 	odds_discount.text = "Boss discount saved: %d gold" % run.quality_discount
 	odds_discount.visible = GemCatalog.campaign() and not odds_maxed
+	refresh_spells()
 	message_label.text = run.message
 	pause_button.icon = glyph(ICON_PLAY if paused else ICON_PAUSE,Color("e8c46a"))
 	pause_button.text = "Resume [Space]" if paused else "Pause [Space]"
@@ -1056,6 +1090,30 @@ func refresh_ui() -> void:
 	refresh_hover_hint()
 	refresh_action_preview()
 	board_view.queue_redraw()
+
+func spell_summary(id: String) -> String:
+	var data = GemRun.spell(id)
+	if data.group == "heal": return "Heal · %d gold
+Restore %d–%d lives at random, up to %d. Between waves only." % [int(data.cost),int(data.min_heal),int(data.max_heal),GemCatalog.starting_lives()]
+	if data.group == "type": return "%s Pray · %d gold
+%d%% chance that your next gem is %s. Quality is rolled as usual." % [str(data.kind).capitalize(),int(data.cost),int(data.chance)-1,str(data.kind).capitalize()]
+	return "Quality %s Pray · %d gold
+%d%% chance that your next gem becomes quality %s, replacing the rolled quality (even a higher one). One success per round." % [GemCatalog.quality_name(int(data.tier)),int(data.cost),int(data.chance)-1,GemCatalog.quality_name(int(data.tier))]
+
+func refresh_spells() -> void:
+	spells_card.visible = GemCatalog.campaign() and not GemCatalog.DATA.get("spells",{}).is_empty() and run.phase not in ["won","lost"]
+	if not spells_card.visible: return
+	for id in spell_buttons:
+		var error = run.spell_error(id)
+		var button: Button = spell_buttons[id]
+		button.disabled = not error.is_empty()
+		button.modulate = Color(1.3,1.15,.6) if id in [run.type_pray,run.quality_pray] else Color.WHITE
+		button.tooltip_text = spell_summary(id)+("" if error.is_empty() else "
+"+error)
+	var waiting: Array = []
+	for id in [run.type_pray,run.quality_pray]:
+		if not id.is_empty(): waiting.append(spell_summary(id).get_slice(" ·",0))
+	spell_status.text = "Waiting for your next gem: "+", ".join(waiting) if not waiting.is_empty() else "Trials: heal only." if run.wave > 50 else "Prays apply to your next gem. Hover for odds."
 
 func refresh_wave_card(w: Dictionary) -> void:
 	wave_name.text = str(w.name).left(1).to_upper()+str(w.name).substr(1)
@@ -1377,5 +1435,5 @@ func show_help() -> void:
 		recipe_text.text += "\n\n[b]Tower relocation[/b]\nYou have five tower moves for the entire run, shared by all towers. During building, select an older tower and Move tower, then click an empty cell or a stone. A stone swaps to the old tower cell; an empty destination leaves the old cell empty. The whole checkpoint route must stay open. New unselected gems, combat, trial intervals and the final trap-placement step cannot use tower moves. Escape or clicking the source cancels for free. Invalid moves consume nothing. Tower quality, MVP, copied abilities, rolled attack and targeting stay with the tower. Trap movement does not spend these five moves."
 		recipe_text.text = recipe_text.text.replace("Board changes are available in the next build phase.","Older tower recipes remain available during combat.")
 		recipe_text.text += "\n\n[b]Campaign rules[/b]\nAfter five placements, a new gem of quality II or higher may be downgraded randomly as your final choice. The button shows its odds. This starts combat and turns other new gems into stones. Older tower recipes can also be combined during combat; no new placements or demolition are allowed then. Create and move path traps before combat. A trap recipe using new gems lets you position the trap before clicking Start wave.\n\nAfter wave 50 there are no new gems or building rounds. Trials start automatically after a 3-second interval; pause to review. Trial kills give 5 base gold; odds purchases close because no future gems are placed.\n\nAfter 180 seconds of simulated combat, berserk grants enemies +100% movement speed and magic immunity. The wave panel shows the countdown. Lanes may have alternate enemies and bosses, with calendar choices saved for this run."
-		recipe_text.text += "\n\n[b]Map marks[/b]\nRoman badges identify gem quality. Special tower abbreviations appear when zoomed in or selected. A gold cross marks MVP progress. Trap symbols identify their effect; one/two/three edge marks mean bronze/silver/gold. Enemy marks show petrification (diamond), stun (cross), refraction (box), invisibility (eye), damage over time (dot and bar), slow (zigzag), armor reduction (V), or magic immunity (crossed box). Undetected invisible enemies are faint and cannot be targeted.\n\n[b]Gem purchases[/b]\nDefeating a base boss (waves 10/20/30/40/50) grants 150 saved discount for future odds purchases. Gold rewards stay the same. Purchases are manual; unused discount carries to the next purchase. Trial bosses grant no discount.\n\n[b]Path traps[/b]\nTrap recipes consume their listed gems and open the selected material cell. Traps do not block enemies. Select a trap and Move path trap during building. Two equal traps anywhere on the board merge automatically into the next grade (bronze to silver to gold) at the newest trap. Traps trigger when an enemy comes within one cell, with a 10s cooldown.\n\n"+str(GemCatalog.DATA.balance_note)
+		recipe_text.text += "\n\n[b]Map marks[/b]\nRoman badges identify gem quality. Special tower abbreviations appear when zoomed in or selected. A gold cross marks MVP progress. Trap symbols identify their effect; one/two/three edge marks mean bronze/silver/gold. Enemy marks show petrification (diamond), stun (cross), refraction (box), invisibility (eye), damage over time (dot and bar), slow (zigzag), armor reduction (V), or magic immunity (crossed box). Undetected invisible enemies are faint and cannot be targeted.\n\n[b]Gem purchases[/b]\nDefeating a base boss (waves 10/20/30/40/50) grants 150 saved discount for future odds purchases. Gold rewards stay the same. Purchases are manual; unused discount carries to the next purchase. Trial bosses grant no discount.\n\n[b]Gold spells[/b]\nThe Dota hero spells at level 1, bought with gold. A gem pray (200 gold) gives a 39% chance that your next gem is that type. Quality prays give your next gem a chance to become quality III (49%, 200 gold), IV (28%, 200 gold) or V (5%, 400 gold); a success replaces the rolled quality, even a higher one, and only one can succeed per round. Prays are cast before a placement, one of each kind at a time, and close in the trials. Heal (300 gold) restores 1–10 lives at random, up to the starting 100, between waves.\n\n[b]Path traps[/b]\nTrap recipes consume their listed gems and open the selected material cell. Traps do not block enemies. Select a trap and Move path trap during building. Two equal traps anywhere on the board merge automatically into the next grade (bronze to silver to gold) at the newest trap. Traps trigger when an enemy comes within one cell, with a 10s cooldown.\n\n"+str(GemCatalog.DATA.balance_note)
 	recipe_popup.popup_centered(Vector2i(730,690))

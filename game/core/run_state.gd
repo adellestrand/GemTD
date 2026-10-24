@@ -31,6 +31,11 @@ var tower_revision = 0
 var tower_moves_left = 0
 var trial_wait = 0.0
 var wave_choices: Dictionary = {}
+# Gold spells (source hero abilities at level 1). Prays wait for the next gem.
+var type_pray = ""
+var quality_pray = ""
+var quality_pray_hit = false
+var last_heal = 0
 var reference_calendar: Dictionary = Time.get_date_dict_from_system()
 
 func _init(seed_value: int = 1) -> void:
@@ -55,7 +60,20 @@ func place(p: Vector2i) -> bool:
 	var roll = rng.randi_range(1, 100)
 	var odds: Array = GemCatalog.DATA.quality_odds[quality]
 	var tier = GemCatalog.roll_tier(odds,roll)
+	# Source order: quality roll, quality pray, type roll, type pray. A pray
+	# replaces the rolled value on success (RandomInt(1,100) < chance), and at
+	# most one quality pray succeeds per round.
+	if not quality_pray.is_empty():
+		var quality_spell = spell(quality_pray)
+		quality_pray = ""
+		if not quality_pray_hit and rng.randi_range(1,100) < int(quality_spell.chance):
+			tier = int(quality_spell.tier)
+			quality_pray_hit = true
 	var kind: String = GemCatalog.TYPES[rng.randi_range(0, 7)]
+	if not type_pray.is_empty():
+		var type_spell = spell(type_pray)
+		type_pray = ""
+		if rng.randi_range(1,100) < int(type_spell.chance): kind = str(type_spell.kind)
 	board.cells[p] = {"kind": kind, "tier": tier, "fresh": true, "priority": "First"}
 	placed += 1
 	record_action({"action":"place","at":[p.x,p.y],"kind":kind,"tier":tier})
@@ -289,6 +307,9 @@ func start_wave() -> bool:
 
 func begin_combat() -> void:
 	awaiting_trap_placement = false
+	type_pray = ""
+	quality_pray = ""
+	quality_pray_hit = false
 	pending_trap = Vector2i(-1,-1)
 	phase = "combat"
 	message = "Wave %d: %s" % [wave, GemCatalog.wave(wave).name]
@@ -332,6 +353,49 @@ func buy_quality() -> bool:
 	quality += 1
 	record_action({"action":"quality","cost":cost,"level":quality})
 	message = "Gem odds improved. Only future placements are affected."
+	sound_requested.emit("combine")
+	changed.emit()
+	return true
+
+static func spell(id: String) -> Dictionary:
+	return GemCatalog.DATA.get("spells",{}).get(id,{})
+
+func spell_error(id: String) -> String:
+	var data = spell(id)
+	if not GemCatalog.campaign() or data.is_empty(): return "Gold spells are available in the solo campaign."
+	if data.group == "heal":
+		if phase not in ["build","intermission"]: return "Heal between waves."
+		if lives >= GemCatalog.starting_lives(): return "Lives are already full."
+	else:
+		if wave > 50: return "Trials grant no new gems, so prays are closed."
+		if phase != "build" or awaiting_trap_placement or placed >= 5: return "Prays affect your next gem. Cast them before a placement."
+		if data.group == "type" and not type_pray.is_empty(): return "A gem type pray already waits for your next gem."
+		if data.group == "quality" and not quality_pray.is_empty(): return "A quality pray already waits for your next gem."
+		if data.group == "quality" and quality_pray_hit: return "A quality pray already succeeded this round."
+	if gold < int(data.cost): return "You need %d gold." % int(data.cost)
+	return ""
+
+func cast_spell(id: String) -> bool:
+	var error = spell_error(id)
+	if not error.is_empty(): return fail(error)
+	var data = spell(id)
+	gold -= int(data.cost)
+	var entry = {"action":"spell","spell":id,"cost":int(data.cost)}
+	last_heal = 0
+	if data.group == "heal":
+		var amount = rng.randi_range(int(data.min_heal),int(data.max_heal))
+		var before = lives
+		lives = mini(GemCatalog.starting_lives(),lives+amount)
+		last_heal = amount
+		entry.heal = amount
+		message = "Healed %d lives (rolled %d)." % [lives-before,amount]
+	elif data.group == "type":
+		type_pray = id
+		message = "Pray: %d%% chance that your next gem is %s." % [int(data.chance)-1,str(data.kind).capitalize()]
+	else:
+		quality_pray = id
+		message = "Pray: %d%% chance that your next gem becomes quality %s." % [int(data.chance)-1,GemCatalog.quality_name(int(data.tier))]
+	record_action(entry)
 	sound_requested.emit("combine")
 	changed.emit()
 	return true
@@ -515,6 +579,9 @@ func restore(data: Dictionary) -> bool:
 			trial_wait = float(GemCatalog.DATA.mechanics.trial_intermission_seconds)
 	awaiting_trap_placement = false
 	pending_trap = Vector2i(-1,-1)
+	type_pray = ""
+	quality_pray = ""
+	quality_pray_hit = false
 	placed = 0
 	message = "Resumed before trial %d. No new gems; pause to review." % wave if phase == "intermission" else "Resumed at the beginning of build phase %d." % wave
 	changed.emit()

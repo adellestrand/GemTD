@@ -84,6 +84,14 @@ def verify():
     equal('manual odds prices from XP differences',c['quality_costs'],[b-a for a,b in zip(c['economy']['source_xp_thresholds'],c['economy']['source_xp_thresholds'][1:])])
     equal('approved boss odds discount',c['economy']['boss_odds_discount'],150)
     equal('discount stops after base bosses',c['economy']['boss_discount_last_wave'],50)
+    # Approved gold spells: source hero ability values at level 1.
+    prays={'sapphire':'lanse','diamond':'baise','aquamarine':'fense','opal':'danbai','emerald':'lvse','topaz':'huangse','ruby':'hongse','amethyst':'zise'}
+    expected_spells={'pray_'+kind:dict(group='type',kind=kind,source='gemtd_hero_'+name,cost=200,chance=40) for kind,name in prays.items()}
+    expected_spells.update(pray_common=dict(group='quality',tier=3,source='gemtd_hero_putong',cost=200,chance=50),
+                           pray_flawless=dict(group='quality',tier=4,source='gemtd_hero_wuxia',cost=200,chance=29),
+                           pray_perfect=dict(group='quality',tier=5,source='gemtd_hero_wanmei',cost=400,chance=6),
+                           heal=dict(group='heal',source='gemtd_hero_huichun',cost=300,min_heal=1,max_heal=10))
+    equal('level-1 gold spells',c['spells'],expected_spells)
     equal('documented aura linger',c['combat']['default_aura_linger'],.5)
     equal('checkpoint proximity from source 64 units',c['combat']['checkpoint_radius'],.5)
     for effects in c['ability_effects'].values():

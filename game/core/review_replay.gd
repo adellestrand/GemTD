@@ -55,6 +55,9 @@ static func replay(report: Dictionary) -> Dictionary:
 				var cost = state.quality_price()
 				accepted = state.buy_quality()
 				if accepted: accepted = cost == int(entry.get("cost",-1)) and state.quality == int(entry.get("level",-1))
+			"spell":
+				accepted = state.cast_spell(str(entry.get("spell","")))
+				if accepted: accepted = int(GemRun.spell(str(entry.spell)).cost) == int(entry.get("cost",-1)) and state.last_heal == int(entry.get("heal",0))
 			"priority": accepted = state.set_priority(p,str(entry.get("priority","")))
 		if not accepted:
 			error = "Rejected action or mismatched reveal: "+str(entry.action)

@@ -1,0 +1,36 @@
+{
+  "provider": "PixelLab",
+  "tool": "create_image_pro_flash",
+  "status": "completed",
+  "date": "2026-10-26",
+  "job_id": "0cdb9116-ec9f-4729-a9dc-271afaaae0cc",
+  "source_image_id": "a7d58f32-147f-558c-bacf-671ae7ee98a4",
+  "reference": "assets/graphics/refined-v3/sapphire_1.png",
+  "requested_size": [
+    64,
+    64
+  ],
+  "seed": 261026,
+  "no_background": true,
+  "estimated_generations": 5,
+  "prompt": "One single Sapphire I basic gem tower sprite for a fantasy tower defense game, matching the supplied style image. Compact medieval grey stone tower on a small octagonal stone footing, one large vivid cobalt-blue faceted sapphire on its top, restrained antique brass fittings, a few small blue crystal inset windows. Three-quarter top-down orthographic game view, visible top and front faces, no perspective distortion. Preserve the existing reference tower's identity, camera, blue/grey/gold palette and modest basic-tier scale. Improve its readable silhouette, stone plane separation, clean deliberate pixel clusters and jewel facets. Native crisp hand-placed-looking pixel art, dark navy contour, light from upper left, hard-edged shading, restrained highlights. Single clean silhouette about 42 pixels wide and 54 pixels tall centered within the 64x64 canvas with a transparent margin. The sapphire is the focal point. No ground tile, no scenery, no text, no border, no bloom, no soft blurred shadows, no extra towers. Truly transparent background.",
+  "active_in_game": false,
+  "charged_generations": 5,
+  "remaining_generations_after": 35,
+  "validation": {
+    "size": [
+      64,
+      64
+    ],
+    "visible_bounds": [
+      13,
+      3,
+      51,
+      61
+    ],
+    "alpha_values": 2,
+    "sha256": "6502c5faf1be36af6acb73e38d3d38b00cb1b2a923599741c6bc2c4bae9e4653",
+    "reference_sha256": "cf21d2a670cd8a0e16d5489b3b01fac60760a3af6505ed0c8960f1a8044596bc"
+  },
+  "used_as_reference_and_first_idle_frame": "assets/graphics/pixellab-v1/sapphire_idle_v1.png"
+}

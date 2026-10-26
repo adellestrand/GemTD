@@ -1,0 +1,48 @@
+{
+  "id": "azuremir",
+  "previous": {
+    "trim_alpha": true,
+    "size": [
+      1.25,
+      1.3
+    ],
+    "anchor": [
+      0.5,
+      0.72
+    ],
+    "texture": "res://assets/graphics/refined-v3/anims/azuremir_walk_v1.png",
+    "frames": 4
+  },
+  "size": [
+    88,
+    80
+  ],
+  "frames": 8,
+  "air": false,
+  "wave_names": [
+    "azuremir"
+  ],
+  "seed": 26102601,
+  "estimated_generations": 1,
+  "action": "An eight-frame seamless looping locomotion animation. The four-legged dragon walks in place with alternating claws and a gently counterbalancing tail. Its back spikes stay attached. Maintain exactly the original facing, character identity, proportions, accessories and pixel-art style. Locked camera, no turn, no zoom, no horizontal translation, no squash or stretching. Keep the whole character and moving limbs inside the transparent canvas. Return smoothly to the starting stance at the end for a continuous loop.",
+  "provider": "PixelLab",
+  "tool": "animate_image",
+  "date": "2026-10-26",
+  "reference": "assets/graphics/pixellab-enemies-v1/azuremir_reference.png",
+  "receipt": "id: 317d62fe-ac7f-46e0-8d8f-8c64603c8348\njob_id: 317d62fe-ac7f-46e0-8d8f-8c64603c8348\naction: An eight-frame seamless looping locomotion animation. The four-legged dragon walks in place with alternating claws and a gently counterbalancing tail. Its back spikes stay attached. Maintain exactly the original facing, character identity, proportions, accessories and pixel-art style. Locked camera, no turn, no zoom, no horizontal translation, no squash or stretching. Keep the whole character and moving limbs inside the transparent canvas. Return smoothly to the starting stance at the end for a continuous loop.\nframes: 8\nsize: 88x80px\ntransparent: True\nlast_frame: yes (interpolating to it)\nseed: 26102601\nasset_id: 4ebbe07d-7775-5fba-a131-efd8e0ebac6b\nasset_status: pending (saved when generation completes)\ncost: 1 generation\nstatus: processing (~30-180s)\n\nhint: get_image(job_id=\"317d62fe-ac7f-46e0-8d8f-8c64603c8348\")",
+  "provider_frame_count": 9,
+  "selected_provider_indices": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7
+  ],
+  "last_frame": "same_as_first",
+  "no_background": true,
+  "restored_reference_opacity": null,
+  "sha256": "0a0c66756a775410b5f9f899f42e63a8bb255d062e25758f94bf5c0eed870c32"
+}

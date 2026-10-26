@@ -1,0 +1,129 @@
+{
+  "source": "PixelLab vfx_workbench",
+  "part": "cartoon_boom",
+  "my_effects_id": "0d3a287e-03cd-46c4-ab0a-037c31fb0225",
+  "export_image_id": "ac685a1b-6c71-4991-b8f9-3fd13d1df034",
+  "pack": {
+    "app": "PixelLab VFX Creator",
+    "name": "GemTD hit blast v1",
+    "fps": 12,
+    "frame_ms": 83,
+    "frames": 12,
+    "loop": false,
+    "canvas": {
+      "w": 52,
+      "h": 55
+    },
+    "anchor": {
+      "kind": "feet",
+      "x": 28,
+      "y": 48
+    },
+    "clips": [
+      {
+        "name": "whole",
+        "title": "the whole effect, no sprite",
+        "depth": "both",
+        "loop": false,
+        "start_frame": 0,
+        "frames": 11,
+        "frame": {
+          "w": 46,
+          "h": 49
+        },
+        "sheets": [
+          {
+            "file": "whole.png",
+            "first_frame": 0,
+            "frames": 11,
+            "columns": 4,
+            "rows": 3
+          }
+        ],
+        "offset": {
+          "x": -25,
+          "y": -45
+        }
+      },
+      {
+        "name": "whole-with-sprite",
+        "title": "the whole effect with the sprite in it",
+        "depth": "both",
+        "loop": false,
+        "start_frame": 0,
+        "frames": 12,
+        "frame": {
+          "w": 46,
+          "h": 49
+        },
+        "sheets": [
+          {
+            "file": "whole-with-sprite.png",
+            "first_frame": 0,
+            "frames": 12,
+            "columns": 4,
+            "rows": 3
+          }
+        ],
+        "offset": {
+          "x": -25,
+          "y": -45
+        }
+      },
+      {
+        "name": "behind",
+        "title": "everything behind the sprite",
+        "depth": "behind",
+        "loop": false,
+        "start_frame": 0,
+        "frames": 11,
+        "frame": {
+          "w": 46,
+          "h": 49
+        },
+        "sheets": [
+          {
+            "file": "behind.png",
+            "first_frame": 0,
+            "frames": 11,
+            "columns": 4,
+            "rows": 3
+          }
+        ],
+        "offset": {
+          "x": -25,
+          "y": -45
+        }
+      },
+      {
+        "name": "part-cartoon_boom",
+        "title": "the cartoon boom part",
+        "part": "cartoon_boom",
+        "depth": "behind",
+        "loop": false,
+        "start_frame": 0,
+        "frames": 11,
+        "frame": {
+          "w": 46,
+          "h": 49
+        },
+        "sheets": [
+          {
+            "file": "part-cartoon_boom.png",
+            "first_frame": 0,
+            "frames": 11,
+            "columns": 4,
+            "rows": 3
+          }
+        ],
+        "offset": {
+          "x": -25,
+          "y": -45
+        }
+      }
+    ]
+  },
+  "files": {
+    "hit_blast_behind_v1.png": "7fabddd44bcd259fac944a91787bed4f89d306042cd4c521c9ddd9e21fafac4b"
+  }
+}

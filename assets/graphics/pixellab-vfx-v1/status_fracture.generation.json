@@ -1,0 +1,129 @@
+{
+  "source": "PixelLab vfx_workbench",
+  "part": "debuff_arrows",
+  "my_effects_id": "12a8678f-36b3-428a-8441-3413261a579b",
+  "export_image_id": "186e1b8e-e5ce-48af-a598-50ff92287eec",
+  "pack": {
+    "app": "PixelLab VFX Creator",
+    "name": "GemTD status fracture v1",
+    "fps": 12,
+    "frame_ms": 83,
+    "frames": 12,
+    "loop": true,
+    "canvas": {
+      "w": 47,
+      "h": 45
+    },
+    "anchor": {
+      "kind": "feet",
+      "x": 23,
+      "y": 41
+    },
+    "clips": [
+      {
+        "name": "whole",
+        "title": "the whole effect, no sprite",
+        "depth": "both",
+        "loop": true,
+        "start_frame": 0,
+        "frames": 12,
+        "frame": {
+          "w": 41,
+          "h": 39
+        },
+        "sheets": [
+          {
+            "file": "whole.png",
+            "first_frame": 0,
+            "frames": 12,
+            "columns": 4,
+            "rows": 3
+          }
+        ],
+        "offset": {
+          "x": -20,
+          "y": -38
+        }
+      },
+      {
+        "name": "whole-with-sprite",
+        "title": "the whole effect with the sprite in it",
+        "depth": "both",
+        "loop": true,
+        "start_frame": 0,
+        "frames": 12,
+        "frame": {
+          "w": 41,
+          "h": 39
+        },
+        "sheets": [
+          {
+            "file": "whole-with-sprite.png",
+            "first_frame": 0,
+            "frames": 12,
+            "columns": 4,
+            "rows": 3
+          }
+        ],
+        "offset": {
+          "x": -20,
+          "y": -38
+        }
+      },
+      {
+        "name": "behind",
+        "title": "everything behind the sprite",
+        "depth": "behind",
+        "loop": true,
+        "start_frame": 0,
+        "frames": 12,
+        "frame": {
+          "w": 41,
+          "h": 39
+        },
+        "sheets": [
+          {
+            "file": "behind.png",
+            "first_frame": 0,
+            "frames": 12,
+            "columns": 4,
+            "rows": 3
+          }
+        ],
+        "offset": {
+          "x": -20,
+          "y": -38
+        }
+      },
+      {
+        "name": "part-debuff_arrows",
+        "title": "the debuff arrows part",
+        "part": "debuff_arrows",
+        "depth": "behind",
+        "loop": true,
+        "start_frame": 0,
+        "frames": 12,
+        "frame": {
+          "w": 41,
+          "h": 39
+        },
+        "sheets": [
+          {
+            "file": "part-debuff_arrows.png",
+            "first_frame": 0,
+            "frames": 12,
+            "columns": 4,
+            "rows": 3
+          }
+        ],
+        "offset": {
+          "x": -20,
+          "y": -38
+        }
+      }
+    ]
+  },
+  "files": {
+    "status_fracture_behind_v1.png": "65f6158d8e9d44dd7c23ad06b0e9157b07d2470921ae71dfaf8f254990b696da"
+  }
+}

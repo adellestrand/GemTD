@@ -1,0 +1,58 @@
+{
+  "id": "diamond_2_v2",
+  "size": [
+    64,
+    72
+  ],
+  "previous": {
+    "trim_alpha": true,
+    "size": [
+      0.94,
+      0.94
+    ],
+    "anchor": [
+      0.5,
+      0.5
+    ],
+    "effect_color": "#e1edf7",
+    "texture": "res://assets/graphics/refined-v3/diamond_2.png"
+  },
+  "seed": 26103007,
+  "frames": 8,
+  "action": "A seamless calm eight-frame idle lighting loop. Only the existing crystals and magical energy cores gently brighten, with a tiny moving facet highlight, then dim back to their starting brightness. Keep the original crystal colours. Keep all stonework, foundations, walls, roof, gold fittings, silhouette and all crystal shapes completely still. Lighting only: no movement, no rotation, no zoom, no deformation, no growth, no particles, no expanding rings, no rays outside the tower. Preserve the exact pixel-art appearance and transparent background. Return to the original brightness at the end.",
+  "mask_pixels": 120,
+  "estimated_generations": 1,
+  "provider": "PixelLab",
+  "tool": "animate_image",
+  "date": "2026-10-26",
+  "receipt": "id: dd81f6f8-cd6f-481c-ab34-c299af82fcf1\njob_id: dd81f6f8-cd6f-481c-ab34-c299af82fcf1\naction: A seamless calm eight-frame idle lighting loop. Only the existing crystals and magical energy cores gently brighten, with a tiny moving facet highlight, then dim back to their starting brightness. Keep the original crystal colours. Keep all stonework, foundations, walls, roof, gold fittings, silhouette and all crystal shapes completely still. Lighting only: no movement, no rotation, no zoom, no deformation, no growth, no particles, no expanding rings, no rays outside the tower. Preserve the exact pixel-art appearance and transparent background. Return to the original brightness at the end.\nframes: 8\nsize: 64x72px\ntransparent: True\nlast_frame: yes (interpolating to it)\nseed: 26103007\nasset_id: 1e4f7cb6-ca4e-50a3-974c-e0192f774930\nasset_status: pending (saved when generation completes)\ncost: 1 generation\nstatus: processing (~30-180s)\n\nhint: get_image(job_id=\"dd81f6f8-cd6f-481c-ab34-c299af82fcf1\")",
+  "reference": "assets/graphics/pixellab-towers-v1/diamond_2_v2_reference.png",
+  "mask": "assets/graphics/pixellab-towers-v1/diamond_2_v2_mask.png",
+  "selected_provider_indices": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7
+  ],
+  "postprocessing": "Bounded provider luminance inside saved crystal mask only; source hue, alpha and every unmasked pixel remain exact.",
+  "validation": {
+    "unique_frames": 5,
+    "changed_pixels": [
+      0,
+      117,
+      118,
+      118,
+      117,
+      117,
+      118,
+      118
+    ],
+    "static_structure_identical": true,
+    "alpha_identical": true
+  },
+  "sha256": "2c20dcbabc31062b21d2796756b25f169b8d00153f97e74b93759a42bccf84a2"
+}

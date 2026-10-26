@@ -1,0 +1,58 @@
+{
+  "id": "topaz_2_v2",
+  "size": [
+    64,
+    72
+  ],
+  "previous": {
+    "trim_alpha": true,
+    "size": [
+      0.94,
+      0.94
+    ],
+    "anchor": [
+      0.5,
+      0.5
+    ],
+    "effect_color": "#f4ce65",
+    "texture": "res://assets/graphics/refined-v3/topaz_2.png"
+  },
+  "seed": 26103065,
+  "frames": 8,
+  "action": "A seamless calm eight-frame idle lighting loop. Only the existing crystals and magical energy cores gently brighten, with a tiny moving facet highlight, then dim back to their starting brightness. Keep the original crystal colours. Keep all stonework, foundations, walls, roof, gold fittings, silhouette and all crystal shapes completely still. Lighting only: no movement, no rotation, no zoom, no deformation, no growth, no particles, no expanding rings, no rays outside the tower. Preserve the exact pixel-art appearance and transparent background. Return to the original brightness at the end.",
+  "mask_pixels": 146,
+  "estimated_generations": 1,
+  "provider": "PixelLab",
+  "tool": "animate_image",
+  "date": "2026-10-26",
+  "receipt": "id: fdf31ee4-2aeb-4348-a938-a2e39959043a\njob_id: fdf31ee4-2aeb-4348-a938-a2e39959043a\naction: A seamless calm eight-frame idle lighting loop. Only the existing crystals and magical energy cores gently brighten, with a tiny moving facet highlight, then dim back to their starting brightness. Keep the original crystal colours. Keep all stonework, foundations, walls, roof, gold fittings, silhouette and all crystal shapes completely still. Lighting only: no movement, no rotation, no zoom, no deformation, no growth, no particles, no expanding rings, no rays outside the tower. Preserve the exact pixel-art appearance and transparent background. Return to the original brightness at the end.\nframes: 8\nsize: 64x72px\ntransparent: True\nlast_frame: yes (interpolating to it)\nseed: 26103065\nasset_id: 505e34ce-4525-5dc5-8f92-d55dee74de06\nasset_status: pending (saved when generation completes)\ncost: 1 generation\nstatus: processing (~30-180s)\n\nhint: get_image(job_id=\"fdf31ee4-2aeb-4348-a938-a2e39959043a\")",
+  "reference": "assets/graphics/pixellab-towers-v1/topaz_2_v2_reference.png",
+  "mask": "assets/graphics/pixellab-towers-v1/topaz_2_v2_mask.png",
+  "selected_provider_indices": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7
+  ],
+  "postprocessing": "Bounded provider luminance inside saved crystal mask only; source hue, alpha and every unmasked pixel remain exact.",
+  "validation": {
+    "unique_frames": 8,
+    "changed_pixels": [
+      0,
+      135,
+      138,
+      136,
+      139,
+      139,
+      134,
+      137
+    ],
+    "static_structure_identical": true,
+    "alpha_identical": true
+  },
+  "sha256": "1c336216289f4248493d0bdb1543b33d1f132feea419094c597ed3800d5fc3b7"
+}

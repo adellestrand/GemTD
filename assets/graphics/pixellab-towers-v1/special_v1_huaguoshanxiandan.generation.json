@@ -1,0 +1,58 @@
+{
+  "id": "special_v1_huaguoshanxiandan",
+  "size": [
+    56,
+    72
+  ],
+  "previous": {
+    "texture": "res://assets/graphics/specials-v1/huaguoshanxiandan.png",
+    "trim_alpha": true,
+    "size": [
+      0.94,
+      0.94
+    ],
+    "anchor": [
+      0.5,
+      0.5
+    ],
+    "effect_color": "#83d46a"
+  },
+  "seed": 26103036,
+  "frames": 8,
+  "action": "A seamless calm eight-frame idle lighting loop. Only the existing crystals and magical energy cores gently brighten, with a tiny moving facet highlight, then dim back to their starting brightness. Keep the original crystal colours. Keep all stonework, foundations, walls, roof, gold fittings, silhouette and all crystal shapes completely still. Lighting only: no movement, no rotation, no zoom, no deformation, no growth, no particles, no expanding rings, no rays outside the tower. Preserve the exact pixel-art appearance and transparent background. Return to the original brightness at the end.",
+  "mask_pixels": 179,
+  "estimated_generations": 1,
+  "provider": "PixelLab",
+  "tool": "animate_image",
+  "date": "2026-10-26",
+  "receipt": "id: ddf608c3-71ed-42d6-9e09-6b171d428da0\njob_id: ddf608c3-71ed-42d6-9e09-6b171d428da0\naction: A seamless calm eight-frame idle lighting loop. Only the existing crystals and magical energy cores gently brighten, with a tiny moving facet highlight, then dim back to their starting brightness. Keep the original crystal colours. Keep all stonework, foundations, walls, roof, gold fittings, silhouette and all crystal shapes completely still. Lighting only: no movement, no rotation, no zoom, no deformation, no growth, no particles, no expanding rings, no rays outside the tower. Preserve the exact pixel-art appearance and transparent background. Return to the original brightness at the end.\nframes: 8\nsize: 56x72px\ntransparent: True\nlast_frame: yes (interpolating to it)\nseed: 26103036\nasset_id: 69f05341-7911-5786-b7c1-5ab6a4cb595e\nasset_status: pending (saved when generation completes)\ncost: 1 generation\nstatus: processing (~30-180s)\n\nhint: get_image(job_id=\"ddf608c3-71ed-42d6-9e09-6b171d428da0\")",
+  "reference": "assets/graphics/pixellab-towers-v1/special_v1_huaguoshanxiandan_reference.png",
+  "mask": "assets/graphics/pixellab-towers-v1/special_v1_huaguoshanxiandan_mask.png",
+  "selected_provider_indices": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7
+  ],
+  "postprocessing": "Bounded provider luminance inside saved crystal mask only; source hue, alpha and every unmasked pixel remain exact.",
+  "validation": {
+    "unique_frames": 7,
+    "changed_pixels": [
+      0,
+      171,
+      171,
+      171,
+      173,
+      173,
+      173,
+      173
+    ],
+    "static_structure_identical": true,
+    "alpha_identical": true
+  },
+  "sha256": "04b7525764e818b19db176eb43b06fac4fb149b46e6d05f7e7330ebffc3bf49a"
+}

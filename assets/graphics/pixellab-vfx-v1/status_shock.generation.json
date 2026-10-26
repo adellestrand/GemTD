@@ -1,0 +1,129 @@
+{
+  "source": "PixelLab vfx_workbench",
+  "part": "lightning_arcs",
+  "my_effects_id": "8026de2d-be26-4f34-ac8d-4e3fb4ec9c96",
+  "export_image_id": "a09e2034-a873-4efd-85af-b1abdc50ba1d",
+  "pack": {
+    "app": "PixelLab VFX Creator",
+    "name": "GemTD status shock v1",
+    "fps": 12,
+    "frame_ms": 83,
+    "frames": 12,
+    "loop": true,
+    "canvas": {
+      "w": 43,
+      "h": 49
+    },
+    "anchor": {
+      "kind": "feet",
+      "x": 21,
+      "y": 40
+    },
+    "clips": [
+      {
+        "name": "whole",
+        "title": "the whole effect, no sprite",
+        "depth": "both",
+        "loop": true,
+        "start_frame": 0,
+        "frames": 12,
+        "frame": {
+          "w": 37,
+          "h": 43
+        },
+        "sheets": [
+          {
+            "file": "whole.png",
+            "first_frame": 0,
+            "frames": 12,
+            "columns": 4,
+            "rows": 3
+          }
+        ],
+        "offset": {
+          "x": -18,
+          "y": -37
+        }
+      },
+      {
+        "name": "whole-with-sprite",
+        "title": "the whole effect with the sprite in it",
+        "depth": "both",
+        "loop": true,
+        "start_frame": 0,
+        "frames": 12,
+        "frame": {
+          "w": 37,
+          "h": 43
+        },
+        "sheets": [
+          {
+            "file": "whole-with-sprite.png",
+            "first_frame": 0,
+            "frames": 12,
+            "columns": 4,
+            "rows": 3
+          }
+        ],
+        "offset": {
+          "x": -18,
+          "y": -37
+        }
+      },
+      {
+        "name": "front",
+        "title": "everything in front of the sprite",
+        "depth": "front",
+        "loop": true,
+        "start_frame": 0,
+        "frames": 12,
+        "frame": {
+          "w": 37,
+          "h": 43
+        },
+        "sheets": [
+          {
+            "file": "front.png",
+            "first_frame": 0,
+            "frames": 12,
+            "columns": 4,
+            "rows": 3
+          }
+        ],
+        "offset": {
+          "x": -18,
+          "y": -37
+        }
+      },
+      {
+        "name": "part-lightning_arcs",
+        "title": "the lightning arcs part",
+        "part": "lightning_arcs",
+        "depth": "front",
+        "loop": true,
+        "start_frame": 0,
+        "frames": 12,
+        "frame": {
+          "w": 37,
+          "h": 43
+        },
+        "sheets": [
+          {
+            "file": "part-lightning_arcs.png",
+            "first_frame": 0,
+            "frames": 12,
+            "columns": 4,
+            "rows": 3
+          }
+        ],
+        "offset": {
+          "x": -18,
+          "y": -37
+        }
+      }
+    ]
+  },
+  "files": {
+    "status_shock_front_v1.png": "2f9141cbc77ab8bb44ff6722220477dac5cc99634f460bb4cd538d05fdb640c5"
+  }
+}

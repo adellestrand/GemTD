@@ -1,0 +1,155 @@
+{
+  "source": "PixelLab vfx_workbench",
+  "part": "buff_arrows",
+  "my_effects_id": "531f57f8-5ecf-45bb-bdb8-d2d454b1dcfe",
+  "export_image_id": "0b0bc7af-54af-4d8b-90c3-4737bb7b6f48",
+  "pack": {
+    "app": "PixelLab VFX Creator",
+    "name": "GemTD status support v1",
+    "fps": 12,
+    "frame_ms": 83,
+    "frames": 12,
+    "loop": true,
+    "canvas": {
+      "w": 40,
+      "h": 43
+    },
+    "anchor": {
+      "kind": "feet",
+      "x": 19,
+      "y": 33
+    },
+    "clips": [
+      {
+        "name": "whole",
+        "title": "the whole effect, no sprite",
+        "depth": "both",
+        "loop": true,
+        "start_frame": 0,
+        "frames": 12,
+        "frame": {
+          "w": 34,
+          "h": 37
+        },
+        "sheets": [
+          {
+            "file": "whole.png",
+            "first_frame": 0,
+            "frames": 12,
+            "columns": 4,
+            "rows": 3
+          }
+        ],
+        "offset": {
+          "x": -16,
+          "y": -30
+        }
+      },
+      {
+        "name": "whole-with-sprite",
+        "title": "the whole effect with the sprite in it",
+        "depth": "both",
+        "loop": true,
+        "start_frame": 0,
+        "frames": 12,
+        "frame": {
+          "w": 34,
+          "h": 37
+        },
+        "sheets": [
+          {
+            "file": "whole-with-sprite.png",
+            "first_frame": 0,
+            "frames": 12,
+            "columns": 4,
+            "rows": 3
+          }
+        ],
+        "offset": {
+          "x": -16,
+          "y": -30
+        }
+      },
+      {
+        "name": "behind",
+        "title": "everything behind the sprite",
+        "depth": "behind",
+        "loop": true,
+        "start_frame": 0,
+        "frames": 12,
+        "frame": {
+          "w": 34,
+          "h": 37
+        },
+        "sheets": [
+          {
+            "file": "behind.png",
+            "first_frame": 0,
+            "frames": 12,
+            "columns": 4,
+            "rows": 3
+          }
+        ],
+        "offset": {
+          "x": -16,
+          "y": -30
+        }
+      },
+      {
+        "name": "front",
+        "title": "everything in front of the sprite",
+        "depth": "front",
+        "loop": true,
+        "start_frame": 0,
+        "frames": 12,
+        "frame": {
+          "w": 16,
+          "h": 19
+        },
+        "sheets": [
+          {
+            "file": "front.png",
+            "first_frame": 0,
+            "frames": 12,
+            "columns": 4,
+            "rows": 3
+          }
+        ],
+        "offset": {
+          "x": -5,
+          "y": -15
+        }
+      },
+      {
+        "name": "part-buff_arrows",
+        "title": "the buff arrows part",
+        "part": "buff_arrows",
+        "depth": "both",
+        "loop": true,
+        "start_frame": 0,
+        "frames": 12,
+        "frame": {
+          "w": 34,
+          "h": 37
+        },
+        "sheets": [
+          {
+            "file": "part-buff_arrows.png",
+            "first_frame": 0,
+            "frames": 12,
+            "columns": 4,
+            "rows": 3
+          }
+        ],
+        "offset": {
+          "x": -16,
+          "y": -30
+        }
+      }
+    ]
+  },
+  "files": {
+    "status_support_behind_v1.png": "29f374028b142d74455795919e1f1852a5cc0a7543b0046191da1d385c598255",
+    "status_support_front_v1.png": "338e6af58c86e1004a7c967e635863022912ba02ecbb1d5594aad1d34bb23bdb"
+  }
+}

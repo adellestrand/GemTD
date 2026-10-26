@@ -14,6 +14,66 @@
     "blast": "#ffc37a",
     "stun": "#fff191"
   },
+  "max_statuses": 4,
+  "status_priority": [
+    "stun",
+    "stone",
+    "frost",
+    "burn",
+    "poison",
+    "shock",
+    "fracture",
+    "shield"
+  ],
+  "status_layer_order": [
+    "shield",
+    "fracture",
+    "frost",
+    "burn",
+    "poison",
+    "shock",
+    "stun"
+  ],
+  "status_clips": {
+    "burn": "status_burn",
+    "poison": "status_poison",
+    "frost": "status_frost",
+    "fracture": "status_fracture",
+    "stun": "status_stun",
+    "shield": "status_shield",
+    "shock": "status_shock"
+  },
+  "status_tints": {
+    "stone": "#a7aaa8",
+    "frost": "#c9ecff"
+  },
+  "status_overlays": {
+    "stone": [
+      1.0,
+      1.02,
+      1.06,
+      0.88
+    ]
+  },
+  "status_memory": {
+    "burn": 0.6,
+    "shock": 0.5
+  },
+  "hit_clips": {
+    "fire": "hit_fire",
+    "poison": "hit_poison",
+    "frost": "hit_frost",
+    "stone": "hit_stone",
+    "shield": "hit_shield",
+    "fracture": "hit_fracture",
+    "stun": "hit_stun",
+    "lightning": "hit_lightning",
+    "critical": "hit_critical",
+    "blast": "hit_blast",
+    "support": "hit_support"
+  },
+  "support_clip": "status_support",
+  "support_clip_alpha": 0.8,
   "towers": {
     "aijijin": {
       "style": "bolt",
@@ -381,6 +441,525 @@
       "abilities": [
         "tower_du4"
       ]
+    }
+  },
+  "clips": {
+    "status_burn": {
+      "fps": 12,
+      "frames": 12,
+      "loop": true,
+      "subject": [
+        32,
+        28
+      ],
+      "layers": {
+        "behind": {
+          "texture": "res://assets/graphics/pixellab-vfx-v1/status_burn_behind_v1.png",
+          "size": [
+            30,
+            27
+          ],
+          "offset": [
+            -15,
+            -22
+          ]
+        },
+        "front": {
+          "texture": "res://assets/graphics/pixellab-vfx-v1/status_burn_front_v1.png",
+          "size": [
+            20,
+            44
+          ],
+          "offset": [
+            -10,
+            -42
+          ]
+        }
+      }
+    },
+    "status_poison": {
+      "fps": 12,
+      "frames": 16,
+      "loop": true,
+      "subject": [
+        32,
+        28
+      ],
+      "layers": {
+        "front": {
+          "texture": "res://assets/graphics/pixellab-vfx-v1/status_poison_front_v1.png",
+          "size": [
+            34,
+            46
+          ],
+          "offset": [
+            -13,
+            -42
+          ]
+        }
+      }
+    },
+    "status_frost": {
+      "fps": 10,
+      "frames": 12,
+      "loop": true,
+      "subject": [
+        32,
+        28
+      ],
+      "layers": {
+        "behind": {
+          "texture": "res://assets/graphics/pixellab-vfx-v1/status_frost_behind_v1.png",
+          "size": [
+            19,
+            15
+          ],
+          "offset": [
+            -9,
+            -9
+          ]
+        },
+        "front": {
+          "texture": "res://assets/graphics/pixellab-vfx-v1/status_frost_front_v1.png",
+          "size": [
+            30,
+            37
+          ],
+          "offset": [
+            -14,
+            -31
+          ]
+        }
+      }
+    },
+    "status_fracture": {
+      "fps": 12,
+      "frames": 12,
+      "loop": true,
+      "subject": [
+        32,
+        28
+      ],
+      "layers": {
+        "behind": {
+          "texture": "res://assets/graphics/pixellab-vfx-v1/status_fracture_behind_v1.png",
+          "size": [
+            41,
+            39
+          ],
+          "offset": [
+            -20,
+            -38
+          ]
+        }
+      }
+    },
+    "status_stun": {
+      "fps": 12,
+      "frames": 12,
+      "loop": true,
+      "subject": [
+        32,
+        28
+      ],
+      "layers": {
+        "behind": {
+          "texture": "res://assets/graphics/pixellab-vfx-v1/status_stun_behind_v1.png",
+          "size": [
+            31,
+            13
+          ],
+          "offset": [
+            -14,
+            -40
+          ]
+        },
+        "front": {
+          "texture": "res://assets/graphics/pixellab-vfx-v1/status_stun_front_v1.png",
+          "size": [
+            31,
+            12
+          ],
+          "offset": [
+            -16,
+            -35
+          ]
+        }
+      }
+    },
+    "status_shield": {
+      "fps": 10,
+      "frames": 12,
+      "loop": true,
+      "subject": [
+        32,
+        28
+      ],
+      "layers": {
+        "behind": {
+          "texture": "res://assets/graphics/pixellab-vfx-v1/status_shield_behind_v1.png",
+          "size": [
+            26,
+            26
+          ],
+          "offset": [
+            -13,
+            -27
+          ]
+        },
+        "front": {
+          "texture": "res://assets/graphics/pixellab-vfx-v1/status_shield_front_v1.png",
+          "size": [
+            37,
+            37
+          ],
+          "offset": [
+            -18,
+            -32
+          ]
+        }
+      }
+    },
+    "status_shock": {
+      "fps": 12,
+      "frames": 12,
+      "loop": true,
+      "subject": [
+        32,
+        28
+      ],
+      "layers": {
+        "front": {
+          "texture": "res://assets/graphics/pixellab-vfx-v1/status_shock_front_v1.png",
+          "size": [
+            37,
+            43
+          ],
+          "offset": [
+            -18,
+            -37
+          ]
+        }
+      }
+    },
+    "status_support": {
+      "fps": 12,
+      "frames": 12,
+      "loop": true,
+      "subject": [
+        32,
+        28
+      ],
+      "layers": {
+        "behind": {
+          "texture": "res://assets/graphics/pixellab-vfx-v1/status_support_behind_v1.png",
+          "size": [
+            34,
+            37
+          ],
+          "offset": [
+            -16,
+            -30
+          ]
+        },
+        "front": {
+          "texture": "res://assets/graphics/pixellab-vfx-v1/status_support_front_v1.png",
+          "size": [
+            16,
+            19
+          ],
+          "offset": [
+            -5,
+            -15
+          ]
+        }
+      }
+    },
+    "hit_lightning": {
+      "fps": 14,
+      "frames": 10,
+      "loop": false,
+      "subject": [
+        32,
+        28
+      ],
+      "layers": {
+        "behind": {
+          "texture": "res://assets/graphics/pixellab-vfx-v1/hit_lightning_behind_v1.png",
+          "size": [
+            46,
+            71
+          ],
+          "offset": [
+            -23,
+            -61
+          ]
+        },
+        "front": {
+          "texture": "res://assets/graphics/pixellab-vfx-v1/hit_lightning_front_v1.png",
+          "size": [
+            27,
+            18
+          ],
+          "offset": [
+            -14,
+            -10
+          ]
+        }
+      }
+    },
+    "hit_critical": {
+      "fps": 16,
+      "frames": 6,
+      "loop": false,
+      "subject": [
+        32,
+        28
+      ],
+      "layers": {
+        "front": {
+          "texture": "res://assets/graphics/pixellab-vfx-v1/hit_critical_front_v1.png",
+          "size": [
+            39,
+            37
+          ],
+          "offset": [
+            -18,
+            -33
+          ]
+        }
+      }
+    },
+    "hit_blast": {
+      "fps": 12,
+      "frames": 12,
+      "loop": false,
+      "subject": [
+        32,
+        28
+      ],
+      "layers": {
+        "behind": {
+          "texture": "res://assets/graphics/pixellab-vfx-v1/hit_blast_behind_v1.png",
+          "size": [
+            46,
+            49
+          ],
+          "offset": [
+            -25,
+            -45
+          ]
+        }
+      }
+    },
+    "hit_fire": {
+      "fps": 14,
+      "frames": 12,
+      "loop": false,
+      "subject": [
+        32,
+        28
+      ],
+      "layers": {
+        "behind": {
+          "texture": "res://assets/graphics/pixellab-vfx-v1/hit_fire_behind_v1.png",
+          "size": [
+            45,
+            44
+          ],
+          "offset": [
+            -22,
+            -36
+          ]
+        }
+      }
+    },
+    "hit_frost": {
+      "fps": 12,
+      "frames": 10,
+      "loop": false,
+      "subject": [
+        32,
+        28
+      ],
+      "layers": {
+        "behind": {
+          "texture": "res://assets/graphics/pixellab-vfx-v1/hit_frost_behind_v1.png",
+          "size": [
+            52,
+            52
+          ],
+          "offset": [
+            -26,
+            -40
+          ]
+        },
+        "front": {
+          "texture": "res://assets/graphics/pixellab-vfx-v1/hit_frost_front_v1.png",
+          "size": [
+            45,
+            59
+          ],
+          "offset": [
+            -28,
+            -27
+          ]
+        }
+      }
+    },
+    "hit_poison": {
+      "fps": 15,
+      "frames": 9,
+      "loop": false,
+      "subject": [
+        32,
+        28
+      ],
+      "layers": {
+        "front": {
+          "texture": "res://assets/graphics/pixellab-vfx-v1/hit_poison_front_v1.png",
+          "size": [
+            45,
+            50
+          ],
+          "offset": [
+            -9,
+            -33
+          ]
+        }
+      }
+    },
+    "hit_stone": {
+      "fps": 12,
+      "frames": 16,
+      "loop": false,
+      "subject": [
+        32,
+        28
+      ],
+      "layers": {
+        "behind": {
+          "texture": "res://assets/graphics/pixellab-vfx-v1/hit_stone_behind_v1.png",
+          "size": [
+            19,
+            9
+          ],
+          "offset": [
+            -8,
+            -5
+          ]
+        },
+        "front": {
+          "texture": "res://assets/graphics/pixellab-vfx-v1/hit_stone_front_v1.png",
+          "size": [
+            36,
+            47
+          ],
+          "offset": [
+            -17,
+            -32
+          ]
+        }
+      }
+    },
+    "hit_fracture": {
+      "fps": 12,
+      "frames": 12,
+      "loop": false,
+      "subject": [
+        32,
+        28
+      ],
+      "layers": {
+        "behind": {
+          "texture": "res://assets/graphics/pixellab-vfx-v1/hit_fracture_behind_v1.png",
+          "size": [
+            40,
+            40
+          ],
+          "offset": [
+            -20,
+            -34
+          ]
+        },
+        "front": {
+          "texture": "res://assets/graphics/pixellab-vfx-v1/hit_fracture_front_v1.png",
+          "size": [
+            39,
+            58
+          ],
+          "offset": [
+            -25,
+            -30
+          ]
+        }
+      }
+    },
+    "hit_stun": {
+      "fps": 15,
+      "frames": 12,
+      "loop": false,
+      "subject": [
+        32,
+        28
+      ],
+      "layers": {
+        "front": {
+          "texture": "res://assets/graphics/pixellab-vfx-v1/hit_stun_front_v1.png",
+          "size": [
+            43,
+            54
+          ],
+          "offset": [
+            -21,
+            -34
+          ]
+        }
+      }
+    },
+    "hit_shield": {
+      "fps": 15,
+      "frames": 10,
+      "loop": false,
+      "subject": [
+        32,
+        28
+      ],
+      "layers": {
+        "front": {
+          "texture": "res://assets/graphics/pixellab-vfx-v1/hit_shield_front_v1.png",
+          "size": [
+            37,
+            43
+          ],
+          "offset": [
+            -18,
+            -43
+          ]
+        }
+      }
+    },
+    "hit_support": {
+      "fps": 15,
+      "frames": 10,
+      "loop": false,
+      "subject": [
+        32,
+        28
+      ],
+      "layers": {
+        "front": {
+          "texture": "res://assets/graphics/pixellab-vfx-v1/hit_support_front_v1.png",
+          "size": [
+            37,
+            43
+          ],
+          "offset": [
+            -18,
+            -43
+          ]
+        }
+      }
     }
   }
 }

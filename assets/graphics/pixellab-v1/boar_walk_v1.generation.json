@@ -1,0 +1,122 @@
+{
+  "provider": "PixelLab",
+  "tool": "animate_image",
+  "status": "completed",
+  "date": "2026-10-26",
+  "job_id": "709d1ce7-3228-4b47-b864-a0d181b84357",
+  "source_image_id": "79dbb76f-b8c4-5654-8548-405e69b74019",
+  "reference": "assets/graphics/refined-v3/boar.png",
+  "prepared_reference": "assets/graphics/pixellab-v1/boar_walk_v1_reference.png",
+  "requested_size": [
+    64,
+    64
+  ],
+  "requested_frames": 8,
+  "last_frame": "same_as_first",
+  "seed": 261027,
+  "no_background": true,
+  "estimated_generations": 1,
+  "action": "An 8-frame seamless in-place walking loop. The boar walks steadily towards the lower right, keeping the same three-quarter facing and position. Four legs visibly alternate with clear planted hooves and bent lifted legs, gentle weight transfer and only a slight head nod. The body, snout and tusks retain their shape and size throughout. Feet stay near the same ground line. Camera is locked; no turn, no translation across the canvas, no zoom, no squash or stretching. Return to the starting stance at the end so it loops cleanly. Keep the whole boar and its feet inside the canvas.",
+  "active_in_game": true,
+  "charged_generations": 1,
+  "validation": {
+    "strip_size": [
+      512,
+      64
+    ],
+    "frame_size": [
+      64,
+      64
+    ],
+    "frames": 8,
+    "provider_frames": 9,
+    "selected_provider_indices": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+    ],
+    "omitted_terminal_pose": 8,
+    "shared_visible_bounds": [
+      4,
+      7,
+      59,
+      56
+    ],
+    "bounds_per_frame": [
+      [
+        4,
+        8,
+        59,
+        56
+      ],
+      [
+        4,
+        7,
+        59,
+        55
+      ],
+      [
+        5,
+        7,
+        59,
+        54
+      ],
+      [
+        5,
+        7,
+        59,
+        54
+      ],
+      [
+        5,
+        8,
+        59,
+        54
+      ],
+      [
+        4,
+        8,
+        59,
+        54
+      ],
+      [
+        5,
+        7,
+        59,
+        54
+      ],
+      [
+        5,
+        7,
+        59,
+        56
+      ]
+    ],
+    "unique_frames": 8,
+    "alpha_levels_per_frame": [
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2
+    ],
+    "sha256": "13cfa6200fa8ce1d2a4951f5b1f5310416ff337e6c172fb3841a15a0adde4f08",
+    "reference_sha256": "e74bd03a071b319f2be378e200c10e2b6c77851b5acfd99ce01e6c501a91872d",
+    "godot_checks": [
+      "ART_CHECK_OK sprites=130 centered=273",
+      "ENEMY_FRAMES_CHECK_OK animated=53 failures=0",
+      "CELL_FIT_CHECK_OK cases=372 failures=0",
+      "PIXELLAB_BOAR_PREVIEW_READY frames=8",
+      "PIXELLAB_BOAR_CAPTURE_OK"
+    ]
+  },
+  "remaining_generations_after": 34
+}

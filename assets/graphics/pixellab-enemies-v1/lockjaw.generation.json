@@ -1,0 +1,48 @@
+{
+  "id": "lockjaw",
+  "previous": {
+    "trim_alpha": true,
+    "size": [
+      1.25,
+      1.3
+    ],
+    "anchor": [
+      0.5,
+      0.72
+    ],
+    "texture": "res://assets/graphics/refined-v3/anims/lockjaw_walk_v3.png",
+    "frames": 4
+  },
+  "size": [
+    72,
+    72
+  ],
+  "frames": 8,
+  "air": false,
+  "wave_names": [
+    "lockjaw"
+  ],
+  "seed": 26102633,
+  "estimated_generations": 1,
+  "action": "An eight-frame seamless looping locomotion animation. The mechanical treasure chest marches in place using its small alternating metal feet. The lid, coins and chest stay rigid and closed. Maintain exactly the original facing, character identity, proportions, accessories and pixel-art style. Locked camera, no turn, no zoom, no horizontal translation, no squash or stretching. Keep the whole character and moving limbs inside the transparent canvas. Return smoothly to the starting stance at the end for a continuous loop.",
+  "provider": "PixelLab",
+  "tool": "animate_image",
+  "date": "2026-10-26",
+  "reference": "assets/graphics/pixellab-enemies-v1/lockjaw_reference.png",
+  "receipt": "id: c030d083-d949-4843-8073-f9acec506f4c\njob_id: c030d083-d949-4843-8073-f9acec506f4c\naction: An eight-frame seamless looping locomotion animation. The mechanical treasure chest marches in place using its small alternating metal feet. The lid, coins and chest stay rigid and closed. Maintain exactly the original facing, character identity, proportions, accessories and pixel-art style. Locked camera, no turn, no zoom, no horizontal translation, no squash or stretching. Keep the whole character and moving limbs inside the transparent canvas. Return smoothly to the starting stance at the end for a continuous loop.\nframes: 8\nsize: 72x72px\ntransparent: True\nlast_frame: yes (interpolating to it)\nseed: 26102633\nasset_id: 54ae525c-2633-5b0c-976f-2d73fb89eefc\nasset_status: pending (saved when generation completes)\ncost: 1 generation\nstatus: processing (~30-180s)\n\nhint: get_image(job_id=\"c030d083-d949-4843-8073-f9acec506f4c\")",
+  "provider_frame_count": 9,
+  "selected_provider_indices": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7
+  ],
+  "last_frame": "same_as_first",
+  "no_background": true,
+  "restored_reference_opacity": null,
+  "sha256": "d1f49bd87ac80718e9bf8f4ed0ec5bc2b84a606da8dd527db80bef1f5d53e91d"
+}

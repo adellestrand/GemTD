@@ -61,6 +61,8 @@ func open_report(value: Dictionary) -> void:
 	generation += 1
 	report = value.duplicate(true)
 	description.text = "Best result per player · cleared waves, then lives.\nUnverified beta scores · rules %s · %s\nSubmitting shares your name and run report. No email required. Your player identity stays in this browser/device; clearing storage creates a new identity." % [str(report.get("catalog_sha256","")).left(8),str(report.get("game_version",""))]
+	if report.get("outcome","") in ["won","lost"]:
+		description.text = "%s · %d waves cleared · %d lives\n\n" % ["Victory" if report.outcome == "won" else "Defeat",GemLeaderboardClient.completed_waves(report),int(report.get("lives",0))]+description.text
 	scores.text = "Loading scores..."
 	status.text = GemLeaderboardClient.eligibility(report)
 	update_buttons()

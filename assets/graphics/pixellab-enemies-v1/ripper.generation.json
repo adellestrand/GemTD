@@ -1,0 +1,53 @@
+{
+  "id": "ripper",
+  "previous": {
+    "trim_alpha": true,
+    "size": [
+      1.25,
+      1.3
+    ],
+    "anchor": [
+      0.5,
+      0.72
+    ],
+    "motion": {
+      "frequency": 12.0,
+      "bounce": 0.02,
+      "sway": 0.015
+    },
+    "texture": "res://assets/graphics/refined-v3/anims/ripper_walk_v3.png",
+    "frames": 4
+  },
+  "size": [
+    80,
+    64
+  ],
+  "frames": 8,
+  "air": false,
+  "wave_names": [
+    "ripper"
+  ],
+  "seed": 26102640,
+  "estimated_generations": 1,
+  "action": "An eight-frame seamless looping locomotion animation. The skeletal dinosaur strides in place with two alternating hind feet, slight counterbalancing tail sweep and tiny forearm movement. Its skull and bones stay connected. Maintain exactly the original facing, character identity, proportions, accessories and pixel-art style. Locked camera, no turn, no zoom, no horizontal translation, no squash or stretching. Keep the whole character and moving limbs inside the transparent canvas. Return smoothly to the starting stance at the end for a continuous loop.",
+  "provider": "PixelLab",
+  "tool": "animate_image",
+  "date": "2026-10-26",
+  "reference": "assets/graphics/pixellab-enemies-v1/ripper_reference.png",
+  "receipt": "id: 0fa9aa1d-596f-4f85-8b9c-7a34e589d270\njob_id: 0fa9aa1d-596f-4f85-8b9c-7a34e589d270\naction: An eight-frame seamless looping locomotion animation. The skeletal dinosaur strides in place with two alternating hind feet, slight counterbalancing tail sweep and tiny forearm movement. Its skull and bones stay connected. Maintain exactly the original facing, character identity, proportions, accessories and pixel-art style. Locked camera, no turn, no zoom, no horizontal translation, no squash or stretching. Keep the whole character and moving limbs inside the transparent canvas. Return smoothly to the starting stance at the end for a continuous loop.\nframes: 8\nsize: 80x64px\ntransparent: True\nlast_frame: yes (interpolating to it)\nseed: 26102640\nasset_id: 840641d3-3edf-5089-89cf-015952b60b7a\nasset_status: pending (saved when generation completes)\ncost: 1 generation\nstatus: processing (~30-180s)\n\nhint: get_image(job_id=\"0fa9aa1d-596f-4f85-8b9c-7a34e589d270\")",
+  "provider_frame_count": 9,
+  "selected_provider_indices": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7
+  ],
+  "last_frame": "same_as_first",
+  "no_background": true,
+  "restored_reference_opacity": null,
+  "sha256": "5fa60bf0780e17ad332b0b937394b2a218575e5f3eab79b0d97b089a536bf185"
+}

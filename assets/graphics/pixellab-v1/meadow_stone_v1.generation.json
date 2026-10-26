@@ -1,0 +1,48 @@
+{
+  "provider": "PixelLab",
+  "tool": "create_topdown_tileset",
+  "status": "completed",
+  "date": "2026-10-26",
+  "request": {
+    "lower_description": "Quiet muted forest-green short meadow grass for a fantasy tower defense board. Tiny restrained grass pixel clusters, low contrast and readable flat ground, no flowers or objects.",
+    "upper_description": "Worn grey stone paving of small irregular flat stones with muted moss in the thin seams. Calm low-contrast surface for a walkable fantasy game path, no walls, no cliffs, no raised bank.",
+    "transition_description": "Flat flush transition from meadow grass to worn stone paving, scattered moss at the edges. Both surfaces at the same ground level. Simple readable natural border.",
+    "mode": "standard",
+    "tile_size": {
+      "width": 32,
+      "height": 32
+    },
+    "view": "high top-down",
+    "detail": "low detail",
+    "shading": "basic shading",
+    "outline": "lineless",
+    "transition_size": 0.25,
+    "enhance": false
+  },
+  "active_in_game": false,
+  "tileset_id": "62e3ecb2-20b7-449e-bf08-292db5309687",
+  "base_tile_ids": {
+    "lower": "e47b1b64-bbe3-4ebe-b9ea-ce8da9c05dde",
+    "upper": "27222091-2df0-487a-8474-b8d335aa847d"
+  },
+  "estimated_generations": 1,
+  "charged_generations": 1,
+  "validation": {
+    "atlas_size": [
+      128,
+      128
+    ],
+    "tile_size": [
+      32,
+      32
+    ],
+    "tiles": 16,
+    "corner_combinations": 16,
+    "demo_cells": 280,
+    "adjacent_corner_checks": "passed",
+    "atlas_sha256": "a69a844730d1123fd7a3d88bba63f309c09158f918645bd5d315f75fb95da13a",
+    "godot_import": "passed",
+    "native_preview": "PIXELLAB_LIGHT_TERRAIN_READY frames=8; PIXELLAB_LIGHT_TERRAIN_CAPTURE_OK"
+  },
+  "remaining_generations_after_both_demos": 32
+}

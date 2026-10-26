@@ -1,0 +1,58 @@
+{
+  "id": "opal_2_v2",
+  "size": [
+    72,
+    80
+  ],
+  "previous": {
+    "trim_alpha": true,
+    "size": [
+      0.94,
+      0.94
+    ],
+    "anchor": [
+      0.5,
+      0.5
+    ],
+    "effect_color": "#f2afdc",
+    "texture": "res://assets/graphics/refined-v3/opal_2.png"
+  },
+  "seed": 26103013,
+  "frames": 8,
+  "action": "A seamless calm eight-frame idle lighting loop. Only the existing crystals and magical energy cores gently brighten, with a tiny moving facet highlight, then dim back to their starting brightness. Keep the original crystal colours. Keep all stonework, foundations, walls, roof, gold fittings, silhouette and all crystal shapes completely still. Lighting only: no movement, no rotation, no zoom, no deformation, no growth, no particles, no expanding rings, no rays outside the tower. Preserve the exact pixel-art appearance and transparent background. Return to the original brightness at the end.",
+  "mask_pixels": 246,
+  "estimated_generations": 1,
+  "provider": "PixelLab",
+  "tool": "animate_image",
+  "date": "2026-10-26",
+  "receipt": "id: c0431af7-e00d-4aee-b4a4-91e43625d792\njob_id: c0431af7-e00d-4aee-b4a4-91e43625d792\naction: A seamless calm eight-frame idle lighting loop. Only the existing crystals and magical energy cores gently brighten, with a tiny moving facet highlight, then dim back to their starting brightness. Keep the original crystal colours. Keep all stonework, foundations, walls, roof, gold fittings, silhouette and all crystal shapes completely still. Lighting only: no movement, no rotation, no zoom, no deformation, no growth, no particles, no expanding rings, no rays outside the tower. Preserve the exact pixel-art appearance and transparent background. Return to the original brightness at the end.\nframes: 8\nsize: 72x80px\ntransparent: True\nlast_frame: yes (interpolating to it)\nseed: 26103013\nasset_id: c01e6b53-4f62-5991-a816-338ba0ede489\nasset_status: pending (saved when generation completes)\ncost: 1 generation\nstatus: processing (~30-180s)\n\nhint: get_image(job_id=\"c0431af7-e00d-4aee-b4a4-91e43625d792\")",
+  "reference": "assets/graphics/pixellab-towers-v1/opal_2_v2_reference.png",
+  "mask": "assets/graphics/pixellab-towers-v1/opal_2_v2_mask.png",
+  "selected_provider_indices": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7
+  ],
+  "postprocessing": "Bounded provider luminance inside saved crystal mask only; source hue, alpha and every unmasked pixel remain exact.",
+  "validation": {
+    "unique_frames": 8,
+    "changed_pixels": [
+      0,
+      242,
+      242,
+      242,
+      242,
+      244,
+      244,
+      244
+    ],
+    "static_structure_identical": true,
+    "alpha_identical": true
+  },
+  "sha256": "27da7351b9dafbcdf27f6f2ed735cfb06ad5c5655c78f11063631390e22d2461"
+}

@@ -1,0 +1,48 @@
+{
+  "id": "furry_fish",
+  "previous": {
+    "trim_alpha": true,
+    "size": [
+      1.25,
+      1.3
+    ],
+    "anchor": [
+      0.5,
+      0.72
+    ],
+    "texture": "res://assets/graphics/refined-v3/anims/furry_fish_walk_v3.png",
+    "frames": 4
+  },
+  "size": [
+    72,
+    56
+  ],
+  "frames": 8,
+  "air": false,
+  "wave_names": [
+    "Maomaoyu"
+  ],
+  "seed": 26102622,
+  "estimated_generations": 1,
+  "action": "An eight-frame seamless looping locomotion animation. The round fish swims in place with alternating tail sweeps and small fluttering fins. Keep its round body stable with only a subtle bob. Maintain exactly the original facing, character identity, proportions, accessories and pixel-art style. Locked camera, no turn, no zoom, no horizontal translation, no squash or stretching. Keep the whole character and moving limbs inside the transparent canvas. Return smoothly to the starting stance at the end for a continuous loop.",
+  "provider": "PixelLab",
+  "tool": "animate_image",
+  "date": "2026-10-26",
+  "reference": "assets/graphics/pixellab-enemies-v1/furry_fish_reference.png",
+  "receipt": "id: e7faefbf-9098-4331-9e13-7ed2ce7b1b8a\njob_id: e7faefbf-9098-4331-9e13-7ed2ce7b1b8a\naction: An eight-frame seamless looping locomotion animation. The round fish swims in place with alternating tail sweeps and small fluttering fins. Keep its round body stable with only a subtle bob. Maintain exactly the original facing, character identity, proportions, accessories and pixel-art style. Locked camera, no turn, no zoom, no horizontal translation, no squash or stretching. Keep the whole character and moving limbs inside the transparent canvas. Return smoothly to the starting stance at the end for a continuous loop.\nframes: 8\nsize: 72x56px\ntransparent: True\nlast_frame: yes (interpolating to it)\nseed: 26102622\nasset_id: 19973eb0-6816-5fde-8224-d380f35170f2\nasset_status: pending (saved when generation completes)\ncost: 1 generation\nstatus: processing (~30-180s)\n\nhint: get_image(job_id=\"e7faefbf-9098-4331-9e13-7ed2ce7b1b8a\")",
+  "provider_frame_count": 9,
+  "selected_provider_indices": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7
+  ],
+  "last_frame": "same_as_first",
+  "no_background": true,
+  "restored_reference_opacity": null,
+  "sha256": "7d1b7310c016696642014ddaee39df0710f7ed8d8aa4cb07938c70a61d4bfd25"
+}

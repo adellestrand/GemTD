@@ -1,0 +1,58 @@
+{
+  "id": "ruby",
+  "size": [
+    72,
+    80
+  ],
+  "previous": {
+    "trim_alpha": true,
+    "size": [
+      0.94,
+      0.94
+    ],
+    "anchor": [
+      0.5,
+      0.5
+    ],
+    "effect_color": "#f1757b",
+    "texture": "res://assets/graphics/refined-v3/ruby_1.png"
+  },
+  "seed": 26103015,
+  "frames": 8,
+  "action": "A seamless calm eight-frame idle lighting loop. Only the existing crystals and magical energy cores gently brighten, with a tiny moving facet highlight, then dim back to their starting brightness. Keep the original crystal colours. Keep all stonework, foundations, walls, roof, gold fittings, silhouette and all crystal shapes completely still. Lighting only: no movement, no rotation, no zoom, no deformation, no growth, no particles, no expanding rings, no rays outside the tower. Preserve the exact pixel-art appearance and transparent background. Return to the original brightness at the end.",
+  "mask_pixels": 327,
+  "estimated_generations": 1,
+  "provider": "PixelLab",
+  "tool": "animate_image",
+  "date": "2026-10-26",
+  "receipt": "id: bf23d8dd-1036-4933-81ae-41ab9435dfd3\njob_id: bf23d8dd-1036-4933-81ae-41ab9435dfd3\naction: A seamless calm eight-frame idle lighting loop. Only the existing crystals and magical energy cores gently brighten, with a tiny moving facet highlight, then dim back to their starting brightness. Keep the original crystal colours. Keep all stonework, foundations, walls, roof, gold fittings, silhouette and all crystal shapes completely still. Lighting only: no movement, no rotation, no zoom, no deformation, no growth, no particles, no expanding rings, no rays outside the tower. Preserve the exact pixel-art appearance and transparent background. Return to the original brightness at the end.\nframes: 8\nsize: 72x80px\ntransparent: True\nlast_frame: yes (interpolating to it)\nseed: 26103015\nasset_id: 767784ac-0ee6-599f-8382-73c133f264e6\nasset_status: pending (saved when generation completes)\ncost: 1 generation\nstatus: processing (~30-180s)\n\nhint: get_image(job_id=\"bf23d8dd-1036-4933-81ae-41ab9435dfd3\")",
+  "reference": "assets/graphics/pixellab-towers-v1/ruby_reference.png",
+  "mask": "assets/graphics/pixellab-towers-v1/ruby_mask.png",
+  "selected_provider_indices": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7
+  ],
+  "postprocessing": "Bounded provider luminance inside saved crystal mask only; source hue, alpha and every unmasked pixel remain exact.",
+  "validation": {
+    "unique_frames": 8,
+    "changed_pixels": [
+      0,
+      299,
+      292,
+      290,
+      293,
+      296,
+      296,
+      303
+    ],
+    "static_structure_identical": true,
+    "alpha_identical": true
+  },
+  "sha256": "6c3108f7e6f582cfb57c0962a581fc1d58bd2ffd51ac306a47d9d96e38bb4166"
+}

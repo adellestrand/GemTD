@@ -1,5 +1,131 @@
 # Grafik som går att byta under utvecklingen
 
+**Skalningsfel i rutnätet rättat 2026-10-26.** Mätning vid 1920×1080 med
+1600×900-designyta visade att 1,2× fönsterskalning gjorde återkommande linjer
+två bildpunkter breda i stället för en. Det skapade ett skenbart 5×5-rutnät.
+Den föregående rättningen av kantstil löste inte den orsaken.
+Rutlinjer snäpps nu efter viewportens slutliga skalning och får kompenserad
+bredd: en faktisk bildpunkt per linje. Materialet och spelrutorna ändras inte.
+
+Ny renderad regression `tests/check_terrain_grid.gd` mäter både vågräta och
+lodräta linjer vid 1280×720, 1600×900, 1920×1080 och 2560×1440, med fyra
+rutstorlekar och förskjuten kartposition. Alla 16 fall passerade, med 34
+kontrollerade linjer per fall och en bildpunkts bredd överallt. Den faktiska
+1080p-spelvyn har dessutom renderats vid tre zoomnivåer med oförändrat
+speltillstånd. Windows och webb är exporterade med rättningen.
+
+Rutnätsrättning 2026-10-26: användaren vill inte ha ”rutor i rutorna”.
+Den dubbla ljusa/mörka kanten ersätts av en enda tunn linje per cellgräns,
+snäppt till ritpixel. Schacktoning och dekorativa hörnmärken tas bort.
+Markmaterialet behålls; alla celler använder samma grundton. Manifestets
+`terrain.grid_color` styr linjefärgen. Valet A gäller fortsatt. Bild-,
+presentations- och cellpassningskontroller passerade. Spelvyn renderades vid
+26/39/57,2 px per ruta med oförändrad spelsnapshot; Windows och webb exporterades
+om. Inga nya PixelLab-genereringar användes.
+
+**Valt och inkopplat 2026-10-26: A – grönt spelbräde.**
+`manifest.json` anger `terrain.style = green_grid_a`, PixelLab-materialet
+`grid_grass_v3.png` samt en rutlinjefärg. `terrain_art.gd` ritar textur
+och enkla cellgränser separat. Fyra deterministiskt
+speglade materialvarianter använder ingen spelslump. Varken byggyta,
+musens celluppslag eller ruttberäkning ändras. Markritningen återgår till
+den tidigare färgytan om materialet saknas.
+
+Sapphire I:s godkända ljuspuls är också inkopplad med `frames: 8` och
+`idle_fps: 5.25`. Spelvyn väljer ruta från sin visuella klocka så att paus
+och spelhastighet gäller även animationen. Porträtt behåller första rutan.
+
+Verifierat: bildkontroll (130 sprites, 273 centrerade tornlayouter), 54
+animationsremsor, 372 cellpassningsfall, presentationskontroll (14 fall),
+kvalitetskontroll (17 fall) och bygg-UI (10 fall i dess ordinarie profil).
+Den riktiga Windows-spelvyn har renderats med 26/39/57,2 px per ruta utan
+ändrad spelsnapshot. Provbilder: `output/pixellab-v1/game-grid-a-normal.png`,
+`game-grid-a-zoom_150.png` och `game-grid-a-zoom_220.png`. Windows och webb
+har exporterats om; exporterad Windows-start passerade med `SMOKE_READY`
+utan motorfel. Webben är exportkontrollerad men har inte webbläsartestats i
+detta pass. En ny lokal spelkörning från källa har startats för användarens
+visuella granskning. Inga PixelLab-genereringar användes vid inkopplingen.
+
+Rutnätsprov 2026-10-26 efter användarens återkoppling: Sapphire-ljuspulsen är
+visuellt godkänd, men gräs/stenväg-provet väljs bort eftersom spelrutorna måste
+synas tydligt. Två nya förslag jämförs lokalt: grönt spelbräde och gräsrutor
+med smala stenramar. Samma PixelLab-gräsplatta från föregående tileset används,
+med en grön färgramp och lägre texturkontrast i `grid_grass_v3.png`.
+Rutlinjer, svag schackvariation och musmarkering ritas separat vid respektive
+rutstorlek. Ingen permanent stenväg målas i förslagen. Sapphire-ljuspulsen och
+vildsvinsgången behålls i jämförelsen.
+
+Två nya texturgenereringar provades men valdes bort: Pixen gav dekorativa
+paneler, Pixflux gav en enfärgad yta. Proveniens och originalresultat finns i
+`assets/graphics/pixellab-v1/grid_grass_v1.generation.json` respektive
+`grid_grass_v2.generation.json`. Totalt kostade försöken 2; 30 genereringar
+återstod. Materialets slutliga härledning finns i `grid_grass_v3.derivation.json`
+och de två stilarna i `grid_ground_v2.styles.json` i samma mapp.
+
+Förslagen har granskats vid 15/28/32/45 px per ruta. Den lokala Godot-vyn
+`output/pixellab-v1/grid_ground_preview.gd` visar två 18×18-bräden och
+musmarkering för motsvarande ruta i båda förslagen. Start- och renderkontroll
+passerade (`PIXELLAB_GRID_PREVIEW_READY`, `PIXELLAB_GRID_CAPTURE_OK`). Bild:
+`output/pixellab-v1/grid-ground-native-preview.png`. Förslagen är ännu inte
+kopplade till det ordinarie spelmanifestet.
+
+Två ytterligare PixelLab-prov 2026-10-26 ligger som fristående grafikförslag:
+
+- `assets/graphics/pixellab-v1/sapphire_idle_v1.png`: åtta 64×64-rutor med
+  kristalljus från befintliga Sapphire I. Genererade färger överförs endast
+  till de 175 blå kristallpixlarna i referensen. Sten, guld, silhuett och alfa
+  är identiska genom hela loopen. PixelLab kostade 1 generering.
+- `assets/graphics/pixellab-v1/meadow_stone_v1.png`: 16 markplattor à 32×32
+  pixlar, för gräs och stenväg. PixelLabs medföljande `bounding_box` och
+  `corners` i `meadow_stone_v1.tiles.json` används för sammanfogning, inte
+  plattnamn eller ursprunglig generatorposition. PixelLab kostade 1 generering.
+
+Proveniens finns i respektive `.generation.json`. Kontot hade 32 genereringar
+kvar efter båda proven. De är inte kopplade till ordinarie spelmanifest ännu;
+Sapphire-stillbilden och vildsvinsgången från tidigare prov behålls där.
+En 20×14-plattors konceptscen med Sapphire och vildsvin finns i
+`output/pixellab-v1/pixellab-light-terrain-demo.gif`. Bildkontrollen verifierar
+fast tornstruktur/alfa och samtliga angränsande markhörn i de 280 democellerna.
+Import och lokal Godot-förhandsvisning används för visuell granskning.
+
+PixelLab-gångprov 2026-10-26: vildsvinet på våg 1 använder
+`assets/graphics/pixellab-v1/boar_walk_v1.png`, åtta 64×64-rutor på ett
+512×64-ark. Den befintliga 55×48-bilden centrerades utan omskalning på en
+transparent 64×64-duk och användes som både start- och slutreferens. PixelLab
+levererade ingångsbilden plus åtta genererade rutor; slutposen utelämnas vid
+loopning. Alla åtta använda rutor är unika, har binär alfa och delar
+beskärningsrektangel via det befintliga bildlagret. Gångtempot följer fortsatt
+förflyttad sträcka. Vildsvinets extra procedurstyrda studs, deformation och
+svaj är satta till noll eftersom rörelsen redan finns i bilderna. Bildstorlek
+och ankare är oförändrade. Ursprungligt animationsark finns kvar.
+Genereringen kostade 1, och kontot hade därefter 34 kvar. Proveniens och
+bildkontroll: `assets/graphics/pixellab-v1/boar_walk_v1.generation.json`.
+
+Verifierat efter inkopplingen: Godot-import; `tests/check_art.gd` (130 sprites,
+273 centrerade tornlayouter); `tests/check_enemy_frames.gd` (53 animationer,
+inga fel); `tests/check_cell_fit.gd` (372 fall, inga fel), samtliga med
+kampanjprofilen. Lokal Godot-jämförelse av gammal och ny gång har startats och
+renderats: `output/pixellab-v1/boar-native-preview.png`. Animerad jämförelse:
+`output/pixellab-v1/boar_walk_v1-comparison.gif`. Det separata lokala
+jämförelsefönstret stöder paus och 1×/2× utan att läsa eller skriva sparningar.
+Redan öppna spelfönster behåller sina laddade bilder; ny spelstart läser det
+uppdaterade manifestet. Exporterade paket har inte byggts om.
+
+PixelLab-stilprov 2026-10-26: Sapphire I använder nu
+`assets/graphics/pixellab-v1/sapphire_1.png`, en transparent 64×64-PNG genererad
+med den tidigare Sapphire I-bilden som stilreferens. Användaren har beställt
+inkoppling och lokal visning av förslaget. Mittankare, maximal storlek 0,94 ruta
+och övriga kvaliteter behålls. Originalbilden finns kvar i `refined-v3/`.
+Prompt, seed, PixelLab-ID och bildkontroll finns i
+`assets/graphics/pixellab-v1/sapphire_1.generation.json`. Detta är ett första
+stilprov; övriga grundtorn har ännu inte genererats om.
+
+Verifierat för stilprovet: Godot-import, kampanjens `tests/check_art.gd`
+(130 sprites och 273 centrerade tornlayouter) samt `tests/check_cell_fit.gd`
+(372 fall, inga fel). Lokal Windows-körning från källa startad med
+`python tools/godot.py --path . -- --campaign --windowed` för användarens
+visuella granskning. Exporterade paket har inte byggts om för detta stilprov.
+
 [Kvalitetspass för skadevisning och MVP](quality-pass-stats-mvp.md): panelens
 skada inkluderar stöd, rena skadeauror visar sina tickvärden och MVP 10 har
 guldkrona, räckviddsring och mottagarmarkering.
@@ -11,6 +137,8 @@ stödkällor, tillfälliga bonusar och avväpning i sidopanelen.
 auraskadetick, gift, kedjehopp, splash, kritiska träffar och stödbonusar.
 Grafikverkstadens nya **Abilities**-flik visar samtliga 43 torn i isolerade
 förmågedemonstrationer.
+
+[PixelLab – förmågeeffekter v1](pixellab-vfx-v1.md): 19 animerade status- och träffklipp ersätter de procedurella förmågelinjerna; fliken **Status effects** visar staplade effekter.
 
 Senaste grafikpasset: [43 egna kombinationstorn](special-towers-art-v1.md), med
 Dota-inspirerade väktarmotiv i den befintliga byggnadsstilen. Separata PNG-filer i
@@ -175,3 +303,11 @@ Aktuella arbetsfiler är [towers-v1.png](../assets/graphics/generated/towers-v1.
 ## Kartmärken i 1.3
 
 `assets/graphics/readability.json` styr kvalitetsfärger/-texter, specialtornens kortkoder, zoomgräns, stentavlornas familjesymboler, gradfärger och tillståndsfärger. `game/presentation/readability.gd` ritar märken och läser stridstillstånd utan att ändra dem. Ett rent bildbyte kräver fortfarande bara manifest/PNG; ett märke kan ändras utan ingrepp i kampanjdata. Grafikverkstadens Clarity-flik visar tre riktiga kartskalor. Denna statiska JSON laddas vid start; starta om för att se ändrade märkesdefinitioner.
+
+## PixelLab-fiender, 2026-10-26
+
+Alla 51 kopplade fiendebilder använder nu åtta bildrutor: godkänt vildsvin plus 50 nya gång-/flyg-/svävloopar. Nya remsor, referenser och genereringskvitton finns i `assets/graphics/pixellab-enemies-v1/`. Se [genomförande och verifiering](pixellab-enemies-v1.md). Galleriets **Enemies & scenery** visar nu levande loopar för alla unika figurer; starta med `powershell -ExecutionPolicy Bypass -File tools/art_preview.ps1 -Enemies`.
+
+## PixelLab-torn, 2026-10-26
+
+Alla 67 unika tornbilder har nu åttabildsloopar för kristall-/kärnljus: tidigare godkänd Sapphire I och 66 nya animationer. Se [utförande, filer och verifiering](pixellab-towers-v1.md). `powershell -ExecutionPolicy Bypass -File tools/art_preview.ps1 -Towers` visar kampanjens kvaliteter och specialtorn som levande förhandsvisningar; Space pausar.

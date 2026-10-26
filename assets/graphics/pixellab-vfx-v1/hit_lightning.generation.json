@@ -1,0 +1,155 @@
+{
+  "source": "PixelLab vfx_workbench",
+  "part": "bolt_strike",
+  "my_effects_id": "10020499-78e6-45ca-9bca-5ef8f3eaab48",
+  "export_image_id": "e663bf64-059c-4e09-a8ba-112f0af063fd",
+  "pack": {
+    "app": "PixelLab VFX Creator",
+    "name": "GemTD hit lightning v1",
+    "fps": 14,
+    "frame_ms": 71,
+    "frames": 10,
+    "loop": false,
+    "canvas": {
+      "w": 88,
+      "h": 138
+    },
+    "anchor": {
+      "kind": "feet",
+      "x": 44,
+      "y": 113
+    },
+    "clips": [
+      {
+        "name": "whole",
+        "title": "the whole effect, no sprite",
+        "depth": "both",
+        "loop": false,
+        "start_frame": 0,
+        "frames": 8,
+        "frame": {
+          "w": 46,
+          "h": 71
+        },
+        "sheets": [
+          {
+            "file": "whole.png",
+            "first_frame": 0,
+            "frames": 8,
+            "columns": 3,
+            "rows": 3
+          }
+        ],
+        "offset": {
+          "x": -23,
+          "y": -61
+        }
+      },
+      {
+        "name": "whole-with-sprite",
+        "title": "the whole effect with the sprite in it",
+        "depth": "both",
+        "loop": false,
+        "start_frame": 0,
+        "frames": 10,
+        "frame": {
+          "w": 46,
+          "h": 71
+        },
+        "sheets": [
+          {
+            "file": "whole-with-sprite.png",
+            "first_frame": 0,
+            "frames": 10,
+            "columns": 4,
+            "rows": 3
+          }
+        ],
+        "offset": {
+          "x": -23,
+          "y": -61
+        }
+      },
+      {
+        "name": "behind",
+        "title": "everything behind the sprite",
+        "depth": "behind",
+        "loop": false,
+        "start_frame": 0,
+        "frames": 8,
+        "frame": {
+          "w": 46,
+          "h": 71
+        },
+        "sheets": [
+          {
+            "file": "behind.png",
+            "first_frame": 0,
+            "frames": 8,
+            "columns": 3,
+            "rows": 3
+          }
+        ],
+        "offset": {
+          "x": -23,
+          "y": -61
+        }
+      },
+      {
+        "name": "front",
+        "title": "everything in front of the sprite",
+        "depth": "front",
+        "loop": false,
+        "start_frame": 3,
+        "frames": 4,
+        "frame": {
+          "w": 27,
+          "h": 18
+        },
+        "sheets": [
+          {
+            "file": "front.png",
+            "first_frame": 0,
+            "frames": 4,
+            "columns": 2,
+            "rows": 2
+          }
+        ],
+        "offset": {
+          "x": -14,
+          "y": -10
+        }
+      },
+      {
+        "name": "part-bolt_strike",
+        "title": "the bolt strike part",
+        "part": "bolt_strike",
+        "depth": "both",
+        "loop": false,
+        "start_frame": 0,
+        "frames": 8,
+        "frame": {
+          "w": 46,
+          "h": 71
+        },
+        "sheets": [
+          {
+            "file": "part-bolt_strike.png",
+            "first_frame": 0,
+            "frames": 8,
+            "columns": 3,
+            "rows": 3
+          }
+        ],
+        "offset": {
+          "x": -23,
+          "y": -61
+        }
+      }
+    ]
+  },
+  "files": {
+    "hit_lightning_behind_v1.png": "c094b853b773f185bb497fac8ad3b24ab590190c3cca421c21144c65cf385479",
+    "hit_lightning_front_v1.png": "7b7ede75dedb2c80c54f0752576d9a2616777e1643f9675dca0cd6b4b5a761b3"
+  }
+}

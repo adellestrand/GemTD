@@ -5,6 +5,10 @@ extends RefCounted
 var events: Array[Dictionary] = []
 var flashes: Dictionary = {}
 var ability_pulses: Dictionary = {}
+# Presentation memory per enemy id (burning, shocked) and the bodies drawn this frame.
+var marks: Dictionary = {}
+var bodies: Dictionary = {}
+var hits: Dictionary = {}
 var clock = 0.0
 
 func settings() -> Dictionary:
@@ -14,6 +18,9 @@ func clear() -> void:
 	events.clear()
 	flashes.clear()
 	ability_pulses.clear()
+	marks.clear()
+	bodies.clear()
+	hits.clear()
 	clock = 0.0
 
 func advance(dt: float) -> void:
@@ -21,9 +28,23 @@ func advance(dt: float) -> void:
 	events = events.filter(func(e): return clock-e.start < e.duration)
 	for key in ability_pulses.keys():
 		if clock >= float(ability_pulses[key]): ability_pulses.erase(key)
+	for id in marks.keys():
+		for status in marks[id].keys():
+			if clock >= float(marks[id][status]): marks[id].erase(status)
+		if marks[id].is_empty(): marks.erase(id)
 	for id in flashes.keys():
 		if clock >= float(flashes[id]):
 			flashes.erase(id)
+
+# Called once per drawn frame, before enemies: indexes clip hits by their target
+# so each enemy can draw its hit layers behind and in front of its own sprite.
+func begin_frame() -> void:
+	bodies.clear()
+	hits.clear()
+	for event in events:
+		if event.kind == "ability_hit" and not str(event.get("clip","")).is_empty() and int(event.get("target",-1)) >= 0:
+			if not hits.has(event.target): hits[event.target] = []
+			hits[event.target].append(event)
 
 func add(kind: String, position: Vector2, color: Color, duration: float, extra: Dictionary = {}) -> void:
 	if not bool(settings().get("enabled",true)):
@@ -88,7 +109,7 @@ func draw(canvas: CanvasItem, origin: Vector2, unit: float, font: Font) -> void:
 		color.a *= 1.0-t
 		var p: Vector2 = origin+event.pos*unit
 		if str(event.kind).begins_with("ability_"):
-			GemAbilityArt.draw_event(canvas,event,t,origin,unit)
+			GemAbilityArt.draw_event(canvas,event,t,origin,unit,self)
 			continue
 		match event.kind:
 			"shot":

@@ -1,0 +1,48 @@
+{
+  "id": "jumo",
+  "previous": {
+    "trim_alpha": true,
+    "size": [
+      1.25,
+      1.3
+    ],
+    "anchor": [
+      0.5,
+      0.72
+    ],
+    "texture": "res://assets/graphics/refined-v3/anims/jumo_walk_v3.png",
+    "frames": 4
+  },
+  "size": [
+    56,
+    72
+  ],
+  "frames": 8,
+  "air": false,
+  "wave_names": [
+    "jumo"
+  ],
+  "seed": 26102629,
+  "estimated_generations": 1,
+  "action": "An eight-frame seamless looping locomotion animation. The small dressed courier walks in place with two alternating planted feet and gentle arm swing. Its lantern stays held, cap and scarf move only slightly. Maintain exactly the original facing, character identity, proportions, accessories and pixel-art style. Locked camera, no turn, no zoom, no horizontal translation, no squash or stretching. Keep the whole character and moving limbs inside the transparent canvas. Return smoothly to the starting stance at the end for a continuous loop.",
+  "provider": "PixelLab",
+  "tool": "animate_image",
+  "date": "2026-10-26",
+  "reference": "assets/graphics/pixellab-enemies-v1/jumo_reference.png",
+  "receipt": "id: 6a9b5df3-a130-49ea-b873-63d509f72994\njob_id: 6a9b5df3-a130-49ea-b873-63d509f72994\naction: An eight-frame seamless looping locomotion animation. The small dressed courier walks in place with two alternating planted feet and gentle arm swing. Its lantern stays held, cap and scarf move only slightly. Maintain exactly the original facing, character identity, proportions, accessories and pixel-art style. Locked camera, no turn, no zoom, no horizontal translation, no squash or stretching. Keep the whole character and moving limbs inside the transparent canvas. Return smoothly to the starting stance at the end for a continuous loop.\nframes: 8\nsize: 56x72px\ntransparent: True\nlast_frame: yes (interpolating to it)\nseed: 26102629\nasset_id: 233cab59-14b5-578c-8e5e-38a13e00fc71\nasset_status: pending (saved when generation completes)\ncost: 1 generation\nstatus: processing (~30-180s)\n\nhint: get_image(job_id=\"6a9b5df3-a130-49ea-b873-63d509f72994\")",
+  "provider_frame_count": 9,
+  "selected_provider_indices": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7
+  ],
+  "last_frame": "same_as_first",
+  "no_background": true,
+  "restored_reference_opacity": null,
+  "sha256": "25fe89b2bb5e0f153094dc06d7a04d165fa612a7472eceaa43543d205a587f80"
+}

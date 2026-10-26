@@ -1,0 +1,30 @@
+{
+  "texture": "res://assets/graphics/pixellab-v1/grid_grass_v3.png",
+  "grid_is_drawn_separately": true,
+  "styles": [
+    {
+      "name": "Green grid",
+      "description": "Flat grass cells with a dark shared seam and restrained warm corner marks.",
+      "frame": "#1d3428",
+      "highlight": "#637e54",
+      "corner": "#798364",
+      "frame_fraction": 0.025,
+      "checker_variation": 0.025
+    },
+    {
+      "name": "Stone-edged lawn",
+      "description": "Grass squares in a thin moss-grey stone frame, matching the tower pedestal.",
+      "frame": "#34443c",
+      "highlight": "#7c8870",
+      "corner": "#8d947a",
+      "frame_fraction": 0.055,
+      "checker_variation": 0.02
+    }
+  ],
+  "hover": {
+    "fill": "#9cc97c",
+    "alpha": 0.16,
+    "outline": "#eed39a"
+  },
+  "preview_only": true
+}

@@ -1,0 +1,31 @@
+{
+  "source_tileset_id": "62e3ecb2-20b7-449e-bf08-292db5309687",
+  "source_bounding_box": {
+    "x": 64,
+    "y": 32,
+    "width": 32,
+    "height": 32
+  },
+  "processing": "Luminance mapped to five game-green shades; no resizing of source tile. Grid and hover drawn as a separate layer.",
+  "texture_size": [
+    32,
+    32
+  ],
+  "styles": 2,
+  "review_scales": [
+    15,
+    28,
+    32,
+    45
+  ],
+  "grid_boundary_validation": "All rows and columns explicitly bounded at every preview scale.",
+  "texture_sha256": "ee675360ca5fbde0ae082ba9fea0be82836094c470097b34e6fcedd3025e8687",
+  "active_in_game": true,
+  "remaining_generations_after_grid_trials": 30,
+  "native_preview": "PIXELLAB_GRID_PREVIEW_READY; PIXELLAB_GRID_CAPTURE_OK",
+  "activated_date": "2026-10-26",
+  "selected_style": "A - green board",
+  "runtime_validation": "Rendered regression passed 16 resolution/zoom combinations (1280x720, 1600x900, 1920x1080, 2560x1440), 34 measured lines per case. Actual 1080p game captured at 3 zooms with unchanged snapshot. Windows/Web re-exported.",
+  "grid_revision": "Viewport-output pixel snapping and inverse-stretch line width: exactly one output pixel per cell boundary, including fractional window/UI scales.",
+  "reproduced_previous_defect": "1080p baseline scan: 18 one-pixel and 5 two-pixel lines; corrected scan: all 23 internal lines one pixel."
+}

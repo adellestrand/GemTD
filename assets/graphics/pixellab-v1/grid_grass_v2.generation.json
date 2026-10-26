@@ -1,0 +1,22 @@
+{
+  "provider": "PixelLab",
+  "tool": "create_image_pixflux",
+  "job_id": "7e1e2eff-d27e-4da7-aeb7-e454fb17492f",
+  "source_image_id": "1120068c-30d8-57dd-b08a-a40b492157ad",
+  "date": "2026-10-26",
+  "seed": 261030,
+  "prompt": "A completely flat seamless short green grass texture covering the entire image edge to edge, viewed straight down. Tiny sparse pixel grass flecks on a calm cool forest green surface. Very low contrast, simple readable ground material. Keep the supplied flat grass texture composition and the supplied green palette. Only grass and moss texture; no objects, no stones, no buildings, no borders, no symbols, no divided squares, no paths, no large clumps, no highlights.",
+  "requested_size": [
+    64,
+    64
+  ],
+  "init_reference": "grid_grass_v2_reference.png",
+  "palette_reference": "grid_grass_v2_palette.png",
+  "init_image_strength": 300,
+  "estimated_generations": 1,
+  "status": "completed",
+  "active_in_game": false,
+  "charged_generations": 1,
+  "review": "Rejected: provider returned a single solid color. Reused the existing PixelLab meadow grass with game-green recoloring for the grid prototype.",
+  "remaining_generations_after_grid_trials": 30
+}

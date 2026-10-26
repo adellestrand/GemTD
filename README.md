@@ -126,6 +126,11 @@ utvecklingsskripten isolerar sina sparfiler i `.tools/userdata/`.
 
 ## Grafik
 
+Vald markstil är **A – grönt spelbräde**: PixelLab-gräs med en enkel separat
+linje per rutgräns, utan extra innerkanter, hörnmärken eller schacktoning.
+Sapphire I använder den godkända åttarutors ljuspulsen; vildsvinet har sin
+åttarutors gång. Material och färger ligger i grafikmanifestet.
+
 [Grafikverkstaden](http://127.0.0.1:8060/?view=art&profile=campaign) visar bilder,
 spelstorlek, rörelse och läsbarhet. [Abilities](http://127.0.0.1:8060/?view=art&profile=campaign&abilities=1)
 visar alla 43 kombinationstorn med riktiga förmågekörningar mot tåliga
@@ -155,6 +160,11 @@ powershell -ExecutionPolicy Bypass -File tools/test.ps1 -Exports
 python tools/smoke_windows.py --campaign --attack
 # Alla kampanjtorn vid fyra cellstorlekar
 python tools/godot.py --headless --path . --script res://tests/check_cell_fit.gd -- --campaign --smoke
+# Bildkopplingar och animationsremsor efter byte av grafik
+python tools/godot.py --headless --path . --script res://tests/check_art.gd -- --campaign
+python tools/godot.py --headless --path . --script res://tests/check_enemy_frames.gd -- --campaign
+# Verklig pixelkontroll av rutlinjer vid fyra upplösningar (utan --headless)
+python tools/godot.py --path . --script res://tests/check_terrain_grid.gd -- --campaign
 ```
 
 Den ordinarie sviten innehåller mekanik, projektiler, skada, reproducerbarhet,
@@ -181,3 +191,6 @@ typsnitt med licenser i `assets/fonts/OFL.txt`. Dota-installation krävs inte f�
 att köra eller exportera spelet. Referenspaketets Lua, modeller och texturer
 distribueras inte. Vissa verktyg för att återskapa referensdata kräver separat
 tillgång till det granskade lokala paketet.
+
+Alla fiendeanimationer i PixelLab-passet kan granskas med `powershell -ExecutionPolicy Bypass -File tools/art_preview.ps1 -Enemies` (51 unika figurer, Space pausar). Bilder och genereringsunderlag: `assets/graphics/pixellab-enemies-v1/`; se [dokumentationen](docs/pixellab-enemies-v1.md).
+Tornens ljusanimationer granskas med `powershell -ExecutionPolicy Bypass -File tools/art_preview.ps1 -Towers`; se [tornpasset](docs/pixellab-towers-v1.md).

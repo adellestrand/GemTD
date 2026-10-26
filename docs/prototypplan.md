@@ -1,5 +1,37 @@
 # GemTD – aktuell prototypplan
 
+Rutnätets kvarvarande 5×5-mönster är identifierat som varierande linjebredd
+vid fönsterskalning. Bredd och position beräknas nu i slutliga bildpunkter.
+En renderad regression mäter samtliga gränslinjer i 16 upplösnings-/zoomfall.
+
+Rutnätsrättning 2026-10-26: A förenklas till en enda linje per cellgräns.
+Den dubbla kantbelysningen, schacktoningen och hörnmärkena tas bort efter
+användarens återkoppling om ”rutor i rutorna”.
+
+Val genomfört 2026-10-26: användaren väljer **A – grönt spelbräde**.
+Marktextur och separat rutnät är inkopplade i den riktiga spelvyn, tillsammans
+med den tidigare godkända Sapphire-ljuspulsen. Vildsvinets nya gång behålls.
+Ingen ytterligare PixelLab-generering behövdes för inkopplingen.
+
+Aktuell grafikriktning 2026-10-26: användaren är nöjd med Sapphire-ljuspulsen
+men avvisar den sammanhängande gräs/stenväg-marken. Synliga spelrutor krävs.
+Två lokala rutnätsförslag jämförs nu med separat rutritning och musmarkering:
+grönt spelbräde respektive gräs med stenramar. De ersätter inte ännu spelets
+ordinarie markrendering.
+
+Ytterligare PixelLab-prov 2026-10-26: Sapphire-kristallens ljuspuls och ett
+sammanhängande gräs/sten-tileset har genererats och lagts i en separat
+konceptscen. Dessa två förslag granskas innan de kopplas till ordinarie spel;
+den befintliga Sapphire I-stillbilden och vildsvinsgången är fortsatt aktiva.
+
+Grafikprov 2026-10-26: PixelLab-stilen provas först på Sapphire I i en lokal
+körning. Bilden är inkopplad via grafikmanifestet; övriga grundtorn och
+kvaliteter behåller sina bilder tills stilprovet har utvärderats.
+
+Nästa PixelLab-prov är inkopplat: vildsvinets gång har åtta bildrutor från
+befintlig fiendebild. Ny rörelse granskas mot det tidigare fyrbildersarket;
+övriga fiender och spelregler behålls.
+
 Aktuell uppföljning: **1.4.1-dev**, innehållsversion **10**, med [fem tornflyttar per hel omgång](tower-relocation.md). Tidigare leveransbeskrivningar nedan bevaras.
 
 Senaste uppföljning: **1.4.0-dev**, innehållsversion **9**. De fyra beställda mekanikstegen är implementerade; se [nya regler och verifiering](mechanics-update-1.4.md). Särskilt gäller inga nya gems efter våg 50 och äldre tornkombinationer under strid. Historiska leveransbeskrivningar nedan bevaras.
@@ -125,3 +157,11 @@ Första leveransen ska gå att testa lokalt. Någon publik testdistribution är 
 - [Beslutslogg](prototyp-beslutsunderlag.md): användarens val, inklusive skillnader mot tidigare rekommendationer.
 - [Referensinventering](referensinventering.md): spelkällor, preliminära recept och osäkerheter.
 - [Godot: webbexport](https://docs.godotengine.org/en/stable/tutorials/export/exporting_for_web.html) och [Windows-export](https://docs.godotengine.org/en/stable/tutorials/export/exporting_for_windows.html): tekniska exportförutsättningar, inte bevis för att vårt projekt har testats.
+
+## Grafikuppföljning 2026-10-26 – fiendeanimationer
+
+Genomfört på användarens beställning: alla 51 kopplade fiendefigurer har åtta bildrutor med individuellt anpassad rörelse från PixelLab. Vildsvinspiloten behålls; 50 nya loopar tillkom. Inga bilder återstår i detta pass. Äldre bilder finns som reserv. Se [leverans och verifiering](pixellab-enemies-v1.md).
+
+## Grafikuppföljning 2026-10-26 – tornanimationer
+
+Genomfört: åttabildsloopar för alla 67 unika tornbilder, med 66 nya PixelLab-genereringar och Sapphire-piloten behållen. Inga tornbilder återstår i detta pass. Galleriets kvalitets- och specialtornbilder är animerade med gemensam paus. Se [leverans och verifiering](pixellab-towers-v1.md).

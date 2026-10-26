@@ -1,0 +1,58 @@
+{
+  "id": "special_v1_furongshi",
+  "size": [
+    64,
+    72
+  ],
+  "previous": {
+    "texture": "res://assets/graphics/specials-v1/furongshi.png",
+    "trim_alpha": true,
+    "size": [
+      0.94,
+      0.94
+    ],
+    "anchor": [
+      0.5,
+      0.5
+    ],
+    "effect_color": "#5bf0d4"
+  },
+  "seed": 26103026,
+  "frames": 8,
+  "action": "A seamless calm eight-frame idle lighting loop. Only the existing crystals and magical energy cores gently brighten, with a tiny moving facet highlight, then dim back to their starting brightness. Keep the original crystal colours. Keep all stonework, foundations, walls, roof, gold fittings, silhouette and all crystal shapes completely still. Lighting only: no movement, no rotation, no zoom, no deformation, no growth, no particles, no expanding rings, no rays outside the tower. Preserve the exact pixel-art appearance and transparent background. Return to the original brightness at the end.",
+  "mask_pixels": 205,
+  "estimated_generations": 1,
+  "provider": "PixelLab",
+  "tool": "animate_image",
+  "date": "2026-10-26",
+  "receipt": "id: 61dcdba0-8e6a-41a1-8f6d-ed840625fb75\njob_id: 61dcdba0-8e6a-41a1-8f6d-ed840625fb75\naction: A seamless calm eight-frame idle lighting loop. Only the existing crystals and magical energy cores gently brighten, with a tiny moving facet highlight, then dim back to their starting brightness. Keep the original crystal colours. Keep all stonework, foundations, walls, roof, gold fittings, silhouette and all crystal shapes completely still. Lighting only: no movement, no rotation, no zoom, no deformation, no growth, no particles, no expanding rings, no rays outside the tower. Preserve the exact pixel-art appearance and transparent background. Return to the original brightness at the end.\nframes: 8\nsize: 64x72px\ntransparent: True\nlast_frame: yes (interpolating to it)\nseed: 26103026\nasset_id: c93d58fe-088c-50eb-8093-0d378d0fbe41\nasset_status: pending (saved when generation completes)\ncost: 1 generation\nstatus: processing (~30-180s)\n\nhint: get_image(job_id=\"61dcdba0-8e6a-41a1-8f6d-ed840625fb75\")",
+  "reference": "assets/graphics/pixellab-towers-v1/special_v1_furongshi_reference.png",
+  "mask": "assets/graphics/pixellab-towers-v1/special_v1_furongshi_mask.png",
+  "selected_provider_indices": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7
+  ],
+  "postprocessing": "Bounded provider luminance inside saved crystal mask only; source hue, alpha and every unmasked pixel remain exact.",
+  "validation": {
+    "unique_frames": 8,
+    "changed_pixels": [
+      0,
+      198,
+      198,
+      199,
+      199,
+      199,
+      197,
+      198
+    ],
+    "static_structure_identical": true,
+    "alpha_identical": true
+  },
+  "sha256": "fd5ea220d00ee7913687a6238d02cb574a8d785e43e11900d4138c8ba40cda6a"
+}

@@ -1,0 +1,48 @@
+{
+  "id": "carpet_rider",
+  "previous": {
+    "trim_alpha": true,
+    "size": [
+      1.85,
+      1.9
+    ],
+    "anchor": [
+      0.5,
+      0.72
+    ],
+    "texture": "res://assets/graphics/refined-v3/anims/carpet_rider_flap_v3.png",
+    "frames": 4
+  },
+  "size": [
+    80,
+    64
+  ],
+  "frames": 8,
+  "air": true,
+  "wave_names": [
+    "carpet rider"
+  ],
+  "seed": 26102611,
+  "estimated_generations": 1,
+  "action": "An eight-frame seamless looping locomotion animation. The rider floats in place on the magic carpet. The carpet corners undulate gently and tassels sway while the seated rider makes a subtle bob. No walking. Maintain exactly the original facing, character identity, proportions, accessories and pixel-art style. Locked camera, no turn, no zoom, no horizontal translation, no squash or stretching. Keep the whole character and moving limbs inside the transparent canvas. Return smoothly to the starting stance at the end for a continuous loop.",
+  "provider": "PixelLab",
+  "tool": "animate_image",
+  "date": "2026-10-26",
+  "reference": "assets/graphics/pixellab-enemies-v1/carpet_rider_reference.png",
+  "receipt": "id: d2a05e7c-4521-41a9-85fc-c9ed06cd0301\njob_id: d2a05e7c-4521-41a9-85fc-c9ed06cd0301\naction: An eight-frame seamless looping locomotion animation. The rider floats in place on the magic carpet. The carpet corners undulate gently and tassels sway while the seated rider makes a subtle bob. No walking. Maintain exactly the original facing, character identity, proportions, accessories and pixel-art style. Locked camera, no turn, no zoom, no horizontal translation, no squash or stretching. Keep the whole character and moving limbs inside the transparent canvas. Return smoothly to the starting stance at the end for a continuous loop.\nframes: 8\nsize: 80x64px\ntransparent: True\nlast_frame: yes (interpolating to it)\nseed: 26102611\nasset_id: c9cd2189-7d1e-54d9-ae48-d536ab7dd73b\nasset_status: pending (saved when generation completes)\ncost: 1 generation\nstatus: processing (~30-180s)\n\nhint: get_image(job_id=\"d2a05e7c-4521-41a9-85fc-c9ed06cd0301\")",
+  "provider_frame_count": 9,
+  "selected_provider_indices": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7
+  ],
+  "last_frame": "same_as_first",
+  "no_background": true,
+  "restored_reference_opacity": null,
+  "sha256": "08b33065aba45eea58e07b97790a0d922a71c578733869dda096adfe249c69b8"
+}

@@ -1,0 +1,129 @@
+{
+  "source": "PixelLab vfx_workbench",
+  "part": "collect_pop",
+  "my_effects_id": "6250594e-9776-4d87-ad5b-07a1e520d487",
+  "export_image_id": "098ae513-ef8e-4bc4-8904-6efc9ea5fcd1",
+  "pack": {
+    "app": "PixelLab VFX Creator",
+    "name": "GemTD hit support v1",
+    "fps": 15,
+    "frame_ms": 67,
+    "frames": 10,
+    "loop": false,
+    "canvas": {
+      "w": 43,
+      "h": 49
+    },
+    "anchor": {
+      "kind": "feet",
+      "x": 21,
+      "y": 46
+    },
+    "clips": [
+      {
+        "name": "whole",
+        "title": "the whole effect, no sprite",
+        "depth": "both",
+        "loop": false,
+        "start_frame": 0,
+        "frames": 9,
+        "frame": {
+          "w": 37,
+          "h": 43
+        },
+        "sheets": [
+          {
+            "file": "whole.png",
+            "first_frame": 0,
+            "frames": 9,
+            "columns": 3,
+            "rows": 3
+          }
+        ],
+        "offset": {
+          "x": -18,
+          "y": -43
+        }
+      },
+      {
+        "name": "whole-with-sprite",
+        "title": "the whole effect with the sprite in it",
+        "depth": "both",
+        "loop": false,
+        "start_frame": 0,
+        "frames": 10,
+        "frame": {
+          "w": 37,
+          "h": 43
+        },
+        "sheets": [
+          {
+            "file": "whole-with-sprite.png",
+            "first_frame": 0,
+            "frames": 10,
+            "columns": 4,
+            "rows": 3
+          }
+        ],
+        "offset": {
+          "x": -18,
+          "y": -43
+        }
+      },
+      {
+        "name": "front",
+        "title": "everything in front of the sprite",
+        "depth": "front",
+        "loop": false,
+        "start_frame": 0,
+        "frames": 9,
+        "frame": {
+          "w": 37,
+          "h": 43
+        },
+        "sheets": [
+          {
+            "file": "front.png",
+            "first_frame": 0,
+            "frames": 9,
+            "columns": 3,
+            "rows": 3
+          }
+        ],
+        "offset": {
+          "x": -18,
+          "y": -43
+        }
+      },
+      {
+        "name": "part-collect_pop",
+        "title": "the collect pop part",
+        "part": "collect_pop",
+        "depth": "front",
+        "loop": false,
+        "start_frame": 0,
+        "frames": 9,
+        "frame": {
+          "w": 37,
+          "h": 43
+        },
+        "sheets": [
+          {
+            "file": "part-collect_pop.png",
+            "first_frame": 0,
+            "frames": 9,
+            "columns": 3,
+            "rows": 3
+          }
+        ],
+        "offset": {
+          "x": -18,
+          "y": -43
+        }
+      }
+    ]
+  },
+  "files": {
+    "hit_support_front_v1.png": "ddd16e4fe936a016b1cd7889dd36ca9c2a0003de6593ea4c0835c2f7fbaf4c54"
+  }
+}

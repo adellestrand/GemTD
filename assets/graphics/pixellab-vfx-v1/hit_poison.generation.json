@@ -1,0 +1,129 @@
+{
+  "source": "PixelLab vfx_workbench",
+  "part": "blood_splat",
+  "my_effects_id": "b32109cf-66ef-46ed-b190-55bab1b609da",
+  "export_image_id": "2b11ad80-0f49-4a88-910a-f52d673cb7bd",
+  "pack": {
+    "app": "PixelLab VFX Creator",
+    "name": "GemTD hit poison v1",
+    "fps": 15,
+    "frame_ms": 67,
+    "frames": 9,
+    "loop": false,
+    "canvas": {
+      "w": 58,
+      "h": 56
+    },
+    "anchor": {
+      "kind": "feet",
+      "x": 19,
+      "y": 36
+    },
+    "clips": [
+      {
+        "name": "whole",
+        "title": "the whole effect, no sprite",
+        "depth": "both",
+        "loop": false,
+        "start_frame": 0,
+        "frames": 8,
+        "frame": {
+          "w": 45,
+          "h": 50
+        },
+        "sheets": [
+          {
+            "file": "whole.png",
+            "first_frame": 0,
+            "frames": 8,
+            "columns": 3,
+            "rows": 3
+          }
+        ],
+        "offset": {
+          "x": -9,
+          "y": -33
+        }
+      },
+      {
+        "name": "whole-with-sprite",
+        "title": "the whole effect with the sprite in it",
+        "depth": "both",
+        "loop": false,
+        "start_frame": 0,
+        "frames": 9,
+        "frame": {
+          "w": 52,
+          "h": 50
+        },
+        "sheets": [
+          {
+            "file": "whole-with-sprite.png",
+            "first_frame": 0,
+            "frames": 9,
+            "columns": 3,
+            "rows": 3
+          }
+        ],
+        "offset": {
+          "x": -16,
+          "y": -33
+        }
+      },
+      {
+        "name": "front",
+        "title": "everything in front of the sprite",
+        "depth": "front",
+        "loop": false,
+        "start_frame": 0,
+        "frames": 8,
+        "frame": {
+          "w": 45,
+          "h": 50
+        },
+        "sheets": [
+          {
+            "file": "front.png",
+            "first_frame": 0,
+            "frames": 8,
+            "columns": 3,
+            "rows": 3
+          }
+        ],
+        "offset": {
+          "x": -9,
+          "y": -33
+        }
+      },
+      {
+        "name": "part-blood_splat",
+        "title": "the blood splat part",
+        "part": "blood_splat",
+        "depth": "front",
+        "loop": false,
+        "start_frame": 0,
+        "frames": 8,
+        "frame": {
+          "w": 45,
+          "h": 50
+        },
+        "sheets": [
+          {
+            "file": "part-blood_splat.png",
+            "first_frame": 0,
+            "frames": 8,
+            "columns": 3,
+            "rows": 3
+          }
+        ],
+        "offset": {
+          "x": -9,
+          "y": -33
+        }
+      }
+    ]
+  },
+  "files": {
+    "hit_poison_front_v1.png": "bd4dd8e2975b65013fe141ff48066d6addb84c954bef2a7b4f5c3c5e69ebadde"
+  }
+}

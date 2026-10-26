@@ -23,6 +23,7 @@ static func reload() -> bool:
 	_textures.clear()
 	_sheets.clear()
 	_images.clear()
+	_grey.clear()
 	return true
 
 static func sprite_id(category: String, kind: String, tier: int = 1) -> String:
@@ -40,6 +41,13 @@ static func texture(id: String) -> Texture2D:
 # Animated sprites ("frames": n) are horizontal strips of n equal frames.
 static func frame_count(id: String) -> int:
 	return maxi(1,int(definition(id).get("frames",1)))
+
+# Idle artwork follows the board's visual clock, including pause and speed changes.
+# Portraits still use texture(), which always returns the original first frame.
+static func idle_frame(id: String, time: float) -> int:
+	if not bool(config().get("motion",{}).get("enabled",true)): return 0
+	var fps = maxf(0.0,float(definition(id).get("idle_fps",0.0)))
+	return posmod(floori(time*fps),frame_count(id))
 
 static func frame_texture(id: String, index: int) -> Texture2D:
 	var frames: Array = _frames(id)
@@ -147,8 +155,27 @@ static func sprite_rect(id: String, center: Vector2, unit: float) -> Rect2:
 	var offset: Array = entry.get("offset",[0.0,0.0])
 	return Rect2(center+Vector2(offset[0],offset[1])*unit-Vector2(anchor[0],anchor[1])*size,size)
 
-static func draw(canvas: CanvasItem, id: String, center: Vector2, unit: float, flip: bool = false, tint: Color = Color.WHITE, deformation: Vector2 = Vector2.ONE, rotation: float = 0.0, frame_index: int = 0) -> Rect2:
-	var frame = frame_texture(id,frame_index)
+# Greyscale copy of one frame, built on first use (petrified enemies).
+static var _grey: Dictionary = {}
+
+static func grey_frame(id: String, index: int) -> Texture2D:
+	var source = frame_texture(id,index)
+	if source == null: return null
+	var key = "%s/%d" % [id,posmod(index,frame_count(id))]
+	if not _grey.has(key):
+		var image: Image = source.get_image()
+		if image.is_compressed(): image.decompress()
+		image.convert(Image.FORMAT_RGBA8)
+		for y in range(image.get_height()):
+			for x in range(image.get_width()):
+				var c = image.get_pixel(x,y)
+				var v = c.r*.3+c.g*.59+c.b*.11
+				image.set_pixel(x,y,Color(v,v,v,c.a))
+		_grey[key] = ImageTexture.create_from_image(image)
+	return _grey[key]
+
+static func draw(canvas: CanvasItem, id: String, center: Vector2, unit: float, flip: bool = false, tint: Color = Color.WHITE, deformation: Vector2 = Vector2.ONE, rotation: float = 0.0, frame_index: int = 0, texture_override: Texture2D = null) -> Rect2:
+	var frame = texture_override if texture_override != null else frame_texture(id,frame_index)
 	if frame == null:
 		return Rect2()
 	var entry = definition(id)

@@ -1,0 +1,53 @@
+{
+  "id": "boss_hound",
+  "previous": {
+    "trim_alpha": true,
+    "size": [
+      1.85,
+      1.9
+    ],
+    "anchor": [
+      0.5,
+      0.72
+    ],
+    "motion": {
+      "frequency": 5.0,
+      "bounce": 0.035,
+      "sway": 0.02
+    },
+    "texture": "res://assets/graphics/refined-v3/anims/boss_hound_walk_v1.png",
+    "frames": 4
+  },
+  "size": [
+    96,
+    80
+  ],
+  "frames": 8,
+  "air": false,
+  "wave_names": [
+    "invincible dog"
+  ],
+  "seed": 26102609,
+  "estimated_generations": 1,
+  "action": "An eight-frame seamless looping locomotion animation. The armored heavy hound walks powerfully in place, alternating all four paws with deliberate weight transfer and subtle head nod. Armor stays firmly attached. Maintain exactly the original facing, character identity, proportions, accessories and pixel-art style. Locked camera, no turn, no zoom, no horizontal translation, no squash or stretching. Keep the whole character and moving limbs inside the transparent canvas. Return smoothly to the starting stance at the end for a continuous loop.",
+  "provider": "PixelLab",
+  "tool": "animate_image",
+  "date": "2026-10-26",
+  "reference": "assets/graphics/pixellab-enemies-v1/boss_hound_reference.png",
+  "receipt": "id: 9ab3d23d-5b58-4bb1-9bfc-4dbb75d2634d\njob_id: 9ab3d23d-5b58-4bb1-9bfc-4dbb75d2634d\naction: An eight-frame seamless looping locomotion animation. The armored heavy hound walks powerfully in place, alternating all four paws with deliberate weight transfer and subtle head nod. Armor stays firmly attached. Maintain exactly the original facing, character identity, proportions, accessories and pixel-art style. Locked camera, no turn, no zoom, no horizontal translation, no squash or stretching. Keep the whole character and moving limbs inside the transparent canvas. Return smoothly to the starting stance at the end for a continuous loop.\nframes: 8\nsize: 96x80px\ntransparent: True\nlast_frame: yes (interpolating to it)\nseed: 26102609\nasset_id: 034f988e-4d2f-5fd1-a54c-eb1a8f48d313\nasset_status: pending (saved when generation completes)\ncost: 1 generation\nstatus: processing (~30-180s)\n\nhint: get_image(job_id=\"9ab3d23d-5b58-4bb1-9bfc-4dbb75d2634d\")",
+  "provider_frame_count": 9,
+  "selected_provider_indices": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7
+  ],
+  "last_frame": "same_as_first",
+  "no_background": true,
+  "restored_reference_opacity": null,
+  "sha256": "146e17d52237c3a7ecb62d6d5801933e596f7235129d2e6446a71f7208f07f1d"
+}

@@ -10,14 +10,19 @@ export function nickname(value) {
   return name;
 }
 
+export function matchingRelease(releases, hash, version, contentVersion) {
+  return releases.find(x => x.rules_hash === hash && x.accepting === true &&
+    x.game_version === version && x.content_version === contentVersion);
+}
+
 export function validateSubmission(body, releases) {
   if (!body || typeof body !== 'object' || Array.isArray(body)) throw new SubmissionError('Invalid submission.');
   const r = body.report;
   if (!r || typeof r !== 'object' || Array.isArray(r)) throw new SubmissionError('Missing run report.');
   if (!/^[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}$/i.test(r.run_id || ''))
     throw new SubmissionError('Invalid run identity.');
-  const release = releases.find(x => x.rules_hash === r.catalog_sha256 && x.accepting);
-  if (!release || r.game_version !== release.game_version || r.catalog_version !== release.content_version)
+  const release = matchingRelease(releases, r.catalog_sha256, r.game_version, r.catalog_version);
+  if (!release)
     throw new SubmissionError('This rules version is not accepting scores.', 409);
   if (r.balance_profile !== 'full-solo-dev' || r.wave_count !== 100 || r.debug_build !== false)
     throw new SubmissionError('Only release campaign runs can submit.');

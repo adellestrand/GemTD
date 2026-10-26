@@ -1,0 +1,48 @@
+{
+  "id": "boooofus",
+  "previous": {
+    "trim_alpha": true,
+    "size": [
+      1.25,
+      1.3
+    ],
+    "anchor": [
+      0.5,
+      0.72
+    ],
+    "texture": "res://assets/graphics/refined-v3/anims/boooofus_walk_v3.png",
+    "frames": 4
+  },
+  "size": [
+    80,
+    72
+  ],
+  "frames": 8,
+  "air": false,
+  "wave_names": [
+    "Siwangxintu"
+  ],
+  "seed": 26102608,
+  "estimated_generations": 1,
+  "action": "An eight-frame seamless looping locomotion animation. The hooded reaper walks in place with alternating feet, gentle robe movement and a tiny scythe sway. Both hands hold the scythe throughout. Maintain exactly the original facing, character identity, proportions, accessories and pixel-art style. Locked camera, no turn, no zoom, no horizontal translation, no squash or stretching. Keep the whole character and moving limbs inside the transparent canvas. Return smoothly to the starting stance at the end for a continuous loop.",
+  "provider": "PixelLab",
+  "tool": "animate_image",
+  "date": "2026-10-26",
+  "reference": "assets/graphics/pixellab-enemies-v1/boooofus_reference.png",
+  "receipt": "id: 2c47bf6e-97c8-432d-8233-9e4f96fbf492\njob_id: 2c47bf6e-97c8-432d-8233-9e4f96fbf492\naction: An eight-frame seamless looping locomotion animation. The hooded reaper walks in place with alternating feet, gentle robe movement and a tiny scythe sway. Both hands hold the scythe throughout. Maintain exactly the original facing, character identity, proportions, accessories and pixel-art style. Locked camera, no turn, no zoom, no horizontal translation, no squash or stretching. Keep the whole character and moving limbs inside the transparent canvas. Return smoothly to the starting stance at the end for a continuous loop.\nframes: 8\nsize: 80x72px\ntransparent: True\nlast_frame: yes (interpolating to it)\nseed: 26102608\nasset_id: d8755fcc-5e3b-51a7-bcce-3bf471c940c8\nasset_status: pending (saved when generation completes)\ncost: 1 generation\nstatus: processing (~30-180s)\n\nhint: get_image(job_id=\"2c47bf6e-97c8-432d-8233-9e4f96fbf492\")",
+  "provider_frame_count": 9,
+  "selected_provider_indices": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7
+  ],
+  "last_frame": "same_as_first",
+  "no_background": true,
+  "restored_reference_opacity": null,
+  "sha256": "6831fc8110f912adcbe6fec1fb288ba2691acc2b35cfe7501cf9d42130d10aac"
+}

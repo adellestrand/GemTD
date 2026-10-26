@@ -80,6 +80,34 @@ func run_checks() -> void:
 	check(game.leaderboard_dialog.content.get_rect().end.y <= game.leaderboard_dialog.size.y-50 and game.leaderboard_dialog.size.y <= 600,"scoreboard and submission controls fit above Close without recursive window growth")
 	game.show_summary()
 	check(not game.leaderboard_dialog.visible and game.summary_dialog.visible,"summary and leaderboard follow the shared modal rules")
+	game.new_run(17)
+	check(not game.leaderboard_dialog.visible,"new run does not prompt for a score")
+	for x in range(10,15): game.run.place(Vector2i(x,10))
+	game.run.keep(Vector2i(10,10))
+	game.run.leaked(1000,false)
+	await process_frame
+	await process_frame
+	check(game.leaderboard_dialog.visible and game.leaderboard_dialog.report.outcome == "lost" and game.leaderboard_dialog.report.waves.back().status == "defeat","real defeat opens score entry after the final wave was recorded")
+	check(game.leaderboard_dialog.player_name.editable and game.leaderboard_dialog.client.session.is_empty(),"automatic prompt does not authenticate or submit without player action")
+	game.leaderboard_dialog.hide()
+	game.refresh_ui()
+	await process_frame
+	check(not game.leaderboard_dialog.visible,"dismissed result prompt does not reopen on UI refresh")
+	game.new_run(18)
+	game.run.wave = 100
+	game.run.phase = "combat"
+	game.run.finish_wave()
+	game.refresh_ui()
+	await process_frame
+	await process_frame
+	check(game.leaderboard_dialog.visible and game.leaderboard_dialog.report.outcome == "won" and game.leaderboard_dialog.description.text.begins_with("Victory · 100"),"victory also opens the score prompt with the final score")
+	game.leaderboard_dialog.hide()
+	game.new_run(19)
+	game.run.phase = "lost"
+	game.refresh_ui()
+	game.new_run(20)
+	await process_frame
+	check(not game.leaderboard_dialog.visible and game.run.phase == "build","restart cancels a pending old-run prompt")
 	game.free()
 	print("LEADERBOARD_CHECK_OK checks=%d failures=%d" % [checks,failures])
 	quit(1 if failures else 0)

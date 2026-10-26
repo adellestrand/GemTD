@@ -1,0 +1,58 @@
+{
+  "id": "special_v1_heiyaoshi",
+  "size": [
+    64,
+    80
+  ],
+  "previous": {
+    "texture": "res://assets/graphics/specials-v1/heiyaoshi.png",
+    "trim_alpha": true,
+    "size": [
+      0.94,
+      0.94
+    ],
+    "anchor": [
+      0.5,
+      0.5
+    ],
+    "effect_color": "#62c8ff"
+  },
+  "seed": 26103034,
+  "frames": 8,
+  "action": "A seamless calm eight-frame idle lighting loop. Only the existing crystals and magical energy cores gently brighten, with a tiny moving facet highlight, then dim back to their starting brightness. Keep the original crystal colours. Keep all stonework, foundations, walls, roof, gold fittings, silhouette and all crystal shapes completely still. Lighting only: no movement, no rotation, no zoom, no deformation, no growth, no particles, no expanding rings, no rays outside the tower. Preserve the exact pixel-art appearance and transparent background. Return to the original brightness at the end.",
+  "mask_pixels": 52,
+  "estimated_generations": 1,
+  "provider": "PixelLab",
+  "tool": "animate_image",
+  "date": "2026-10-26",
+  "receipt": "id: 03e9ab93-c239-4d4e-b7dc-b112e0f1f6ed\njob_id: 03e9ab93-c239-4d4e-b7dc-b112e0f1f6ed\naction: A seamless calm eight-frame idle lighting loop. Only the existing crystals and magical energy cores gently brighten, with a tiny moving facet highlight, then dim back to their starting brightness. Keep the original crystal colours. Keep all stonework, foundations, walls, roof, gold fittings, silhouette and all crystal shapes completely still. Lighting only: no movement, no rotation, no zoom, no deformation, no growth, no particles, no expanding rings, no rays outside the tower. Preserve the exact pixel-art appearance and transparent background. Return to the original brightness at the end.\nframes: 8\nsize: 64x80px\ntransparent: True\nlast_frame: yes (interpolating to it)\nseed: 26103034\nasset_id: f2ee8fce-3ca4-5cf4-a5b6-26e8e163e78a\nasset_status: pending (saved when generation completes)\ncost: 1 generation\nstatus: processing (~30-180s)\n\nhint: get_image(job_id=\"03e9ab93-c239-4d4e-b7dc-b112e0f1f6ed\")",
+  "reference": "assets/graphics/pixellab-towers-v1/special_v1_heiyaoshi_reference.png",
+  "mask": "assets/graphics/pixellab-towers-v1/special_v1_heiyaoshi_mask.png",
+  "selected_provider_indices": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7
+  ],
+  "postprocessing": "Bounded provider luminance inside saved crystal mask only; source hue, alpha and every unmasked pixel remain exact.",
+  "validation": {
+    "unique_frames": 4,
+    "changed_pixels": [
+      0,
+      52,
+      52,
+      52,
+      52,
+      52,
+      52,
+      52
+    ],
+    "static_structure_identical": true,
+    "alpha_identical": true
+  },
+  "sha256": "9000fba4c1526425a74b715ca0fb015429ca1f280f3d18170e192c01becf945e"
+}

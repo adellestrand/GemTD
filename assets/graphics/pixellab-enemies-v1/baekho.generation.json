@@ -1,0 +1,48 @@
+{
+  "id": "baekho",
+  "previous": {
+    "trim_alpha": true,
+    "size": [
+      1.25,
+      1.3
+    ],
+    "anchor": [
+      0.5,
+      0.72
+    ],
+    "texture": "res://assets/graphics/refined-v3/anims/baekho_walk_v1.png",
+    "frames": 4
+  },
+  "size": [
+    80,
+    72
+  ],
+  "frames": 8,
+  "air": false,
+  "wave_names": [
+    "baekho"
+  ],
+  "seed": 26102603,
+  "estimated_generations": 1,
+  "action": "An eight-frame seamless looping locomotion animation. The wolf trots in place with alternating forelegs and hindlegs, flexing paws and a slight tail sway. Maintain exactly the original facing, character identity, proportions, accessories and pixel-art style. Locked camera, no turn, no zoom, no horizontal translation, no squash or stretching. Keep the whole character and moving limbs inside the transparent canvas. Return smoothly to the starting stance at the end for a continuous loop.",
+  "provider": "PixelLab",
+  "tool": "animate_image",
+  "date": "2026-10-26",
+  "reference": "assets/graphics/pixellab-enemies-v1/baekho_reference.png",
+  "receipt": "id: 1be9c470-0540-4da9-b2dd-41a5542c2278\njob_id: 1be9c470-0540-4da9-b2dd-41a5542c2278\naction: An eight-frame seamless looping locomotion animation. The wolf trots in place with alternating forelegs and hindlegs, flexing paws and a slight tail sway. Maintain exactly the original facing, character identity, proportions, accessories and pixel-art style. Locked camera, no turn, no zoom, no horizontal translation, no squash or stretching. Keep the whole character and moving limbs inside the transparent canvas. Return smoothly to the starting stance at the end for a continuous loop.\nframes: 8\nsize: 80x72px\ntransparent: True\nlast_frame: yes (interpolating to it)\nseed: 26102603\nasset_id: 47c43258-777b-52eb-8ca5-bfc29b48e05e\nasset_status: pending (saved when generation completes)\ncost: 1 generation\nstatus: processing (~30-180s)\n\nhint: get_image(job_id=\"1be9c470-0540-4da9-b2dd-41a5542c2278\")",
+  "provider_frame_count": 9,
+  "selected_provider_indices": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7
+  ],
+  "last_frame": "same_as_first",
+  "no_background": true,
+  "restored_reference_opacity": null,
+  "sha256": "899aed8232b3a2da1514c5e867cfa7f5c84ee498a1ccd172727fff82dcddf9a4"
+}

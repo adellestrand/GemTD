@@ -1,0 +1,54 @@
+{
+  "id": "baby_roshan",
+  "previous": {
+    "trim_alpha": true,
+    "size": [
+      1.85,
+      1.9
+    ],
+    "anchor": [
+      0.5,
+      0.72
+    ],
+    "motion": {
+      "frequency": 5.0,
+      "bounce": 0.035,
+      "sway": 0.02
+    },
+    "texture": "res://assets/graphics/refined-v3/anims/baby_roshan_flap_v3.png",
+    "frames": 4
+  },
+  "size": [
+    72,
+    64
+  ],
+  "frames": 8,
+  "air": true,
+  "wave_names": [
+    "Roushan Boss Fly"
+  ],
+  "seed": 26102702,
+  "estimated_generations": 1,
+  "action": "A seamless eight-frame flying loop, flapping the bat wings with a LARGE clear stroke. The visible bat wing swings broadly from fully raised above the shoulder, down to a low extended position with its tip below the belly at mid-cycle, then returns fully up. The other wing flaps in sync. Animate the wing joints, not just bobbing the body. The demon's head and body stay steady, legs stay tucked. Preserve the original character and its horns, facial features, proportions and pixel-art style. Locked camera, no turning, no travel, transparent background. Keep the entire creature and wing tips inside the canvas.",
+  "previous_attempt_job_id": "14b67b1d-6b30-444a-82b9-1a3f36c5351e",
+  "provider": "PixelLab",
+  "tool": "animate_image",
+  "date": "2026-10-26",
+  "reference": "assets/graphics/pixellab-enemies-v1/baby_roshan_reference.png",
+  "receipt": "id: 7518950c-fbb8-4cfb-8111-b43bc68544ba\njob_id: 7518950c-fbb8-4cfb-8111-b43bc68544ba\naction: A seamless eight-frame flying loop, flapping the bat wings with a LARGE clear stroke. The visible bat wing swings broadly from fully raised above the shoulder, down to a low extended position with its tip below the belly at mid-cycle, then returns fully up. The other wing flaps in sync. Animate the wing joints, not just bobbing the body. The demon's head and body stay steady, legs stay tucked. Preserve the original character and its horns, facial features, proportions and pixel-art style. Locked camera, no turning, no travel, transparent background. Keep the entire creature and wing tips inside the canvas.\nframes: 8\nsize: 72x64px\ntransparent: True\nlast_frame: yes (interpolating to it)\nseed: 26102702\nasset_id: d410a02d-28a4-5d65-8bf1-c885458b2036\nasset_status: pending (saved when generation completes)\ncost: 1 generation\nstatus: processing (~30-180s)\n\nhint: get_image(job_id=\"7518950c-fbb8-4cfb-8111-b43bc68544ba\")",
+  "provider_frame_count": 9,
+  "selected_provider_indices": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7
+  ],
+  "last_frame": "same_as_first",
+  "no_background": true,
+  "restored_reference_opacity": null,
+  "sha256": "9a17fc505e9e0e74674f22adffb897fe331546d90c17af2a9acf11c49a8a3f84"
+}

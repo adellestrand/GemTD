@@ -1,0 +1,48 @@
+{
+  "id": "alpaca",
+  "previous": {
+    "trim_alpha": true,
+    "size": [
+      1.25,
+      1.3
+    ],
+    "anchor": [
+      0.5,
+      0.72
+    ],
+    "texture": "res://assets/graphics/refined-v3/anims/alpaca_walk_v3.png",
+    "frames": 4
+  },
+  "size": [
+    64,
+    72
+  ],
+  "frames": 8,
+  "air": false,
+  "wave_names": [
+    "funny alpaca"
+  ],
+  "seed": 26102600,
+  "estimated_generations": 1,
+  "action": "An eight-frame seamless looping locomotion animation. The alpaca walks in place with four alternating planted hooves, a gentle neck nod and small blanket movement. Maintain exactly the original facing, character identity, proportions, accessories and pixel-art style. Locked camera, no turn, no zoom, no horizontal translation, no squash or stretching. Keep the whole character and moving limbs inside the transparent canvas. Return smoothly to the starting stance at the end for a continuous loop.",
+  "provider": "PixelLab",
+  "tool": "animate_image",
+  "date": "2026-10-26",
+  "reference": "assets/graphics/pixellab-enemies-v1/alpaca_reference.png",
+  "receipt": "id: 494bc2c0-2c7f-4c25-b4c4-5c0a9174ffd8\njob_id: 494bc2c0-2c7f-4c25-b4c4-5c0a9174ffd8\naction: An eight-frame seamless looping locomotion animation. The alpaca walks in place with four alternating planted hooves, a gentle neck nod and small blanket movement. Maintain exactly the original facing, character identity, proportions, accessories and pixel-art style. Locked camera, no turn, no zoom, no horizontal translation, no squash or stretching. Keep the whole character and moving limbs inside the transparent canvas. Return smoothly to the starting stance at the end for a continuous loop.\nframes: 8\nsize: 64x72px\ntransparent: True\nlast_frame: yes (interpolating to it)\nseed: 26102600\nasset_id: 723bd614-d8df-508d-bb63-2cebec448fb2\nasset_status: pending (saved when generation completes)\ncost: 1 generation\nstatus: processing (~30-180s)\n\nhint: get_image(job_id=\"494bc2c0-2c7f-4c25-b4c4-5c0a9174ffd8\")",
+  "provider_frame_count": 9,
+  "selected_provider_indices": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7
+  ],
+  "last_frame": "same_as_first",
+  "no_background": true,
+  "restored_reference_opacity": null,
+  "sha256": "3ea39085eb1d45da7bdbac5b54e91f7ac1d595fa68a943d430415cfd263e7f34"
+}

@@ -1,4 +1,4 @@
-import { SubmissionError, readLimitedJSON, validateSubmission } from './validation.mjs';
+import { SubmissionError, readLimitedJSON, validateSubmission, matchingRelease } from './validation.mjs';
 
 export function createHandler({ url, serviceKey, allowedOrigins, fetchImpl = fetch }) {
   return async request => {
@@ -7,12 +7,28 @@ export function createHandler({ url, serviceKey, allowedOrigins, fetchImpl = fet
     if (origin && !allowedOrigins.includes(origin)) return new Response('{"error":"Origin not allowed."}', { status: 403, headers: cors });
     if (origin) cors['Access-Control-Allow-Origin'] = origin;
     cors['Access-Control-Allow-Headers'] = 'authorization, apikey, content-type, x-client-info';
-    cors['Access-Control-Allow-Methods'] = 'POST, OPTIONS';
+    cors['Access-Control-Allow-Methods'] = 'POST, GET, OPTIONS';
     const reply = (status, body) => new Response(JSON.stringify(body), { status, headers: cors });
     if (request.method === 'OPTIONS') return new Response(null, { status: 204, headers: cors });
-    if (request.method !== 'POST') return reply(405, { error: 'Use POST.' });
+    const query = new URL(request.url).searchParams;
+    const releaseCheck = request.method === 'GET' && query.get('action') === 'release-check';
+    if (request.method !== 'POST' && !releaseCheck) return reply(405, { error: 'Use POST.' });
     try {
       if (!url || !serviceKey) throw new SubmissionError('Leaderboard temporarily unavailable.', 503);
+      if (releaseCheck) {
+        // Public read-only deployment check. Never returns reports or player data,
+        // signs up users, or grants unauthenticated access to submission.
+        const hash = query.get('rules_hash');
+        const version = query.get('game_version');
+        const contentVersion = query.get('content_version');
+        if (!/^[a-f0-9]{64}$/.test(hash || '') || !version || version.length > 80 || !/^\d{1,8}$/.test(contentVersion || ''))
+          throw new SubmissionError('Invalid release identity.');
+        const headers = { apikey: serviceKey, Authorization: 'Bearer '+serviceKey };
+        const versions = await fetchImpl(url+'/rest/v1/leaderboard_releases?select=rules_hash,game_version,content_version,accepting&rules_hash=eq.'+hash, { headers });
+        if (!versions.ok) throw new Error('Release lookup failed');
+        const accepting = Boolean(matchingRelease(await versions.json(), hash, version, Number(contentVersion)));
+        return reply(accepting ? 200 : 409, { accepting });
+      }
       const token = request.headers.get('authorization');
       if (!token?.startsWith('Bearer ') || token.length > 8192) throw new SubmissionError('Sign in again.', 401);
       // Authenticate against Supabase Auth, never trust a user id from the body.

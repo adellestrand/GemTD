@@ -1,0 +1,129 @@
+{
+  "source": "PixelLab vfx_workbench",
+  "part": "poison_bubbles",
+  "my_effects_id": "de4d4945-43c6-48ce-889d-930007c014e6",
+  "export_image_id": "88312aff-419e-4851-9d79-2677727a424f",
+  "pack": {
+    "app": "PixelLab VFX Creator",
+    "name": "GemTD status poison v1",
+    "fps": 12,
+    "frame_ms": 83,
+    "frames": 16,
+    "loop": true,
+    "canvas": {
+      "w": 43,
+      "h": 52
+    },
+    "anchor": {
+      "kind": "feet",
+      "x": 19,
+      "y": 45
+    },
+    "clips": [
+      {
+        "name": "whole",
+        "title": "the whole effect, no sprite",
+        "depth": "both",
+        "loop": true,
+        "start_frame": 0,
+        "frames": 16,
+        "frame": {
+          "w": 34,
+          "h": 46
+        },
+        "sheets": [
+          {
+            "file": "whole.png",
+            "first_frame": 0,
+            "frames": 16,
+            "columns": 4,
+            "rows": 4
+          }
+        ],
+        "offset": {
+          "x": -13,
+          "y": -42
+        }
+      },
+      {
+        "name": "whole-with-sprite",
+        "title": "the whole effect with the sprite in it",
+        "depth": "both",
+        "loop": true,
+        "start_frame": 0,
+        "frames": 16,
+        "frame": {
+          "w": 37,
+          "h": 46
+        },
+        "sheets": [
+          {
+            "file": "whole-with-sprite.png",
+            "first_frame": 0,
+            "frames": 16,
+            "columns": 4,
+            "rows": 4
+          }
+        ],
+        "offset": {
+          "x": -16,
+          "y": -42
+        }
+      },
+      {
+        "name": "front",
+        "title": "everything in front of the sprite",
+        "depth": "front",
+        "loop": true,
+        "start_frame": 0,
+        "frames": 16,
+        "frame": {
+          "w": 34,
+          "h": 46
+        },
+        "sheets": [
+          {
+            "file": "front.png",
+            "first_frame": 0,
+            "frames": 16,
+            "columns": 4,
+            "rows": 4
+          }
+        ],
+        "offset": {
+          "x": -13,
+          "y": -42
+        }
+      },
+      {
+        "name": "part-poison_bubbles",
+        "title": "the poison bubbles part",
+        "part": "poison_bubbles",
+        "depth": "front",
+        "loop": true,
+        "start_frame": 0,
+        "frames": 16,
+        "frame": {
+          "w": 34,
+          "h": 46
+        },
+        "sheets": [
+          {
+            "file": "part-poison_bubbles.png",
+            "first_frame": 0,
+            "frames": 16,
+            "columns": 4,
+            "rows": 4
+          }
+        ],
+        "offset": {
+          "x": -13,
+          "y": -42
+        }
+      }
+    ]
+  },
+  "files": {
+    "status_poison_front_v1.png": "e343515a8bd742cc15e852782dc24de45bdde5f866545e3d0a4536cf153f057b"
+  }
+}

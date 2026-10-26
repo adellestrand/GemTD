@@ -1,0 +1,155 @@
+{
+  "source": "PixelLab vfx_workbench",
+  "part": "ice_shatter",
+  "my_effects_id": "94080506-79d0-4c7d-8a15-746552cca1ed",
+  "export_image_id": "113dd98d-7ba0-4805-a169-ce3af86b7881",
+  "pack": {
+    "app": "PixelLab VFX Creator",
+    "name": "GemTD hit frost v1",
+    "fps": 12,
+    "frame_ms": 83,
+    "frames": 10,
+    "loop": false,
+    "canvas": {
+      "w": 60,
+      "h": 78
+    },
+    "anchor": {
+      "kind": "feet",
+      "x": 31,
+      "y": 43
+    },
+    "clips": [
+      {
+        "name": "whole",
+        "title": "the whole effect, no sprite",
+        "depth": "both",
+        "loop": false,
+        "start_frame": 0,
+        "frames": 10,
+        "frame": {
+          "w": 54,
+          "h": 72
+        },
+        "sheets": [
+          {
+            "file": "whole.png",
+            "first_frame": 0,
+            "frames": 10,
+            "columns": 4,
+            "rows": 3
+          }
+        ],
+        "offset": {
+          "x": -28,
+          "y": -40
+        }
+      },
+      {
+        "name": "whole-with-sprite",
+        "title": "the whole effect with the sprite in it",
+        "depth": "both",
+        "loop": false,
+        "start_frame": 0,
+        "frames": 10,
+        "frame": {
+          "w": 54,
+          "h": 72
+        },
+        "sheets": [
+          {
+            "file": "whole-with-sprite.png",
+            "first_frame": 0,
+            "frames": 10,
+            "columns": 4,
+            "rows": 3
+          }
+        ],
+        "offset": {
+          "x": -28,
+          "y": -40
+        }
+      },
+      {
+        "name": "behind",
+        "title": "everything behind the sprite",
+        "depth": "behind",
+        "loop": false,
+        "start_frame": 0,
+        "frames": 5,
+        "frame": {
+          "w": 52,
+          "h": 52
+        },
+        "sheets": [
+          {
+            "file": "behind.png",
+            "first_frame": 0,
+            "frames": 5,
+            "columns": 3,
+            "rows": 2
+          }
+        ],
+        "offset": {
+          "x": -26,
+          "y": -40
+        }
+      },
+      {
+        "name": "front",
+        "title": "everything in front of the sprite",
+        "depth": "front",
+        "loop": false,
+        "start_frame": 0,
+        "frames": 10,
+        "frame": {
+          "w": 45,
+          "h": 59
+        },
+        "sheets": [
+          {
+            "file": "front.png",
+            "first_frame": 0,
+            "frames": 10,
+            "columns": 4,
+            "rows": 3
+          }
+        ],
+        "offset": {
+          "x": -28,
+          "y": -27
+        }
+      },
+      {
+        "name": "part-ice_shatter",
+        "title": "the ice shatter part",
+        "part": "ice_shatter",
+        "depth": "both",
+        "loop": false,
+        "start_frame": 0,
+        "frames": 10,
+        "frame": {
+          "w": 54,
+          "h": 72
+        },
+        "sheets": [
+          {
+            "file": "part-ice_shatter.png",
+            "first_frame": 0,
+            "frames": 10,
+            "columns": 4,
+            "rows": 3
+          }
+        ],
+        "offset": {
+          "x": -28,
+          "y": -40
+        }
+      }
+    ]
+  },
+  "files": {
+    "hit_frost_behind_v1.png": "b1c809af0f8b11b74835dbe377348c2dd3175192d6a7e153f13500ddeb9b9f54",
+    "hit_frost_front_v1.png": "a57b33156402561b3cb69161bdf9380712bad872218daf5ad0ab9cc87948f731"
+  }
+}

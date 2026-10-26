@@ -37,6 +37,7 @@ if __name__ == '__main__':
     logs.append(checked([str(ENGINE),'--headless','--path','.','--script','res://tests/check_tower_moves.gd','--','--campaign','--smoke'], 'TOWER_MOVES_CHECK_OK'))
     logs.append(checked([str(ENGINE),'--headless','--path','.','--script','res://tests/check_spells.gd','--','--campaign','--smoke'], 'SPELLS_CHECK_OK'))
     logs.append(checked([str(ENGINE),'--headless','--path','.','--script','res://tests/check_ability_art.gd','--','--campaign','--smoke'], 'ABILITY_ART_CHECK_OK'))
+    logs.append(checked([str(ENGINE),'--headless','--path','.','--script','res://tests/check_ability_clips.gd','--','--campaign','--smoke'], 'ABILITY_CLIPS_CHECK_OK'))
     logs.append(checked([str(ENGINE),'--headless','--path','.','--script','res://tests/check_tower_effects.gd','--','--campaign','--smoke'], 'TOWER_EFFECTS_CHECK_OK'))
     logs.append(checked([str(ENGINE),'--headless','--path','.','--script','res://tests/check_quality_pass.gd','--','--campaign','--smoke'], 'QUALITY_PASS_CHECK_OK'))
     logs.append(checked([str(ENGINE),'--headless','--path','.','--script','res://tests/check_leaderboard.gd','--','--campaign','--smoke'], 'LEADERBOARD_CHECK_OK'))

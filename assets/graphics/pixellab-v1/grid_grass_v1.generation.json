@@ -1,0 +1,17 @@
+{
+  "provider": "PixelLab",
+  "tool": "create_image_pixen",
+  "job_id": "f576f331-08b8-4c5b-b6bc-7c777da13b16",
+  "date": "2026-10-26",
+  "seed": 261029,
+  "prompt": "A single seamless repeating 32 by 32 pixel flat moss-green short-grass ground texture for a readable fantasy tower-defense building grid. Fill the entire square canvas edge-to-edge with rich muted cool forest-green grass. Very low contrast tiny deliberate pixel clusters, sparse subtle moss speckles, no individual large blades. Deep desaturated green shadows with slightly warmer green midtones, no olive yellow or beige. Quiet background so grey stone towers and blue sapphire crystals remain the focal point. Strictly overhead orthographic view, perfectly flat plane. Texture only: NO border, NO grid lines, NO path, NO stone paving, NO objects, NO flowers, NO shadows, NO isometric cube, NO raised island. Clean native pixel art with limited green palette, crisp pixels and no gradients or blur. Opposite edges should join without visible seams.",
+  "requested_size": [
+    32,
+    32
+  ],
+  "charged_generations": 1,
+  "status": "completed",
+  "review": "Rejected for the candidate board: decorative clusters and divided panels instead of a quiet ground texture.",
+  "active_in_game": false,
+  "remaining_generations_after_grid_trials": 30
+}

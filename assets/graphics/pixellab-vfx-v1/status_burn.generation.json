@@ -1,0 +1,155 @@
+{
+  "source": "PixelLab vfx_workbench",
+  "part": "burn_status",
+  "my_effects_id": "72d9b931-2715-4a78-aca8-3fcaa2f28f4b",
+  "export_image_id": "4880c46b-1f8a-40f8-bddd-56dba432ffe1",
+  "pack": {
+    "app": "PixelLab VFX Creator",
+    "name": "GemTD status burn v1",
+    "fps": 12,
+    "frame_ms": 83,
+    "frames": 12,
+    "loop": true,
+    "canvas": {
+      "w": 38,
+      "h": 53
+    },
+    "anchor": {
+      "kind": "feet",
+      "x": 19,
+      "y": 45
+    },
+    "clips": [
+      {
+        "name": "whole",
+        "title": "the whole effect, no sprite",
+        "depth": "both",
+        "loop": true,
+        "start_frame": 0,
+        "frames": 12,
+        "frame": {
+          "w": 30,
+          "h": 47
+        },
+        "sheets": [
+          {
+            "file": "whole.png",
+            "first_frame": 0,
+            "frames": 12,
+            "columns": 4,
+            "rows": 3
+          }
+        ],
+        "offset": {
+          "x": -15,
+          "y": -42
+        }
+      },
+      {
+        "name": "whole-with-sprite",
+        "title": "the whole effect with the sprite in it",
+        "depth": "both",
+        "loop": true,
+        "start_frame": 0,
+        "frames": 12,
+        "frame": {
+          "w": 32,
+          "h": 47
+        },
+        "sheets": [
+          {
+            "file": "whole-with-sprite.png",
+            "first_frame": 0,
+            "frames": 12,
+            "columns": 4,
+            "rows": 3
+          }
+        ],
+        "offset": {
+          "x": -16,
+          "y": -42
+        }
+      },
+      {
+        "name": "behind",
+        "title": "everything behind the sprite",
+        "depth": "behind",
+        "loop": true,
+        "start_frame": 0,
+        "frames": 12,
+        "frame": {
+          "w": 30,
+          "h": 27
+        },
+        "sheets": [
+          {
+            "file": "behind.png",
+            "first_frame": 0,
+            "frames": 12,
+            "columns": 4,
+            "rows": 3
+          }
+        ],
+        "offset": {
+          "x": -15,
+          "y": -22
+        }
+      },
+      {
+        "name": "front",
+        "title": "everything in front of the sprite",
+        "depth": "front",
+        "loop": true,
+        "start_frame": 0,
+        "frames": 12,
+        "frame": {
+          "w": 20,
+          "h": 44
+        },
+        "sheets": [
+          {
+            "file": "front.png",
+            "first_frame": 0,
+            "frames": 12,
+            "columns": 4,
+            "rows": 3
+          }
+        ],
+        "offset": {
+          "x": -10,
+          "y": -42
+        }
+      },
+      {
+        "name": "part-burn_status",
+        "title": "the burn status part",
+        "part": "burn_status",
+        "depth": "both",
+        "loop": true,
+        "start_frame": 0,
+        "frames": 12,
+        "frame": {
+          "w": 30,
+          "h": 47
+        },
+        "sheets": [
+          {
+            "file": "part-burn_status.png",
+            "first_frame": 0,
+            "frames": 12,
+            "columns": 4,
+            "rows": 3
+          }
+        ],
+        "offset": {
+          "x": -15,
+          "y": -42
+        }
+      }
+    ]
+  },
+  "files": {
+    "status_burn_behind_v1.png": "926d8db1d47b9940b168ebf5b66874464fa5671b04adf882eda4825cbab794ca",
+    "status_burn_front_v1.png": "6d5a9942deb1f7043d6c36dca3dcae331f253f99cfe172c69fb30be6af6e42b8"
+  }
+}

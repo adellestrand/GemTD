@@ -1,0 +1,48 @@
+{
+  "id": "chirpy",
+  "previous": {
+    "trim_alpha": true,
+    "size": [
+      1.25,
+      1.3
+    ],
+    "anchor": [
+      0.5,
+      0.72
+    ],
+    "texture": "res://assets/graphics/refined-v3/anims/chirpy_flap_v1.png",
+    "frames": 4
+  },
+  "size": [
+    80,
+    80
+  ],
+  "frames": 8,
+  "air": true,
+  "wave_names": [
+    "Jiujiu Fly"
+  ],
+  "seed": 26102613,
+  "estimated_generations": 1,
+  "action": "An eight-frame seamless looping locomotion animation. The winged creature flies in place with a continuous full upstroke and downstroke of both feathered wings, steady head and tucked legs. Maintain exactly the original facing, character identity, proportions, accessories and pixel-art style. Locked camera, no turn, no zoom, no horizontal translation, no squash or stretching. Keep the whole character and moving limbs inside the transparent canvas. Return smoothly to the starting stance at the end for a continuous loop.",
+  "provider": "PixelLab",
+  "tool": "animate_image",
+  "date": "2026-10-26",
+  "reference": "assets/graphics/pixellab-enemies-v1/chirpy_reference.png",
+  "receipt": "id: dfe37c4d-a653-47aa-aa1c-a574de3f5532\njob_id: dfe37c4d-a653-47aa-aa1c-a574de3f5532\naction: An eight-frame seamless looping locomotion animation. The winged creature flies in place with a continuous full upstroke and downstroke of both feathered wings, steady head and tucked legs. Maintain exactly the original facing, character identity, proportions, accessories and pixel-art style. Locked camera, no turn, no zoom, no horizontal translation, no squash or stretching. Keep the whole character and moving limbs inside the transparent canvas. Return smoothly to the starting stance at the end for a continuous loop.\nframes: 8\nsize: 80x80px\ntransparent: True\nlast_frame: yes (interpolating to it)\nseed: 26102613\nasset_id: e6249475-0053-5afd-8909-12a9cd57d37d\nasset_status: pending (saved when generation completes)\ncost: 1 generation\nstatus: processing (~30-180s)\n\nhint: get_image(job_id=\"dfe37c4d-a653-47aa-aa1c-a574de3f5532\")",
+  "provider_frame_count": 9,
+  "selected_provider_indices": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7
+  ],
+  "last_frame": "same_as_first",
+  "no_background": true,
+  "restored_reference_opacity": null,
+  "sha256": "756b8a63f94bd556a4d4749ed048ac869036eec237afd9a711579467e1a91e7a"
+}

@@ -66,10 +66,17 @@ func _draw() -> void:
 	GemAbilityArt.draw_fields(self,combat,AT,origin,UNIT,fx.clock)
 	for p in combat.run.board.cells:
 		GemArt.draw(self,GemArt.sprite_id("gems",combat.run.board.cells[p].kind,1),origin+(Vector2(p)+Vector2(.5,.5))*UNIT,UNIT)
+	fx.begin_frame()
 	for enemy in combat.enemies:
 		var center: Vector2 = origin+enemy.pos*UNIT
-		GemAbilityArt.draw_status(self,enemy,center,UNIT,combat.elapsed)
-		GemArt.draw(self,GemArt.sprite_id("enemies",enemy.source_id),center,UNIT,false,Color(1.5,1.2,1.0) if fx.flashes.has(int(enemy.id)) else Color.WHITE)
+		var art = GemArt.sprite_id("enemies",enemy.source_id)
+		var looks = GemAbilityArt.statuses(enemy,combat.elapsed,fx)
+		var tint = (Color(1.5,1.2,1.0) if fx.flashes.has(int(enemy.id)) else Color.WHITE)*GemAbilityArt.status_tint(looks)
+		var body = GemArt.sprite_rect(art,center,UNIT)
+		GemAbilityArt.draw_enemy_layer(self,enemy,body,false,combat.elapsed,fx,"behind",looks)
+		GemArt.draw(self,art,center,UNIT,false,tint)
+		if GemAbilityArt.status_overlay(looks).a > 0: GemArt.draw(self,art,center,UNIT,false,GemAbilityArt.status_overlay(looks),Vector2.ONE,0.0,0,GemArt.grey_frame(art,0))
+		GemAbilityArt.draw_enemy_layer(self,enemy,body,false,combat.elapsed,fx,"front",looks)
 	fx.draw_projectiles(self,combat.projectiles,origin,UNIT)
 	fx.draw(self,origin,UNIT,ThemeDB.fallback_font)
 	draw_string(ThemeDB.fallback_font,Vector2(8,size.y-8),"Damage: %d · %s" % [total,"example stolen abilities" if kind == "tianranzumulv" else "durable demo targets"],HORIZONTAL_ALIGNMENT_LEFT,size.x-16,11,Color("e1d6b3"))

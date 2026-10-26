@@ -88,3 +88,27 @@ test('rate limit and backend errors are safe, without privileged credentials',as
     assert.equal(response.status,status);assert.ok(!(await response.text()).includes('PRIVATE_TEST_KEY'));
   }
 });
+
+test('public release check accepts only the exact registered active release, without creating users or writing',async()=>{
+  for (const [available, version, contentVersion, expected] of [
+    [releases,'1.4.1-dev','10',200], [[], '1.4.1-dev','10',409],
+    [[{...releases[0],accepting:false}], '1.4.1-dev','10',409],
+    [releases,'1.4.2-dev','10',409], [releases,'1.4.1-dev','11',409]
+  ]) {
+    const calls=[];
+    const h=handler(async url=>{calls.push(url);return Response.json(available);});
+    const query=new URLSearchParams({action:'release-check',rules_hash:hash,game_version:version,content_version:contentVersion});
+    const response=await h(new Request('https://example.test/submit-run?'+query));
+    assert.equal(response.status,expected);
+    assert.deepEqual(await response.json(),{accepting:expected===200});
+    assert.equal(calls.length,1);assert.match(calls[0],/leaderboard_releases\?/);
+  }
+});
+test('malformed release check and backend failure fail closed without leaking secrets',async()=>{
+  const h=handler(()=>assert.fail('invalid identity must not query database'));
+  assert.equal((await h(new Request('https://example.test/?action=release-check&rules_hash=invalid'))).status,400);
+  const query=new URLSearchParams({action:'release-check',rules_hash:hash,game_version:'1.4.1-dev',content_version:'10'});
+  const broken=handler(async()=>{throw new Error('PRIVATE_TEST_KEY');});
+  const response=await broken(new Request('https://example.test/?'+query));
+  assert.equal(response.status,503);assert.ok(!(await response.text()).includes('PRIVATE_TEST_KEY'));
+});

@@ -39,6 +39,8 @@ func _ready() -> void:
 
 const TowerMotion = preload("res://game/presentation/tower_motion.gd")
 var tower_motion = TowerMotion.new()
+const TerrainArt = preload("res://game/presentation/terrain_art.gd")
+var terrain_art = TerrainArt.new()
 var enemy_looks: Dictionary = {}
 # Presentation-only smoothing: positions from the previous 30 Hz simulation step,
 # eased facing (-1 left .. 1 right) and the time of the last hit for a small recoil.
@@ -256,21 +258,22 @@ func _draw() -> void:
 	draw_surroundings()
 	draw_rect(rect.grow(5), Color("081315"))
 	var terrain: Dictionary = GemArt.config().get("terrain",{})
-	for y in range(37):
-		for x in range(37):
-			var p = Vector2i(x,y)
-			var shade = (x*17+y*31+x*y*7)%9
-			var c = GemArt.color("grass").lightened(float(shade)*float(terrain.get("variation",.02))/8.0)
-			if x == 0 or y == 0 or x == 36 or y == 36:
-				c = c.darkened(float(terrain.get("edge_shade",.12)))
-			draw_rect(Rect2(board_to_screen(Vector2(p)), Vector2.ONE*cell_size), c)
-			if (x*13+y*7)%int(terrain.get("detail_stride",11)) == 0:
-				var tuft = board_to_screen(Vector2(p)+Vector2(.25,.65))
-				draw_line(tuft,tuft+Vector2(0,-.12)*cell_size,c.lightened(.09),1)
-				draw_line(tuft+Vector2(.13,0)*cell_size,tuft+Vector2(.18,-.1)*cell_size,c.darkened(.08),1)
-	for i in range(38):
-		draw_line(origin+Vector2(i,0)*cell_size, origin+Vector2(i,37)*cell_size, Color(GemArt.color("grid"),.25))
-		draw_line(origin+Vector2(0,i)*cell_size, origin+Vector2(37,i)*cell_size, Color(GemArt.color("grid"),.25))
+	if not terrain_art.draw(self,origin,cell_size,37,37,terrain):
+		for y in range(37):
+			for x in range(37):
+				var p = Vector2i(x,y)
+				var shade = (x*17+y*31+x*y*7)%9
+				var c = GemArt.color("grass").lightened(float(shade)*float(terrain.get("variation",.02))/8.0)
+				if x == 0 or y == 0 or x == 36 or y == 36:
+					c = c.darkened(float(terrain.get("edge_shade",.12)))
+				draw_rect(Rect2(board_to_screen(Vector2(p)), Vector2.ONE*cell_size), c)
+				if (x*13+y*7)%int(terrain.get("detail_stride",11)) == 0:
+					var tuft = board_to_screen(Vector2(p)+Vector2(.25,.65))
+					draw_line(tuft,tuft+Vector2(0,-.12)*cell_size,c.lightened(.09),1)
+					draw_line(tuft+Vector2(.13,0)*cell_size,tuft+Vector2(.18,-.1)*cell_size,c.darkened(.08),1)
+		for i in range(38):
+			draw_line(origin+Vector2(i,0)*cell_size, origin+Vector2(i,37)*cell_size, Color(GemArt.color("grid"),.25))
+			draw_line(origin+Vector2(0,i)*cell_size, origin+Vector2(37,i)*cell_size, Color(GemArt.color("grid"),.25))
 	# Route lines only when the player ticks "Show routes" (main.gd); the placement preview stays.
 	if show_routes:
 			draw_route(run.board.ground_route, Color(GemArt.color("route_ground"),.62), false)
@@ -300,6 +303,7 @@ func _draw() -> void:
 		GemAbilityArt.draw_mvp_fields(self,run.board.cells,selected,origin,cell_size,clock)
 	if combat is GemCampaignCombat and run.phase == "combat" and bool(effects.settings().get("enabled",true)):
 		GemAbilityArt.draw_fields(self,combat as GemCampaignCombat,selected,origin,cell_size,clock)
+	effects.begin_frame()
 	for p in run.board.cells:
 		actors.append({"y":float(p.y)+.5,"order":p.x,"cell":p})
 	if combat != null and run.phase in ["combat", "lost"]:
@@ -442,7 +446,7 @@ func draw_gem(p: Vector2i, gem: Dictionary) -> void:
 		var bounds = GemArt.sprite_rect(art_id,center,s)
 		var base_shift = Vector2(0,(1.0-pose.scale.y)*(bounds.end.y-center.y))
 		var flash = 1.0+.55*float(pose.flash)
-		GemArt.draw(self,art_id,center+base_shift,s,false,Color(flash,flash,flash*.95),pose.scale)
+		GemArt.draw(self,art_id,center+base_shift,s,false,Color(flash,flash,flash*.95),pose.scale,0.0,GemArt.idle_frame(art_id,clock))
 		if float(pose.glow) > .01:
 			var crystal = Vector2(center.x,bounds.position.y+bounds.size.y*.2)+base_shift
 			var glow_color = GemArt.gem_color(gem).lightened(.35)
@@ -487,8 +491,7 @@ func draw_enemy(enemy: Dictionary) -> void:
 	if enemy.dead or enemy.escaped:
 		return
 	var center = board_to_screen(render_position(enemy))
-	if combat is GemCampaignCombat and bool(effects.settings().get("enabled",true)):
-		GemAbilityArt.draw_status(self,enemy,center,cell_size,combat.elapsed)
+	var clip_fx = combat is GemCampaignCombat and bool(effects.settings().get("enabled",true))
 	var s = cell_size*(1.7 if enemy.boss else 1.0)
 	var art_id = GemArt.sprite_id("enemies",enemy.source_id)
 	if GemArt.texture(art_id) != null:
@@ -514,11 +517,23 @@ func draw_enemy(enemy: Dictionary) -> void:
 		tint.a *= clampf(.2+float(enemy.travelled)*2.0,.2,1.0)
 		enemy_looks[int(enemy.id)] = {"art":art_id,"flip":flip,"boss":bool(enemy.boss)}
 		var frame = GemArt.enemy_frame(art_id,float(enemy.travelled),animation_time,int(enemy.id),bool(enemy.air))
+		# PixelLab status/hit clips wrap the sprite: behind layers, sprite, front layers.
+		var looks: Array[String] = GemAbilityArt.statuses(enemy,combat.elapsed,effects) if clip_fx else []
+		var status_tint = GemAbilityArt.status_tint(looks)
+		tint = Color(tint.r*status_tint.r,tint.g*status_tint.g,tint.b*status_tint.b,tint.a)
+		var body = GemArt.sprite_rect(art_id,center+offset*cell_size,cell_size)
+		if clip_fx: GemAbilityArt.draw_enemy_layer(self,enemy,body,flip,combat.elapsed,effects,"behind",looks,tint.a)
 		var sprite_rect = GemArt.draw(self,art_id,center+offset*cell_size,cell_size,flip,tint,deformation,rotation,frame)
+		var overlay = GemAbilityArt.status_overlay(looks)
+		if overlay.a > 0:
+			overlay.a *= tint.a
+			GemArt.draw(self,art_id,center+offset*cell_size,cell_size,flip,overlay,deformation,rotation,frame,GemArt.grey_frame(art_id,frame))
+		if clip_fx: GemAbilityArt.draw_enemy_layer(self,enemy,body,flip,combat.elapsed,effects,"front",looks,tint.a)
 		var bar_pos = Vector2(center.x-cell_size*.43,sprite_rect.position.y-4)
 		draw_rect(Rect2(bar_pos-Vector2.ONE,Vector2(cell_size*.86+2,4)),Color("142221"))
 		draw_rect(Rect2(bar_pos,Vector2(cell_size*.86*clampf(enemy.hp/enemy.hp_max,0,1),2)),GemArt.color("health"))
 		GemReadability.enemy(self,Vector2(center.x,sprite_rect.position.y-12+cell_size*.65),cell_size,enemy)
+		if clip_fx: return
 		if enemy.slow > 0:
 			draw_arc(center,cell_size*.5,0,TAU,12,GemArt.color("slow"),1)
 		if not enemy.poisons.is_empty():

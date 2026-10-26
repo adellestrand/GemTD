@@ -18,6 +18,110 @@ static func style(effect: Dictionary) -> String:
 static func tint(kind: String) -> Color:
 	return Color(profiles.colors.get(kind,"#e6cc7f"))
 
+# PixelLab clips ("clips" in ability-effects.json, imported by tools/art/import_pixellab_vfx.py).
+# Each layer is a horizontal strip authored around a reference subject; offsets
+# count from the subject's feet, so a clip fits any enemy or tower body rect.
+static var _clip_frames: Dictionary = {}
+
+static func clip(id: String) -> Dictionary:
+	return profiles.get("clips",{}).get(id,{})
+
+static func clip_duration(id: String) -> float:
+	var entry = clip(id)
+	return float(entry.get("frames",1))/maxf(1.0,float(entry.get("fps",12)))
+
+static func clip_layer_frames(id: String, depth: String) -> Array:
+	var key = id+"/"+depth
+	if _clip_frames.has(key): return _clip_frames[key]
+	var frames: Array = []
+	var layer: Dictionary = clip(id).get("layers",{}).get(depth,{})
+	var path = str(layer.get("texture",""))
+	if not path.is_empty() and ResourceLoader.exists(path):
+		var sheet = load(path) as Texture2D
+		var count = int(clip(id).get("frames",1))
+		if sheet != null and count > 0:
+			var width = sheet.get_width()/count
+			for i in range(count):
+				var frame = AtlasTexture.new()
+				frame.atlas = sheet
+				frame.region = Rect2(i*width,0,width,sheet.get_height())
+				frame.filter_clip = true
+				frames.append(frame)
+	_clip_frames[key] = frames
+	return frames
+
+static func draw_clip(canvas: CanvasItem, id: String, depth: String, body: Rect2, frame_index: int, flip: bool = false, alpha: float = 1.0) -> void:
+	var frames = clip_layer_frames(id,depth)
+	if frames.is_empty(): return
+	var entry = clip(id)
+	var layer: Dictionary = entry.layers[depth]
+	var subject: Array = entry.get("subject",[32,28])
+	var k = (body.size.x/float(subject[0])+body.size.y/float(subject[1]))*.5
+	var feet = Vector2(body.get_center().x,body.end.y)
+	var size = Vector2(float(layer.size[0]),float(layer.size[1]))*k
+	var offset = Vector2(float(layer.offset[0]),float(layer.offset[1]))*k
+	var rect = Rect2(feet+offset,size)
+	if flip: rect = Rect2(Vector2(2*feet.x-rect.position.x,rect.position.y),Vector2(-size.x,size.y))
+	canvas.draw_texture_rect(frames[clampi(frame_index,0,frames.size()-1)],rect,false,Color(1,1,1,alpha))
+
+static func loop_frame(id: String, time: float) -> int:
+	var entry = clip(id)
+	return posmod(floori(time*float(entry.get("fps",12))),maxi(1,int(entry.get("frames",1))))
+
+# Stand-in body for a hit whose target is not drawn this frame (dead, escaped, demo).
+static func nominal_body(p: Vector2, unit: float) -> Rect2:
+	return Rect2(p-Vector2(unit*.45,unit*.62),Vector2(unit*.9,unit*.79))
+
+# Active looks on one enemy, read from real modifiers/aura memory plus the
+# presentation-only burn/shock memory. Priority decides which survive the cap.
+static func statuses(enemy: Dictionary, elapsed: float, fx: GemEffects = null) -> Array[String]:
+	var found: Array[String] = []
+	for aura in enemy.get("aura_memory",{}).values():
+		if float(aura.until) <= elapsed or aura.effect.has("damage"): continue
+		found.append(style(aura.effect))
+	for mod in enemy.get("mods",{}).values():
+		if float(mod.until) <= elapsed: continue
+		found.append("poison" if mod.has("damage") else style(mod))
+	var properties: Dictionary = enemy.get("current_properties",{})
+	if properties.get("stunned",false): found.append("stun")
+	if properties.get("stone_gaze",false): found.append("stone")
+	if not enemy.get("poisons",{}).is_empty(): found.append("poison")
+	if float(enemy.get("slow",0)) > 0: found.append("frost")
+	if float(enemy.get("armor_debuff",0)) > 0: found.append("fracture")
+	if fx != null: found.append_array(fx.marks.get(int(enemy.get("id",-1)),{}).keys())
+	var result: Array[String] = []
+	for look in profiles.get("status_priority",[]):
+		if look in found and result.size() < int(profiles.get("max_statuses",4)): result.append(look)
+	return result
+
+static func status_tint(looks: Array[String]) -> Color:
+	var tints: Dictionary = profiles.get("status_tints",{})
+	for look in ["stone","frost"]:
+		if look in looks and tints.has(look): return Color(tints[look])
+	return Color.WHITE
+
+# Modulate for a second pass with the sprite's greyscale copy (GemArt.grey_frame),
+# which turns a petrified enemy to stone; alpha 0 means no overlay.
+static func status_overlay(looks: Array[String]) -> Color:
+	var overlays: Dictionary = profiles.get("status_overlays",{})
+	for look in looks:
+		if overlays.has(look): return Color(overlays[look][0],overlays[look][1],overlays[look][2],overlays[look][3])
+	return Color(1,1,1,0)
+
+# One depth ("behind" or "front") of everything clipped to this enemy: status loops
+# in layer order, then hit clips aimed at it. The host draws the sprite in between.
+static func draw_enemy_layer(canvas: CanvasItem, enemy: Dictionary, body: Rect2, flip: bool, elapsed: float, fx: GemEffects, depth: String, looks: Array[String], alpha: float = 1.0) -> void:
+	if not bool(fx.settings().get("enabled",true)): return
+	var id = int(enemy.get("id",-1))
+	fx.bodies[id] = body
+	var clips: Dictionary = profiles.get("status_clips",{})
+	for look in profiles.get("status_layer_order",[]):
+		if look in looks and clips.has(look):
+			draw_clip(canvas,clips[look],depth,body,loop_frame(clips[look],elapsed+id*.37),flip,alpha)
+	for event in fx.hits.get(id,[]):
+		var t = clampf((fx.clock-float(event.start))/float(event.duration),0,1)
+		draw_clip(canvas,event.clip,depth,body,floori(t*int(clip(event.clip).get("frames",1))),flip,alpha)
+
 static func mvp_sources(cells: Dictionary, target: Vector2i) -> Array[Vector2i]:
 	var result: Array[Vector2i] = []
 	if not cells.has(target) or cells[target].kind == "stone": return result
@@ -68,7 +172,18 @@ static func receive(fx: GemEffects, event: Dictionary, cells: Dictionary) -> voi
 	var color = tint(look)
 	if kind in ["chain","shock"]:
 		fx.add("ability_link",event.from,color,.22,{"to":event.pos,"style":look})
-	fx.add("ability_hit",event.pos,color,.42,{"style":look})
+	# Aura and dot ticks repeat several times a second; their look lives in the
+	# status loops (burn memory, poison modifier) instead of a fresh hit clip.
+	var target = int(event.get("target",-1))
+	var tick = kind in ["aura","dot"]
+	var hit_clip = "" if tick else str(profiles.get("hit_clips",{}).get(look,""))
+	if not hit_clip.is_empty() and clip(hit_clip).is_empty(): hit_clip = ""
+	fx.add("ability_hit",event.pos,color,clip_duration(hit_clip) if not hit_clip.is_empty() else .42,{"style":look,"target":target,"clip":hit_clip,"tick":tick})
+	var memory: Dictionary = profiles.get("status_memory",{})
+	var mark = "burn" if look == "fire" else "shock" if look == "lightning" else ""
+	if target >= 0 and memory.has(mark):
+		if not fx.marks.has(target): fx.marks[target] = {}
+		fx.marks[target][mark] = fx.clock+float(memory[mark])
 	if kind == "critical": fx.add("text",event.pos,color,.5,{"text":"CRIT"})
 	if kind == "aura" or kind == "splash":
 		var center: Vector2 = Vector2(event.source)+Vector2(.5,.5) if kind == "aura" else event.pos
@@ -79,7 +194,7 @@ static func receive(fx: GemEffects, event: Dictionary, cells: Dictionary) -> voi
 	if cells.has(event.source):
 		fx.add("muzzle",Vector2(event.source)+Vector2(.5,.15),color,.12)
 
-static func draw_event(canvas: CanvasItem, event: Dictionary, t: float, origin: Vector2, unit: float) -> void:
+static func draw_event(canvas: CanvasItem, event: Dictionary, t: float, origin: Vector2, unit: float, fx: GemEffects = null) -> void:
 	var color: Color = event.color
 	color.a *= 1.0-t
 	var p: Vector2 = origin+event.pos*unit
@@ -100,6 +215,16 @@ static func draw_event(canvas: CanvasItem, event: Dictionary, t: float, origin: 
 				var a = TAU*i/12.0
 				canvas.draw_arc(p,radius*(.25+.7*t),a,a+.10,3,Color(color,.4*(1-t)),width)
 		"ability_hit":
+			var hit_clip = str(event.get("clip",""))
+			if not hit_clip.is_empty():
+				# A drawn target already showed this clip around its own sprite.
+				if fx != null and fx.bodies.has(int(event.get("target",-1))): return
+				var body = nominal_body(p,unit)
+				var frame = floori(t*int(clip(hit_clip).get("frames",1)))
+				draw_clip(canvas,hit_clip,"behind",body,frame)
+				draw_clip(canvas,hit_clip,"front",body,frame)
+				return
+			if event.get("tick",false) and not clip(str(profiles.get("status_clips",{}).get("burn",""))).is_empty(): return
 			var look = str(event.style)
 			p.y -= unit*.18
 			match look:
@@ -145,7 +270,15 @@ static func draw_fields(canvas: CanvasItem, combat: GemCampaignCombat, selected:
 		var center: Vector2 = origin+(Vector2(p)+Vector2(.5,.5))*unit
 		var look = "shield" if support.get("magic_immune",false) else "support"
 		var color = tint(look)
-		canvas.draw_arc(center,unit*.43,PI*.12,PI*.88,12,Color(color,.55),maxf(1,unit*.04))
+		var support_clip = str(profiles.get("support_clip",""))
+		if clip(support_clip).is_empty():
+			canvas.draw_arc(center,unit*.43,PI*.12,PI*.88,12,Color(color,.55),maxf(1,unit*.04))
+		else:
+			# Fields are drawn before towers, so both layers rise up behind the tower.
+			var body = Rect2(center-Vector2(unit*.42,unit*.4),Vector2(unit*.84,unit*.74))
+			var frame = loop_frame(support_clip,clock+(p.x*7+p.y*3)*.11)
+			for depth in ["behind","front"]:
+				draw_clip(canvas,support_clip,depth,body,frame,false,float(profiles.get("support_clip_alpha",.8)))
 		var marks: Array[String] = []
 		if float(support.get("attack_speed",0)) > 0: marks.append("haste")
 		if float(support.get("outgoing_percent",0)) > 0: marks.append("power")
@@ -164,28 +297,3 @@ static func draw_fields(canvas: CanvasItem, combat: GemCampaignCombat, selected:
 					canvas.draw_line(point-Vector2(r,0),point+Vector2(r,0),color,1)
 					canvas.draw_line(point-Vector2(0,r),point+Vector2(0,r),color,1)
 				_: canvas.draw_polyline(PackedVector2Array([point+Vector2(-r,r),point+Vector2(0,-r),point+Vector2(r,r)]),color,1)
-
-static func draw_status(canvas: CanvasItem, enemy: Dictionary, center: Vector2, unit: float, elapsed: float) -> void:
-	var looks: Array[String] = []
-	for aura in enemy.get("aura_memory",{}).values():
-		if float(aura.until) <= elapsed: continue
-		# Damage flames come only from confirmed ticks, not mere proximity.
-		if aura.effect.has("damage"): continue
-		var look = style(aura.effect)
-		if look not in looks: looks.append(look)
-	for mod in enemy.get("mods",{}).values():
-		if float(mod.until) <= elapsed: continue
-		var look = "poison" if mod.has("damage") else style(mod)
-		if look not in looks: looks.append(look)
-	for i in range(mini(3,looks.size())):
-		var look = looks[i]
-		var color = tint(look)
-		var radius = unit*(.32+.08*i)
-		if look == "stun":
-			var star = center+Vector2(cos(elapsed*4)*unit*.2,-unit*.65)
-			canvas.draw_rect(Rect2(star-Vector2.ONE*1.5,Vector2.ONE*3),color)
-		elif look == "poison":
-			var bubble = center+Vector2(unit*.25,-unit*(.2+fmod(elapsed*.65, .4)))
-			canvas.draw_arc(bubble,maxf(1,unit*.055),0,TAU,6,color,1)
-		else:
-			canvas.draw_arc(center,radius,elapsed+i*2,elapsed+i*2+PI*.8,12,Color(color,.8),maxf(1,unit*.04))

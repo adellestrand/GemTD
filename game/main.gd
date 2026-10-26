@@ -55,6 +55,7 @@ var summary_dialog: GemRunSummary
 var leaderboard_dialog: GemLeaderboardDialog
 var seed_dialog: GemSeedDialog
 var journal: GemReviewJournal
+var score_prompt_run_id = ""
 var result_box: VBoxContainer
 var result_title: Label
 var result_stats: Label
@@ -832,6 +833,7 @@ func new_run(seed_value: int, restore_data: Dictionary = {}) -> void:
 	active_preview = {}
 	started_wave = {}
 	last_wave_report = ""
+	score_prompt_run_id = ""
 	run = GemRun.new(seed_value)
 	var did_restore = not restore_data.is_empty() and run.restore(restore_data)
 	if not restore_data.is_empty() and not did_restore:
@@ -975,6 +977,10 @@ func refresh_ui() -> void:
 	wave_value.text = "%d / %d" % [run.wave,GemCatalog.wave_count()]
 	footer_label.text = "GemTD Solo %s  ·  %d gem types, %d qualities, %d waves  ·  seed %d" % [GemRelease.version(),GemCatalog.TYPES.size(),GemCatalog.quality_limit(GemCatalog.TYPES[0]),GemCatalog.wave_count(),run.initial_seed]
 	var terminal = run.phase in ["won","lost"]
+	if terminal and GemCatalog.campaign() and score_prompt_run_id != journal.run_id:
+		# Defer until the final combat tick and wave journal have finished.
+		score_prompt_run_id = journal.run_id
+		show_finished_run_score.call_deferred(journal.run_id)
 	result_box.visible = terminal
 	if terminal:
 		result_title.text = "VICTORY" if run.phase == "won" else "DEFEAT"
@@ -1270,6 +1276,11 @@ func show_leaderboard() -> void:
 	if leaderboard_dialog.visible: return
 	hide_other_dialogs(leaderboard_dialog)
 	leaderboard_dialog.open_report(journal.export_report(run,combat))
+
+func show_finished_run_score(expected_run_id: String) -> void:
+	# A restart may happen before this deferred callback gets its turn.
+	if journal.run_id != expected_run_id or run.phase not in ["won","lost"]: return
+	show_leaderboard()
 
 func show_seed_dialog() -> void:
 	if seed_dialog.visible:

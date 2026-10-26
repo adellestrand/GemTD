@@ -1,5 +1,35 @@
 # GemTD – beslutsunderlag för första prototypen
 
+## Grafikbeslut 2026-10-26
+
+Användaren påpekar att ett 5×5-mönster kvarstår efter den första rättningen.
+Orsaken bekräftas med pixelmätning: fönsterskalningen förstärkte vissa linjer.
+Kravet är fortsatt ett enda jämnt rutnät, nu verifierat efter slutlig skalning.
+
+Förtydligande efter inkoppling av A: inga ”rutor i rutorna”. Användaren vill
+ha en enkel rutindelning utan innerkanter, schacktoning eller hörnmärken.
+
+Slutligt markval: **A – grönt spelbräde**. Användaren beställer inkoppling
+av A. Den tydliga rutindelningen behålls och stilen med stenramar väljs bort.
+Sapphire-ljuspulsen är sedan tidigare visuellt godkänd och används nu i spelet.
+
+Senaste återkoppling: Sapphire-ljuspulsen ser bra ut. Den genererade marken
+godkänns inte; det måste tydligt synas att spelplanen är ett rutnät. Nytt
+underlag kombinerar PixelLab-material med exakt separat ritade cellgränser
+och musmarkering, med två stilar för lokal jämförelse.
+
+Efter positiv återkoppling på vildsvinet beställer användaren nästa
+rekommenderade PixelLab-prov. En Sapphire-ljuspuls och ett gräs/sten-tileset
+genereras och visas i en separat konceptscen för vidare grafikutvärdering.
+
+Användaren väljer att prova PixelLab-stilförslaget för Sapphire I i spelet och
+beställer en lokal körning för visuell granskning. Bilden kopplas in separat i
+grafikmanifestet; beslut om övriga grundtorn följer efter det första stilprovet.
+
+Användaren beställer därefter PixelLab-gånganimation för vildsvinet på våg 1,
+med befintlig bild som referens och åtta bildrutor. Animationen kopplas in som
+nästa grafikprov för jämförelse med den tidigare rörelsen.
+
 Datum: 2026-10-23. Status: 61 interaktiva beslut dokumenterade. Beslutsgenomgången är sammanställd; aktuella versionsdata behöver verifieras före implementation av berörda regler. Den aktuella omfattningen och arbetsordningen finns i prototypplan.md.
 
 ## Utgångsläge
@@ -126,3 +156,11 @@ Användaren beställer samtliga fem rekommenderade steg i ordning: bossdiagnosti
 Användarbeslut 2026-10-24: **två lika traps uppgraderas, oavsett var de ligger på brädet**. Dota-källan (`merge_shiban_update`/`shiban_update_one` i `mode.lua`) kräver tre lika i en rak linje (även diagonalt) med resultatet i mitten; detta är en medveten avvikelse. Ihopslagningen sker automatiskt när en trap skapas eller flyttas och kaskaderar (två silver blir guld). Resultatet hamnar på den nyss skapade/flyttade trappens ruta, annars på den första i radordning; den andra trappens ruta blir fri. Uppgraderingskedjan (`slab_upgrades`) är oförändrad.
 
 Användarbeslut 2026-10-24: **guldförmågor, paket A**. Guld som blir över efter oddsköpen kan användas på Dota-hjältarnas Gem Pray (åtta typer), Quality Pray (III/IV/V) och Heal, med källans nivå 1-värden. Alla förmågor finns för alla spelare (ingen hjälte väljs), köps under byggfasen och ingår i replays. Övriga hjälteförmågor är fortfarande bortvalda. Detaljer och avvikelser: [gold-spells.md](gold-spells.md).
+
+## Fiendeanimationer – genomförandebeslut 2026-10-26
+
+Efter godkänt vildsvin beställer användaren förbättrade PixelLab-animationer för alla fiender som används i spelet och meddelar aktiverat Tier 2. Genomfört: 50 nya åttabildsloopar, med det godkända vildsvinet behållet, totalt 51 kopplade figurer. Befintliga identiteter, storlekar och ankare behålls. Se [PixelLab-fiender v1](pixellab-enemies-v1.md).
+
+## Tornanimationer – genomförandebeslut 2026-10-26
+
+Användaren beställer efter fiendepasset en genomgång av alla torn. Genomfört: 66 nya PixelLab-ljusloopar plus tidigare godkänd Sapphire I, totalt 67 unika tornbilder. Byggnaderna står stilla och bara maskerade kristall-/kärnytor ändrar ljus. Befintlig kvalitetskoppling IV–VI, storlekar och ankare behålls. Se [tornpasset](pixellab-towers-v1.md).

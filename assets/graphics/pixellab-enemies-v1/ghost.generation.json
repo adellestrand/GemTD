@@ -1,0 +1,48 @@
+{
+  "id": "ghost",
+  "previous": {
+    "trim_alpha": true,
+    "size": [
+      1.85,
+      1.9
+    ],
+    "anchor": [
+      0.5,
+      0.72
+    ],
+    "texture": "res://assets/graphics/refined-v3/anims/ghost_flap_v3.png",
+    "frames": 4
+  },
+  "size": [
+    72,
+    64
+  ],
+  "frames": 8,
+  "air": true,
+  "wave_names": [
+    "thrilling ghost"
+  ],
+  "seed": 26102623,
+  "estimated_generations": 1,
+  "action": "An eight-frame seamless looping locomotion animation. The ghost floats in place. Its long wispy tendrils ripple and curl gently beneath a steady hooded head. No limbs or new objects appear. Maintain exactly the original facing, character identity, proportions, accessories and pixel-art style. Locked camera, no turn, no zoom, no horizontal translation, no squash or stretching. Keep the whole character and moving limbs inside the transparent canvas. Return smoothly to the starting stance at the end for a continuous loop.",
+  "provider": "PixelLab",
+  "tool": "animate_image",
+  "date": "2026-10-26",
+  "reference": "assets/graphics/pixellab-enemies-v1/ghost_reference.png",
+  "receipt": "id: 2b2ea3f8-1d33-42d4-88a7-cb63395d2998\njob_id: 2b2ea3f8-1d33-42d4-88a7-cb63395d2998\naction: An eight-frame seamless looping locomotion animation. The ghost floats in place. Its long wispy tendrils ripple and curl gently beneath a steady hooded head. No limbs or new objects appear. Maintain exactly the original facing, character identity, proportions, accessories and pixel-art style. Locked camera, no turn, no zoom, no horizontal translation, no squash or stretching. Keep the whole character and moving limbs inside the transparent canvas. Return smoothly to the starting stance at the end for a continuous loop.\nframes: 8\nsize: 72x64px\ntransparent: True\nlast_frame: yes (interpolating to it)\nseed: 26102623\nasset_id: b5b7ff68-c577-5cc7-8c9c-2ebf5ccbe6b5\nasset_status: pending (saved when generation completes)\ncost: 1 generation\nstatus: processing (~30-180s)\n\nhint: get_image(job_id=\"2b2ea3f8-1d33-42d4-88a7-cb63395d2998\")",
+  "provider_frame_count": 9,
+  "selected_provider_indices": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7
+  ],
+  "last_frame": "same_as_first",
+  "no_background": true,
+  "restored_reference_opacity": null,
+  "sha256": "f120ea7a9bfad5e3eb1732673aa2abe7b0f96d71dc5093da04b72f406847ede9"
+}

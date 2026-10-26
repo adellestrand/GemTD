@@ -1,0 +1,62 @@
+{
+  "provider": "PixelLab",
+  "tool": "animate_image",
+  "status": "completed",
+  "date": "2026-10-26",
+  "job_id": "d034acb2-092f-4616-b30f-becdaf90289a",
+  "source_image_id": "78406b4a-2f21-54a1-9373-cf99f9401b81",
+  "reference": "assets/graphics/pixellab-v1/sapphire_1.png",
+  "requested_size": [
+    64,
+    64
+  ],
+  "requested_frames": 8,
+  "last_frame": "same_as_first",
+  "seed": 261028,
+  "no_background": true,
+  "estimated_generations": 1,
+  "action": "Seamless calm idle light pulse. Only the blue faceted sapphire at the very top of the tower softly brightens from deep cobalt blue to a crisp cyan-white inner highlight, then dims back to its initial brightness. A tiny specular glint travels across the upper sapphire facet. All stonework, the pedestal, roof, windows, gold clamps, tower silhouette and the sapphire shape stay absolutely still. No translation, camera motion, rotation, scaling, jumping or deformation. No particles, no expanding rings, no rays outside the crystal. Lighting animation only; preserve pixel art, transparency and the exact starting pose. Return to the initial brightness at the end.",
+  "active_in_game": true,
+  "charged_generations": 1,
+  "postprocessing": "Transfer generated RGB values only inside the reference sapphire blue-facet mask; preserve source alpha and every other pixel.",
+  "validation": {
+    "strip_size": [
+      512,
+      64
+    ],
+    "frame_size": [
+      64,
+      64
+    ],
+    "frames": 8,
+    "crystal_mask_pixels": 175,
+    "changed_pixels_per_frame": [
+      0,
+      27,
+      131,
+      131,
+      131,
+      131,
+      131,
+      58
+    ],
+    "static_structure_identical": true,
+    "alpha_identical": true,
+    "selected_provider_indices": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+    ],
+    "omitted_terminal_pose": 8,
+    "sha256": "3399ed6c3a25ddbe186ff02a6531dfa8cf61e3ce5d92a0ab1d3032ec32cedee5",
+    "godot_import": "passed",
+    "native_preview": "PIXELLAB_LIGHT_TERRAIN_READY frames=8; PIXELLAB_LIGHT_TERRAIN_CAPTURE_OK"
+  },
+  "remaining_generations_after_both_demos": 32,
+  "activated_date": "2026-10-26"
+}

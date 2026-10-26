@@ -40,6 +40,8 @@ effekter, inte nya bitmapark eller en kopia av Dotas partikelsystem.
 
 ## Ändra grafiken
 
+**2026-10-26:** träff- och statuseffekterna ritas nu med PixelLab-klipp i stället för procedurella linjer; se [PixelLab – förmågeeffekter v1](pixellab-vfx-v1.md). Händelserna nedan är desamma.
+
 - `assets/graphics/ability-effects.json`: färger, projektilprofiler för alla torn
   och gräns för samtidiga auramarkeringar.
 - `game/presentation/ability_art.gd`: eld, bubblor, frost, blixtar, pulser,

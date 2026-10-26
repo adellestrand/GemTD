@@ -12,8 +12,12 @@ func _ready() -> void:
 	build()
 	if "--motion" in OS.get_cmdline_user_args():
 		tabs.current_tab = 3
+	if "--enemies" in OS.get_cmdline_user_args():
+		tabs.current_tab = 2
 	if "--abilities" in OS.get_cmdline_user_args() or (OS.has_feature("web") and bool(JavaScriptBridge.eval("new URLSearchParams(window.location.search).get('abilities') === '1'"))):
 		tabs.current_tab = tabs.get_tab_count()-1
+	if "--status-effects" in OS.get_cmdline_user_args() and GemCatalog.campaign():
+		tabs.current_tab = tabs.get_tab_count()-2
 
 func _unhandled_key_input(event: InputEvent) -> void:
 	if event is InputEventKey and event.pressed and not event.echo and event.keycode == KEY_SPACE:
@@ -77,9 +81,23 @@ func build() -> void:
 		var frame = card(towers,GemCatalog.DATA.specials[kind].name)
 		preview(frame,GemArt.sprite_id("gems",kind),Vector2(200,130))
 	var creatures = tab_grid("Enemies & scenery",4)
-	for wave in GemCatalog.DATA.waves:
-		var frame = card(creatures,wave.name)
-		preview(frame,GemArt.sprite_id("enemies",wave.source_id),Vector2(230,145))
+	var enemies: Dictionary = {}
+	for source in GemArt.config().bindings.enemies:
+		var id = GemArt.sprite_id("enemies",source)
+		enemies[id] = bool(enemies.get(id,false)) or "_fly" in str(source)
+	var enemy_ids = enemies.keys()
+	enemy_ids.sort()
+	for id in enemy_ids:
+		var frame = card(creatures,str(id).capitalize().replace("_"," "))
+		var live = LivePreview.new()
+		live.enemy_id = id
+		live.air = enemies[id]
+		live.unit = 72.0
+		live.custom_minimum_size = Vector2(260,180)
+		live.playing = not preview_paused
+		frame.add_child(live)
+		live_previews.append(live)
+		caption(frame,"%d frames · %s" % [GemArt.frame_count(id),"Flying" if live.air else "Ground"])
 	for id in ["stone","checkpoint","pine","fern","flowers","rocks"]:
 		var frame = card(creatures,id.capitalize())
 		preview(frame,id,Vector2(230,145))
@@ -109,6 +127,16 @@ func build() -> void:
 		sample.custom_minimum_size = Vector2(480,440)
 		frame.add_child(sample)
 	if GemCatalog.campaign():
+		var stacks = tab_grid("Status effects",2)
+		for sample in [["stack",26.0,"Statuses stacked 1–7 · game scale 26 px/cell"],["stack",52.0,"Statuses stacked 1–7 · zoomed 52 px/cell"],["capped",26.0,"In game: priority cap (max_statuses) · 26 px/cell"],["hits",52.0,"Hit clips · 52 px/cell"]]:
+			var frame = card(stacks,sample[2])
+			var live = GemStatusStackPreview.new()
+			live.mode = sample[0]
+			live.unit = sample[1]
+			live.custom_minimum_size = Vector2(560,330 if sample[1] > 30 else 150)
+			live.playing = not preview_paused
+			frame.add_child(live)
+			live_previews.append(live)
 		var abilities = tab_grid("Abilities",4)
 		for kind in GemCatalog.DATA.specials:
 			if GemCatalog.DATA.specials[kind].get("slab",false): continue
@@ -163,7 +191,9 @@ func card(parent: Node, title: String) -> VBoxContainer:
 	return content
 
 func preview(parent: Node, id: String, minimum: Vector2) -> void:
-	var image = TextureRect.new()
+	var image = IdlePreview.new()
+	image.art_id = id
+	image.playing = not preview_paused
 	image.texture = GemArt.texture(id)
 	image.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
 	image.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
@@ -171,6 +201,20 @@ func preview(parent: Node, id: String, minimum: Vector2) -> void:
 	image.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	image.tooltip_text = id
 	parent.add_child(image)
+	live_previews.append(image)
+
+class IdlePreview extends TextureRect:
+	var art_id = ""
+	var playing = true
+	var elapsed = 0.0
+	var last_frame = 0
+	func _process(dt: float) -> void:
+		if not playing or not is_visible_in_tree(): return
+		elapsed += dt
+		var frame = GemArt.idle_frame(art_id,elapsed)
+		if frame != last_frame:
+			texture = GemArt.frame_texture(art_id,frame)
+			last_frame = frame
 
 func caption(parent: Node, text: String) -> void:
 	var label = Label.new()
@@ -205,7 +249,7 @@ class LivePreview extends Control:
 	var elapsed = 0.0
 	var next_shot = .4
 	var effects = GemEffects.new()
-	const UNIT = 38.0
+	var unit = 38.0
 	func _process(dt: float) -> void:
 		if not playing or not is_visible_in_tree():
 			return
@@ -223,14 +267,15 @@ class LivePreview extends Control:
 			next_shot = elapsed+.9
 		queue_redraw()
 	func _draw() -> void:
-		var feet = Vector2(5.2,3.1)*UNIT if not gem_kind.is_empty() else Vector2(size.x*.5,125)
+		var feet = Vector2(5.2,3.1)*unit if not gem_kind.is_empty() else Vector2(size.x*.5,125)
 		if not gem_kind.is_empty():
-			GemArt.draw(self,GemArt.sprite_id("gems",gem_kind,3),Vector2(1.2,3.1)*UNIT,UNIT)
+			var tower_id = GemArt.sprite_id("gems",gem_kind,3)
+			GemArt.draw(self,tower_id,Vector2(1.2,3.1)*unit,unit,false,Color.WHITE,Vector2.ONE,0.0,GemArt.idle_frame(tower_id,elapsed))
 		var motion = GemArt.enemy_motion(enemy_id,elapsed*1.6,elapsed,0,air)
 		var tint = Color(1.45,1.35,1.15) if effects.flashes.has(0) else Color.WHITE
 		var frame = GemArt.enemy_frame(enemy_id,elapsed*1.6,elapsed,0,air)
-		GemArt.draw(self,enemy_id,feet+motion.offset*UNIT,UNIT,false,tint,motion.scale,float(motion.rotation),frame)
-		effects.draw(self,Vector2.ZERO,UNIT,ThemeDB.fallback_font)
+		GemArt.draw(self,enemy_id,feet+motion.offset*unit,unit,false,tint,motion.scale,float(motion.rotation),frame)
+		effects.draw(self,Vector2.ZERO,unit,ThemeDB.fallback_font)
 
 class ClarityPreview extends Control:
 	var pixels = 32.0

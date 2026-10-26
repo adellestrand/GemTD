@@ -1,0 +1,129 @@
+{
+  "source": "PixelLab vfx_workbench",
+  "part": "hit_star",
+  "my_effects_id": "a8734829-6199-42fb-8196-e2acdf82feb2",
+  "export_image_id": "2292a12e-68fe-4227-a827-d717c10fbf04",
+  "pack": {
+    "app": "PixelLab VFX Creator",
+    "name": "GemTD hit critical v1",
+    "fps": 16,
+    "frame_ms": 63,
+    "frames": 6,
+    "loop": false,
+    "canvas": {
+      "w": 45,
+      "h": 43
+    },
+    "anchor": {
+      "kind": "feet",
+      "x": 21,
+      "y": 36
+    },
+    "clips": [
+      {
+        "name": "whole",
+        "title": "the whole effect, no sprite",
+        "depth": "both",
+        "loop": false,
+        "start_frame": 0,
+        "frames": 5,
+        "frame": {
+          "w": 39,
+          "h": 37
+        },
+        "sheets": [
+          {
+            "file": "whole.png",
+            "first_frame": 0,
+            "frames": 5,
+            "columns": 3,
+            "rows": 2
+          }
+        ],
+        "offset": {
+          "x": -18,
+          "y": -33
+        }
+      },
+      {
+        "name": "whole-with-sprite",
+        "title": "the whole effect with the sprite in it",
+        "depth": "both",
+        "loop": false,
+        "start_frame": 0,
+        "frames": 6,
+        "frame": {
+          "w": 39,
+          "h": 37
+        },
+        "sheets": [
+          {
+            "file": "whole-with-sprite.png",
+            "first_frame": 0,
+            "frames": 6,
+            "columns": 3,
+            "rows": 2
+          }
+        ],
+        "offset": {
+          "x": -18,
+          "y": -33
+        }
+      },
+      {
+        "name": "front",
+        "title": "everything in front of the sprite",
+        "depth": "front",
+        "loop": false,
+        "start_frame": 0,
+        "frames": 5,
+        "frame": {
+          "w": 39,
+          "h": 37
+        },
+        "sheets": [
+          {
+            "file": "front.png",
+            "first_frame": 0,
+            "frames": 5,
+            "columns": 3,
+            "rows": 2
+          }
+        ],
+        "offset": {
+          "x": -18,
+          "y": -33
+        }
+      },
+      {
+        "name": "part-hit_star",
+        "title": "the hit star part",
+        "part": "hit_star",
+        "depth": "front",
+        "loop": false,
+        "start_frame": 0,
+        "frames": 5,
+        "frame": {
+          "w": 39,
+          "h": 37
+        },
+        "sheets": [
+          {
+            "file": "part-hit_star.png",
+            "first_frame": 0,
+            "frames": 5,
+            "columns": 3,
+            "rows": 2
+          }
+        ],
+        "offset": {
+          "x": -18,
+          "y": -33
+        }
+      }
+    ]
+  },
+  "files": {
+    "hit_critical_front_v1.png": "b241552cf9d60e9ae3bdd17ebdc3d0518583f68cf7c940c2f894824ad022d5e5"
+  }
+}

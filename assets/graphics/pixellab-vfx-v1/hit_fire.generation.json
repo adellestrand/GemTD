@@ -1,0 +1,129 @@
+{
+  "source": "PixelLab vfx_workbench",
+  "part": "fire_blast",
+  "my_effects_id": "f19e4b71-de96-4def-90f3-075e4fce9732",
+  "export_image_id": "03221975-9a69-46d7-b883-3ba9675378ad",
+  "pack": {
+    "app": "PixelLab VFX Creator",
+    "name": "GemTD hit fire v1",
+    "fps": 14,
+    "frame_ms": 71,
+    "frames": 12,
+    "loop": false,
+    "canvas": {
+      "w": 51,
+      "h": 50
+    },
+    "anchor": {
+      "kind": "feet",
+      "x": 25,
+      "y": 39
+    },
+    "clips": [
+      {
+        "name": "whole",
+        "title": "the whole effect, no sprite",
+        "depth": "both",
+        "loop": false,
+        "start_frame": 0,
+        "frames": 11,
+        "frame": {
+          "w": 45,
+          "h": 44
+        },
+        "sheets": [
+          {
+            "file": "whole.png",
+            "first_frame": 0,
+            "frames": 11,
+            "columns": 4,
+            "rows": 3
+          }
+        ],
+        "offset": {
+          "x": -22,
+          "y": -36
+        }
+      },
+      {
+        "name": "whole-with-sprite",
+        "title": "the whole effect with the sprite in it",
+        "depth": "both",
+        "loop": false,
+        "start_frame": 0,
+        "frames": 12,
+        "frame": {
+          "w": 45,
+          "h": 44
+        },
+        "sheets": [
+          {
+            "file": "whole-with-sprite.png",
+            "first_frame": 0,
+            "frames": 12,
+            "columns": 4,
+            "rows": 3
+          }
+        ],
+        "offset": {
+          "x": -22,
+          "y": -36
+        }
+      },
+      {
+        "name": "behind",
+        "title": "everything behind the sprite",
+        "depth": "behind",
+        "loop": false,
+        "start_frame": 0,
+        "frames": 11,
+        "frame": {
+          "w": 45,
+          "h": 44
+        },
+        "sheets": [
+          {
+            "file": "behind.png",
+            "first_frame": 0,
+            "frames": 11,
+            "columns": 4,
+            "rows": 3
+          }
+        ],
+        "offset": {
+          "x": -22,
+          "y": -36
+        }
+      },
+      {
+        "name": "part-fire_blast",
+        "title": "the fire blast part",
+        "part": "fire_blast",
+        "depth": "behind",
+        "loop": false,
+        "start_frame": 0,
+        "frames": 11,
+        "frame": {
+          "w": 45,
+          "h": 44
+        },
+        "sheets": [
+          {
+            "file": "part-fire_blast.png",
+            "first_frame": 0,
+            "frames": 11,
+            "columns": 4,
+            "rows": 3
+          }
+        ],
+        "offset": {
+          "x": -22,
+          "y": -36
+        }
+      }
+    ]
+  },
+  "files": {
+    "hit_fire_behind_v1.png": "632a72dfe98da725102dd66d1223baff894e3d12b0bf921f1a9ab4998f563333"
+  }
+}

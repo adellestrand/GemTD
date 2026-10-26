@@ -1,0 +1,58 @@
+{
+  "id": "amethyst_3_v2",
+  "size": [
+    72,
+    80
+  ],
+  "previous": {
+    "trim_alpha": true,
+    "size": [
+      0.94,
+      0.94
+    ],
+    "anchor": [
+      0.5,
+      0.5
+    ],
+    "effect_color": "#b79afa",
+    "texture": "res://assets/graphics/refined-v3/amethyst_3.png"
+  },
+  "seed": 26103002,
+  "frames": 8,
+  "action": "A seamless calm eight-frame idle lighting loop. Only the existing crystals and magical energy cores gently brighten, with a tiny moving facet highlight, then dim back to their starting brightness. Keep the original crystal colours. Keep all stonework, foundations, walls, roof, gold fittings, silhouette and all crystal shapes completely still. Lighting only: no movement, no rotation, no zoom, no deformation, no growth, no particles, no expanding rings, no rays outside the tower. Preserve the exact pixel-art appearance and transparent background. Return to the original brightness at the end.",
+  "mask_pixels": 336,
+  "estimated_generations": 1,
+  "provider": "PixelLab",
+  "tool": "animate_image",
+  "date": "2026-10-26",
+  "receipt": "id: 9036b041-c14d-4830-88b9-ca29dafd2ef6\njob_id: 9036b041-c14d-4830-88b9-ca29dafd2ef6\naction: A seamless calm eight-frame idle lighting loop. Only the existing crystals and magical energy cores gently brighten, with a tiny moving facet highlight, then dim back to their starting brightness. Keep the original crystal colours. Keep all stonework, foundations, walls, roof, gold fittings, silhouette and all crystal shapes completely still. Lighting only: no movement, no rotation, no zoom, no deformation, no growth, no particles, no expanding rings, no rays outside the tower. Preserve the exact pixel-art appearance and transparent background. Return to the original brightness at the end.\nframes: 8\nsize: 72x80px\ntransparent: True\nlast_frame: yes (interpolating to it)\nseed: 26103002\nasset_id: f95fd75e-d894-597e-848a-b67afd3a8147\nasset_status: pending (saved when generation completes)\ncost: 1 generation\nstatus: processing (~30-180s)\n\nhint: get_image(job_id=\"9036b041-c14d-4830-88b9-ca29dafd2ef6\")",
+  "reference": "assets/graphics/pixellab-towers-v1/amethyst_3_v2_reference.png",
+  "mask": "assets/graphics/pixellab-towers-v1/amethyst_3_v2_mask.png",
+  "selected_provider_indices": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7
+  ],
+  "postprocessing": "Bounded provider luminance inside saved crystal mask only; source hue, alpha and every unmasked pixel remain exact.",
+  "validation": {
+    "unique_frames": 7,
+    "changed_pixels": [
+      0,
+      333,
+      336,
+      329,
+      334,
+      330,
+      336,
+      327
+    ],
+    "static_structure_identical": true,
+    "alpha_identical": true
+  },
+  "sha256": "fe69303ae4c49163a89354c96af8f78a5539a43723de51f758d00cac954791c4"
+}

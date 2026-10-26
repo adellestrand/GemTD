@@ -1,0 +1,155 @@
+{
+  "source": "PixelLab vfx_workbench",
+  "part": "petrify",
+  "my_effects_id": "b85ee876-2bdf-49a6-ae9a-efc262d95125",
+  "export_image_id": "13c373f0-cc08-48b4-be0d-84bf4674a867",
+  "pack": {
+    "app": "PixelLab VFX Creator",
+    "name": "GemTD hit stone v1",
+    "fps": 12,
+    "frame_ms": 83,
+    "frames": 16,
+    "loop": false,
+    "canvas": {
+      "w": 42,
+      "h": 53
+    },
+    "anchor": {
+      "kind": "feet",
+      "x": 20,
+      "y": 35
+    },
+    "clips": [
+      {
+        "name": "whole",
+        "title": "the whole effect, no sprite",
+        "depth": "both",
+        "loop": false,
+        "start_frame": 0,
+        "frames": 15,
+        "frame": {
+          "w": 36,
+          "h": 47
+        },
+        "sheets": [
+          {
+            "file": "whole.png",
+            "first_frame": 0,
+            "frames": 15,
+            "columns": 4,
+            "rows": 4
+          }
+        ],
+        "offset": {
+          "x": -17,
+          "y": -32
+        }
+      },
+      {
+        "name": "whole-with-sprite",
+        "title": "the whole effect with the sprite in it",
+        "depth": "both",
+        "loop": false,
+        "start_frame": 0,
+        "frames": 16,
+        "frame": {
+          "w": 36,
+          "h": 47
+        },
+        "sheets": [
+          {
+            "file": "whole-with-sprite.png",
+            "first_frame": 0,
+            "frames": 16,
+            "columns": 4,
+            "rows": 4
+          }
+        ],
+        "offset": {
+          "x": -17,
+          "y": -32
+        }
+      },
+      {
+        "name": "behind",
+        "title": "everything behind the sprite",
+        "depth": "behind",
+        "loop": false,
+        "start_frame": 8,
+        "frames": 5,
+        "frame": {
+          "w": 19,
+          "h": 9
+        },
+        "sheets": [
+          {
+            "file": "behind.png",
+            "first_frame": 0,
+            "frames": 5,
+            "columns": 3,
+            "rows": 2
+          }
+        ],
+        "offset": {
+          "x": -8,
+          "y": -5
+        }
+      },
+      {
+        "name": "front",
+        "title": "everything in front of the sprite",
+        "depth": "front",
+        "loop": false,
+        "start_frame": 0,
+        "frames": 15,
+        "frame": {
+          "w": 36,
+          "h": 47
+        },
+        "sheets": [
+          {
+            "file": "front.png",
+            "first_frame": 0,
+            "frames": 15,
+            "columns": 4,
+            "rows": 4
+          }
+        ],
+        "offset": {
+          "x": -17,
+          "y": -32
+        }
+      },
+      {
+        "name": "part-petrify",
+        "title": "the petrify part",
+        "part": "petrify",
+        "depth": "both",
+        "loop": false,
+        "start_frame": 8,
+        "frames": 5,
+        "frame": {
+          "w": 19,
+          "h": 9
+        },
+        "sheets": [
+          {
+            "file": "part-petrify.png",
+            "first_frame": 0,
+            "frames": 5,
+            "columns": 3,
+            "rows": 2
+          }
+        ],
+        "offset": {
+          "x": -8,
+          "y": -5
+        }
+      }
+    ]
+  },
+  "files": {
+    "hit_stone_behind_v1.png": "0235bd5702211d70cd9e91d3552460c7f5deb2361d656d897fb552b54cfa58e6",
+    "hit_stone_front_v1.png": "e3d68622d702151f5a2c50f9898b2b840d0182352493e4c9da205101ac2a5aa1"
+  }
+}

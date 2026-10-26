@@ -1,0 +1,48 @@
+{
+  "id": "kupu",
+  "previous": {
+    "trim_alpha": true,
+    "size": [
+      1.25,
+      1.3
+    ],
+    "anchor": [
+      0.5,
+      0.72
+    ],
+    "texture": "res://assets/graphics/refined-v3/anims/kupu_flap_v3.png",
+    "frames": 4
+  },
+  "size": [
+    72,
+    56
+  ],
+  "frames": 8,
+  "air": true,
+  "wave_names": [
+    "kupu"
+  ],
+  "seed": 26102630,
+  "estimated_generations": 1,
+  "action": "An eight-frame seamless looping locomotion animation. The butterfly flies in place, repeatedly opening and closing both patterned wings at their body joints. Keep the tiny head and antennae steady. Maintain exactly the original facing, character identity, proportions, accessories and pixel-art style. Locked camera, no turn, no zoom, no horizontal translation, no squash or stretching. Keep the whole character and moving limbs inside the transparent canvas. Return smoothly to the starting stance at the end for a continuous loop.",
+  "provider": "PixelLab",
+  "tool": "animate_image",
+  "date": "2026-10-26",
+  "reference": "assets/graphics/pixellab-enemies-v1/kupu_reference.png",
+  "receipt": "id: 071d2002-4f32-49bc-9f11-4ebf57ee134f\njob_id: 071d2002-4f32-49bc-9f11-4ebf57ee134f\naction: An eight-frame seamless looping locomotion animation. The butterfly flies in place, repeatedly opening and closing both patterned wings at their body joints. Keep the tiny head and antennae steady. Maintain exactly the original facing, character identity, proportions, accessories and pixel-art style. Locked camera, no turn, no zoom, no horizontal translation, no squash or stretching. Keep the whole character and moving limbs inside the transparent canvas. Return smoothly to the starting stance at the end for a continuous loop.\nframes: 8\nsize: 72x56px\ntransparent: True\nlast_frame: yes (interpolating to it)\nseed: 26102630\nasset_id: 4fa0bc9f-0890-5ff2-84e8-aeb88ba4bf37\nasset_status: pending (saved when generation completes)\ncost: 1 generation\nstatus: processing (~30-180s)\n\nhint: get_image(job_id=\"071d2002-4f32-49bc-9f11-4ebf57ee134f\")",
+  "provider_frame_count": 9,
+  "selected_provider_indices": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7
+  ],
+  "last_frame": "same_as_first",
+  "no_background": true,
+  "restored_reference_opacity": null,
+  "sha256": "c29ff68219dfe55a46ac6e4b9a054cf2d36b003095f438604449e9f098b2636a"
+}

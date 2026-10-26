@@ -1,0 +1,129 @@
+{
+  "source": "PixelLab vfx_workbench",
+  "part": "star_burst",
+  "my_effects_id": "0311cbe0-22ee-42f0-86b1-6d7fa74198e2",
+  "export_image_id": "2e0ca757-98dc-40ea-9ad8-0476134363f8",
+  "pack": {
+    "app": "PixelLab VFX Creator",
+    "name": "GemTD hit stun v1",
+    "fps": 15,
+    "frame_ms": 67,
+    "frames": 12,
+    "loop": false,
+    "canvas": {
+      "w": 49,
+      "h": 60
+    },
+    "anchor": {
+      "kind": "feet",
+      "x": 24,
+      "y": 37
+    },
+    "clips": [
+      {
+        "name": "whole",
+        "title": "the whole effect, no sprite",
+        "depth": "both",
+        "loop": false,
+        "start_frame": 0,
+        "frames": 11,
+        "frame": {
+          "w": 43,
+          "h": 54
+        },
+        "sheets": [
+          {
+            "file": "whole.png",
+            "first_frame": 0,
+            "frames": 11,
+            "columns": 4,
+            "rows": 3
+          }
+        ],
+        "offset": {
+          "x": -21,
+          "y": -34
+        }
+      },
+      {
+        "name": "whole-with-sprite",
+        "title": "the whole effect with the sprite in it",
+        "depth": "both",
+        "loop": false,
+        "start_frame": 0,
+        "frames": 12,
+        "frame": {
+          "w": 43,
+          "h": 54
+        },
+        "sheets": [
+          {
+            "file": "whole-with-sprite.png",
+            "first_frame": 0,
+            "frames": 12,
+            "columns": 4,
+            "rows": 3
+          }
+        ],
+        "offset": {
+          "x": -21,
+          "y": -34
+        }
+      },
+      {
+        "name": "front",
+        "title": "everything in front of the sprite",
+        "depth": "front",
+        "loop": false,
+        "start_frame": 0,
+        "frames": 11,
+        "frame": {
+          "w": 43,
+          "h": 54
+        },
+        "sheets": [
+          {
+            "file": "front.png",
+            "first_frame": 0,
+            "frames": 11,
+            "columns": 4,
+            "rows": 3
+          }
+        ],
+        "offset": {
+          "x": -21,
+          "y": -34
+        }
+      },
+      {
+        "name": "part-star_burst",
+        "title": "the star burst part",
+        "part": "star_burst",
+        "depth": "front",
+        "loop": false,
+        "start_frame": 0,
+        "frames": 11,
+        "frame": {
+          "w": 43,
+          "h": 54
+        },
+        "sheets": [
+          {
+            "file": "part-star_burst.png",
+            "first_frame": 0,
+            "frames": 11,
+            "columns": 4,
+            "rows": 3
+          }
+        ],
+        "offset": {
+          "x": -21,
+          "y": -34
+        }
+      }
+    ]
+  },
+  "files": {
+    "hit_stun_front_v1.png": "a3c9bbdbea9faf5cfc0c37c1833a892b28238862c9273a9f4d98377503dd4fb9"
+  }
+}

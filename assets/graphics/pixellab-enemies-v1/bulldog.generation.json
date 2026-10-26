@@ -1,0 +1,48 @@
+{
+  "id": "bulldog",
+  "previous": {
+    "trim_alpha": true,
+    "size": [
+      1.25,
+      1.3
+    ],
+    "anchor": [
+      0.5,
+      0.72
+    ],
+    "texture": "res://assets/graphics/refined-v3/anims/bulldog_walk_v1.png",
+    "frames": 4
+  },
+  "size": [
+    80,
+    72
+  ],
+  "frames": 8,
+  "air": false,
+  "wave_names": [
+    "bulldog"
+  ],
+  "seed": 26102610,
+  "estimated_generations": 1,
+  "action": "An eight-frame seamless looping locomotion animation. The bulldog walks in place with four alternating paws and gentle weight transfer. Its muzzle and ears keep their shape. Maintain exactly the original facing, character identity, proportions, accessories and pixel-art style. Locked camera, no turn, no zoom, no horizontal translation, no squash or stretching. Keep the whole character and moving limbs inside the transparent canvas. Return smoothly to the starting stance at the end for a continuous loop.",
+  "provider": "PixelLab",
+  "tool": "animate_image",
+  "date": "2026-10-26",
+  "reference": "assets/graphics/pixellab-enemies-v1/bulldog_reference.png",
+  "receipt": "id: 96e453e5-d514-409a-937a-983f24a7c05e\njob_id: 96e453e5-d514-409a-937a-983f24a7c05e\naction: An eight-frame seamless looping locomotion animation. The bulldog walks in place with four alternating paws and gentle weight transfer. Its muzzle and ears keep their shape. Maintain exactly the original facing, character identity, proportions, accessories and pixel-art style. Locked camera, no turn, no zoom, no horizontal translation, no squash or stretching. Keep the whole character and moving limbs inside the transparent canvas. Return smoothly to the starting stance at the end for a continuous loop.\nframes: 8\nsize: 80x72px\ntransparent: True\nlast_frame: yes (interpolating to it)\nseed: 26102610\nasset_id: 88d6fa88-14cc-5e4f-8f75-0ffca3c9d96b\nasset_status: pending (saved when generation completes)\ncost: 1 generation\nstatus: processing (~30-180s)\n\nhint: get_image(job_id=\"96e453e5-d514-409a-937a-983f24a7c05e\")",
+  "provider_frame_count": 9,
+  "selected_provider_indices": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7
+  ],
+  "last_frame": "same_as_first",
+  "no_background": true,
+  "restored_reference_opacity": null,
+  "sha256": "8663bf80725a315e6a1241442ead4bcd458b4fe298f37526826abdefd8ea6864"
+}

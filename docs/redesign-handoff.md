@@ -11,6 +11,7 @@ Var SUPER försiktig med själva spelet så att balanseringen inte förstörs. �
 - Separat test (ingår inte i `check.py`): `python tools/godot.py --headless --path . --script res://tests/check_recipe_lines.gd -- --campaign --smoke` ska ge `RECIPE_LINES_CHECK_OK` (receptbokens uppgraderingslinjer och grön/gul-markering).
 - Separat test (ingår inte i `check.py`): `python tools/godot.py --headless --path . --script res://tests/check_maze_tips.gd -- --smoke` ska ge `MAZE_TIPS_CHECK_OK` (maze-tips-vyn och överlägget).
 - Separat test (ingår inte i `check.py`): `python tools/godot.py --headless --path . --script res://tests/check_route_toggle.gd -- --smoke` ska ge `ROUTE_TOGGLE_CHECK_OK` (kryssrutan "Show routes" för fiendernas väglinjer).
+- Separat test (ingår inte i `check.py`): `python tools/godot.py --headless --path . --script res://tests/check_ability_clips.gd -- --campaign --smoke` ska ge `ABILITY_CLIPS_CHECK_OK` (PixelLab-förmågeklippen, staplade statusar och tak).
 - Efter nya bildfiler: `python tools/godot.py --headless --editor --path . --import` (annars `.ctex`-fel vid start; `.godot/` är git-ignorerad).
 - Repot använder LF-radslut.
 
@@ -34,6 +35,9 @@ Var SUPER försiktig med själva spelet så att balanseringen inte förstörs. �
 - Fiender interpoleras mellan 30 Hz-simuleringssteg (`capture_positions`, `tick_alpha`, `render_position`), mjuk vändning (`facing`), träffrekyl, ny gång-/flygcykel i `GemArt.enemy_motion`.
 - Tornanimationer i `game/presentation/tower_motion.gd`.
 - Animationsremsor för fiender (`"frames": n` i manifestet, `GemArt.frame_texture`/`enemy_frame`). Alla tio fiendefamiljer plus deras varianter (53 sprites) har 4-rutorscykel: gång för de åtta markfamiljerna, vingslag för bat och griffin, byggd med pxl (`tools/art/build_anims.py`, alla cykler i `tools/art/anims/walk.px.js`). 32 fiender har dessutom egen kropp i stället för omfärgning: AI-förfinade bilder i `assets/graphics/refined-v4/` (ark v2, `docs/ai-enemy-sheets-v2.md`) animerade i `walk.px.js` som `_v3`-remsor; pxl-ritade reserver i `tools/art/anims/creatures.px.js` (`_v2`). Se `docs/graphics.md` → Animationsremsor. Test: `tests/check_enemy_frames.gd`.
+
+**Förmågeeffekter (PixelLab)**
+- 19 klipp från PixelLabs vfx_workbench i `assets/graphics/pixellab-vfx-v1/` ersätter förmågornas 1 px-linjer: statusloopar bakom/framför fienden (högst 4 per fiende enligt prioritet) och träffklipp. Inställningar i `assets/graphics/ability-effects.json`, import `tools/art/import_pixellab_vfx.py`, verkstadsfliken **Status effects**. Se `docs/pixellab-vfx-v1.md`.
 
 ## Kvar / idéer
 - Bossarna i refined-v4 (shagbark, carpet_rider, ghost, baby_roshan) har grövre pixlar än boss_hound eftersom AI-arket ritade dem i normal storlek; generera dem i större ruta om det stör.

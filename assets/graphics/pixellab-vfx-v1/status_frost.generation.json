@@ -1,0 +1,155 @@
+{
+  "source": "PixelLab vfx_workbench",
+  "part": "freeze_status",
+  "my_effects_id": "4c7336ed-6101-4040-80ea-09cff4bf1cda",
+  "export_image_id": "395c9877-bca8-4736-b3c2-9b918c3309a9",
+  "pack": {
+    "app": "PixelLab VFX Creator",
+    "name": "GemTD status frost v2",
+    "fps": 10,
+    "frame_ms": 100,
+    "frames": 12,
+    "loop": true,
+    "canvas": {
+      "w": 38,
+      "h": 43
+    },
+    "anchor": {
+      "kind": "feet",
+      "x": 19,
+      "y": 34
+    },
+    "clips": [
+      {
+        "name": "whole",
+        "title": "the whole effect, no sprite",
+        "depth": "both",
+        "loop": true,
+        "start_frame": 0,
+        "frames": 12,
+        "frame": {
+          "w": 30,
+          "h": 37
+        },
+        "sheets": [
+          {
+            "file": "whole.png",
+            "first_frame": 0,
+            "frames": 12,
+            "columns": 4,
+            "rows": 3
+          }
+        ],
+        "offset": {
+          "x": -14,
+          "y": -31
+        }
+      },
+      {
+        "name": "whole-with-sprite",
+        "title": "the whole effect with the sprite in it",
+        "depth": "both",
+        "loop": true,
+        "start_frame": 0,
+        "frames": 12,
+        "frame": {
+          "w": 32,
+          "h": 37
+        },
+        "sheets": [
+          {
+            "file": "whole-with-sprite.png",
+            "first_frame": 0,
+            "frames": 12,
+            "columns": 4,
+            "rows": 3
+          }
+        ],
+        "offset": {
+          "x": -16,
+          "y": -31
+        }
+      },
+      {
+        "name": "behind",
+        "title": "everything behind the sprite",
+        "depth": "behind",
+        "loop": true,
+        "start_frame": 0,
+        "frames": 12,
+        "frame": {
+          "w": 19,
+          "h": 15
+        },
+        "sheets": [
+          {
+            "file": "behind.png",
+            "first_frame": 0,
+            "frames": 12,
+            "columns": 4,
+            "rows": 3
+          }
+        ],
+        "offset": {
+          "x": -9,
+          "y": -9
+        }
+      },
+      {
+        "name": "front",
+        "title": "everything in front of the sprite",
+        "depth": "front",
+        "loop": true,
+        "start_frame": 0,
+        "frames": 12,
+        "frame": {
+          "w": 30,
+          "h": 37
+        },
+        "sheets": [
+          {
+            "file": "front.png",
+            "first_frame": 0,
+            "frames": 12,
+            "columns": 4,
+            "rows": 3
+          }
+        ],
+        "offset": {
+          "x": -14,
+          "y": -31
+        }
+      },
+      {
+        "name": "part-freeze_status",
+        "title": "the freeze status part",
+        "part": "freeze_status",
+        "depth": "both",
+        "loop": true,
+        "start_frame": 0,
+        "frames": 12,
+        "frame": {
+          "w": 30,
+          "h": 37
+        },
+        "sheets": [
+          {
+            "file": "part-freeze_status.png",
+            "first_frame": 0,
+            "frames": 12,
+            "columns": 4,
+            "rows": 3
+          }
+        ],
+        "offset": {
+          "x": -14,
+          "y": -31
+        }
+      }
+    ]
+  },
+  "files": {
+    "status_frost_behind_v1.png": "665cc41f1128a6ac666f5e7840802e58ffef9b6bce35197a253b2f1c59069947",
+    "status_frost_front_v1.png": "8412b299f9b1f9a90bee9aa6ce1eadf9dfa428a3dfa2f0c133d8fe6b42b71239"
+  }
+}

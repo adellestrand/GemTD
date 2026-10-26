@@ -1,0 +1,48 @@
+{
+  "id": "machjaw",
+  "previous": {
+    "trim_alpha": true,
+    "size": [
+      1.25,
+      1.3
+    ],
+    "anchor": [
+      0.5,
+      0.72
+    ],
+    "texture": "res://assets/graphics/refined-v3/anims/machjaw_walk_v3.png",
+    "frames": 4
+  },
+  "size": [
+    64,
+    72
+  ],
+  "frames": 8,
+  "air": false,
+  "wave_names": [
+    "machjaw"
+  ],
+  "seed": 26102634,
+  "estimated_generations": 1,
+  "action": "An eight-frame seamless looping locomotion animation. The mechanical chest robot marches in place using alternating jointed metal legs. Its chassis, open chest lid and coins retain their shapes and positions. Maintain exactly the original facing, character identity, proportions, accessories and pixel-art style. Locked camera, no turn, no zoom, no horizontal translation, no squash or stretching. Keep the whole character and moving limbs inside the transparent canvas. Return smoothly to the starting stance at the end for a continuous loop.",
+  "provider": "PixelLab",
+  "tool": "animate_image",
+  "date": "2026-10-26",
+  "reference": "assets/graphics/pixellab-enemies-v1/machjaw_reference.png",
+  "receipt": "id: 765043a5-3196-4e21-bf5d-9f21d96ef229\njob_id: 765043a5-3196-4e21-bf5d-9f21d96ef229\naction: An eight-frame seamless looping locomotion animation. The mechanical chest robot marches in place using alternating jointed metal legs. Its chassis, open chest lid and coins retain their shapes and positions. Maintain exactly the original facing, character identity, proportions, accessories and pixel-art style. Locked camera, no turn, no zoom, no horizontal translation, no squash or stretching. Keep the whole character and moving limbs inside the transparent canvas. Return smoothly to the starting stance at the end for a continuous loop.\nframes: 8\nsize: 64x72px\ntransparent: True\nlast_frame: yes (interpolating to it)\nseed: 26102634\nasset_id: c474a531-a465-54e3-997b-90d567fa6fb8\nasset_status: pending (saved when generation completes)\ncost: 1 generation\nstatus: processing (~30-180s)\n\nhint: get_image(job_id=\"765043a5-3196-4e21-bf5d-9f21d96ef229\")",
+  "provider_frame_count": 9,
+  "selected_provider_indices": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7
+  ],
+  "last_frame": "same_as_first",
+  "no_background": true,
+  "restored_reference_opacity": null,
+  "sha256": "ecdec13ca1d8c4d92e5b62d0d46750da5ecf0158be653bff5bfa7b8688a5a45f"
+}

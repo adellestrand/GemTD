@@ -1,0 +1,48 @@
+{
+  "id": "pig_princess",
+  "previous": {
+    "trim_alpha": true,
+    "size": [
+      1.25,
+      1.3
+    ],
+    "anchor": [
+      0.5,
+      0.72
+    ],
+    "texture": "res://assets/graphics/refined-v3/anims/pig_princess_walk_v1.png",
+    "frames": 4
+  },
+  "size": [
+    72,
+    72
+  ],
+  "frames": 8,
+  "air": false,
+  "wave_names": [
+    "pig princess"
+  ],
+  "seed": 26102637,
+  "estimated_generations": 1,
+  "action": "An eight-frame seamless looping locomotion animation. The crowned pig walks in place with four alternating planted hooves and a gentle head nod. The crown stays attached and rigid. Maintain exactly the original facing, character identity, proportions, accessories and pixel-art style. Locked camera, no turn, no zoom, no horizontal translation, no squash or stretching. Keep the whole character and moving limbs inside the transparent canvas. Return smoothly to the starting stance at the end for a continuous loop.",
+  "provider": "PixelLab",
+  "tool": "animate_image",
+  "date": "2026-10-26",
+  "reference": "assets/graphics/pixellab-enemies-v1/pig_princess_reference.png",
+  "receipt": "id: 9751936d-c5a9-4ce6-a6b2-5068a23e9dfb\njob_id: 9751936d-c5a9-4ce6-a6b2-5068a23e9dfb\naction: An eight-frame seamless looping locomotion animation. The crowned pig walks in place with four alternating planted hooves and a gentle head nod. The crown stays attached and rigid. Maintain exactly the original facing, character identity, proportions, accessories and pixel-art style. Locked camera, no turn, no zoom, no horizontal translation, no squash or stretching. Keep the whole character and moving limbs inside the transparent canvas. Return smoothly to the starting stance at the end for a continuous loop.\nframes: 8\nsize: 72x72px\ntransparent: True\nlast_frame: yes (interpolating to it)\nseed: 26102637\nasset_id: 1069bc42-6f8e-5ea7-bf06-c166b0bd370c\nasset_status: pending (saved when generation completes)\ncost: 1 generation\nstatus: processing (~30-180s)\n\nhint: get_image(job_id=\"9751936d-c5a9-4ce6-a6b2-5068a23e9dfb\")",
+  "provider_frame_count": 9,
+  "selected_provider_indices": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7
+  ],
+  "last_frame": "same_as_first",
+  "no_background": true,
+  "restored_reference_opacity": null,
+  "sha256": "d2b10d18322d69ad30462f8d3c99a056dd36c47e96023beff43046069e039af4"
+}

@@ -1,0 +1,155 @@
+{
+  "source": "PixelLab vfx_workbench",
+  "part": "stun_stars",
+  "my_effects_id": "0ae435b3-5c8f-4b5f-8013-a092dcae64d8",
+  "export_image_id": "0ddc4a70-fa5a-45ea-8500-1cc33ad068af",
+  "pack": {
+    "app": "PixelLab VFX Creator",
+    "name": "GemTD status stun v1",
+    "fps": 12,
+    "frame_ms": 83,
+    "frames": 12,
+    "loop": true,
+    "canvas": {
+      "w": 39,
+      "h": 46
+    },
+    "anchor": {
+      "kind": "feet",
+      "x": 19,
+      "y": 43
+    },
+    "clips": [
+      {
+        "name": "whole",
+        "title": "the whole effect, no sprite",
+        "depth": "both",
+        "loop": true,
+        "start_frame": 0,
+        "frames": 12,
+        "frame": {
+          "w": 33,
+          "h": 17
+        },
+        "sheets": [
+          {
+            "file": "whole.png",
+            "first_frame": 0,
+            "frames": 12,
+            "columns": 4,
+            "rows": 3
+          }
+        ],
+        "offset": {
+          "x": -16,
+          "y": -40
+        }
+      },
+      {
+        "name": "whole-with-sprite",
+        "title": "the whole effect with the sprite in it",
+        "depth": "both",
+        "loop": true,
+        "start_frame": 0,
+        "frames": 12,
+        "frame": {
+          "w": 33,
+          "h": 40
+        },
+        "sheets": [
+          {
+            "file": "whole-with-sprite.png",
+            "first_frame": 0,
+            "frames": 12,
+            "columns": 4,
+            "rows": 3
+          }
+        ],
+        "offset": {
+          "x": -16,
+          "y": -40
+        }
+      },
+      {
+        "name": "behind",
+        "title": "everything behind the sprite",
+        "depth": "behind",
+        "loop": true,
+        "start_frame": 0,
+        "frames": 12,
+        "frame": {
+          "w": 31,
+          "h": 13
+        },
+        "sheets": [
+          {
+            "file": "behind.png",
+            "first_frame": 0,
+            "frames": 12,
+            "columns": 4,
+            "rows": 3
+          }
+        ],
+        "offset": {
+          "x": -14,
+          "y": -40
+        }
+      },
+      {
+        "name": "front",
+        "title": "everything in front of the sprite",
+        "depth": "front",
+        "loop": true,
+        "start_frame": 0,
+        "frames": 12,
+        "frame": {
+          "w": 31,
+          "h": 12
+        },
+        "sheets": [
+          {
+            "file": "front.png",
+            "first_frame": 0,
+            "frames": 12,
+            "columns": 4,
+            "rows": 3
+          }
+        ],
+        "offset": {
+          "x": -16,
+          "y": -35
+        }
+      },
+      {
+        "name": "part-stun_stars",
+        "title": "the stun stars part",
+        "part": "stun_stars",
+        "depth": "behind",
+        "loop": true,
+        "start_frame": 0,
+        "frames": 12,
+        "frame": {
+          "w": 33,
+          "h": 17
+        },
+        "sheets": [
+          {
+            "file": "part-stun_stars.png",
+            "first_frame": 0,
+            "frames": 12,
+            "columns": 4,
+            "rows": 3
+          }
+        ],
+        "offset": {
+          "x": -16,
+          "y": -40
+        }
+      }
+    ]
+  },
+  "files": {
+    "status_stun_behind_v1.png": "96da3b232f5f08b949080bd1f725b90028d5d9c5fe292973fa6b33df6d35cf05",
+    "status_stun_front_v1.png": "8f3b194fabeb8c61d2e11f7db2dd37958e35a33d0bbbed57c02dfaa13c1c016b"
+  }
+}

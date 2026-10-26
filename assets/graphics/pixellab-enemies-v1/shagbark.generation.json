@@ -1,0 +1,53 @@
+{
+  "id": "shagbark",
+  "previous": {
+    "trim_alpha": true,
+    "size": [
+      1.85,
+      1.9
+    ],
+    "anchor": [
+      0.5,
+      0.72
+    ],
+    "motion": {
+      "frequency": 5.0,
+      "bounce": 0.035,
+      "sway": 0.02
+    },
+    "texture": "res://assets/graphics/refined-v3/anims/shagbark_walk_v3.png",
+    "frames": 4
+  },
+  "size": [
+    80,
+    72
+  ],
+  "frames": 8,
+  "air": false,
+  "wave_names": [
+    "shakbag"
+  ],
+  "seed": 26102641,
+  "estimated_generations": 1,
+  "action": "An eight-frame seamless looping locomotion animation. The heavy wooden beast walks in place with four alternating planted feet. Its leafy mane sways gently while the wooden body remains solid. Maintain exactly the original facing, character identity, proportions, accessories and pixel-art style. Locked camera, no turn, no zoom, no horizontal translation, no squash or stretching. Keep the whole character and moving limbs inside the transparent canvas. Return smoothly to the starting stance at the end for a continuous loop.",
+  "provider": "PixelLab",
+  "tool": "animate_image",
+  "date": "2026-10-26",
+  "reference": "assets/graphics/pixellab-enemies-v1/shagbark_reference.png",
+  "receipt": "id: 19580f76-485f-4f91-8fca-dd5c296abc0c\njob_id: 19580f76-485f-4f91-8fca-dd5c296abc0c\naction: An eight-frame seamless looping locomotion animation. The heavy wooden beast walks in place with four alternating planted feet. Its leafy mane sways gently while the wooden body remains solid. Maintain exactly the original facing, character identity, proportions, accessories and pixel-art style. Locked camera, no turn, no zoom, no horizontal translation, no squash or stretching. Keep the whole character and moving limbs inside the transparent canvas. Return smoothly to the starting stance at the end for a continuous loop.\nframes: 8\nsize: 80x72px\ntransparent: True\nlast_frame: yes (interpolating to it)\nseed: 26102641\nasset_id: 6520a465-7b04-5d60-bf66-3d5636c4a99d\nasset_status: pending (saved when generation completes)\ncost: 1 generation\nstatus: processing (~30-180s)\n\nhint: get_image(job_id=\"19580f76-485f-4f91-8fca-dd5c296abc0c\")",
+  "provider_frame_count": 9,
+  "selected_provider_indices": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7
+  ],
+  "last_frame": "same_as_first",
+  "no_background": true,
+  "restored_reference_opacity": null,
+  "sha256": "8663137265b056af972695c6613d29d83d98b10c2cfdfa75932ec1c057c34a8a"
+}

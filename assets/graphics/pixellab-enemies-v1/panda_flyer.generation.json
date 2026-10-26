@@ -1,0 +1,48 @@
+{
+  "id": "panda_flyer",
+  "previous": {
+    "trim_alpha": true,
+    "size": [
+      1.25,
+      1.3
+    ],
+    "anchor": [
+      0.5,
+      0.72
+    ],
+    "texture": "res://assets/graphics/refined-v3/anims/panda_flyer_flap_v3.png",
+    "frames": 4
+  },
+  "size": [
+    72,
+    64
+  ],
+  "frames": 8,
+  "air": true,
+  "wave_names": [
+    "bamboo addict"
+  ],
+  "seed": 26102636,
+  "estimated_generations": 1,
+  "action": "An eight-frame seamless looping locomotion animation. The tiny panda flies in place suspended beneath its overhead rotor. The rotor spins around its central hub while the panda gently bobs. Keep the bamboo harness attached. Maintain exactly the original facing, character identity, proportions, accessories and pixel-art style. Locked camera, no turn, no zoom, no horizontal translation, no squash or stretching. Keep the whole character and moving limbs inside the transparent canvas. Return smoothly to the starting stance at the end for a continuous loop.",
+  "provider": "PixelLab",
+  "tool": "animate_image",
+  "date": "2026-10-26",
+  "reference": "assets/graphics/pixellab-enemies-v1/panda_flyer_reference.png",
+  "receipt": "id: 68301dc4-bc70-4a04-bc9d-ecb94d602e6b\njob_id: 68301dc4-bc70-4a04-bc9d-ecb94d602e6b\naction: An eight-frame seamless looping locomotion animation. The tiny panda flies in place suspended beneath its overhead rotor. The rotor spins around its central hub while the panda gently bobs. Keep the bamboo harness attached. Maintain exactly the original facing, character identity, proportions, accessories and pixel-art style. Locked camera, no turn, no zoom, no horizontal translation, no squash or stretching. Keep the whole character and moving limbs inside the transparent canvas. Return smoothly to the starting stance at the end for a continuous loop.\nframes: 8\nsize: 72x64px\ntransparent: True\nlast_frame: yes (interpolating to it)\nseed: 26102636\nasset_id: 6b094e13-d301-5d9a-9ef5-302e5c8921f4\nasset_status: pending (saved when generation completes)\ncost: 1 generation\nstatus: processing (~30-180s)\n\nhint: get_image(job_id=\"68301dc4-bc70-4a04-bc9d-ecb94d602e6b\")",
+  "provider_frame_count": 9,
+  "selected_provider_indices": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7
+  ],
+  "last_frame": "same_as_first",
+  "no_background": true,
+  "restored_reference_opacity": null,
+  "sha256": "7f514775c62f99604b4d7589f44c3a0968e16cfc2f20cd01dd265bab678c491b"
+}

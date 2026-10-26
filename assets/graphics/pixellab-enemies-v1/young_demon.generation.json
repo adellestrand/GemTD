@@ -1,0 +1,48 @@
+{
+  "id": "young_demon",
+  "previous": {
+    "trim_alpha": true,
+    "size": [
+      1.25,
+      1.3
+    ],
+    "anchor": [
+      0.5,
+      0.72
+    ],
+    "texture": "res://assets/graphics/refined-v3/anims/young_demon_walk_v3.png",
+    "frames": 4
+  },
+  "size": [
+    64,
+    64
+  ],
+  "frames": 8,
+  "air": false,
+  "wave_names": [
+    "young demon"
+  ],
+  "seed": 26102649,
+  "estimated_generations": 1,
+  "action": "An eight-frame seamless looping locomotion animation. The small red demon walks in place with two alternating planted feet and counter-swinging arms. Its wings stay mostly folded and tail sways gently. Maintain exactly the original facing, character identity, proportions, accessories and pixel-art style. Locked camera, no turn, no zoom, no horizontal translation, no squash or stretching. Keep the whole character and moving limbs inside the transparent canvas. Return smoothly to the starting stance at the end for a continuous loop.",
+  "provider": "PixelLab",
+  "tool": "animate_image",
+  "date": "2026-10-26",
+  "reference": "assets/graphics/pixellab-enemies-v1/young_demon_reference.png",
+  "receipt": "id: d67c3aff-5739-43b2-8d89-a13b3c8eadc9\njob_id: d67c3aff-5739-43b2-8d89-a13b3c8eadc9\naction: An eight-frame seamless looping locomotion animation. The small red demon walks in place with two alternating planted feet and counter-swinging arms. Its wings stay mostly folded and tail sways gently. Maintain exactly the original facing, character identity, proportions, accessories and pixel-art style. Locked camera, no turn, no zoom, no horizontal translation, no squash or stretching. Keep the whole character and moving limbs inside the transparent canvas. Return smoothly to the starting stance at the end for a continuous loop.\nframes: 8\nsize: 64x64px\ntransparent: True\nlast_frame: yes (interpolating to it)\nseed: 26102649\nasset_id: 6c47ed12-3fe0-57c9-9ec1-3c74a7337679\nasset_status: pending (saved when generation completes)\ncost: 1 generation\nstatus: processing (~30-180s)\n\nhint: get_image(job_id=\"d67c3aff-5739-43b2-8d89-a13b3c8eadc9\")",
+  "provider_frame_count": 9,
+  "selected_provider_indices": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7
+  ],
+  "last_frame": "same_as_first",
+  "no_background": true,
+  "restored_reference_opacity": null,
+  "sha256": "1ef07170382dfc30a08193535dc12e0d9b716db8902018149305e82138a6596d"
+}

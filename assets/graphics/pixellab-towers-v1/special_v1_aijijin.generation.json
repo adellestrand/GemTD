@@ -1,0 +1,58 @@
+{
+  "id": "special_v1_aijijin",
+  "size": [
+    64,
+    80
+  ],
+  "previous": {
+    "texture": "res://assets/graphics/specials-v1/aijijin.png",
+    "trim_alpha": true,
+    "size": [
+      0.94,
+      0.94
+    ],
+    "anchor": [
+      0.5,
+      0.5
+    ],
+    "effect_color": "#5bf0d4"
+  },
+  "seed": 26103021,
+  "frames": 8,
+  "action": "A seamless calm eight-frame idle lighting loop. Only the existing crystals and magical energy cores gently brighten, with a tiny moving facet highlight, then dim back to their starting brightness. Keep the original crystal colours. Keep all stonework, foundations, walls, roof, gold fittings, silhouette and all crystal shapes completely still. Lighting only: no movement, no rotation, no zoom, no deformation, no growth, no particles, no expanding rings, no rays outside the tower. Preserve the exact pixel-art appearance and transparent background. Return to the original brightness at the end.",
+  "mask_pixels": 116,
+  "estimated_generations": 1,
+  "provider": "PixelLab",
+  "tool": "animate_image",
+  "date": "2026-10-26",
+  "receipt": "id: 643d7fad-c9ea-4751-9025-c052bf5e3724\njob_id: 643d7fad-c9ea-4751-9025-c052bf5e3724\naction: A seamless calm eight-frame idle lighting loop. Only the existing crystals and magical energy cores gently brighten, with a tiny moving facet highlight, then dim back to their starting brightness. Keep the original crystal colours. Keep all stonework, foundations, walls, roof, gold fittings, silhouette and all crystal shapes completely still. Lighting only: no movement, no rotation, no zoom, no deformation, no growth, no particles, no expanding rings, no rays outside the tower. Preserve the exact pixel-art appearance and transparent background. Return to the original brightness at the end.\nframes: 8\nsize: 64x80px\ntransparent: True\nlast_frame: yes (interpolating to it)\nseed: 26103021\nasset_id: 9e7b83b4-b14c-5d01-ac27-403eb9c23a6a\nasset_status: pending (saved when generation completes)\ncost: 1 generation\nstatus: processing (~30-180s)\n\nhint: get_image(job_id=\"643d7fad-c9ea-4751-9025-c052bf5e3724\")",
+  "reference": "assets/graphics/pixellab-towers-v1/special_v1_aijijin_reference.png",
+  "mask": "assets/graphics/pixellab-towers-v1/special_v1_aijijin_mask.png",
+  "selected_provider_indices": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7
+  ],
+  "postprocessing": "Bounded provider luminance inside saved crystal mask only; source hue, alpha and every unmasked pixel remain exact.",
+  "validation": {
+    "unique_frames": 8,
+    "changed_pixels": [
+      0,
+      108,
+      111,
+      108,
+      108,
+      108,
+      108,
+      109
+    ],
+    "static_structure_identical": true,
+    "alpha_identical": true
+  },
+  "sha256": "2698523f16666b5c7e4eadcd0c1eed5779c566bb0b2a86b7e9926e1eb005a3e6"
+}

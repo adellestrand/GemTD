@@ -290,7 +290,8 @@ func build_ui() -> void:
 	bar.theme_type_variation = "Bar"
 	root.add_child(bar)
 	var header = HBoxContainer.new()
-	header.add_theme_constant_override("separation",14)
+	header.name = "Header"
+	header.add_theme_constant_override("separation",8)
 	bar.add_child(header)
 	var brand = VBoxContainer.new()
 	brand.add_theme_constant_override("separation",-4)
@@ -321,6 +322,10 @@ func build_ui() -> void:
 	phase_label.remove_theme_font_size_override("font_size")
 	status_label = label_in(header,"",12)
 	status_label.visible = false
+	quality_button = styled(button_in(header,"",func(): run.buy_quality()),"AccentButton") as Button
+	quality_button.name = "GemOddsUpgrade"
+	quality_button.size_flags_vertical = Control.SIZE_SHRINK_CENTER
+	quality_button.add_theme_font_size_override("font_size",14)
 	var spacer = Control.new()
 	spacer.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	header.add_child(spacer)
@@ -742,7 +747,6 @@ func build_ui() -> void:
 	odds_label.visible = false
 	odds_discount = styled(label_in(odds_card,"",12),"MutedLabel") as Label
 	odds_discount.visible = false
-	quality_button = styled(button_in(odds_card,"",func(): run.buy_quality()),"AccentButton") as Button
 	# gold spells: source hero prays (next gem) and castle heal, campaign only
 	var spell_box = card_in(pages.Upgrades)
 	spells_card = spell_box.get_parent()
@@ -1051,12 +1055,14 @@ func refresh_ui() -> void:
 	var odds: Array = GemCatalog.DATA.quality_odds[run.quality]
 	odds_label.text = GemCatalog.odds_text(odds)
 	var odds_maxed = run.quality >= GemCatalog.max_quality_upgrade()
-	quality_button.text = "Improve odds · %d gold" % run.quality_price() if not odds_maxed else "Quality odds maximized"
+	quality_button.text = "Gem odds ↑ %d gold" % run.quality_price() if not odds_maxed else "Gem odds · MAX"
 	quality_button.disabled = odds_maxed or run.phase in ["won","lost"] or (not odds_maxed and run.gold < run.quality_price())
 	if GemCatalog.campaign() and run.wave > 50:
-		quality_button.text = "Trials · no new gems"
+		quality_button.text = "Gem odds · locked"
 		quality_button.disabled = true
 	quality_button.tooltip_text = "All available odds upgrades purchased." if odds_maxed else "Affects future placements only. Need %d gold; have %d." % [run.quality_price(),run.gold]
+	quality_button.tooltip_text = "Gem quality upgrade\n"+GemCatalog.odds_text(odds)+"\n"+quality_button.tooltip_text
+	if GemCatalog.campaign() and run.wave > 50: quality_button.tooltip_text += "\nTrials grant no new gems."
 	if GemCatalog.campaign() and not odds_maxed:
 		odds_label.text += "\nBoss discount saved: %d gold" % run.quality_discount
 		quality_button.tooltip_text += "\nBase price %d; saved discount %d. Defeat bosses 10/20/30/40/50 for +150 discount. Unused discount carries to the next purchase." % [int(GemCatalog.DATA.quality_costs[run.quality]),run.quality_discount]

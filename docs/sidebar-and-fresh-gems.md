@@ -5,7 +5,9 @@ rundans nya gems från tidigare torn, innan ett slutval görs.
 
 Högerpanelen har nu fyra flikar: **Tower**, **Wave**, **Upgrades** och **Effects**.
 Tornval, kombination, rivning och flytt ligger i ett fast block under flikarna.
-Gemchansköp och alla tolv guldbesvärjelser finns under Upgrades. Tornkortets
+Knappen **Gem odds ↑ [pris] gold** ligger i headern och köper gemchans direkt.
+Aktuell sannolikhetsfördelning visas även i dess verktygstips. Detaljerad
+gemchansfördelning och alla tolv guldbesvärjelser finns under Upgrades. Tornkortets
 **Effects & support** öppnar hela listan av påverkande effekter. När man granskar
 Effects kan man klicka mellan torn utan att lämna den fliken.
 

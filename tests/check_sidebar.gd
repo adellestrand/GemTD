@@ -32,6 +32,18 @@ func run_checks() -> void:
 		check(Rect2(Vector2.ZERO,Vector2.ONE*pixels).encloses(GemFreshGems.badge_rect(Vector2.ONE*pixels*.5,pixels)),"fresh number remains inside its cell at scale "+str(pixels))
 	check(before == game.run.snapshot(),"marker inspection never changes the board, actions or RNG")
 	game.on_cell_clicked(Vector2i(10,10))
+	check(game.quality_button.get_parent().name == "Header","manual gem-odds upgrade lives in the header")
+	for resolution in [Vector2i(1280,720),Vector2i(1360,900),Vector2i(1920,1080)]:
+		root.size = resolution
+		for level in range(GemCatalog.max_quality_upgrade()+1):
+			game.run.quality = level
+			game.refresh_ui()
+			await settle()
+			var screen = Rect2(Vector2.ZERO,root.get_visible_rect().size)
+			var all_fit = true
+			for control in game.quality_button.get_parent().get_children():
+				if control is Control and control.visible: all_fit = all_fit and screen.encloses(control.get_global_rect())
+			check(all_fit,"header including upgrade price and navigation fits at %s, level %d" % [resolution,level])
 	game.run.quality = GemCatalog.max_quality_upgrade()
 	game.run.gold = 99999
 	game.refresh_ui()

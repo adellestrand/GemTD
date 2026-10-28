@@ -1,5 +1,5 @@
 {
-  "version": 12,
+  "version": 13,
   "profile": "full-solo-dev",
   "gems": {
     "sapphire": {
@@ -2922,6 +2922,7 @@
   },
   "mechanics": {
     "tower_moves_per_run": 5,
+    "tower_move_cost_after_free": 100,
     "trap_cast_delay": 0.05,
     "stealable_abilities": [
       "tower_slow1",

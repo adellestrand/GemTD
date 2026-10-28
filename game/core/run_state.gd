@@ -110,12 +110,15 @@ func fresh_cells() -> Array[Vector2i]:
 			result.append(p)
 	return result
 
+func tower_move_price() -> int:
+	return 0 if tower_moves_left > 0 else int(GemCatalog.DATA.get("mechanics",{}).get("tower_move_cost_after_free",100))
+
 func tower_move_source_error(from: Vector2i) -> String:
 	if not GemCatalog.campaign(): return "Tower relocation is available in the solo campaign."
 	if phase != "build" or awaiting_trap_placement: return "Move older towers during building, before your final choice."
-	if tower_moves_left <= 0: return "No tower moves left this run."
 	if not board.cells.has(from) or board.cells[from].kind == "stone": return "Select an older tower to move."
 	if board.cells[from].get("fresh",true): return "New gems cannot be moved before your final choice."
+	if gold < tower_move_price(): return "Need %d gold to move this tower; have %d." % [tower_move_price(),gold]
 	return ""
 
 func tower_move_preview(from: Vector2i, to: Vector2i) -> Dictionary:
@@ -126,24 +129,26 @@ func tower_move_preview(from: Vector2i, to: Vector2i) -> Dictionary:
 		elif board.checkpoints.has(to): error = "Checkpoints must stay clear."
 		elif board.slabs.has(to): error = "A path trap occupies that cell."
 		elif board.cells.has(to) and board.cells[to].kind != "stone": error = "Choose an empty cell or a stone, not another tower or new gem."
-	if not error.is_empty(): return {"error":error,"route":PackedVector2Array()}
+	if not error.is_empty(): return {"error":error,"route":PackedVector2Array(),"cost":tower_move_price()}
 	var candidate = board.cells.duplicate()
 	var tower: Dictionary = candidate[from]
 	if candidate.has(to): candidate[from] = candidate[to]
 	else: candidate.erase(from)
 	candidate[to] = tower
 	var route = board.path_for(candidate)
-	return {"error":"That move would block a checkpoint route." if route.is_empty() else "","route":route,"cells":candidate}
+	return {"error":"That move would block a checkpoint route." if route.is_empty() else "","route":route,"cells":candidate,"cost":tower_move_price()}
 
 func move_tower(from: Vector2i, to: Vector2i) -> bool:
 	var preview = tower_move_preview(from,to)
 	if not preview.error.is_empty(): return fail(preview.error)
-	record_action({"action":"move_tower","at":[from.x,from.y],"to":[to.x,to.y]})
+	var price = int(preview.cost)
+	record_action({"action":"move_tower","at":[from.x,from.y],"to":[to.x,to.y],"cost":price})
 	board.cells = preview.cells
 	board.ground_route = preview.route
-	tower_moves_left -= 1
+	gold -= price
+	tower_moves_left = maxi(0,tower_moves_left-1)
 	tower_revision += 1
-	message = "Tower moved. %d of %d moves left this run." % [tower_moves_left,int(GemCatalog.DATA.mechanics.tower_moves_per_run)]
+	message = "Tower moved · %d gold paid." % price if price > 0 else "Tower moved for free · %d free moves left this run." % tower_moves_left
 	sound_requested.emit("place")
 	changed.emit()
 	return true

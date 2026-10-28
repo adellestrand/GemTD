@@ -73,6 +73,10 @@ func run_checks() -> void:
 	check(not state.board.ground_route.is_empty(),"blocking-route fixture begins with an open checkpoint path")
 	before = state.snapshot()
 	check(not state.move_tower(AT,Vector2i(15,10)) and state.snapshot() == before and not state.board.ground_route.is_empty(),"moving into the only corridor is rejected atomically")
+	state.tower_moves_left = 0
+	state.gold = 100
+	before = state.snapshot()
+	check(not state.move_tower(AT,Vector2i(15,10)) and state.snapshot() == before,"blocked-route paid move cannot charge gold")
 	state = fixture()
 	var at = AT
 	for i in range(5):
@@ -80,7 +84,19 @@ func run_checks() -> void:
 		check(state.move_tower(at,target),"valid relocation uses budget slot "+str(i+1))
 		at = target
 	before = state.snapshot()
-	check(not state.move_tower(at,AT) and state.snapshot() == before and state.tower_moves_left == 0,"sixth relocation cannot exceed run budget")
+	check(not state.move_tower(at,AT) and state.snapshot() == before and state.tower_moves_left == 0,"sixth relocation requires gold after five free moves")
+	state.gold = 99
+	before = state.snapshot()
+	check(not state.move_tower(at,AT) and state.snapshot() == before,"insufficient gold changes no state or free quota")
+	state.gold = 200
+	before = state.snapshot()
+	check(not state.move_tower(at,state.board.checkpoints[0]) and state.snapshot() == before,"invalid paid destination never charges gold")
+	preview = state.tower_move_preview(at,AT)
+	check(preview.error.is_empty() and preview.cost == 100 and state.snapshot() == before,"paid preview shows the exact cost without charging")
+	check(state.move_tower(at,AT) and state.gold == 100 and state.tower_moves_left == 0,"sixth successful move charges 100 gold and never makes free quota negative")
+	state.board.cells[DEST] = GemRun.stone()
+	state.board.rebuild()
+	check(state.move_tower(AT,DEST) and state.board.cells[AT].kind == "stone" and state.gold == 0 and state.tower_moves_left == 0,"paid stone swap also costs exactly 100 gold")
 	state.phase = "combat"
 	state.finish_wave()
 	check(state.tower_moves_left == 0 and state.wave == 2,"starting another wave does not refill relocation budget")
@@ -88,6 +104,7 @@ func run_checks() -> void:
 	var saved = JSON.parse_string(JSON.stringify(state.snapshot()))
 	var restored = GemRun.new(1)
 	check(restored.restore(saved) and restored.tower_moves_left == 0,"JSON save keeps exhausted relocation budget")
+	check(restored.gold == state.gold and restored.tower_move_price() == 100,"JSON save restores the paid balance and next-move price")
 	for bad in [-1,6,1.5,"5",true,null,INF]:
 		var altered = saved.duplicate(true)
 		altered.tower_moves_left = bad
@@ -95,10 +112,22 @@ func run_checks() -> void:
 	state = fixture()
 	state.board.slabs[Vector2i(10,20)] = "youbushiban"
 	check(state.move_slab(Vector2i(10,20),Vector2i(11,20)) and state.tower_moves_left == 5,"path trap movement does not consume tower relocation budget")
+	state = fixture()
+	var guide = GemBuildGuide.new()
+	guide.bind(state)
+	guide.moving_tower = AT
+	check(guide.placement(DEST).message.contains("free"),"free move hint shows remaining free moves")
+	state.tower_moves_left = 0
+	state.gold = 100
+	check(guide.placement(DEST).message.contains("100 gold"),"cached hint changes to paid price when free moves run out")
+	state.gold = 99
+	check(guide.placement(DEST).status == "blocked","cached hint notices insufficient gold at the same destination")
 	# Independent replay includes both empty-cell and stone-swap actions.
 	state = fixture()
 	state.board.cells[Vector2i(14,10)] = GemRun.stone()
 	state.board.rebuild()
+	state.tower_moves_left = 1
+	state.gold = 100
 	var journal = GemReviewJournal.new()
 	journal.reset(state,true)
 	var combat = GemCampaignCombat.new(state)
@@ -108,6 +137,10 @@ func run_checks() -> void:
 	state.move_tower(DEST,Vector2i(14,10))
 	var report = JSON.parse_string(JSON.stringify(journal.export_report(state,combat)))
 	check(GemReviewReplay.replay(report).ok,"move and stone swap independently replay with remaining budget")
+	check(report.actions[0].cost == 0 and report.actions[1].cost == 100 and state.gold == 0,"journal records the free-to-paid transition with exact charges")
+	var forged = report.duplicate(true)
+	forged.actions[1].cost = 0
+	check(not GemReviewReplay.replay(forged).ok,"replay rejects a falsified paid-move charge")
 	report.tower_moves_left += 1
 	check(not GemReviewReplay.replay(report).ok,"replay rejects falsified remaining budget")
 	state.action_recorded.disconnect(record)
@@ -135,6 +168,23 @@ func run_checks() -> void:
 	escape.keycode = KEY_ESCAPE
 	game._unhandled_key_input(escape)
 	check(game.board_view.guide.moving_tower == Vector2i(-1,-1) and game.run.tower_moves_left == 4,"Escape cancels without using a relocation")
+	game.run.tower_moves_left = 0
+	game.run.gold = 200
+	game.refresh_ui()
+	check(not game.move_tower_button.disabled and game.move_tower_button.text.contains("100g"),"exhausted free quota offers a paid move in the real UI")
+	game.move_tower_button.pressed.emit()
+	game._unhandled_key_input(escape)
+	check(game.run.gold == 200 and game.run.tower_moves_left == 0,"cancelling a paid UI move costs nothing")
+	game.move_tower_button.pressed.emit()
+	game.on_cell_clicked(AT)
+	check(game.run.gold == 100 and game.run.tower_moves_left == 0 and game.selection == AT,"paid UI stone swap charges only on completion")
+	if "--capture" in OS.get_cmdline_user_args():
+		for frame in range(4): await process_frame
+		await RenderingServer.frame_post_draw
+		root.get_texture().get_image().save_png("res://output/paid-move-ui.png")
+	game.run.gold = 99
+	game.refresh_ui()
+	check(game.move_tower_button.disabled and game.move_tower_button.tooltip_text.contains("100 gold"),"unaffordable paid move is disabled with the required price")
 	game.new_run(42)
 	check(game.board_view.guide.moving_tower == Vector2i(-1,-1) and game.run.tower_moves_left == 5,"restart clears move mode and resets budget")
 	game.queue_free()

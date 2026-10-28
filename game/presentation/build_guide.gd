@@ -6,6 +6,7 @@ var run: GemRun
 var cached_cell = Vector2i(-99,-99)
 var cached_placement: Dictionary = {}
 var moving_tower = Vector2i(-1,-1)
+var cached_move_context: Array = []
 
 func bind(state: GemRun) -> void:
 	run = state
@@ -14,6 +15,7 @@ func bind(state: GemRun) -> void:
 
 func invalidate() -> void:
 	cached_placement.clear()
+	cached_move_context.clear()
 	cached_cell = Vector2i(-99,-99)
 
 func placement(p: Vector2i) -> Dictionary:
@@ -21,11 +23,15 @@ func placement(p: Vector2i) -> Dictionary:
 	if run == null or not run.board.inside(p):
 		return result
 	if moving_tower != Vector2i(-1,-1):
-		if cached_placement.is_empty() or cached_cell != p:
+		var context = [moving_tower,run.gold,run.tower_moves_left,run.phase,run.awaiting_trap_placement]
+		if cached_placement.is_empty() or cached_cell != p or context != cached_move_context:
 			cached_placement = run.tower_move_preview(moving_tower,p)
 			cached_cell = p
+			cached_move_context = context
 		result.status = "place" if str(cached_placement.error).is_empty() else "blocked"
-		result.message = "Move here · stone swaps to the old cell · uses 1 of %d moves left" % run.tower_moves_left if result.status == "place" else str(cached_placement.error)
+		var price = run.tower_move_price()
+		var charge = "%d gold" % price if price > 0 else "free · %d free moves left" % run.tower_moves_left
+		result.message = "Move here · %s · stone swaps to the old cell" % charge if result.status == "place" else str(cached_placement.error)
 		result.route = cached_placement.route
 		return result
 	if run.board.cells.has(p):

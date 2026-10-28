@@ -20,6 +20,8 @@ def verify():
     equal('recipe alternatives',len(c['recipes']),59)
     equal('special units',len(c['specials']),67)
     equal('original starting lives',c['starting_lives'],100)
+    equal('free tower moves per run',c['mechanics']['tower_moves_per_run'],5)
+    equal('user-ordered paid relocation price',c['mechanics']['tower_move_cost_after_free'],100)
     equal('Natural Emerald source allowlist',c['mechanics']['stealable_abilities'],f['progression']['stealable_abilities'])
     equal('source downgrade weights',c['mechanics']['downgrade_weights'],{'2':[100],'3':[34,66],'4':[20,30,50],'5':[10,15,25,50],'6':[20,20,20,20,20]})
     equal('solo source berserk time',c['mechanics']['berserk_seconds'],180)

@@ -1,28 +1,45 @@
-# Tornflyttar – 1.4.1-dev
+# Tornflyttar – fem gratis, därefter 100 guld
 
-Användarens beställning 2026-10-24: flytta torn till annan plats, även där det står en sten, fem gånger per omgång. Omgång tolkas som **hela spelomgången**, inte varje våg. Alla torn delar på fem flyttar. Detta är en beställd egen spelregel, inte ett påstående om Dota-originalet.
+Användarens godkända ändring 2026-10-28: de första fem tornflyttarna är gratis
+per **hel spelomgång**, gemensamt för alla torn. Varje ytterligare lyckad flytt
+kostar **100 guld**. Priset är fast och det finns ingen extra antalsgräns.
+Detta är en egen spelregel, inte ett påstående om Dota-originalet.
 
-Under byggfasen, före det slutliga tornvalet:
+Under vanlig byggfas, före slutvalet:
 
-1. Välj ett behållet torn och **Move tower · N / 5 left this run**.
-2. Klicka på en tom ruta eller en sten.
-3. Tornet flyttas. På tom ruta lämnas ursprungsrutan tom; vid en sten byter torn och sten plats.
+1. Välj ett behållet torn. Knappen visar kvarvarande gratis flyttar eller 100g.
+2. Välj Move tower och klicka på en tom ruta eller en sten.
+3. På en tom ruta lämnas ursprungsrutan tom; vid en sten byter torn och sten plats.
 
-Alla kontrollpunkters markväg måste vara öppen efter flytten. Checkpoints, traps, andra torn och nya gems är ogiltiga mål. Nya gems kan inte flyttas innan de valts. Flyttning är låst under strid, prövningsmellanrum och det avslutande trapplaceringssteget. Eftersom prövningarna 51–100 saknar byggomgångar används tornflyttarna senast i byggfasen inför våg 50.
+Checkpoints, traps, andra torn och nya gems är ogiltiga mål. Alla kontrollpunkters
+markväg måste förbli öppen. Nya gems kan inte flyttas före slutvalet. Strid,
+prövningsmellanrum och det avslutande trapplaceringssteget tillåter inte flyttar.
+Prövningarna 51–100 saknar byggfas, så sista möjligheten är inför våg 50.
 
-Hovring visar giltig/ogiltig destination och förhandsvisad rutt. Escape, knappen **Cancel tower move** eller klick på ursprungstornet avbryter utan kostnad. Ogiltiga försök förbrukar inget. Trapflytt använder inte tornens kvot.
+Guld dras först när flytten är fullständigt validerad och genomförs. Otillräckligt
+saldo, blockerad väg, ogiltiga mål, Escape, Cancel move och klick på källrutan
+kostar inget. Förhandsvisningen visar priset utan att ändra tillståndet och
+uppdateras om saldo eller gratisräknare ändras. Köp med 100 guld kvar lämnar 0.
 
-Tornets kvalitet, MVP, kopierade förmågor, slumpade grundattack, PRD-räknare och målprioritet bevaras. Flyttningen kostar inget guld, förbrukar ingen gemplacering och ändrar ingen RNG. Ingen ny typ eller förmåga rullas vid flytt. Kvoten återställs inte mellan vågor; ny spelomgång börjar med fem.
+Tornets kvalitet, MVP, kopierade förmågor, slumpade grundattack, PRD-räknare och
+målprioritet bevaras. Gemplaceringar och RNG påverkas inte. Gratisräknaren stannar
+på noll under betalda flyttar och återställs inte mellan vågor. Ny omgång börjar
+med fem. Trapflytt använder varken gratisräknaren eller denna guldavgift.
 
-Innehållsversion **10** använder `run_campaign_v10.json`. Kvarvarande flyttar sparas tillsammans med brädet i byggfasens sparpunkt och ingår i oberoende rapportåterspelning. Som tidigare återgår omladdning till början av byggfasen: både flyttade torn och flyttkvot återställs till samma sparpunkt. Äldre sparfiler lämnas kvar och migreras inte till nya regler.
+Innehållsversion **13** sparar i `run_campaign_v13.json`. Återladdning återgår som
+vanligt till byggfasens sparpunkt med samma bräde, guld och gratisräknare. Äldre
+sparfiler lämnas kvar och migreras inte. En ny innehållshash håller topplistorna
+för de ändrade reglerna separerade från äldre omgångar.
 
-`tests/check_tower_moves.gd` täcker 47 fall: tomma rutor, stenbyten, metadata, blockerad rutt, femgränsen, ogiltiga tillstånd, avbrytning, nya vågor, omstart, sparvalidering och återspelning. Testet ingår i `python tools/check.py`.
+Rapporter innehåller varje accepterad flytts faktiska kostnad (0 eller 100).
+Oberoende återspelning räknar om priset och verifierar både kostnad, slutguld,
+bräde och gratisräknare. En förfalskad kostnad nekas.
 
-Slutverifiering: 897 GDScript-kontroller och 5 257 referenskontroller godkända, utan motorfel eller motorvarningar. Windows/Web återexporterade; Windows-rendering och attackljud verifierade. I en separat renderad Chrome-fixture klickades tornflytt och byte med sten: Diamond III flyttades, stenen hamnade på ursprungsrutan och räknaren gick 5 → 4 utan ny gemplacering. Ordinarie webbexport startades som 1.4.1-dev. Browserkonsolen var fri från fel och varningar. Fixturen var konstruerad och mäter inte spelbalans.
+`tests/check_tower_moves.gd` provar 63 fall inklusive femgräns, betald fortsättning,
+exakt/otillräckligt saldo, stenbyte, blockerad väg, avbrytning, cache, sparning,
+UI och återspelning. En riktig Godot-rendering kontrollerar även 100g-knappen.
+Testet ingår i `python tools/check.py`.
 
 ```powershell
 python tools/godot.py --headless --path . --script res://tests/check_tower_moves.gd -- --campaign --smoke
-python tools/check.py
-powershell -ExecutionPolicy Bypass -File tools/export.ps1 -Release
-python tools/smoke_windows.py --campaign --attack
 ```

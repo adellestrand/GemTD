@@ -295,8 +295,8 @@ def build():
         spells['pray_'+label]=dict(group='quality',tier=tier,source='gemtd_hero_'+name,cost=level_one('gemtd_hero_'+name,'cost'),chance=level_one('gemtd_hero_'+name,'gailv'))
     spells['heal']=dict(group='heal',source='gemtd_hero_huichun',cost=level_one('gemtd_hero_huichun','cost'),
                         min_heal=level_one('gemtd_hero_huichun','min_heal'),max_heal=level_one('gemtd_hero_huichun','max_heal'))
-    payload=dict(version=12,profile='full-solo-dev',gems=gems,specials=specials,recipes=recipes,random_models=random_models,
-                 mechanics=dict(tower_moves_per_run=5,trap_cast_delay=.05,stealable_abilities=stealable,downgrade_weights={'2':[100],'3':[34,66],'4':[20,30,50],'5':[10,15,25,50],'6':[20,20,20,20,20]},berserk_seconds=180,berserk_move_percent=100,trial_intermission_seconds=3),
+    payload=dict(version=13,profile='full-solo-dev',gems=gems,specials=specials,recipes=recipes,random_models=random_models,
+                 mechanics=dict(tower_moves_per_run=5,tower_move_cost_after_free=100,trap_cast_delay=.05,stealable_abilities=stealable,downgrade_weights={'2':[100],'3':[34,66],'4':[20,30,50],'5':[10,15,25,50],'6':[20,20,20,20,20]},berserk_seconds=180,berserk_move_percent=100,trial_intermission_seconds=3),
                  wave_alternatives=alternatives,
                  combat=dict(minimum_movement_speed=100,checkpoint_radius=64/128,detection_radius_fallback=900/128,default_aura_linger=.5,base_attack_speed=100,minimum_attack_speed=20,maximum_attack_speed=700,
                              attack_speed_reference='Valve gameplay update 7.20: total maximum attack speed 700; standalone adopts this documented default, not an in-match GemTD measurement.',

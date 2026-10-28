@@ -42,7 +42,8 @@ static func replay(report: Dictionary) -> Dictionary:
 				if entry.get("to") is Array and entry.to.size() == 2:
 					accepted = state.move_slab(p,Vector2i(int(entry.to[0]),int(entry.to[1])))
 			"move_tower":
-				if entry.get("to") is Array and entry.to.size() == 2:
+				var move_cost: Variant = entry.get("cost",null)
+				if (move_cost is int or move_cost is float) and move_cost == state.tower_move_price() and entry.get("to") is Array and entry.to.size() == 2:
 					accepted = state.move_tower(p,Vector2i(int(entry.to[0]),int(entry.to[1])))
 			"keep": accepted = state.keep(p)
 			"downgrade":

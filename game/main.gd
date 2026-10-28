@@ -100,7 +100,7 @@ func _ready() -> void:
 	if not smoke and not OS.has_feature("web") and DisplayServer.get_name() != "headless":
 		apply_display("1080p" if "--windowed" in OS.get_cmdline_user_args() else display_mode)
 	var restored = GemSave.read_snapshot() if not smoke else {}
-	new_run(20261023 if smoke else int(Time.get_unix_time_from_system()), restored)
+	new_run(20261023 if smoke else fresh_run_seed(), restored)
 	if smoke:
 		print("SMOKE_READY platform=%s build=%s board=%d checkpoints=%d" % [OS.get_name(),"debug" if OS.is_debug_build() else "release",run.board.cells.size(),run.board.checkpoints.size()])
 		if "--smoke-attack" in OS.get_cmdline_user_args():
@@ -370,13 +370,12 @@ func build_ui() -> void:
 	full_button.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
 	full_button.tooltip_text = "Full screen on/off (F11)"
 	var restart = MenuButton.new()
+	restart.name = "RunMenu"
 	restart.text = "Run  ▾"
-	restart.get_popup().add_item("Same seed",0)
-	restart.get_popup().add_item("New seed",1)
+	restart.get_popup().add_item("New run",1)
 	restart.get_popup().add_item("Resume build checkpoint",2)
 	restart.get_popup().add_separator()
 	restart.get_popup().add_item("Run summary / test report",3)
-	restart.get_popup().add_item("Enter seed...",4)
 	restart.get_popup().add_item("Leaderboard",5)
 	restart.get_popup().add_separator()
 	restart.get_popup().add_item("Solo campaign · 100 waves",10)
@@ -402,14 +401,12 @@ func build_ui() -> void:
 				get_tree().reload_current_scene()
 		elif id == 3:
 			show_summary()
-		elif id == 4:
-			show_seed_dialog()
 		elif id == 5:
 			show_leaderboard()
 		elif id == 2:
-			new_run(run.initial_seed,last_snapshot)
-		else:
-			new_run(run.initial_seed if id == 0 else int(Time.get_unix_time_from_system()*1000.0))
+			new_run(fresh_run_seed(run.initial_seed),last_snapshot)
+		elif id == 1:
+			start_new_run()
 	)
 	header.add_child(restart)
 	# --- body: the board gets all remaining height; the sidebar is a fixed column
@@ -558,8 +555,7 @@ func build_ui() -> void:
 	result_title = styled(label_in(result_box,"",24),"TitleLabel") as Label
 	result_stats = label_in(result_box,"",14)
 	result_stats.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
-	styled(button_in(result_box,"Retry same seed",func(): new_run(run.initial_seed)),"HeroButton")
-	button_in(result_box,"New run",func(): new_run(int(Time.get_unix_time_from_system()*1000.0)))
+	styled(button_in(result_box,"New run",start_new_run),"HeroButton")
 	button_in(result_box,"Run summary & test report",show_summary)
 	result_box.visibility_changed.connect(func(): result_box.get_parent().visible = result_box.visible)
 	sidebar_tabs = TabContainer.new()
@@ -859,6 +855,15 @@ func connect_modal_pause(dialog: Window) -> void:
 			paused = bool(restore.paused)
 			refresh_ui()
 	)
+
+static func fresh_run_seed(previous_seed: int = 0) -> int:
+	# Independent entropy: rapid restarts must not reuse a clock tick or gameplay RNG.
+	var value = Crypto.new().generate_random_bytes(8).decode_s64(0) & 0x7fffffffffffffff
+	if value == 0 or value == previous_seed: value = 2 if previous_seed == 1 else 1
+	return value
+
+func start_new_run() -> void:
+	new_run(fresh_run_seed(run.initial_seed if run != null else 0))
 
 func new_run(seed_value: int, restore_data: Dictionary = {}) -> void:
 	if journal != null and not journal.actions.is_empty():
@@ -1513,7 +1518,7 @@ func show_help() -> void:
 		return
 	hide_other_dialogs(recipe_popup)
 	recipe_popup.title = "How to play"
-	recipe_text.text = "[font_size=24][color=#e4d4a4]Build a maze. Keep one gem.[/color][/font_size]\n\n1. Click five empty cells. Each placement reveals a random gem. Invalid placements consume nothing.\n\n2. Select one new gem and Keep, combine two/four identical new gems, or use a special recipe. This final choice starts combat immediately.\n\n3. The other new gems become stones. During the next build phase, demolish stones or older towers freely. New placements cannot be undone.\n\nGround enemies follow all seven checkpoints and cannot cut diagonal corners. Flying enemies follow straight lines between the same checkpoints.\n\nBuy better gem odds with gold at any time. Changes affect future placements. Every tower attacks both ground and flying enemies.\n\n[b]Controls[/b]\nWheel: zoom · Middle drag: pan · F: fit · R: routes · G: maze guide\nSpace: pause · 1 / 2: speed · M: mute\nSelect any tower to change First / Last / Strongest / Nearest targeting.\n\n[font_size=18][color=#e4d4a4]Win condition[/color][/font_size]\nSurvive ten waves and kill the final boss. A boss leak is an immediate defeat. Ordinary leak costs are shown in wave information.\n\nThe beginning of each build phase is saved locally. Reload resumes that checkpoint, not a battle in progress. The Run menu offers the same seed, a new seed or a seed you enter. Run summary provides a test report.\n\nVersion 1.0 is ready for local review. Tower and enemy base values follow the reviewed Dota 2 snapshot; the ten-wave economy is adapted. See the reference notes for remaining engine differences."
+	recipe_text.text = "[font_size=24][color=#e4d4a4]Build a maze. Keep one gem.[/color][/font_size]\n\n1. Click five empty cells. Each placement reveals a random gem. Invalid placements consume nothing.\n\n2. Select one new gem and Keep, combine two/four identical new gems, or use a special recipe. This final choice starts combat immediately.\n\n3. The other new gems become stones. During the next build phase, demolish stones or older towers freely. New placements cannot be undone.\n\nGround enemies follow all seven checkpoints and cannot cut diagonal corners. Flying enemies follow straight lines between the same checkpoints.\n\nBuy better gem odds with gold at any time. Changes affect future placements. Every tower attacks both ground and flying enemies.\n\n[b]Controls[/b]\nWheel: zoom · Middle drag: pan · F: fit · R: routes · G: maze guide\nSpace: pause · 1 / 2: speed · M: mute\nSelect any tower to change First / Last / Strongest / Nearest targeting.\n\n[font_size=18][color=#e4d4a4]Win condition[/color][/font_size]\nSurvive ten waves and kill the final boss. A boss leak is an immediate defeat. Ordinary leak costs are shown in wave information.\n\nThe beginning of each build phase is saved locally. Reload resumes that checkpoint, not a battle in progress. New run always starts with a fresh random seed. Resume build checkpoint continues the saved run. Run summary provides a test report.\n\nVersion 1.0 is ready for local review. Tower and enemy base values follow the reviewed Dota 2 snapshot; the ten-wave economy is adapted. See the reference notes for remaining engine differences."
 	if GemCatalog.expanded_gems():
 		recipe_text.text = recipe_text.text.replace("Version 1.0 is ready for local review.","Version 1.1.0-dev is a development profile. It currently adds six gem qualities and Jade to the ten-wave review game.")
 		recipe_text.text += "\n\n"+str(GemCatalog.DATA.balance_note)

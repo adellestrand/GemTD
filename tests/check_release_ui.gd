@@ -22,6 +22,31 @@ func run_checks() -> void:
 	root.add_child(game)
 	game.audio.volume = 0
 	check(game.footer_label.text.contains("1.0.0") and not game.result_box.visible and not game.wave_progress.visible,"release starts with one version identity and no stale combat or end controls")
+	var menu = game.quality_button.get_parent().get_node("RunMenu").get_popup()
+	check(menu.get_item_index(0) == -1 and menu.get_item_index(4) == -1 and menu.get_item_text(menu.get_item_index(1)) == "New run","player menu offers New run without same-seed or manual-seed choices")
+	var previous_seed = game.run.initial_seed
+	menu.id_pressed.emit(1)
+	check(game.run.initial_seed > 0 and game.run.initial_seed != previous_seed,"menu restart creates a fresh seed")
+	previous_seed = game.run.initial_seed
+	menu.id_pressed.emit(1)
+	check(game.run.initial_seed != previous_seed,"two immediate restarts cannot reuse the current seed")
+	previous_seed = game.run.initial_seed
+	game.run.phase = "lost"
+	game.refresh_ui()
+	var restart_button: Button
+	var same_seed_button = false
+	for child in game.result_box.get_children():
+		if child is Button:
+			if child.text == "New run": restart_button = child
+			if child.text.to_lower().contains("same seed"): same_seed_button = true
+	check(restart_button != null and not same_seed_button,"result screen has a single new-run action without same-seed retry")
+	restart_button.pressed.emit()
+	check(game.run.initial_seed != previous_seed and game.run.wave == 1 and game.run.gold == 0 and game.run.lives == GemCatalog.starting_lives(),"result restart also changes seed and resets the run")
+	previous_seed = game.run.initial_seed
+	game.last_snapshot = {"bad":"checkpoint"}
+	menu.id_pressed.emit(2)
+	check(game.run.initial_seed != previous_seed and not game.journal.resumed,"failed resume starts fresh rather than reusing the old seed")
+	# Explicit seeds remain an internal diagnostic helper, absent from player menus.
 	game.show_seed_dialog()
 	game.seed_dialog.input.text = "bad-seed"
 	check(not game.seed_dialog.validate() and game.seed_dialog.get_ok_button().disabled,"manual seed rejects invalid input without starting a run")

@@ -44,6 +44,10 @@ Högerpanelen använder flikarna **Tower / Wave / Upgrades / Effects**, med fast
 byggkontroller utan menyskroll. Rundans nya gems markeras med gula hörn och
 nummer 1–5 på både kartan och bildknapparna. Se [panel och gemmarkeringar](docs/sidebar-and-fresh-gems.md).
 
+**Run → New run** och resultatrutans **New run** startar alltid med en ny slumpad
+seed. Återuppta byggsparpunkten fortsätter den sparade omgången. Seed finns kvar
+i testrapporter för felsökning; spelmenyn erbjuder inget val av seed.
+
 ## Starta från källkod
 
 Kräver Windows x64, Python 3.10+ och PowerShell. Kör från repots rot:

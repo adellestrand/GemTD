@@ -1,5 +1,9 @@
 # GemTD – aktuell prototypplan
 
+2026-10-28: alla nya omgångar startar med ny slumpad seed. Same seed och manuell
+seedinmatning tas bort från spelmenyn; resultatrutan har ett enda New run-val.
+Rapporter och interna tester behåller reproducerbarhet med explicit seed.
+
 Rutnätets kvarvarande 5×5-mönster är identifierat som varierande linjebredd
 vid fönsterskalning. Bredd och position beräknas nu i slutliga bildpunkter.
 En renderad regression mäter samtliga gränslinjer i 16 upplösnings-/zoomfall.

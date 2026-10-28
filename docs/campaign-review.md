@@ -65,12 +65,12 @@ För granskning: spela samma seed igen, jämför boss-/luftvågor och kopiera **
 
 ## Kort manuell testomgång
 
-1. Öppna kampanjprofilen och kontrollera **1.3.0-dev**, **Wave 1 / 100**, 100 liv och sex kvaliteter. Använd **Run → Enter seed… → 8** för det lokalt granskade startfallet.
-2. Placera fem gems på giltiga rutor. Välj och kombinera de två Diamond I till Diamond II. Övriga färska gems blir sten och striden startar. Kontrollera paus/2× och markvägens kontrollpunkter.
+1. Öppna kampanjprofilen och kontrollera **1.4.1-dev**, **Wave 1 / 100**, 100 liv och sex kvaliteter. **Run → New run** startar alltid med en ny slumpad seed.
+2. Placera fem gems på giltiga rutor. Välj en att behålla, eller kombinera två lika om sådana finns. Övriga färska gems blir sten och striden startar. Kontrollera paus/hastighet och markvägens kontrollpunkter.
 3. Öppna **Waves** under strid och inspektera våg 8, boss 10 och prövning 100 utan att ändra den pågående vågen. Dialogen pausar; stängning återställer tidigare hastighet.
 4. Efter en avklarad våg: kontrollera faktisk guldinkomst, kills/leaks och MVP. Öppna **Run summary**, kopiera rapporten och ladda om sidan. Omladdning startar vid byggfasens sparpunkt, inte mitt i den avbrutna striden.
 5. Sök i **Recipes** efter ett torn eller `secret`. Följ material över flera byggfaser. För en stentavla: skapa på en tillåten materialruta, välj **Move path trap**, flytta under byggfasen och kontrollera att markvägen är öppen. Två lika tavlor var som helst på brädet uppgraderas.
-6. Prova samma seed igen och anteckna vilken våg, luft-/marktyp eller effekt som blev svår eller svårläst. Gemplacering och tornval påverkar utfallet; samma seed garanterar inte samma omgång om handlingarna skiljer sig.
+6. Starta en ny omgång och kontrollera att seed i rapporten ändras. Anteckna vilken våg, luft-/marktyp eller effekt som blev svår eller svårläst och bifoga testrapporten. Kontrollerad återspelning sker med testverktygen, inte genom seedval i spelmenyn.
 
 7. Efter besegrad grundboss: kontrollera +150 sparad rabatt och oförändrat bossguld. Gör ett manuellt oddsinköp och kontrollera det reducerade priset samt eventuell kvarvarande rabatt. Ladda om i nästa byggfas och kontrollera saldot.
 

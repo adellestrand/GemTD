@@ -164,3 +164,11 @@ Efter godkänt vildsvin beställer användaren förbättrade PixelLab-animatione
 ## Tornanimationer – genomförandebeslut 2026-10-26
 
 Användaren beställer efter fiendepasset en genomgång av alla torn. Genomfört: 66 nya PixelLab-ljusloopar plus tidigare godkänd Sapphire I, totalt 67 unika tornbilder. Byggnaderna står stilla och bara maskerade kristall-/kärnytor ändrar ljus. Befintlig kvalitetskoppling IV–VI, storlekar och ankare behålls. Se [tornpasset](pixellab-towers-v1.md).
+
+
+## Ändring 2026-10-28: alltid ny seed vid ny omgång
+
+Användaren tar bort Same seed. New run i både Run-menyn och resultatrutan ger alltid
+ny grundslump. Manuellt seedval tas bort från spelargränssnittet. Återuppta sparad
+omgång fortsätter sparpunkten; rapporter och interna verktyg behåller explicit seed
+för reproducerbar felsökning.

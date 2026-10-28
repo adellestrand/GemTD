@@ -1,0 +1,21 @@
+{
+  "source": "PixelLab create_image_pro_flash",
+  "job_id": "c51c4b80-ab26-4e08-bf3d-109102a27c91",
+  "size": [
+    32,
+    32
+  ],
+  "no_background": true,
+  "style_image": "current ruby tier I idle frame 0, downscaled to fit 32x32 (style only: palette, outline, shading)",
+  "style_options": {
+    "color_palette": true,
+    "outline": true,
+    "detail": false,
+    "shading": true
+  },
+  "design": "Wide low stone brazier bowl with a glowing ruby and flames (seed 11).",
+  "direction": "A = distinct silhouette",
+  "estimated_generations": 5,
+  "sha256": "68ed0833dec6042c59e34340c85d3b576b3aae5adbbc192227b70daa2c91f3f5",
+  "status": "pilot proposal, not bound in manifest"
+}

@@ -1,0 +1,21 @@
+{
+  "source": "PixelLab create_image_pro_flash",
+  "job_id": "74318820-17f5-4e40-b543-3b94008c41ae",
+  "size": [
+    32,
+    32
+  ],
+  "no_background": true,
+  "style_image": "current sapphire tier I idle frame 0, downscaled to fit 32x32 (style only: palette, outline, shading)",
+  "style_options": {
+    "color_palette": true,
+    "outline": true,
+    "detail": false,
+    "shading": true
+  },
+  "design": "Tall narrow ice spire, one big pointed blue sapphire shard on a small round stone base (seed 11).",
+  "direction": "A = distinct silhouette",
+  "estimated_generations": 5,
+  "sha256": "76980074414ccc6584b1438ed0d2a4ec47c59ffe67bd38f4b57113219120031a",
+  "status": "pilot proposal, not bound in manifest"
+}

@@ -1,0 +1,21 @@
+{
+  "source": "PixelLab create_image_pro_flash",
+  "job_id": "f84bcf41-1e1c-40ca-9930-d57abf2d6a8d",
+  "size": [
+    32,
+    32
+  ],
+  "no_background": true,
+  "style_image": "current sapphire tier I idle frame 0, downscaled to fit 32x32 (style only: palette, outline, shading)",
+  "style_options": {
+    "color_palette": true,
+    "outline": true,
+    "detail": false,
+    "shading": true
+  },
+  "design": "Oversized tall hexagonal sapphire prism in a gold claw socket (seed 23).",
+  "direction": "B = oversized gem",
+  "estimated_generations": 5,
+  "sha256": "0cf5c3d7168022d611cd870b5b2e6523840eca72ecb9213acb61249c0190eedf",
+  "status": "pilot proposal, not bound in manifest"
+}

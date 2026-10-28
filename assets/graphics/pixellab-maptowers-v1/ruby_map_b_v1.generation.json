@@ -1,0 +1,21 @@
+{
+  "source": "PixelLab create_image_pro_flash",
+  "job_id": "9d080f00-b57f-4ef6-a1ee-def3c12492ef",
+  "size": [
+    32,
+    32
+  ],
+  "no_background": true,
+  "style_image": "current ruby tier I idle frame 0, downscaled to fit 32x32 (style only: palette, outline, shading)",
+  "style_options": {
+    "color_palette": true,
+    "outline": true,
+    "detail": false,
+    "shading": true
+  },
+  "design": "Oversized round brilliant-cut ruby with flame wisps (seed 23).",
+  "direction": "B = oversized gem",
+  "estimated_generations": 5,
+  "sha256": "cb9103a0741e1bddf29ce142899d12e2a9bc75a6c96de2607955dff010cbfe50",
+  "status": "pilot proposal, not bound in manifest"
+}

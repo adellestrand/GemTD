@@ -12,6 +12,7 @@ Var SUPER försiktig med själva spelet så att balanseringen inte förstörs. �
 - Separat test (ingår inte i `check.py`): `python tools/godot.py --headless --path . --script res://tests/check_maze_tips.gd -- --smoke` ska ge `MAZE_TIPS_CHECK_OK` (maze-tips-vyn och överlägget).
 - Separat test (ingår inte i `check.py`): `python tools/godot.py --headless --path . --script res://tests/check_route_toggle.gd -- --smoke` ska ge `ROUTE_TOGGLE_CHECK_OK` (kryssrutan "Show routes" för fiendernas väglinjer).
 - Separat test (ingår inte i `check.py`): `python tools/godot.py --headless --path . --script res://tests/check_ability_clips.gd -- --campaign --smoke` ska ge `ABILITY_CLIPS_CHECK_OK` (PixelLab-förmågeklippen, staplade statusar och tak).
+- Separat test (ingår inte i `check.py`): `python tools/godot.py --headless --path . --script res://tests/check_trap_art.gd -- --campaign --smoke` ska ge `TRAP_ART_CHECK_OK` (fällbilderna och deras reserv).
 - Efter nya bildfiler: `python tools/godot.py --headless --editor --path . --import` (annars `.ctex`-fel vid start; `.godot/` är git-ignorerad).
 - Repot använder LF-radslut.
 
@@ -38,10 +39,11 @@ Var SUPER försiktig med själva spelet så att balanseringen inte förstörs. �
 
 **Förmågeeffekter (PixelLab)**
 - 19 klipp från PixelLabs vfx_workbench i `assets/graphics/pixellab-vfx-v1/` ersätter förmågornas 1 px-linjer: statusloopar bakom/framför fienden (högst 4 per fiende enligt prioritet) och träffklipp. Inställningar i `assets/graphics/ability-effects.json`, import `tools/art/import_pixellab_vfx.py`, verkstadsfliken **Status effects**. Se `docs/pixellab-vfx-v1.md`.
+- Fällor: 24 PixelLab-plattor i `assets/graphics/pixellab-traps-v1/` (brons/silver/guld syns på kanten), kopplade via `bindings.traps`; dagens ruta är reserv. Se `docs/pixellab-traps-v1.md`.
+- Torn v2: 91 PixelLab-bilder i `assets/graphics/pixellab-towers-v2/` (8 grundtyper × kvalitet I–VI och 43 kombinationstorn, var och en redigerad ur sin föregångare), kopplade via `bindings.gems` som `towers2_*`. Stillbilder; tidigare bindningar i `output/pixellab-towers-v2/previous_bindings.json`. Se `docs/pixellab-towers-v2.md`.
 
 ## Kvar / idéer
 - Bossarna i refined-v4 (shagbark, carpet_rider, ghost, baby_roshan) har grövre pixlar än boss_hound eftersom AI-arket ritade dem i normal storlek; generera dem i större ruta om det stör.
-- Egen konst för kvalitet IV–VI (återanvänder III).
 - Innehållet i Help/Summary-dialogerna är fortfarande löptext.
 - Inte testat på riktig Windows-maskin eller webbexport ännu (`tools/export.ps1`).
 

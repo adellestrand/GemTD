@@ -39,6 +39,11 @@ static func trap_style(kind: String) -> Dictionary:
 	return {"tier":tier,"symbol":DATA.trap_families.get(base,"ethereal"),"color":Color(DATA.trap_colors[tier-1])}
 
 static func trap(canvas: CanvasItem, center: Vector2, pixels: float, kind: String) -> void:
+	# Trap art from the manifest (bindings.traps); the drawn box is the fallback.
+	var art = GemArt.sprite_id("traps",kind)
+	if not art.is_empty() and GemArt.texture(art) != null:
+		GemArt.draw(canvas,art,center,pixels)
+		return
 	var style = trap_style(kind)
 	canvas.draw_rect(Rect2(center-Vector2.ONE*pixels*.4,Vector2.ONE*pixels*.8),Color("233431"))
 	canvas.draw_rect(Rect2(center-Vector2.ONE*pixels*.36,Vector2.ONE*pixels*.72),style.color,false,maxf(1,pixels*.04))

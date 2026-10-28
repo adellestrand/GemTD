@@ -1,0 +1,178 @@
+{
+  "source": "PixelLab create_1_direction_object, 12 item descriptions (two directions per family)",
+  "object_id": "89f10e18-49c7-4c7f-8e68-b12d28817b3b",
+  "reason": "higher contrast for Entangle and Howl (user request 2026-10-28)",
+  "chosen": "direction A: dark slate inset, bright symbol with thick dark outline",
+  "style_image": "kongheshiban_v1.png",
+  "cost_generations": 10,
+  "files": {
+    "youbushiban": {
+      "file": "youbushiban_v2.png",
+      "review_index": 0,
+      "replaces": "youbushiban_v1.png",
+      "sha256": "b7d94bf9c30abae9dc79233430475e6d2ef0d7e49302a5ad2528a8fa5a313d4b"
+    },
+    "youbushiban_yin": {
+      "file": "youbushiban_yin_v2.png",
+      "review_index": 1,
+      "replaces": "youbushiban_yin_v1.png",
+      "sha256": "c1f0e021bb00c64a8c8e01914e9e7f12ed4d82b5bdd2fe4f116a2dc6965a56a3"
+    },
+    "youbushiban_jin": {
+      "file": "youbushiban_jin_v2.png",
+      "review_index": 2,
+      "replaces": "youbushiban_jin_v1.png",
+      "sha256": "781b50ce17d0063967f676b39daba4ca3c12f1ef189823046b79130b09609898"
+    },
+    "haojiaoshiban": {
+      "file": "haojiaoshiban_v2.png",
+      "review_index": 6,
+      "replaces": "haojiaoshiban_v1.png",
+      "sha256": "d5710035122805fbf493bdd50a4f8937e909a72de733506ef15587adaac9c1af"
+    },
+    "haojiaoshiban_yin": {
+      "file": "haojiaoshiban_yin_v2.png",
+      "review_index": 7,
+      "replaces": "haojiaoshiban_yin_v1.png",
+      "sha256": "1b7e6a5f42ec4cbadcb1dda81b99132be70ae25df4e59bf9da94282e44f31a18"
+    },
+    "haojiaoshiban_jin": {
+      "file": "haojiaoshiban_jin_v2.png",
+      "review_index": 8,
+      "replaces": "haojiaoshiban_jin_v1.png",
+      "sha256": "402b2b77fba4026970ec983d4d709ff76113cba4e78c8acbf93d6df5e2ec8524"
+    },
+    "hongliushiban": {
+      "file": "hongliushiban_v2.png",
+      "object_id": "02e69dc4-4321-4109-8d32-299b35bc8a70",
+      "review_index": 0,
+      "replaces": "hongliushiban_v1.png",
+      "sha256": "477c50bff38857af8057295ac6f3ed07523ed30926f32f66a9e758457c176476"
+    },
+    "hongliushiban_yin": {
+      "file": "hongliushiban_yin_v2.png",
+      "object_id": "02e69dc4-4321-4109-8d32-299b35bc8a70",
+      "review_index": 1,
+      "replaces": "hongliushiban_yin_v1.png",
+      "sha256": "2139a0b060e1a3abc77d0adccec5fedd113e8e148f7e3189767ef0cca1778a81"
+    },
+    "hongliushiban_jin": {
+      "file": "hongliushiban_jin_v2.png",
+      "object_id": "02e69dc4-4321-4109-8d32-299b35bc8a70",
+      "review_index": 2,
+      "replaces": "hongliushiban_jin_v1.png",
+      "sha256": "43cc0ac063b2fb4523e471be3c732623d5df149d682114c255b364bc3999f2f2"
+    },
+    "kongheshiban": {
+      "file": "kongheshiban_v2.png",
+      "object_id": "02e69dc4-4321-4109-8d32-299b35bc8a70",
+      "review_index": 3,
+      "replaces": "kongheshiban_v1.png",
+      "sha256": "4e75cea15578d1867dff4e1bb3a9b02a49feadc6424cf8d43babf69f2120e5fe"
+    },
+    "kongheshiban_yin": {
+      "file": "kongheshiban_yin_v2.png",
+      "object_id": "02e69dc4-4321-4109-8d32-299b35bc8a70",
+      "review_index": 4,
+      "replaces": "kongheshiban_yin_v1.png",
+      "sha256": "1f1f463864fc0de5a5da12e1e36f984b2aca074e0d1d51a708812ab4b4541322"
+    },
+    "kongheshiban_jin": {
+      "file": "kongheshiban_jin_v2.png",
+      "object_id": "02e69dc4-4321-4109-8d32-299b35bc8a70",
+      "review_index": 5,
+      "replaces": "kongheshiban_jin_v1.png",
+      "sha256": "e33de4387f76001c8d4811bce980f5d4cfcf391f8f3feca996cfbf8b5f4b765b"
+    },
+    "mabishiban": {
+      "file": "mabishiban_v2.png",
+      "object_id": "02e69dc4-4321-4109-8d32-299b35bc8a70",
+      "review_index": 6,
+      "replaces": "mabishiban_v1.png",
+      "sha256": "01d1f38217650cbcc7afa7a9aa32ce80d90592424f7712ddb3b9e493e9180b3f"
+    },
+    "mabishiban_yin": {
+      "file": "mabishiban_yin_v2.png",
+      "object_id": "02e69dc4-4321-4109-8d32-299b35bc8a70",
+      "review_index": 7,
+      "replaces": "mabishiban_yin_v1.png",
+      "sha256": "eda16dd85c26918e37872bad4e0e4539c5ef1da3793966cdf6af03fc494f057c"
+    },
+    "mabishiban_jin": {
+      "file": "mabishiban_jin_v2.png",
+      "object_id": "02e69dc4-4321-4109-8d32-299b35bc8a70",
+      "review_index": 8,
+      "replaces": "mabishiban_jin_v1.png",
+      "sha256": "d26207b619d590f260a0bc88d9b086c1bcc907b65c768acfd27d90743c1d182e"
+    },
+    "suanwushiban": {
+      "file": "suanwushiban_v2.png",
+      "object_id": "02e69dc4-4321-4109-8d32-299b35bc8a70",
+      "review_index": 9,
+      "replaces": "suanwushiban_v1.png",
+      "sha256": "c2a4e9ee65e877bbdf126c4ee35524dff90afaac8a2c13ee1417691367f8a8bd"
+    },
+    "suanwushiban_yin": {
+      "file": "suanwushiban_yin_v2.png",
+      "object_id": "02e69dc4-4321-4109-8d32-299b35bc8a70",
+      "review_index": 10,
+      "replaces": "suanwushiban_yin_v1.png",
+      "sha256": "e1db217e0789118c9ec9ac91bc39c284096a23feed1f989e35c228b70f423527"
+    },
+    "suanwushiban_jin": {
+      "file": "suanwushiban_jin_v2.png",
+      "object_id": "02e69dc4-4321-4109-8d32-299b35bc8a70",
+      "review_index": 11,
+      "replaces": "suanwushiban_jin_v1.png",
+      "sha256": "52f0f63c1813af0559480126cabf4195d4e7939d4d70b6326f3e541d981eae52"
+    },
+    "xuwushiban": {
+      "file": "xuwushiban_v2.png",
+      "object_id": "02e69dc4-4321-4109-8d32-299b35bc8a70",
+      "review_index": 12,
+      "replaces": "xuwushiban_v1.png",
+      "sha256": "c438f3195184b2a95803d5df489da76cf9b1104b262ac8f8556e8bebdf60237a"
+    },
+    "xuwushiban_yin": {
+      "file": "xuwushiban_yin_v2.png",
+      "object_id": "02e69dc4-4321-4109-8d32-299b35bc8a70",
+      "review_index": 13,
+      "replaces": "xuwushiban_yin_v1.png",
+      "sha256": "c7e2f2f13ea8b3095e34aa8491f8a998da5a5c5d7e72357c410e0607dbf19004"
+    },
+    "xuwushiban_jin": {
+      "file": "xuwushiban_jin_v2.png",
+      "object_id": "02e69dc4-4321-4109-8d32-299b35bc8a70",
+      "review_index": 14,
+      "replaces": "xuwushiban_jin_v1.png",
+      "sha256": "668ecb8f37bc8652d648c6154fec5430ca5c1621f2d3ea6e0b9fefbea97f3e5f"
+    },
+    "zhangqishiban": {
+      "file": "zhangqishiban_v2.png",
+      "object_id": "02e69dc4-4321-4109-8d32-299b35bc8a70",
+      "review_index": 15,
+      "replaces": "zhangqishiban_v1.png",
+      "sha256": "df23a27eebf1e76650407a550d38a310bbb5daabd3345e5ca90849fdc3c31826"
+    },
+    "zhangqishiban_yin": {
+      "file": "zhangqishiban_yin_v2.png",
+      "object_id": "02e69dc4-4321-4109-8d32-299b35bc8a70",
+      "review_index": 16,
+      "replaces": "zhangqishiban_yin_v1.png",
+      "sha256": "9912946845f2569bf24c4fd96381d228f1e82201f830eade84830e49c31183c5"
+    },
+    "zhangqishiban_jin": {
+      "file": "zhangqishiban_jin_v2.png",
+      "object_id": "02e69dc4-4321-4109-8d32-299b35bc8a70",
+      "review_index": 17,
+      "replaces": "zhangqishiban_jin_v1.png",
+      "sha256": "8bc35a8c1e9c330bd6e99af2d1a7a3f8a24816f54979682f05b8e8c1d42dcf1a"
+    }
+  },
+  "second_call": {
+    "object_id": "02e69dc4-4321-4109-8d32-299b35bc8a70",
+    "reason": "same dark inset for the other six families (user request 2026-10-28)",
+    "style_image": "haojiaoshiban_v2.png",
+    "cost_generations": 10
+  }
+}

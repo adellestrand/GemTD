@@ -1,0 +1,646 @@
+{
+  "source": "PixelLab Pro Flash, 64x80, seed 7",
+  "template": "sapphire_1 created with the current sapphire tier I frame as style reference; every other image is an edit of its parent (derived_from) so the lineage stays visible",
+  "naming": "<base>_<quality>_v1.png for the eight base gems (quality 1-6); <special id>_v1.png for the 43 combination towers",
+  "status": "proposal, not bound in the manifest",
+  "cost_generations_estimate": 455,
+  "files": {
+    "aijijin_v1.png": {
+      "job_id": "9fc29a81-17f9-40c1-94b7-20705e4b34f7",
+      "image_id": "f39ba1da-1a3a-5659-8bf2-f02d19798266",
+      "step": "edit: pyramid capstone eye of horus egyptian stripes",
+      "derived_from": "jin_v1.png",
+      "sha256": "c3924d759f47f5fb91ace2658e839f49bf0ef0f0a3acfdb561541abb467603e3"
+    },
+    "amethyst_1_v1.png": {
+      "job_id": "3997c780-c94a-4ebf-81cf-5fa3faeb0b9a",
+      "image_id": "4b71bc1f-e39a-5f39-a684-032985deb2fd",
+      "step": "edit: swap gem",
+      "derived_from": "sapphire_1_v1.png",
+      "sha256": "4fd6cbd8777c0cfb0a80f6dec73acbdd1dc4c792412b97d9eb6364f872c8e4a3"
+    },
+    "amethyst_2_v1.png": {
+      "job_id": "8fd577b6-2b06-45bb-a9fc-def70a12feb5",
+      "image_id": "96b9baaa-3ea8-5c14-bd9d-e616bb7f4eb6",
+      "step": "edit: gold band larger gem",
+      "derived_from": "amethyst_1_v1.png",
+      "sha256": "2df8f5431df6b5220d456500570e6338f347c3a09bb427cfb943fb77941a1e5b"
+    },
+    "amethyst_3_v1.png": {
+      "job_id": "e7837702-0762-4563-b4d5-0031dd64a46c",
+      "image_id": "49f0942c-61be-5a97-a60d-d0b56ae6ef5f",
+      "step": "edit: second storey side shards",
+      "derived_from": "amethyst_2_v1.png",
+      "sha256": "76894cdf39e8cb5fe21cca52fe7d2d36cfa77acbc49159f40006abc6e053bf90"
+    },
+    "amethyst_4_v1.png": {
+      "job_id": "a719de93-7c87-4a21-b6cb-41f35a68fc14",
+      "image_id": "33d3d074-67c2-5837-bb76-f3907814a477",
+      "step": "edit: gold pillars three-gem crown",
+      "derived_from": "amethyst_3_v1.png",
+      "sha256": "8624ef9a0b6bea27af0acc0a68fd7c9bcd2aa640bf671d816fb6e3a5e7e18c5a"
+    },
+    "amethyst_5_v1.png": {
+      "job_id": "83fd7e0f-e20d-4a1d-9859-905b95a665e3",
+      "image_id": "fd113b7f-97a2-52d5-a154-3329b8bd94dd",
+      "step": "edit: gold spiked roof glowing crown",
+      "derived_from": "amethyst_4_v1.png",
+      "sha256": "469af1b4a83f087ab3af6f81cb8ed6ca812474b48c02976e1bf35afc274af057"
+    },
+    "amethyst_6_v1.png": {
+      "job_id": "95d7bf9c-b13d-4d57-949e-3c931f56e2f4",
+      "image_id": "2b80bcda-3020-5d8a-acdc-e00c38ee136c",
+      "step": "edit: floating gem ring banners",
+      "derived_from": "amethyst_5_v1.png",
+      "sha256": "ef65afa10ef54626c68c31973886affe59f2a91afe93d4daeedb65ad40b12eae"
+    },
+    "aquamarine_1_v1.png": {
+      "job_id": "de9f47a7-3584-45ca-9ab1-2716a3a1e03a",
+      "image_id": "61105a0e-a2f7-51c8-97c3-68ce0e20b5f8",
+      "step": "edit: swap gem",
+      "derived_from": "sapphire_1_v1.png",
+      "sha256": "48aa582743d79bdb5784581c6b74a4b6e4d9d093b4e5c7cc7096eb8226e9dad3"
+    },
+    "aquamarine_2_v1.png": {
+      "job_id": "85f3e0ec-eabc-493b-b8d2-fea8a8f5ed30",
+      "image_id": "4a24e9d4-834d-5702-88e3-6377f908cb9a",
+      "step": "edit: gold band larger gem",
+      "derived_from": "aquamarine_1_v1.png",
+      "sha256": "ed727a0d175528341857e4055d16d83db71725aff92badfad43086b6a12ca627"
+    },
+    "aquamarine_3_v1.png": {
+      "job_id": "42d4ef02-b6b3-479e-bac1-b67bb7c03449",
+      "image_id": "65e0919d-7fa6-5dc5-8031-6042c12f9cee",
+      "step": "edit: second storey side shards",
+      "derived_from": "aquamarine_2_v1.png",
+      "sha256": "66990138e3ba172bdb96a599b09f5a4518f3d19e4d00e68b924b55d3b3b590ca"
+    },
+    "aquamarine_4_v1.png": {
+      "job_id": "0bccfe3e-e99f-4520-a09b-af0e1b38374b",
+      "image_id": "78440ffb-bbd2-5a7b-9a57-7ba2e20f090f",
+      "step": "edit: gold pillars three-gem crown",
+      "derived_from": "aquamarine_3_v1.png",
+      "sha256": "9eac5d34e4c5a22c33f13047bd1d0dc4ac961a5f55b7a61ca696f89a23ce9c37"
+    },
+    "aquamarine_5_v1.png": {
+      "job_id": "d23fcd9d-d450-4a8c-b3c8-314e29a03bf4",
+      "image_id": "4b479897-438b-5999-b39d-8964a9f60124",
+      "step": "edit: gold spiked roof glowing crown",
+      "derived_from": "aquamarine_4_v1.png",
+      "sha256": "18b690314d6e5d6f1254527d74bf9eae701ddda218265f48623bd9d6d0df7400"
+    },
+    "aquamarine_6_v1.png": {
+      "job_id": "0e354884-7ccd-4d7d-a713-9c9cb786684a",
+      "image_id": "3180ee7f-5673-5e32-805c-f178de4fada0",
+      "step": "edit: floating gem ring banners",
+      "derived_from": "aquamarine_5_v1.png",
+      "sha256": "18375ce505e10533bb3c02ad090f17e0f59c3a71855f3b7eee696ff3a12cb708"
+    },
+    "asteriated_ruby_v1.png": {
+      "job_id": "ddd06b69-c149-4ee2-9db9-831e3246f96d",
+      "image_id": "2b75331a-6b51-58f2-8ff5-b910fc39beaa",
+      "step": "edit: star ruby shrine flame wisps amethyst",
+      "derived_from": "ruby_2_v1.png",
+      "sha256": "dc25648aa9209a9ff9b216a88c154229f0aa902fe9a8480cf1ce57f209974798"
+    },
+    "baiyinqishi_v1.png": {
+      "job_id": "7c39cdcb-600f-4a7b-b4c6-225ec2bd1dca",
+      "image_id": "8c177763-d847-5482-8bd7-90ff07920e89",
+      "step": "edit: knight helmet, ruby, aquamarine plume",
+      "derived_from": "silver_v1.png",
+      "sha256": "f7dd34858e3f444f2831ca3b5d4566d621218ce642c32afdf1af7fb457698905"
+    },
+    "diamond_1_v1.png": {
+      "job_id": "44c728ee-e55d-44c1-be58-80f92bd0d683",
+      "image_id": "91dea29d-b0ae-5a32-bed1-82e514dcd786",
+      "step": "edit: swap gem",
+      "derived_from": "sapphire_1_v1.png",
+      "sha256": "192fda27c6ad45975e2b1bd3c27cf8f8fc2ae236dbe5bb222ce582fd2c88a5dd"
+    },
+    "diamond_2_v1.png": {
+      "job_id": "d66efdff-6376-4ae5-ba81-6066ca8236e6",
+      "image_id": "da79c7b0-2b50-58d4-974a-9ed459c3db2c",
+      "step": "edit: gold band larger gem",
+      "derived_from": "diamond_1_v1.png",
+      "sha256": "4acc164e2e15acfedf41c2e2af07d9f16b91251ce6c2946930e1a2a89e8295fc"
+    },
+    "diamond_3_v1.png": {
+      "job_id": "3cc3ca2c-b130-4bfc-ac5a-8cfd7ffc3f6f",
+      "image_id": "d33b74f6-a867-5727-a953-34689b248155",
+      "step": "edit: second storey side shards",
+      "derived_from": "diamond_2_v1.png",
+      "sha256": "0f3bd2f39f0f6b46cc93e30afa4470160682eddc32676ec073335be1281f3b03"
+    },
+    "diamond_4_v1.png": {
+      "job_id": "107c1953-cc4d-4442-882e-26da34ab1369",
+      "image_id": "71c2ac20-633f-5719-8282-6bc33949c40c",
+      "step": "edit: gold pillars three-gem crown",
+      "derived_from": "diamond_3_v1.png",
+      "sha256": "66198bd808605a71103cec96af9859f18f9f8494684d3286eb0396eff8ef5e37"
+    },
+    "diamond_5_v1.png": {
+      "job_id": "2968daa3-9201-42e1-8442-5c68db49a9a6",
+      "image_id": "b7b8451d-8bc9-519c-ba8b-2ed8d190ca17",
+      "step": "edit: gold spiked roof glowing crown",
+      "derived_from": "diamond_4_v1.png",
+      "sha256": "2a6bd9fff13143a38a6f7aa5be12d4d1bcbc0b249cc1528d7e5f1747e6c0b348"
+    },
+    "diamond_6_v1.png": {
+      "job_id": "cf3c5ab3-ccc6-435b-8927-5097da0f569b",
+      "image_id": "5d989c16-c484-51b9-b1a9-fe78daba62df",
+      "step": "edit: floating gem ring banners",
+      "derived_from": "diamond_5_v1.png",
+      "sha256": "062835374d25b7264a72680a2bd8b69d178277d3246275aa092cdeb1169febd0"
+    },
+    "emerald_1_v1.png": {
+      "job_id": "ccc6c775-5491-4dc4-94c6-b208c9ddb0ec",
+      "image_id": "b6579393-f447-5664-85ad-281d22fb63e5",
+      "step": "edit: swap gem",
+      "derived_from": "sapphire_1_v1.png",
+      "sha256": "fc1dca57961e6e835fe23c6c8ef8f6e8b1b56b20030adce673b875e005cd7a6b"
+    },
+    "emerald_2_v1.png": {
+      "job_id": "892dda01-11d2-42a5-b9bd-7725816ddf82",
+      "image_id": "6eddace0-9255-5dbb-b030-a129cc4dae95",
+      "step": "edit: gold band larger gem",
+      "derived_from": "emerald_1_v1.png",
+      "sha256": "9cabafc2a850969108253252bf81dcb8812d7c8684c02dde15abbc6e101dee45"
+    },
+    "emerald_3_v1.png": {
+      "job_id": "3a7a8757-3002-4b80-ab10-46ed38c113db",
+      "image_id": "a2e19987-1844-55c0-8b12-c3d76f15715c",
+      "step": "edit: second storey side shards",
+      "derived_from": "emerald_2_v1.png",
+      "sha256": "a51fb1113e3202265f894ac938f4b2da4bcce2369c68727dc4ff09bc8f52f5a4"
+    },
+    "emerald_4_v1.png": {
+      "job_id": "ddeacfa3-ac23-4572-95a4-c4d1f7d2c4e3",
+      "image_id": "9cc336f8-9ddc-5b7f-bd2b-3b1ab760ee12",
+      "step": "edit: gold pillars three-gem crown",
+      "derived_from": "emerald_3_v1.png",
+      "sha256": "dba57b7f3574fc4d9f690b3d80b354bd2300d638aa6104ddf5e20f0fb97bdedd"
+    },
+    "emerald_5_v1.png": {
+      "job_id": "c35d3f5f-78e9-4cde-8577-a4e33e4902bc",
+      "image_id": "f56a175e-38d7-500d-9b52-4902f5de0e89",
+      "step": "edit: gold spiked roof glowing crown",
+      "derived_from": "emerald_4_v1.png",
+      "sha256": "e7b8e5aa6dfbdfcc8f219d09a0126ace0c769dbbcbcc685012d386aa998cddda"
+    },
+    "emerald_6_v1.png": {
+      "job_id": "26dd9aa9-6be1-48a3-9b2b-0d0e2158d0b0",
+      "image_id": "4bdf821e-73bc-5fb7-88d7-a0de766b671a",
+      "step": "edit: floating gem ring banners",
+      "derived_from": "emerald_5_v1.png",
+      "sha256": "e55f6e1bac763e2fb0008299f2e19db862bfdd3149772f9a24359e5f3e4df9ce"
+    },
+    "feicuimoxiang_v1.png": {
+      "job_id": "c0c0d0db-6c53-4f42-bef8-ce70655b5516",
+      "image_id": "5fe84a5f-c304-5dbf-9324-85b2b6393217",
+      "step": "edit: golem arms and face emerald heart diamond",
+      "derived_from": "heianfeicui_v1.png",
+      "sha256": "b7206382e4d641ce84a24275d3717c19916a5c424e5a3d4077d56c49120e1500"
+    },
+    "fenhongzuanshi_v1.png": {
+      "job_id": "f704fd76-53ea-4eeb-9b02-52fd5934f2ca",
+      "image_id": "0bda531f-3d0f-5f4b-911a-7175336fd5de",
+      "step": "edit: pink diamonds topaz",
+      "derived_from": "diamond_5_v1.png",
+      "sha256": "be51b036e9d3afc38ae4130980b15597e3030f6fe9891d97b3dc2c0d0b0e0487"
+    },
+    "furongshi_v1.png": {
+      "job_id": "5f30cae9-29d2-4a0b-9946-6c2f31628c41",
+      "image_id": "e604b7e6-f6a2-5037-b6d4-9704fa4e2818",
+      "step": "edit: rose quartz cladding crystal points ruby amethyst",
+      "derived_from": "emerald_4_v1.png",
+      "sha256": "6e3505da6066a75ac99eda8c91cd072890d42b3505d1c1c553ef72f2f687d680"
+    },
+    "geluanshi_v1.png": {
+      "job_id": "d0565bf3-4714-4b10-bd6d-97e9ecfb7a36",
+      "image_id": "e1959f02-79de-57e4-a8b6-204851a93de0",
+      "step": "edit: spiral of sapphire and emerald crystals",
+      "derived_from": "emerald_5_v1.png",
+      "sha256": "d9572e0fdace80ed6b5add03c0eb51482d8e1464738c3b12c1dcf0c84d2371ca"
+    },
+    "gudaidejixueshi_v1.png": {
+      "job_id": "e6f25e92-81ae-4888-82e6-351a50fd7b8f",
+      "image_id": "0022a784-474b-5c62-a1a7-15483080d4fc",
+      "step": "edit: ancient runes lava crater stronger lightning",
+      "derived_from": "jixueshi_v1.png",
+      "sha256": "92257bbf5a3da338bfb892f2a627baffa51f69534665d00ac8968e348175e366"
+    },
+    "haibao_v1.png": {
+      "job_id": "f341a7d1-8fb5-4710-8feb-dca2ac59955c",
+      "image_id": "56fd5f2f-33f0-51a2-9e07-22123225b3cf",
+      "step": "edit: ocean jewel frost ring bloodstone sapphires",
+      "derived_from": "huangcailanbaoshi_v1.png",
+      "sha256": "1dcf817d1a72fcff1b34a4e80124352a247481b9fbfab655ccf937f08ab338ab"
+    },
+    "haiyangqingyu_v1.png": {
+      "job_id": "0226082b-2cd2-470e-8bd8-fab66a166ef8",
+      "image_id": "ec28e183-7cee-580e-91cd-6fa910415bc8",
+      "step": "edit: sea-green jade third storey sapphires aquamarines",
+      "derived_from": "jade_v1.png",
+      "sha256": "32ad81491bea672d3fc83684b4042b851d27c4c1e4435cd1d84b0c793dcadd0a"
+    },
+    "heianfeicui_v1.png": {
+      "job_id": "c0dcef44-f83d-441e-927c-68014f20cf51",
+      "image_id": "0dd92d43-200d-536f-92e0-6468964911ac",
+      "step": "edit: dark marble dark emerald sapphire topaz",
+      "derived_from": "emerald_5_v1.png",
+      "sha256": "d8b31acd8e819bc4700559f9339b815b99b516fae650edc15eb9a202cf7485a9"
+    },
+    "heisemaoyanshi_v1.png": {
+      "job_id": "1903cf3b-6b04-467a-83ab-cc66a65d4da0",
+      "image_id": "73c4c5f2-fdc3-57a6-8606-c992f127e62a",
+      "step": "edit: cat's eye dome gem diamond aquamarine",
+      "derived_from": "opal_5_v1.png",
+      "sha256": "e58a41a51fb552a3afa117f6678d0a9d8548c896db8339d159ebddef8f1b3cea"
+    },
+    "heiwangzihuangguanhongbaoshi_v1.png": {
+      "job_id": "09b5163b-116f-4227-a42d-a66b7c762a3a",
+      "image_id": "9147ab2b-bfa0-5669-84b8-1beb9f302f98",
+      "step": "edit: black-gold crown huge ruby emeralds banner",
+      "derived_from": "gudaidejixueshi_v1.png",
+      "sha256": "b36fe435eba8d19260d0a73793c511a76ad554b3d5ffd45617e3986f461acd69"
+    },
+    "heiyaoshi_v1.png": {
+      "job_id": "78365fb4-3a9e-4107-b79b-965273d647fd",
+      "image_id": "2fe9a936-6a4c-5d17-bbd7-1366cf93b1b4",
+      "step": "edit: black obsidian glass blades",
+      "derived_from": "sapphire_5_v1.png",
+      "sha256": "9109e47e5469429ba4621ad9f96dd2f4336c12623f02a97559b52741c328ab82"
+    },
+    "hongshanhu_v1.png": {
+      "job_id": "2bad3702-0fb1-4e43-8e4e-99135cdec27c",
+      "image_id": "72769fa1-de11-5385-a2d7-873717f5ebe7",
+      "step": "edit: red branching coral pearl opals",
+      "derived_from": "heisemaoyanshi_v1.png",
+      "sha256": "7225dc06410b59b13ed3fd574d65e96c827e3e98c3717507a4cb6d069683772c"
+    },
+    "huaguoshanxiandan_v1.png": {
+      "job_id": "c2ab3ba1-b8ac-4aed-a8fe-3541fd7c6d58",
+      "image_id": "8539c8f0-80fa-580e-a88b-7ba728f04d42",
+      "step": "edit: cauldron lid elixir gourd emerald amethyst",
+      "derived_from": "haiyangqingyu_v1.png",
+      "sha256": "f449188c7552ce372fd8782166fbe538b27ecbc1d2c7417a68a6ea4c53d51d1b"
+    },
+    "huangcailanbaoshi_v1.png": {
+      "job_id": "df944310-4f89-4dea-8123-6a15dbfd6fcd",
+      "image_id": "e7d16b81-a89d-51bd-9342-9842836c67cd",
+      "step": "edit: golden-yellow sapphire crown ruby accents",
+      "derived_from": "sapphire_5_v1.png",
+      "sha256": "f1081cdc6a95e205d482dbcb0f9f793a16e29f2fa65358a5b2ac3e9f2167a577"
+    },
+    "huguoshenyishi_v1.png": {
+      "job_id": "69cce861-3110-4e71-968b-9a51e47ce158",
+      "image_id": "ae734dd7-0269-5201-9302-cf89509b0832",
+      "step": "edit: guardian shield emblem obelisk halo studs",
+      "derived_from": "mirendeqingjinshi_v1.png",
+      "sha256": "501fa207fdacf69a055e0053c9810115daf84628a6590a8f77c4c7a28620ba3d"
+    },
+    "jade_v1.png": {
+      "job_id": "2c2d6ea0-9fcb-433d-930c-f8a710020596",
+      "image_id": "32cc6d16-2e9f-5426-8011-c63afabd1cfa",
+      "step": "edit: jade pagoda opal sapphire",
+      "derived_from": "emerald_3_v1.png",
+      "sha256": "911b2272149bd4cfad05d77ad6389d09547a81cc5f94739d8483c9851e89d613"
+    },
+    "jin_v1.png": {
+      "job_id": "570cce1a-b5b9-4d13-9fd4-077c7f127034",
+      "image_id": "d1d6df0a-0f3f-5b97-89fc-cf1b8a608727",
+      "step": "edit: gold plating gold nugget amethysts diamond",
+      "derived_from": "amethyst_5_v1.png",
+      "sha256": "c1910aaab2a30f46ea940627c9397a5d1bbac95da27dde67ac2470a9fac7ac6e"
+    },
+    "jingangshikulinan_v1.png": {
+      "job_id": "e6a6212f-b2cc-4025-9702-3edbe0c00521",
+      "image_id": "873d086e-e1a2-50fe-84d1-d8372a76a126",
+      "step": "edit: gigantic cullinan diamond sapphires light rays",
+      "derived_from": "huaguoshanxiandan_v1.png",
+      "sha256": "059db59a92281e4e379edfcce80e4e2fef2a6712d82d0257feb76f994e35723b"
+    },
+    "jingxindiaozhuodepalayibabixi_v1.png": {
+      "job_id": "cbf5765d-f74c-46d1-a745-330bf597bddb",
+      "image_id": "21362fce-7c0b-5982-a57a-e0d1af3d25fd",
+      "step": "edit: carved filigree dark marble inlay emeralds",
+      "derived_from": "palayibabixi_v1.png",
+      "sha256": "2f6abfbb494e8a2fda51032001485702e1bcb5d6d932d5f67178ba785112a34d"
+    },
+    "jixiangdezhongguoyu_v1.png": {
+      "job_id": "a2f21d86-fe3c-4902-99c4-93f85be0107b",
+      "image_id": "dbe11193-e81c-5704-937a-bd0b0e040380",
+      "step": "edit: third storey tassels quartz emerald dragon disc",
+      "derived_from": "jade_v1.png",
+      "sha256": "86dba339dd1536d23665095a263e7227eea7de2ddc1e2344d7d1dfecb96dbfa1"
+    },
+    "jixueshi_v1.png": {
+      "job_id": "67e5c23f-6817-46bb-a09b-f34017e401eb",
+      "image_id": "d04ee5cc-fcc4-5c32-87cd-9843b0986397",
+      "step": "edit: bloodstone speckled red lightning",
+      "derived_from": "ruby_5_v1.png",
+      "sha256": "feb88928edec021ce0cbf31e2da4970a9bacf2fef9b1256ec4e0863634be13f6"
+    },
+    "juxingfenhongzuanshi_v1.png": {
+      "job_id": "a5d47d73-a721-4bfc-bf9f-d902d4d2f196",
+      "image_id": "6c3ae330-38e6-516c-8ecb-c1441099c653",
+      "step": "edit: silver armour knight crest huge pink diamond",
+      "derived_from": "fenhongzuanshi_v1.png",
+      "sha256": "5f6e42d0d6ae5a309da629bcc53212b7d576e3b0583049b503b01594527e6abf"
+    },
+    "keyinuoerguangmingzhishan_v1.png": {
+      "job_id": "4b538a33-2e6a-42d5-b11c-6daaa2f2eea8",
+      "image_id": "e0324a6a-ba04-57bb-9492-eb9a1cf54e11",
+      "step": "edit: royal crown enormous white diamond amethysts",
+      "derived_from": "juxingfenhongzuanshi_v1.png",
+      "sha256": "4206e94a3df6a194405a99b9640a6f93fd331a3d903384867c363f13b8bc2979"
+    },
+    "malachite_v1.png": {
+      "job_id": "434b4f3a-c3f4-4c1c-a48b-ebd4b0fdd7b6",
+      "image_id": "5d08d190-74ad-5cb0-b78b-91b496205183",
+      "step": "edit: malachite cladding opal aquamarine accents",
+      "derived_from": "emerald_1_v1.png",
+      "sha256": "67221b3d22a873565c36971add8453c502598ef427af82e7335d6becb20b1916"
+    },
+    "manao_v1.png": {
+      "job_id": "df5ee37e-7b34-48bf-94f7-d8d7c8fceefd",
+      "image_id": "1cd6003d-c056-5d9b-9953-df9e78d38db2",
+      "step": "edit: banded agate geode crown",
+      "derived_from": "aquamarine_5_v1.png",
+      "sha256": "35710c09504cc6ff691c7b317c73bba9622a85dc666afc806fc9c93621b44d10"
+    },
+    "mirendeqingjinshi_v1.png": {
+      "job_id": "025db6a5-4560-440a-a3d2-e9dea2c8eb38",
+      "image_id": "0ef77ac5-ef6f-55a9-a283-d3f275d4a2e2",
+      "step": "edit: royal-blue lazurite amethyst tips topaz",
+      "derived_from": "furongshi_v1.png",
+      "sha256": "d4b93b5d0037b1a5b5ca338dcdb0da854b267794bcb8fb133aa7e238025466b9"
+    },
+    "opal_1_v1.png": {
+      "job_id": "5a4f9014-0bfa-4ab0-b277-acae6be668ab",
+      "image_id": "16dd8a0c-cea3-5f88-a73f-0bf09c95aef2",
+      "step": "edit: swap gem",
+      "derived_from": "sapphire_1_v1.png",
+      "sha256": "a0a8b1dc3709ecec2f0b324627cb214da7e9096590c8c1d9821af371332e4d16"
+    },
+    "opal_2_v1.png": {
+      "job_id": "5d682901-1f5b-45b7-b558-3834f71fe188",
+      "image_id": "aad7d207-b2f8-554d-b8e3-6e0adccf9d65",
+      "step": "edit: gold band larger gem",
+      "derived_from": "opal_1_v1.png",
+      "sha256": "7e8b9f8a1d6bd1757deb0791a193c72e8d765cee2971abad4c63bfe552b16309"
+    },
+    "opal_3_v1.png": {
+      "job_id": "d7693753-86c7-47ae-b132-c3331c4f3426",
+      "image_id": "57a2b175-a993-5814-b579-455bbacab39c",
+      "step": "edit: second storey side shards",
+      "derived_from": "opal_2_v1.png",
+      "sha256": "9320f406422cab1ae72646d4dd0078df87a7d2ae5b3bfe51901473a79588be9d"
+    },
+    "opal_4_v1.png": {
+      "job_id": "ec7c24ec-a174-40b7-9b9c-45fcf1a0ddf0",
+      "image_id": "7caf7803-c0cc-51c9-ba9b-8d5268bbb87f",
+      "step": "edit: gold pillars three-gem crown",
+      "derived_from": "opal_3_v1.png",
+      "sha256": "6c16afcbbbfff883cdeb8dcb42c999436fd8e96c34130a10f79463d365947d4c"
+    },
+    "opal_5_v1.png": {
+      "job_id": "2b40d73f-286f-439f-9ea7-8d3cd69d132e",
+      "image_id": "346047ec-f74c-530f-8eed-ae2c30c11ef4",
+      "step": "edit: gold spiked roof glowing crown",
+      "derived_from": "opal_4_v1.png",
+      "sha256": "1c8a9fefed3580f52e217477dbf6c047c644270def2f1ef6f268a5f940ead67b"
+    },
+    "opal_6_v1.png": {
+      "job_id": "f7c57f32-1f5e-4457-877b-504bf8e59689",
+      "image_id": "5c6299ba-873a-5261-8b98-96420cfe37e6",
+      "step": "edit: floating gem ring banners",
+      "derived_from": "opal_5_v1.png",
+      "sha256": "90a7f48533dd4e4a62b84589ab41f07e9a9c60d6a6f84b3a62b85f8df7382ce6"
+    },
+    "palayibabixi_v1.png": {
+      "job_id": "57ead46c-3af3-4933-9dca-2a69aa7e8ecc",
+      "image_id": "58e6e272-01d9-5ee3-8b00-7c074bbf3105",
+      "step": "edit: neon tourmaline crystals opal emerald",
+      "derived_from": "aquamarine_5_v1.png",
+      "sha256": "5ca3d8003c6d77c9bbed7d91ecc66c2fe9acc58bb8594d22685d6f353bba9b15"
+    },
+    "ranshaozhishi_v1.png": {
+      "job_id": "4b3bc150-bb1b-4bcf-ad10-e502811248fe",
+      "image_id": "76ec6013-28ac-5b37-be1f-4c678d6196e7",
+      "step": "edit: scorched magma seams flaming amethyst ruby",
+      "derived_from": "amethyst_5_v1.png",
+      "sha256": "dc5256a89251d49e98b2ef6ae87be90e6b84f1e3f2a4de0745c6db7c57c0f30e"
+    },
+    "ruby_1_v1.png": {
+      "job_id": "d1c80310-a75e-4994-83ca-b064eea9fdcb",
+      "image_id": "f6db4364-c9c8-5d75-af32-d856fee31caa",
+      "step": "edit: swap gem",
+      "derived_from": "sapphire_1_v1.png",
+      "sha256": "6274fa08a4bfe4113c9c4c70a445cb296971d0958c29dfa81df1dcdea7a700de"
+    },
+    "ruby_2_v1.png": {
+      "job_id": "ae6022b7-9442-441e-8eec-c971470d4271",
+      "image_id": "463ee8cd-235e-5e86-883c-6ab67f78e207",
+      "step": "edit: gold band larger gem",
+      "derived_from": "ruby_1_v1.png",
+      "sha256": "0680604106db536526e0a02a5a377bd03f3b4baed440bea4511c37028c0984c2"
+    },
+    "ruby_3_v1.png": {
+      "job_id": "1709c3c1-c8d0-4a72-b6ac-b25b487510ff",
+      "image_id": "38c4cf19-cf4c-559e-a013-20cb7051667a",
+      "step": "edit: second storey side shards",
+      "derived_from": "ruby_2_v1.png",
+      "sha256": "91310858abb41ca426a2cc4e5e9e50bd5c2f35bb0b492a1a0bfec6106b17fb33"
+    },
+    "ruby_4_v1.png": {
+      "job_id": "8abf0ccf-61ea-41b6-9ffd-6c6c1e94b888",
+      "image_id": "a01f6b64-4bcc-532a-aee8-88a952e7a6a8",
+      "step": "edit: gold pillars three-gem crown",
+      "derived_from": "ruby_3_v1.png",
+      "sha256": "90baa27d3ba4006f4b408f4f69ad56ee2e76a297b4933727d48cf47f25e1023e"
+    },
+    "ruby_5_v1.png": {
+      "job_id": "b496888f-d4a0-46ac-86da-37949f54fe1c",
+      "image_id": "f7ca6b96-0e92-5039-96b8-0093d52b2ad9",
+      "step": "edit: gold spiked roof glowing crown",
+      "derived_from": "ruby_4_v1.png",
+      "sha256": "2680b9698e35d2a839aa973868ef98058b9c2de0155fb7f55a9853d77e50005d"
+    },
+    "ruby_6_v1.png": {
+      "job_id": "3148dbb0-fd90-4b47-85ba-474711eceece",
+      "image_id": "a565be8a-6fb8-5005-b875-9c4ee00d9b67",
+      "step": "edit: floating gem ring banners",
+      "derived_from": "ruby_5_v1.png",
+      "sha256": "8aa35e9c5f40f36f1ab64eb7ebc204816e225a0873de30dae5b57729ab418694"
+    },
+    "sapphire_1_v1.png": {
+      "job_id": "b799e085-aeaa-46c3-98e4-8067d8f60fe3",
+      "image_id": "882edaad-7d02-58c0-85a0-254180f07de8",
+      "step": "create (template)",
+      "derived_from": null,
+      "sha256": "22a3c30306b96d5c7897b5a4e772e7b6c530053d62863daa32ae56e90367546e"
+    },
+    "sapphire_2_v1.png": {
+      "job_id": "21ab8812-7302-4464-aee2-ecbda2b44f09",
+      "image_id": "d48b3cfa-aaf7-5832-9957-e5e5d38a98e1",
+      "step": "edit: gold band, larger gem",
+      "derived_from": "sapphire_1_v1.png",
+      "sha256": "fdafebb5a2350812fac7a448e201850b485be2397a4c1973bbe900c78d3c8be2"
+    },
+    "sapphire_3_v1.png": {
+      "job_id": "d0809fd7-ecb9-4379-8e55-fef3ceaecf10",
+      "image_id": "f3d672ec-ee38-58ea-891e-a7d4334ca14b",
+      "step": "edit: second storey, side shards",
+      "derived_from": "sapphire_2_v1.png",
+      "sha256": "240cddb48d17c1cbb25652092d68519ecc326776abd540e53ea863cd5f295d19"
+    },
+    "sapphire_4_v1.png": {
+      "job_id": "2c1703e7-1719-4774-870b-894d8a9fd575",
+      "image_id": "64c1fe95-22fc-525f-b74c-ac58fc69989a",
+      "step": "edit: gold pillars, three-crystal crown",
+      "derived_from": "sapphire_3_v1.png",
+      "sha256": "54ad6b0a260674bcf9bd2584d86717594130a5e20e95b1ec2602e70fee2a14fe"
+    },
+    "sapphire_5_v1.png": {
+      "job_id": "750aab93-4d38-4755-9e8e-098223970bb8",
+      "image_id": "00547a3f-0429-5b97-a68d-9c1ee6b31311",
+      "step": "edit: gold spiked roof, glowing crown",
+      "derived_from": "sapphire_4_v1.png",
+      "sha256": "c2f68729fce694c5655aa0af3685840c246ff169d8270c2b518b6acb75604edb"
+    },
+    "sapphire_6_v1.png": {
+      "job_id": "5849caa5-62e5-4429-9f0f-29345ca98c14",
+      "image_id": "f3dc04c0-20d4-5229-adb0-526aa9e7df48",
+      "step": "edit: floating sapphire ring, banners",
+      "derived_from": "sapphire_5_v1.png",
+      "sha256": "75a7ad2d6e91dbf65b84a54761d557a9c86e1804ed939bf65994617539a9b859"
+    },
+    "shenhaizhenzhu_v1.png": {
+      "job_id": "67d5ba16-04f9-4aba-82d6-a46160b438fb",
+      "image_id": "99ec9b89-d1df-51ca-8416-5aed009f9305",
+      "step": "edit: sea stone clam shell pearl diamond opal",
+      "derived_from": "aquamarine_4_v1.png",
+      "sha256": "d86ef242d73ec53b35d7ddacf5d3c7d98bc5f7225cdf33a8e652b0192f098df4"
+    },
+    "shuaibiankaipayou_v1.png": {
+      "job_id": "a75760bb-080c-47c9-a940-e0fd4a77d17d",
+      "image_id": "2be4c701-f189-5842-80d8-730b7af8fbd2",
+      "step": "edit: steel armour third storey uranium core gem rods",
+      "derived_from": "you235_v1.png",
+      "sha256": "c28ef6117c18021b268246ce31144c73f079be47286ad82074972a45370be6f0"
+    },
+    "sililankazhixing_v1.png": {
+      "job_id": "9b09d741-a679-4560-874b-6e40945dd72a",
+      "image_id": "879f482f-323b-5f29-9f49-8415a75f409b",
+      "step": "edit: huge violet star gem carved gold crown",
+      "derived_from": "jingxindiaozhuodepalayibabixi_v1.png",
+      "sha256": "e440e4cf5724f2f589df4cc19ff4f9113920490b1afc7275f8c52752ebe1d7ff"
+    },
+    "silver_v1.png": {
+      "job_id": "4745c45c-d505-47a3-8e62-5641a1d13895",
+      "image_id": "7300853b-e339-5391-839f-07cdc150ca06",
+      "step": "edit: silver plating, topaz and diamond accents",
+      "derived_from": "sapphire_1_v1.png",
+      "sha256": "e17e55dbd741ae90826592949549a171ba1736d37b858b35aef2e95c0633534c"
+    },
+    "tianranzumulv_v1.png": {
+      "job_id": "d76434b2-b0ef-4d44-b390-e7a221c7239e",
+      "image_id": "0560adce-15ca-5592-af5e-2bf0580dbb79",
+      "step": "edit: moss vines raw emerald in shell diamond",
+      "derived_from": "shenhaizhenzhu_v1.png",
+      "sha256": "251134f899612c371955321672b1eba12a5a70300c1fa269a04ca68056f938c7"
+    },
+    "topaz_1_v1.png": {
+      "job_id": "f138fe03-60d9-4ccf-abc6-a01906bd6750",
+      "image_id": "31376426-d559-5d21-b1b8-3808a0876cd5",
+      "step": "edit: swap gem",
+      "derived_from": "sapphire_1_v1.png",
+      "sha256": "88ca1718470fa93e53ce4bc0e34669c2e1de4579bbbeff8873c16cc29bf3018a"
+    },
+    "topaz_2_v1.png": {
+      "job_id": "710b9420-2d58-43eb-894a-d500f1e32358",
+      "image_id": "8c98f538-e879-5de3-a298-5f7d1252822d",
+      "step": "edit: gold band larger gem",
+      "derived_from": "topaz_1_v1.png",
+      "sha256": "1f850ca57dda63b1216189a7e978580b6184520c17fbac694b3f5e6975aa4bb7"
+    },
+    "topaz_3_v1.png": {
+      "job_id": "469b17f7-8d46-4e13-bec5-a74fb32399fe",
+      "image_id": "3e6b0eae-2dcd-58da-9463-421500978ce6",
+      "step": "edit: second storey side shards",
+      "derived_from": "topaz_2_v1.png",
+      "sha256": "310dd203563a62d43b6f16a988cc65088927d2b0db8bf35276223d6f6a592a9e"
+    },
+    "topaz_4_v1.png": {
+      "job_id": "3b95a169-7cf7-4744-b372-00c7af8fead4",
+      "image_id": "c7679643-1be4-5273-a330-9d12990e3a4d",
+      "step": "edit: gold pillars three-gem crown",
+      "derived_from": "topaz_3_v1.png",
+      "sha256": "230295f987c8e4038cbe08ce26510fc31e7112683b5a89db6ff5a9a13cbad2f7"
+    },
+    "topaz_5_v1.png": {
+      "job_id": "46e1a758-c202-4588-8f11-0ea88b5dc4ba",
+      "image_id": "9d2eda4e-d7ec-5463-af09-94ce66c74a94",
+      "step": "edit: gold spiked roof glowing crown",
+      "derived_from": "topaz_4_v1.png",
+      "sha256": "aa33000076a0e1f11d33075df9e1019ce9fe7b7ac7277650b4fa45d06b318d4e"
+    },
+    "topaz_6_v1.png": {
+      "job_id": "1ccb2a00-a113-4f2e-a9f3-8f6fe21c2302",
+      "image_id": "4c31eee4-f1cf-5a01-a3ac-242c481f9216",
+      "step": "edit: floating gem ring banners",
+      "derived_from": "topaz_5_v1.png",
+      "sha256": "55a1a6cca5d5bc941b82c42a296173b7986be176e8323ab0c7a7348293368e52"
+    },
+    "xiameishi_v1.png": {
+      "job_id": "d9fd72c1-4952-4e47-b267-ec6250769478",
+      "image_id": "977df4c6-bcf2-55ae-943b-c6fa82bd254e",
+      "step": "edit: blazing sunstone ruby emerald sapphire",
+      "derived_from": "ruby_5_v1.png",
+      "sha256": "ec393198f2376674c0fbfef76a695c9ef1a3c204d6ff8836e196de1c156fe60e"
+    },
+    "xianyandekongqueshi_v1.png": {
+      "job_id": "dcae1d58-00f1-4b88-9238-76d341b3a06a",
+      "image_id": "e4c25682-e31f-5b4f-91a2-394f7fba58c8",
+      "step": "edit: vivid malachite second storey diamond topaz",
+      "derived_from": "malachite_v1.png",
+      "sha256": "2a749613365bb9c2781092be3ba7f3feb2b9acccb6ac8f70664c668053e47f4c"
+    },
+    "xingguanglanbaoshi_v1.png": {
+      "job_id": "e0f8584b-f890-4dd1-95d3-e56633747a89",
+      "image_id": "d8ef1485-39a3-5fed-be04-ae2e00642fea",
+      "step": "edit: star sapphire opals starry aura",
+      "derived_from": "huangcailanbaoshi_v1.png",
+      "sha256": "983e70d4072076de878b5bf7a48d394468895eca6a5f9899556ba1606faf460c"
+    },
+    "xuehonghuoshan_v1.png": {
+      "job_id": "2b892e82-fdfa-428d-a72c-e1e6becc0ee2",
+      "image_id": "f78968ed-eebc-51d2-905b-59d299cb7916",
+      "step": "edit: volcano storey lava crater",
+      "derived_from": "asteriated_ruby_v1.png",
+      "sha256": "3ff903076355e9bf7529a7c3af5a1765168c11b4ea8f388804c8d6eb6593ba2d"
+    },
+    "yijiazhishi_v1.png": {
+      "job_id": "c2387104-19bd-4868-b385-3a15b529b4b5",
+      "image_id": "4283f899-ee1b-59fe-ab99-2d0f5453269b",
+      "step": "edit: stone armour plates armoured dome opals aquamarines",
+      "derived_from": "hongshanhu_v1.png",
+      "sha256": "9ef699023d1f0e00e6ba62d781999384a3b09ef9907b19ae73a9037cc92c2e38"
+    },
+    "you235_v1.png": {
+      "job_id": "e591d9e3-a55d-4085-9962-4b8f856f25ee",
+      "image_id": "b329ee09-2037-5e26-af0b-ec0baf4ba484",
+      "step": "edit: malachite panels bigger radioactive crystal ring",
+      "derived_from": "you238_v1.png",
+      "sha256": "d1d0211492ab7f297628af66ea70e16bb4ef32486537b75bccb3546ff341eac8"
+    },
+    "you238_v1.png": {
+      "job_id": "fc2b5543-e437-46f8-82ca-0241e53ab4d0",
+      "image_id": "12cd2ae7-3405-564c-b9bf-60725147df16",
+      "step": "edit: lead plating hazard stripes radioactive crystal",
+      "derived_from": "topaz_5_v1.png",
+      "sha256": "139dbbad282fbe8fea9b2304cd189c68eb34e614931721f9cb942fc8183a38b5"
+    }
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "source": "PixelLab create_image_pro_flash",
+  "job_id": "f466aa2c-d3db-4e8e-879c-34b03a726e58",
+  "size": [
+    32,
+    32
+  ],
+  "no_background": true,
+  "style_image": "current topaz tier I idle frame 0, downscaled to fit 32x32 (style only: palette, outline, shading)",
+  "style_options": {
+    "color_palette": true,
+    "outline": true,
+    "detail": false,
+    "shading": true
+  },
+  "design": "Oversized triangular trillion-cut topaz in a three-claw socket (seed 23).",
+  "direction": "B = oversized gem",
+  "estimated_generations": 5,
+  "sha256": "661c7a5302fbb261cc26fc6d0f7615f3c94a2bb5d2a3ed8ffd8b4d867b5e40bf",
+  "status": "pilot proposal, not bound in manifest"
+}

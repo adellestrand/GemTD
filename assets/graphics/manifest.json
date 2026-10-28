@@ -2101,115 +2101,1380 @@
       "effect_color": "#83d46a",
       "frames": 8,
       "idle_fps": 5.25
+    },
+    "trap_haojiaoshiban": {
+      "texture": "res://assets/graphics/pixellab-traps-v1/haojiaoshiban_v2.png",
+      "size": [
+        0.94,
+        0.94
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    "trap_haojiaoshiban_yin": {
+      "texture": "res://assets/graphics/pixellab-traps-v1/haojiaoshiban_yin_v2.png",
+      "size": [
+        0.94,
+        0.94
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    "trap_haojiaoshiban_jin": {
+      "texture": "res://assets/graphics/pixellab-traps-v1/haojiaoshiban_jin_v2.png",
+      "size": [
+        0.94,
+        0.94
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    "trap_hongliushiban": {
+      "texture": "res://assets/graphics/pixellab-traps-v1/hongliushiban_v2.png",
+      "size": [
+        0.94,
+        0.94
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    "trap_hongliushiban_yin": {
+      "texture": "res://assets/graphics/pixellab-traps-v1/hongliushiban_yin_v2.png",
+      "size": [
+        0.94,
+        0.94
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    "trap_hongliushiban_jin": {
+      "texture": "res://assets/graphics/pixellab-traps-v1/hongliushiban_jin_v2.png",
+      "size": [
+        0.94,
+        0.94
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    "trap_kongheshiban": {
+      "texture": "res://assets/graphics/pixellab-traps-v1/kongheshiban_v2.png",
+      "size": [
+        0.94,
+        0.94
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    "trap_kongheshiban_yin": {
+      "texture": "res://assets/graphics/pixellab-traps-v1/kongheshiban_yin_v2.png",
+      "size": [
+        0.94,
+        0.94
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    "trap_kongheshiban_jin": {
+      "texture": "res://assets/graphics/pixellab-traps-v1/kongheshiban_jin_v2.png",
+      "size": [
+        0.94,
+        0.94
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    "trap_mabishiban": {
+      "texture": "res://assets/graphics/pixellab-traps-v1/mabishiban_v2.png",
+      "size": [
+        0.94,
+        0.94
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    "trap_mabishiban_yin": {
+      "texture": "res://assets/graphics/pixellab-traps-v1/mabishiban_yin_v2.png",
+      "size": [
+        0.94,
+        0.94
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    "trap_mabishiban_jin": {
+      "texture": "res://assets/graphics/pixellab-traps-v1/mabishiban_jin_v2.png",
+      "size": [
+        0.94,
+        0.94
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    "trap_suanwushiban": {
+      "texture": "res://assets/graphics/pixellab-traps-v1/suanwushiban_v2.png",
+      "size": [
+        0.94,
+        0.94
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    "trap_suanwushiban_yin": {
+      "texture": "res://assets/graphics/pixellab-traps-v1/suanwushiban_yin_v2.png",
+      "size": [
+        0.94,
+        0.94
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    "trap_suanwushiban_jin": {
+      "texture": "res://assets/graphics/pixellab-traps-v1/suanwushiban_jin_v2.png",
+      "size": [
+        0.94,
+        0.94
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    "trap_xuwushiban": {
+      "texture": "res://assets/graphics/pixellab-traps-v1/xuwushiban_v2.png",
+      "size": [
+        0.94,
+        0.94
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    "trap_xuwushiban_yin": {
+      "texture": "res://assets/graphics/pixellab-traps-v1/xuwushiban_yin_v2.png",
+      "size": [
+        0.94,
+        0.94
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    "trap_xuwushiban_jin": {
+      "texture": "res://assets/graphics/pixellab-traps-v1/xuwushiban_jin_v2.png",
+      "size": [
+        0.94,
+        0.94
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    "trap_youbushiban": {
+      "texture": "res://assets/graphics/pixellab-traps-v1/youbushiban_v2.png",
+      "size": [
+        0.94,
+        0.94
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    "trap_youbushiban_yin": {
+      "texture": "res://assets/graphics/pixellab-traps-v1/youbushiban_yin_v2.png",
+      "size": [
+        0.94,
+        0.94
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    "trap_youbushiban_jin": {
+      "texture": "res://assets/graphics/pixellab-traps-v1/youbushiban_jin_v2.png",
+      "size": [
+        0.94,
+        0.94
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    "trap_zhangqishiban": {
+      "texture": "res://assets/graphics/pixellab-traps-v1/zhangqishiban_v2.png",
+      "size": [
+        0.94,
+        0.94
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    "trap_zhangqishiban_yin": {
+      "texture": "res://assets/graphics/pixellab-traps-v1/zhangqishiban_yin_v2.png",
+      "size": [
+        0.94,
+        0.94
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    "trap_zhangqishiban_jin": {
+      "texture": "res://assets/graphics/pixellab-traps-v1/zhangqishiban_jin_v2.png",
+      "size": [
+        0.94,
+        0.94
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    "towers2_sapphire_1": {
+      "texture": "res://assets/graphics/pixellab-towers-v2/sapphire_1_v1.png",
+      "size": [
+        0.94,
+        0.94
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    "towers2_sapphire_2": {
+      "texture": "res://assets/graphics/pixellab-towers-v2/sapphire_2_v1.png",
+      "size": [
+        0.94,
+        0.94
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    "towers2_sapphire_3": {
+      "texture": "res://assets/graphics/pixellab-towers-v2/sapphire_3_v1.png",
+      "size": [
+        0.94,
+        0.94
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    "towers2_sapphire_4": {
+      "texture": "res://assets/graphics/pixellab-towers-v2/sapphire_4_v1.png",
+      "size": [
+        0.94,
+        0.94
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    "towers2_sapphire_5": {
+      "texture": "res://assets/graphics/pixellab-towers-v2/sapphire_5_v1.png",
+      "size": [
+        0.94,
+        0.94
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    "towers2_sapphire_6": {
+      "texture": "res://assets/graphics/pixellab-towers-v2/sapphire_6_v1.png",
+      "size": [
+        0.94,
+        0.94
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    "towers2_diamond_1": {
+      "texture": "res://assets/graphics/pixellab-towers-v2/diamond_1_v1.png",
+      "size": [
+        0.94,
+        0.94
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    "towers2_diamond_2": {
+      "texture": "res://assets/graphics/pixellab-towers-v2/diamond_2_v1.png",
+      "size": [
+        0.94,
+        0.94
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    "towers2_diamond_3": {
+      "texture": "res://assets/graphics/pixellab-towers-v2/diamond_3_v1.png",
+      "size": [
+        0.94,
+        0.94
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    "towers2_diamond_4": {
+      "texture": "res://assets/graphics/pixellab-towers-v2/diamond_4_v1.png",
+      "size": [
+        0.94,
+        0.94
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    "towers2_diamond_5": {
+      "texture": "res://assets/graphics/pixellab-towers-v2/diamond_5_v1.png",
+      "size": [
+        0.94,
+        0.94
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    "towers2_diamond_6": {
+      "texture": "res://assets/graphics/pixellab-towers-v2/diamond_6_v1.png",
+      "size": [
+        0.94,
+        0.94
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    "towers2_aquamarine_1": {
+      "texture": "res://assets/graphics/pixellab-towers-v2/aquamarine_1_v1.png",
+      "size": [
+        0.94,
+        0.94
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    "towers2_aquamarine_2": {
+      "texture": "res://assets/graphics/pixellab-towers-v2/aquamarine_2_v1.png",
+      "size": [
+        0.94,
+        0.94
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    "towers2_aquamarine_3": {
+      "texture": "res://assets/graphics/pixellab-towers-v2/aquamarine_3_v1.png",
+      "size": [
+        0.94,
+        0.94
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    "towers2_aquamarine_4": {
+      "texture": "res://assets/graphics/pixellab-towers-v2/aquamarine_4_v1.png",
+      "size": [
+        0.94,
+        0.94
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    "towers2_aquamarine_5": {
+      "texture": "res://assets/graphics/pixellab-towers-v2/aquamarine_5_v1.png",
+      "size": [
+        0.94,
+        0.94
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    "towers2_aquamarine_6": {
+      "texture": "res://assets/graphics/pixellab-towers-v2/aquamarine_6_v1.png",
+      "size": [
+        0.94,
+        0.94
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    "towers2_opal_1": {
+      "texture": "res://assets/graphics/pixellab-towers-v2/opal_1_v1.png",
+      "size": [
+        0.94,
+        0.94
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    "towers2_opal_2": {
+      "texture": "res://assets/graphics/pixellab-towers-v2/opal_2_v1.png",
+      "size": [
+        0.94,
+        0.94
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    "towers2_opal_3": {
+      "texture": "res://assets/graphics/pixellab-towers-v2/opal_3_v1.png",
+      "size": [
+        0.94,
+        0.94
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    "towers2_opal_4": {
+      "texture": "res://assets/graphics/pixellab-towers-v2/opal_4_v1.png",
+      "size": [
+        0.94,
+        0.94
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    "towers2_opal_5": {
+      "texture": "res://assets/graphics/pixellab-towers-v2/opal_5_v1.png",
+      "size": [
+        0.94,
+        0.94
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    "towers2_opal_6": {
+      "texture": "res://assets/graphics/pixellab-towers-v2/opal_6_v1.png",
+      "size": [
+        0.94,
+        0.94
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    "towers2_emerald_1": {
+      "texture": "res://assets/graphics/pixellab-towers-v2/emerald_1_v1.png",
+      "size": [
+        0.94,
+        0.94
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    "towers2_emerald_2": {
+      "texture": "res://assets/graphics/pixellab-towers-v2/emerald_2_v1.png",
+      "size": [
+        0.94,
+        0.94
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    "towers2_emerald_3": {
+      "texture": "res://assets/graphics/pixellab-towers-v2/emerald_3_v1.png",
+      "size": [
+        0.94,
+        0.94
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    "towers2_emerald_4": {
+      "texture": "res://assets/graphics/pixellab-towers-v2/emerald_4_v1.png",
+      "size": [
+        0.94,
+        0.94
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    "towers2_emerald_5": {
+      "texture": "res://assets/graphics/pixellab-towers-v2/emerald_5_v1.png",
+      "size": [
+        0.94,
+        0.94
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    "towers2_emerald_6": {
+      "texture": "res://assets/graphics/pixellab-towers-v2/emerald_6_v1.png",
+      "size": [
+        0.94,
+        0.94
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    "towers2_topaz_1": {
+      "texture": "res://assets/graphics/pixellab-towers-v2/topaz_1_v1.png",
+      "size": [
+        0.94,
+        0.94
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    "towers2_topaz_2": {
+      "texture": "res://assets/graphics/pixellab-towers-v2/topaz_2_v1.png",
+      "size": [
+        0.94,
+        0.94
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    "towers2_topaz_3": {
+      "texture": "res://assets/graphics/pixellab-towers-v2/topaz_3_v1.png",
+      "size": [
+        0.94,
+        0.94
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    "towers2_topaz_4": {
+      "texture": "res://assets/graphics/pixellab-towers-v2/topaz_4_v1.png",
+      "size": [
+        0.94,
+        0.94
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    "towers2_topaz_5": {
+      "texture": "res://assets/graphics/pixellab-towers-v2/topaz_5_v1.png",
+      "size": [
+        0.94,
+        0.94
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    "towers2_topaz_6": {
+      "texture": "res://assets/graphics/pixellab-towers-v2/topaz_6_v1.png",
+      "size": [
+        0.94,
+        0.94
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    "towers2_ruby_1": {
+      "texture": "res://assets/graphics/pixellab-towers-v2/ruby_1_v1.png",
+      "size": [
+        0.94,
+        0.94
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    "towers2_ruby_2": {
+      "texture": "res://assets/graphics/pixellab-towers-v2/ruby_2_v1.png",
+      "size": [
+        0.94,
+        0.94
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    "towers2_ruby_3": {
+      "texture": "res://assets/graphics/pixellab-towers-v2/ruby_3_v1.png",
+      "size": [
+        0.94,
+        0.94
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    "towers2_ruby_4": {
+      "texture": "res://assets/graphics/pixellab-towers-v2/ruby_4_v1.png",
+      "size": [
+        0.94,
+        0.94
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    "towers2_ruby_5": {
+      "texture": "res://assets/graphics/pixellab-towers-v2/ruby_5_v1.png",
+      "size": [
+        0.94,
+        0.94
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    "towers2_ruby_6": {
+      "texture": "res://assets/graphics/pixellab-towers-v2/ruby_6_v1.png",
+      "size": [
+        0.94,
+        0.94
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    "towers2_amethyst_1": {
+      "texture": "res://assets/graphics/pixellab-towers-v2/amethyst_1_v1.png",
+      "size": [
+        0.94,
+        0.94
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    "towers2_amethyst_2": {
+      "texture": "res://assets/graphics/pixellab-towers-v2/amethyst_2_v1.png",
+      "size": [
+        0.94,
+        0.94
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    "towers2_amethyst_3": {
+      "texture": "res://assets/graphics/pixellab-towers-v2/amethyst_3_v1.png",
+      "size": [
+        0.94,
+        0.94
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    "towers2_amethyst_4": {
+      "texture": "res://assets/graphics/pixellab-towers-v2/amethyst_4_v1.png",
+      "size": [
+        0.94,
+        0.94
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    "towers2_amethyst_5": {
+      "texture": "res://assets/graphics/pixellab-towers-v2/amethyst_5_v1.png",
+      "size": [
+        0.94,
+        0.94
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    "towers2_amethyst_6": {
+      "texture": "res://assets/graphics/pixellab-towers-v2/amethyst_6_v1.png",
+      "size": [
+        0.94,
+        0.94
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    "towers2_aijijin": {
+      "texture": "res://assets/graphics/pixellab-towers-v2/aijijin_v1.png",
+      "size": [
+        0.94,
+        0.94
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    "towers2_silver": {
+      "texture": "res://assets/graphics/pixellab-towers-v2/silver_v1.png",
+      "size": [
+        0.94,
+        0.94
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    "towers2_baiyinqishi": {
+      "texture": "res://assets/graphics/pixellab-towers-v2/baiyinqishi_v1.png",
+      "size": [
+        0.94,
+        0.94
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    "towers2_feicuimoxiang": {
+      "texture": "res://assets/graphics/pixellab-towers-v2/feicuimoxiang_v1.png",
+      "size": [
+        0.94,
+        0.94
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    "towers2_fenhongzuanshi": {
+      "texture": "res://assets/graphics/pixellab-towers-v2/fenhongzuanshi_v1.png",
+      "size": [
+        0.94,
+        0.94
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    "towers2_furongshi": {
+      "texture": "res://assets/graphics/pixellab-towers-v2/furongshi_v1.png",
+      "size": [
+        0.94,
+        0.94
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    "towers2_geluanshi": {
+      "texture": "res://assets/graphics/pixellab-towers-v2/geluanshi_v1.png",
+      "size": [
+        0.94,
+        0.94
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    "towers2_gudaidejixueshi": {
+      "texture": "res://assets/graphics/pixellab-towers-v2/gudaidejixueshi_v1.png",
+      "size": [
+        0.94,
+        0.94
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    "towers2_haibao": {
+      "texture": "res://assets/graphics/pixellab-towers-v2/haibao_v1.png",
+      "size": [
+        0.94,
+        0.94
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    "towers2_haiyangqingyu": {
+      "texture": "res://assets/graphics/pixellab-towers-v2/haiyangqingyu_v1.png",
+      "size": [
+        0.94,
+        0.94
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    "towers2_heianfeicui": {
+      "texture": "res://assets/graphics/pixellab-towers-v2/heianfeicui_v1.png",
+      "size": [
+        0.94,
+        0.94
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    "towers2_heisemaoyanshi": {
+      "texture": "res://assets/graphics/pixellab-towers-v2/heisemaoyanshi_v1.png",
+      "size": [
+        0.94,
+        0.94
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    "towers2_heiwangzihuangguanhongbaoshi": {
+      "texture": "res://assets/graphics/pixellab-towers-v2/heiwangzihuangguanhongbaoshi_v1.png",
+      "size": [
+        0.94,
+        0.94
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    "towers2_heiyaoshi": {
+      "texture": "res://assets/graphics/pixellab-towers-v2/heiyaoshi_v1.png",
+      "size": [
+        0.94,
+        0.94
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    "towers2_hongshanhu": {
+      "texture": "res://assets/graphics/pixellab-towers-v2/hongshanhu_v1.png",
+      "size": [
+        0.94,
+        0.94
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    "towers2_huaguoshanxiandan": {
+      "texture": "res://assets/graphics/pixellab-towers-v2/huaguoshanxiandan_v1.png",
+      "size": [
+        0.94,
+        0.94
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    "towers2_huangcailanbaoshi": {
+      "texture": "res://assets/graphics/pixellab-towers-v2/huangcailanbaoshi_v1.png",
+      "size": [
+        0.94,
+        0.94
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    "towers2_huguoshenyishi": {
+      "texture": "res://assets/graphics/pixellab-towers-v2/huguoshenyishi_v1.png",
+      "size": [
+        0.94,
+        0.94
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    "towers2_jin": {
+      "texture": "res://assets/graphics/pixellab-towers-v2/jin_v1.png",
+      "size": [
+        0.94,
+        0.94
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    "towers2_jingangshikulinan": {
+      "texture": "res://assets/graphics/pixellab-towers-v2/jingangshikulinan_v1.png",
+      "size": [
+        0.94,
+        0.94
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    "towers2_jingxindiaozhuodepalayibabixi": {
+      "texture": "res://assets/graphics/pixellab-towers-v2/jingxindiaozhuodepalayibabixi_v1.png",
+      "size": [
+        0.94,
+        0.94
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    "towers2_jixiangdezhongguoyu": {
+      "texture": "res://assets/graphics/pixellab-towers-v2/jixiangdezhongguoyu_v1.png",
+      "size": [
+        0.94,
+        0.94
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    "towers2_jixueshi": {
+      "texture": "res://assets/graphics/pixellab-towers-v2/jixueshi_v1.png",
+      "size": [
+        0.94,
+        0.94
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    "towers2_juxingfenhongzuanshi": {
+      "texture": "res://assets/graphics/pixellab-towers-v2/juxingfenhongzuanshi_v1.png",
+      "size": [
+        0.94,
+        0.94
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    "towers2_keyinuoerguangmingzhishan": {
+      "texture": "res://assets/graphics/pixellab-towers-v2/keyinuoerguangmingzhishan_v1.png",
+      "size": [
+        0.94,
+        0.94
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    "towers2_malachite": {
+      "texture": "res://assets/graphics/pixellab-towers-v2/malachite_v1.png",
+      "size": [
+        0.94,
+        0.94
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    "towers2_manao": {
+      "texture": "res://assets/graphics/pixellab-towers-v2/manao_v1.png",
+      "size": [
+        0.94,
+        0.94
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    "towers2_mirendeqingjinshi": {
+      "texture": "res://assets/graphics/pixellab-towers-v2/mirendeqingjinshi_v1.png",
+      "size": [
+        0.94,
+        0.94
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    "towers2_palayibabixi": {
+      "texture": "res://assets/graphics/pixellab-towers-v2/palayibabixi_v1.png",
+      "size": [
+        0.94,
+        0.94
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    "towers2_ranshaozhishi": {
+      "texture": "res://assets/graphics/pixellab-towers-v2/ranshaozhishi_v1.png",
+      "size": [
+        0.94,
+        0.94
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    "towers2_shenhaizhenzhu": {
+      "texture": "res://assets/graphics/pixellab-towers-v2/shenhaizhenzhu_v1.png",
+      "size": [
+        0.94,
+        0.94
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    "towers2_shuaibiankaipayou": {
+      "texture": "res://assets/graphics/pixellab-towers-v2/shuaibiankaipayou_v1.png",
+      "size": [
+        0.94,
+        0.94
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    "towers2_sililankazhixing": {
+      "texture": "res://assets/graphics/pixellab-towers-v2/sililankazhixing_v1.png",
+      "size": [
+        0.94,
+        0.94
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    "towers2_tianranzumulv": {
+      "texture": "res://assets/graphics/pixellab-towers-v2/tianranzumulv_v1.png",
+      "size": [
+        0.94,
+        0.94
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    "towers2_xiameishi": {
+      "texture": "res://assets/graphics/pixellab-towers-v2/xiameishi_v1.png",
+      "size": [
+        0.94,
+        0.94
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    "towers2_xianyandekongqueshi": {
+      "texture": "res://assets/graphics/pixellab-towers-v2/xianyandekongqueshi_v1.png",
+      "size": [
+        0.94,
+        0.94
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    "towers2_asteriated_ruby": {
+      "texture": "res://assets/graphics/pixellab-towers-v2/asteriated_ruby_v1.png",
+      "size": [
+        0.94,
+        0.94
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    "towers2_xingguanglanbaoshi": {
+      "texture": "res://assets/graphics/pixellab-towers-v2/xingguanglanbaoshi_v1.png",
+      "size": [
+        0.94,
+        0.94
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    "towers2_xuehonghuoshan": {
+      "texture": "res://assets/graphics/pixellab-towers-v2/xuehonghuoshan_v1.png",
+      "size": [
+        0.94,
+        0.94
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    "towers2_yijiazhishi": {
+      "texture": "res://assets/graphics/pixellab-towers-v2/yijiazhishi_v1.png",
+      "size": [
+        0.94,
+        0.94
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    "towers2_you235": {
+      "texture": "res://assets/graphics/pixellab-towers-v2/you235_v1.png",
+      "size": [
+        0.94,
+        0.94
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    "towers2_you238": {
+      "texture": "res://assets/graphics/pixellab-towers-v2/you238_v1.png",
+      "size": [
+        0.94,
+        0.94
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    "towers2_jade": {
+      "texture": "res://assets/graphics/pixellab-towers-v2/jade_v1.png",
+      "size": [
+        0.94,
+        0.94
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ]
     }
   },
   "bindings": {
     "gems": {
       "sapphire": {
-        "default": "sapphire",
-        "2": "sapphire_2_v2",
-        "3": "sapphire_3_v2",
-        "4": "sapphire_3_v2",
-        "5": "sapphire_3_v2",
-        "6": "sapphire_3_v2"
+        "default": "towers2_sapphire_1",
+        "2": "towers2_sapphire_2",
+        "3": "towers2_sapphire_3",
+        "4": "towers2_sapphire_4",
+        "5": "towers2_sapphire_5",
+        "6": "towers2_sapphire_6"
       },
       "diamond": {
-        "default": "diamond",
-        "2": "diamond_2_v2",
-        "3": "diamond_3_v2",
-        "4": "diamond_3_v2",
-        "5": "diamond_3_v2",
-        "6": "diamond_3_v2"
+        "default": "towers2_diamond_1",
+        "2": "towers2_diamond_2",
+        "3": "towers2_diamond_3",
+        "4": "towers2_diamond_4",
+        "5": "towers2_diamond_5",
+        "6": "towers2_diamond_6"
       },
       "aquamarine": {
-        "default": "aquamarine",
-        "2": "aquamarine_2_v2",
-        "3": "aquamarine_3_v2",
-        "4": "aquamarine_3_v2",
-        "5": "aquamarine_3_v2",
-        "6": "aquamarine_3_v2"
+        "default": "towers2_aquamarine_1",
+        "2": "towers2_aquamarine_2",
+        "3": "towers2_aquamarine_3",
+        "4": "towers2_aquamarine_4",
+        "5": "towers2_aquamarine_5",
+        "6": "towers2_aquamarine_6"
       },
       "opal": {
-        "default": "opal",
-        "2": "opal_2_v2",
-        "3": "opal_3_v2",
-        "4": "opal_3_v2",
-        "5": "opal_3_v2",
-        "6": "opal_3_v2"
+        "default": "towers2_opal_1",
+        "2": "towers2_opal_2",
+        "3": "towers2_opal_3",
+        "4": "towers2_opal_4",
+        "5": "towers2_opal_5",
+        "6": "towers2_opal_6"
       },
       "emerald": {
-        "default": "emerald",
-        "2": "emerald_2_v2",
-        "3": "emerald_3_v2",
-        "4": "emerald_3_v2",
-        "5": "emerald_3_v2",
-        "6": "emerald_3_v2"
+        "default": "towers2_emerald_1",
+        "2": "towers2_emerald_2",
+        "3": "towers2_emerald_3",
+        "4": "towers2_emerald_4",
+        "5": "towers2_emerald_5",
+        "6": "towers2_emerald_6"
       },
       "topaz": {
-        "default": "topaz",
-        "2": "topaz_2_v2",
-        "3": "topaz_3_v2",
-        "4": "topaz_3_v2",
-        "5": "topaz_3_v2",
-        "6": "topaz_3_v2"
+        "default": "towers2_topaz_1",
+        "2": "towers2_topaz_2",
+        "3": "towers2_topaz_3",
+        "4": "towers2_topaz_4",
+        "5": "towers2_topaz_5",
+        "6": "towers2_topaz_6"
       },
       "ruby": {
-        "default": "ruby",
-        "2": "ruby_2_v2",
-        "3": "ruby_3_v2",
-        "4": "ruby_3_v2",
-        "5": "ruby_3_v2",
-        "6": "ruby_3_v2"
+        "default": "towers2_ruby_1",
+        "2": "towers2_ruby_2",
+        "3": "towers2_ruby_3",
+        "4": "towers2_ruby_4",
+        "5": "towers2_ruby_5",
+        "6": "towers2_ruby_6"
       },
       "amethyst": {
-        "default": "amethyst",
-        "2": "amethyst_2_v2",
-        "3": "amethyst_3_v2",
-        "4": "amethyst_3_v2",
-        "5": "amethyst_3_v2",
-        "6": "amethyst_3_v2"
+        "default": "towers2_amethyst_1",
+        "2": "towers2_amethyst_2",
+        "3": "towers2_amethyst_3",
+        "4": "towers2_amethyst_4",
+        "5": "towers2_amethyst_5",
+        "6": "towers2_amethyst_6"
       },
       "silver": {
-        "default": "special_v1_silver"
+        "default": "towers2_silver"
       },
       "malachite": {
-        "default": "special_v1_malachite"
+        "default": "towers2_malachite"
       },
       "asteriated_ruby": {
-        "default": "special_v1_asteriated_ruby"
+        "default": "towers2_asteriated_ruby"
       },
       "stone": {
         "default": "stone"
       },
       "jade": {
-        "default": "special_v1_jade"
+        "default": "towers2_jade"
       },
       "aijijin": {
-        "default": "special_v1_aijijin"
+        "default": "towers2_aijijin"
       },
       "baiyinqishi": {
-        "default": "special_v1_baiyinqishi"
+        "default": "towers2_baiyinqishi"
       },
       "feicuimoxiang": {
-        "default": "special_v1_feicuimoxiang"
+        "default": "towers2_feicuimoxiang"
       },
       "fenhongzuanshi": {
-        "default": "special_v1_fenhongzuanshi"
+        "default": "towers2_fenhongzuanshi"
       },
       "furongshi": {
-        "default": "special_v1_furongshi"
+        "default": "towers2_furongshi"
       },
       "geluanshi": {
-        "default": "special_v1_geluanshi"
+        "default": "towers2_geluanshi"
       },
       "gudaidejixueshi": {
-        "default": "special_v1_gudaidejixueshi"
+        "default": "towers2_gudaidejixueshi"
       },
       "haibao": {
-        "default": "special_v1_haibao"
+        "default": "towers2_haibao"
       },
       "haiyangqingyu": {
-        "default": "special_v1_haiyangqingyu"
+        "default": "towers2_haiyangqingyu"
       },
       "haojiaoshiban": {
         "default": "stone"
@@ -2221,16 +3486,16 @@
         "default": "stone"
       },
       "heianfeicui": {
-        "default": "special_v1_heianfeicui"
+        "default": "towers2_heianfeicui"
       },
       "heisemaoyanshi": {
-        "default": "special_v1_heisemaoyanshi"
+        "default": "towers2_heisemaoyanshi"
       },
       "heiwangzihuangguanhongbaoshi": {
-        "default": "special_v1_heiwangzihuangguanhongbaoshi"
+        "default": "towers2_heiwangzihuangguanhongbaoshi"
       },
       "heiyaoshi": {
-        "default": "special_v1_heiyaoshi"
+        "default": "towers2_heiyaoshi"
       },
       "hongliushiban": {
         "default": "stone"
@@ -2242,37 +3507,37 @@
         "default": "stone"
       },
       "hongshanhu": {
-        "default": "special_v1_hongshanhu"
+        "default": "towers2_hongshanhu"
       },
       "huaguoshanxiandan": {
-        "default": "special_v1_huaguoshanxiandan"
+        "default": "towers2_huaguoshanxiandan"
       },
       "huangcailanbaoshi": {
-        "default": "special_v1_huangcailanbaoshi"
+        "default": "towers2_huangcailanbaoshi"
       },
       "huguoshenyishi": {
-        "default": "special_v1_huguoshenyishi"
+        "default": "towers2_huguoshenyishi"
       },
       "jin": {
-        "default": "special_v1_jin"
+        "default": "towers2_jin"
       },
       "jingangshikulinan": {
-        "default": "special_v1_jingangshikulinan"
+        "default": "towers2_jingangshikulinan"
       },
       "jingxindiaozhuodepalayibabixi": {
-        "default": "special_v1_jingxindiaozhuodepalayibabixi"
+        "default": "towers2_jingxindiaozhuodepalayibabixi"
       },
       "jixiangdezhongguoyu": {
-        "default": "special_v1_jixiangdezhongguoyu"
+        "default": "towers2_jixiangdezhongguoyu"
       },
       "jixueshi": {
-        "default": "special_v1_jixueshi"
+        "default": "towers2_jixueshi"
       },
       "juxingfenhongzuanshi": {
-        "default": "special_v1_juxingfenhongzuanshi"
+        "default": "towers2_juxingfenhongzuanshi"
       },
       "keyinuoerguangmingzhishan": {
-        "default": "special_v1_keyinuoerguangmingzhishan"
+        "default": "towers2_keyinuoerguangmingzhishan"
       },
       "kongheshiban": {
         "default": "stone"
@@ -2293,25 +3558,25 @@
         "default": "stone"
       },
       "manao": {
-        "default": "special_v1_manao"
+        "default": "towers2_manao"
       },
       "mirendeqingjinshi": {
-        "default": "special_v1_mirendeqingjinshi"
+        "default": "towers2_mirendeqingjinshi"
       },
       "palayibabixi": {
-        "default": "special_v1_palayibabixi"
+        "default": "towers2_palayibabixi"
       },
       "ranshaozhishi": {
-        "default": "special_v1_ranshaozhishi"
+        "default": "towers2_ranshaozhishi"
       },
       "shenhaizhenzhu": {
-        "default": "special_v1_shenhaizhenzhu"
+        "default": "towers2_shenhaizhenzhu"
       },
       "shuaibiankaipayou": {
-        "default": "special_v1_shuaibiankaipayou"
+        "default": "towers2_shuaibiankaipayou"
       },
       "sililankazhixing": {
-        "default": "special_v1_sililankazhixing"
+        "default": "towers2_sililankazhixing"
       },
       "suanwushiban": {
         "default": "stone"
@@ -2323,19 +3588,19 @@
         "default": "stone"
       },
       "tianranzumulv": {
-        "default": "special_v1_tianranzumulv"
+        "default": "towers2_tianranzumulv"
       },
       "xiameishi": {
-        "default": "special_v1_xiameishi"
+        "default": "towers2_xiameishi"
       },
       "xianyandekongqueshi": {
-        "default": "special_v1_xianyandekongqueshi"
+        "default": "towers2_xianyandekongqueshi"
       },
       "xingguanglanbaoshi": {
-        "default": "special_v1_xingguanglanbaoshi"
+        "default": "towers2_xingguanglanbaoshi"
       },
       "xuehonghuoshan": {
-        "default": "special_v1_xuehonghuoshan"
+        "default": "towers2_xuehonghuoshan"
       },
       "xuwushiban": {
         "default": "stone"
@@ -2347,13 +3612,13 @@
         "default": "stone"
       },
       "yijiazhishi": {
-        "default": "special_v1_yijiazhishi"
+        "default": "towers2_yijiazhishi"
       },
       "you235": {
-        "default": "special_v1_you235"
+        "default": "towers2_you235"
       },
       "you238": {
-        "default": "special_v1_you238"
+        "default": "towers2_you238"
       },
       "youbushiban": {
         "default": "stone"
@@ -2450,6 +3715,32 @@
       "gemtd_gugubiao_boss_fly": "ghost",
       "gemtd_roushan_boss_fly_jin": "baby_roshan",
       "gemtd_roushan_boss_fly_bojin": "baby_roshan"
+    },
+    "traps": {
+      "haojiaoshiban": "trap_haojiaoshiban",
+      "haojiaoshiban_yin": "trap_haojiaoshiban_yin",
+      "haojiaoshiban_jin": "trap_haojiaoshiban_jin",
+      "hongliushiban": "trap_hongliushiban",
+      "hongliushiban_yin": "trap_hongliushiban_yin",
+      "hongliushiban_jin": "trap_hongliushiban_jin",
+      "kongheshiban": "trap_kongheshiban",
+      "kongheshiban_yin": "trap_kongheshiban_yin",
+      "kongheshiban_jin": "trap_kongheshiban_jin",
+      "mabishiban": "trap_mabishiban",
+      "mabishiban_yin": "trap_mabishiban_yin",
+      "mabishiban_jin": "trap_mabishiban_jin",
+      "suanwushiban": "trap_suanwushiban",
+      "suanwushiban_yin": "trap_suanwushiban_yin",
+      "suanwushiban_jin": "trap_suanwushiban_jin",
+      "xuwushiban": "trap_xuwushiban",
+      "xuwushiban_yin": "trap_xuwushiban_yin",
+      "xuwushiban_jin": "trap_xuwushiban_jin",
+      "youbushiban": "trap_youbushiban",
+      "youbushiban_yin": "trap_youbushiban_yin",
+      "youbushiban_jin": "trap_youbushiban_jin",
+      "zhangqishiban": "trap_zhangqishiban",
+      "zhangqishiban_yin": "trap_zhangqishiban_yin",
+      "zhangqishiban_jin": "trap_zhangqishiban_jin"
     }
   },
   "palette": {

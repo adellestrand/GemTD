@@ -1,0 +1,21 @@
+{
+  "source": "PixelLab create_image_pro_flash",
+  "job_id": "37eff979-137e-40d1-b339-5d7f5d6c68f5",
+  "size": [
+    32,
+    32
+  ],
+  "no_background": true,
+  "style_image": "current topaz tier I idle frame 0, downscaled to fit 32x32 (style only: palette, outline, shading)",
+  "style_options": {
+    "color_palette": true,
+    "outline": true,
+    "detail": false,
+    "shading": true
+  },
+  "design": "Three golden cannon spouts fanned like a trident around a topaz (seed 11).",
+  "direction": "A = distinct silhouette",
+  "estimated_generations": 5,
+  "sha256": "934b515bb9bcd2c1a4c8b947c6553edc92db23903e97cd9b67dfb807bc73c395",
+  "status": "pilot proposal, not bound in manifest"
+}

@@ -138,6 +138,10 @@ auraskadetick, gift, kedjehopp, splash, kritiska träffar och stödbonusar.
 Grafikverkstadens nya **Abilities**-flik visar samtliga 43 torn i isolerade
 förmågedemonstrationer.
 
+[PixelLab – torn v2](pixellab-towers-v2.md): 91 tornbilder (grundtyper I–VI och alla kombinationstorn) med gemensam grunddesign, kopplade via `bindings.gems`.
+
+[PixelLab – fällor v1](pixellab-traps-v1.md): 24 fällbilder via `bindings.traps`; den ritade rutan är reserv.
+
 [PixelLab – förmågeeffekter v1](pixellab-vfx-v1.md): 19 animerade status- och träffklipp ersätter de procedurella förmågelinjerna; fliken **Status effects** visar staplade effekter.
 
 Senaste grafikpasset: [43 egna kombinationstorn](special-towers-art-v1.md), med

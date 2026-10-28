@@ -86,6 +86,10 @@ func save_session() -> void:
 
 func _request(path: String, payload: Dictionary, token: String = "") -> Dictionary:
 	var http = HTTPRequest.new()
+	# Browser Fetch already decodes Content-Encoding, but keeps the header.
+	# A second Godot decompression fails once the scoreboard is large enough
+	# for Supabase to compress it. Native HTTP still needs Godot decompression.
+	http.accept_gzip = not OS.has_feature("web")
 	http.timeout = 15
 	add_child(http)
 	var headers = PackedStringArray(["Content-Type: application/json","apikey: "+str(config.publishable_key)])

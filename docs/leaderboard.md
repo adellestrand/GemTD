@@ -100,6 +100,22 @@ sidans `build.json` bekräftar samma commit och innehållshash `84986c6e…`.
 **Run → Leaderboard** laddar från Supabase även på den publika Pages-adressen;
 slutkontroll i Chrome 1360 × 900 gav 0 konsolfel och 0 varningar.
 
+## Komprimerade webbsvar 2026-10-28
+
+Topplistan fungerade när den var tom, men kunde visa "Cannot reach the leaderboard"
+när den innehöll resultat. Supabase svarade HTTP 200, medan Godot rapporterade fel
+från `stream_peer_gzip`: webbläsarens Fetch hade redan packat upp svaret, och
+HTTPRequest försökte göra det igen utifrån kvarvarande Content-Encoding-header.
+Klienten stänger nu av Godots uppackning på webbplattformen. Windows behåller
+Godots vanliga gzip-hantering. Spelaridentiteter, resultat och databasregler ändras inte.
+
+Ett riktigt HTTP-test med 20 rader och Unicode provar både gzip och vanlig JSON i
+Windows-motorn: `python tools/check_leaderboard_transport.py`, även inkluderat i
+`tools/check.py`. Webbexporten har separat provats i Chrome mot den befintliga,
+ifyllda Supabase-listan: före fixen uppstod gzip-fel; med fixen visas resultaten
+utan konsolfel eller varningar. Tom lista räcker inte som webbtest för detta fel.
+Se [Godots HTTPRequest-dokumentation](https://docs.godotengine.org/en/stable/classes/class_httprequest.html#class-httprequest-property-accept-gzip).
+
 Källor: [anonyma identiteter](https://supabase.com/docs/guides/auth/auth-anonymous),
 [Edge-autentisering](https://supabase.com/docs/guides/functions/auth),
 [serverhemligheter](https://supabase.com/docs/guides/functions/secrets),

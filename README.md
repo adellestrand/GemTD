@@ -4,7 +4,7 @@ Fristående solospel inspirerat av Dota 2 GemTD. Bygg en labyrint, placera fem
 slumpade gems och välj torn att behålla och kombinera. Godot 4.7.2, GDScript
 och pixelgrafik; samma projekt för Windows och webb.
 
-**Aktuell utvecklingsversion: 1.4.1-dev · innehållsversion 11.** Kampanjen är
+**Aktuell utvecklingsversion: 1.4.1-dev · innehållsversion 12.** Kampanjen är
 spelbar och automatiskt verifierad. Mänskliga kampanjtester och slutbalansering
 återstår; full likhet med Dotas motor är inte uppmätt.
 
@@ -124,7 +124,7 @@ separat. [Skadevisning och MVP-markeringar](docs/quality-pass-stats-mvp.md).
 
 Sparning sker i början av byggfasen och mellan prövningsvågorna. Omladdning
 återgår till senaste sparpunkten, inte till en pågående strid. Kampanjen använder
-`run_campaign_v11.json`; äldre innehållsversioner migreras inte. Webben sparar per
+`run_campaign_v12.json`; äldre innehållsversioner migreras inte. Webben sparar per
 origin i IndexedDB. Windows använder Godots `user://` under AppData;
 utvecklingsskripten isolerar sina sparfiler i `.tools/userdata/`.
 

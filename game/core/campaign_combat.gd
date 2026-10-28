@@ -10,6 +10,8 @@ var statuses: Dictionary = {}
 var aura_clocks: Dictionary = {}
 var delayed: Array[Dictionary] = []
 var fields: Array[Dictionary] = []
+# Moving linear trap projectiles (Venom); each hits an enemy at most once.
+var sweeps: Array[Dictionary] = []
 var attacker = Vector2i(-1,-1)
 var serial = 0
 var wave_damage: Dictionary = {}
@@ -36,6 +38,7 @@ func start() -> void:
 	aura_clocks.clear()
 	delayed.clear()
 	fields.clear()
+	sweeps.clear()
 	wave_damage.clear()
 	last_mvp = ""
 	berserk = false
@@ -170,6 +173,7 @@ func tick(dt: float) -> void:
 			audit_history[run.wave] = audit.snapshot()
 			stepping = false
 			return
+	advance_sweeps(dt)
 	aura_revision += 1
 	audit.observe(self,dt)
 	advance_projectiles(dt)
@@ -498,27 +502,40 @@ func execute_delayed(event: Dictionary) -> void:
 		if applied.get("mode","") == "torrent" and applied.has("damage"):
 			applied = applied.duplicate()
 			applied.erase("damage")
-		for e in area(event.pos,float(event.effect.radius)):
+		# A tracked projectile (Dread) lands where its target is now.
+		if event.has("target") and not alive(event.target): return
+		var center: Vector2 = event.target.pos if event.has("target") else event.pos
+		for e in area(center,float(event.effect.radius)):
 			if not e.magic_immune or event.effect.get("magic_targets",false):
 				add_modifier(e,applied,event.source)
 				if event.effect.has("stun"): add_modifier(e,{"id":event.effect.id+"_stun","duration":event.effect.stun,"properties":{"stunned":true}},event.source)
 				if event.effect.get("mode","") == "torrent" and event.effect.has("damage"): deal_visual(e,float(event.effect.damage),event.effect.damage_type,"impact",event.effect)
 		return
+	if event.type == "slab_cast":
+		cast_slab(event)
+		return
+	if event.type == "unit_stun":
+		if alive(event.target): add_modifier(event.target,{"id":event.effect.id,"duration":event.effect.duration,"properties":{"stunned":true}},event.source)
+		return
 	if event.type != "chain": return
 	var target: Dictionary = event.target
 	var effect: Dictionary = event.effect
+	# chain.lua's ShanDian requires the previous unit alive; a kill ends the chain.
+	if effect.type == "chain" and event.has("previous") and not alive(event.previous): return
 	if alive(target):
 		deal_visual(target,float(effect.get("damage",0)),"magical","chain",effect,event.get("visual_from",Vector2(event.source)+Vector2(.5,.5)))
 		if effect.get("mode","") == "cask": add_modifier(target,{"id":effect.id,"duration":effect.duration,"properties":{"stunned":true}},event.source)
 		if effect.type == "slab_echo":
 			add_modifier(target,{"id":effect.id,"duration":effect.duration,"properties":effect.properties},event.source)
-			add_modifier(target,{"id":effect.id+"_stun","duration":effect.stun,"properties":{"stunned":true}},event.source)
+			# Chain frost's mini-stun is OnSpellStart only, not on bounces.
+			if event.visited.is_empty(): add_modifier(target,{"id":effect.id+"_stun","duration":effect.stun,"properties":{"stunned":true}},event.source)
 		event.visited.append(target.id)
 	event.left -= 1
 	if int(event.left) <= 0: return
 	var candidates = area(target.pos,float(effect.get("jump_radius",effect.get("radius",0))))
 	var repeating = effect.type == "slab_echo" or effect.get("mode","") == "cask"
-	var group = candidates.filter(func(e): return not e.magic_immune)
+	# Chain frost also bounces onto magic-immune enemies (MAGIC_IMMUNE_ENEMIES).
+	var group = candidates.filter(func(e): return not e.magic_immune or effect.type == "slab_echo")
 	candidates = group.filter(func(e): return (e.id != target.id if repeating else e.id not in event.visited) and (not e.invisible or detected(e)))
 	if candidates.is_empty() and effect.type == "chain" and not group.is_empty():
 		# chain.lua's repeat loop keeps the last unit it popped (the farthest of
@@ -528,6 +545,7 @@ func execute_delayed(event: Dictionary) -> void:
 		candidates = [group.back()]
 	if candidates.is_empty(): return
 	candidates.sort_custom(func(a,b): return a.pos.distance_squared_to(target.pos) < b.pos.distance_squared_to(target.pos))
+	event.previous = target
 	event.target = candidates[0]
 	event.visual_from = target.pos
 	event.at = elapsed+float(effect.get("interval",.2))
@@ -541,30 +559,74 @@ func process_slab(p: Vector2i, kind: String) -> void:
 	var effect: Dictionary = GemCampaignRules.actions({"kind":kind,"tier":1})[0]
 	aura_clocks[key] = elapsed+float(effect.cooldown)
 	attacker = p
-	var center: Vector2 = trigger[0].pos
+	var dog: Dictionary = trigger[0]
+	# InvisibleUnitCast: a dummy created at the trap casts 0.05 s later.
+	delayed.append({"at":elapsed+float(GemCatalog.DATA.mechanics.trap_cast_delay),"type":"slab_cast","source":p,"target":dog,"pos":dog.pos,"effect":effect})
+	# TriggerShiban runs at once: RandomInt(1,100*count) <= p, so the n-th
+	# nearby Sea Jewel has p/n; the first success releases chain frost.
+	var echo_count = 1
+	for q in towers:
+		for echo in towers[q].actions:
+			if echo.type != "slab_echo" or Vector2(q).distance_to(dog.pos-Vector2(.5,.5)) > float(echo.radius): continue
+			if run.combat_rng.randi_range(1,100*echo_count) <= [15,30,60][int(effect.stage)-1]:
+				var from = Vector2(q)+Vector2(.5,.5)
+				delayed.append({"at":elapsed+float(GemCatalog.DATA.mechanics.trap_cast_delay)+travel(from,dog.pos,float(echo.get("projectile_speed",0))),"type":"chain","source":q,"target":dog,"effect":echo,"left":int(echo.bounces),"visited":[],"visual_from":from})
+				return
+			echo_count += 1
+
+func travel(from: Vector2, to: Vector2, speed: float) -> float:
+	return from.distance_to(to)/speed if speed > 0 else 0.0
+
+func target_delay(effect: Dictionary) -> float:
+	# Youbu/Cask2/Cask3 timers: RandomInt(1,50)/100 s, then another dummy cast.
+	if not effect.has("target_delay"): return 0.0
+	return run.combat_rng.randi_range(int(effect.target_delay[0]),int(effect.target_delay[1]))/100.0+float(GemCatalog.DATA.mechanics.trap_cast_delay)
+
+func cast_slab(event: Dictionary) -> void:
+	var p: Vector2i = event.source
+	var effect: Dictionary = event.effect
+	var dog: Dictionary = event.target
+	var origin = Vector2(p)+Vector2(.5,.5)
+	# Point casts read the enemy origin at cast time; unit casts need it alive.
+	var center: Vector2 = dog.pos if alive(dog) else event.pos
+	var speed = float(effect.get("projectile_speed",0))
 	match effect.mode:
 		"support":
 			for q in towers:
 				if Vector2(p).distance_to(Vector2(q)) <= float(effect.radius): towers[q].buffs[effect.get("modifier_id",effect.id)] = {"until":elapsed+float(effect.duration),"properties":effect.properties}
 		"field": fields.append({"id":effect.get("modifier_id",effect.id),"pos":center,"radius":effect.radius,"properties":effect.properties,"until":elapsed+float(effect.duration),"magic_targets":effect.get("magic_targets",false)})
 		"stun":
-			var targets = area(center,float(effect.radius))
-			for e in targets.slice(0,int(effect.count)): add_modifier(e,{"id":effect.id,"duration":effect.duration,"properties":{"stunned":true}},p)
+			if not alive(dog): return
+			for e in area(dog.pos,float(effect.radius)).slice(0,int(effect.count)):
+				delayed.append({"at":elapsed+target_delay(effect)+travel(origin,e.pos,speed),"type":"unit_stun","source":p,"target":e,"effect":effect})
 		"cask":
-			for e in area(center,float(effect.radius),trigger[0]).slice(0,int(effect.count)):
-				delayed.append({"at":elapsed,"type":"chain","source":p,"target":e,"effect":effect,"left":int(effect.bounces),"visited":[]})
-		"torrent","modifier": delayed.append({"at":elapsed+float(effect.get("delay",0)),"type":"modifier","source":p,"pos":center,"effect":effect})
+			if not alive(dog): return
+			for e in area(dog.pos,float(effect.radius),dog).slice(0,int(effect.count)):
+				delayed.append({"at":elapsed+target_delay(effect)+travel(origin,e.pos,speed),"type":"chain","source":p,"target":e,"effect":effect,"left":int(effect.bounces),"visited":[]})
+		"torrent": delayed.append({"at":elapsed+float(effect.get("delay",0)),"type":"modifier","source":p,"pos":center,"effect":effect})
+		"modifier":
+			if not alive(dog): return
+			delayed.append({"at":elapsed+travel(origin,dog.pos,speed),"type":"modifier","source":p,"pos":dog.pos,"target":dog,"effect":effect})
 		"line_slow":
-			var direction = (center-(Vector2(p)+Vector2(.5,.5))).normalized()
+			var direction = (center-origin).normalized()
 			if direction == Vector2.ZERO: direction = Vector2.RIGHT
-			for e in enemies:
-				var delta: Vector2 = e.pos-(Vector2(p)+Vector2(.5,.5))
-				if alive(e) and not e.magic_immune and delta.dot(direction) >= 0 and delta.dot(direction) <= float(effect.distance) and absf(delta.cross(direction)) <= float(effect.radius): add_modifier(e,effect,p)
-	for q in towers:
-		for echo in towers[q].actions:
-			if echo.type == "slab_echo" and Vector2(q).distance_to(center-Vector2(.5,.5)) <= float(echo.radius) and run.combat_rng.randf() < [.15,.30,.60][int(effect.stage)-1]:
-				delayed.append({"at":elapsed,"type":"chain","source":q,"target":trigger[0],"effect":echo,"left":int(echo.bounces),"visited":[]})
-				return
+			sweeps.append({"source":p,"origin":origin,"direction":direction,"travelled":0.0,"effect":effect,"hit":{}})
+
+func advance_sweeps(dt: float) -> void:
+	# LinearProjectile with DeleteOnHit 0: every enemy the moving circle
+	# touches is hit once; it ends after FixedDistance.
+	for sweep in sweeps:
+		var effect: Dictionary = sweep.effect
+		var from: Vector2 = sweep.origin+sweep.direction*float(sweep.travelled)
+		sweep.travelled = minf(float(effect.distance),float(sweep.travelled)+float(effect.projectile_speed)*dt)
+		var to: Vector2 = sweep.origin+sweep.direction*float(sweep.travelled)
+		for e in enemies:
+			if not alive(e) or e.magic_immune or sweep.hit.has(e.id): continue
+			if Geometry2D.get_closest_point_to_segment(e.pos,from,to).distance_to(e.pos) <= float(effect.radius):
+				sweep.hit[e.id] = true
+				attacker = sweep.source
+				add_modifier(e,effect,sweep.source)
+	sweeps = sweeps.filter(func(s): return float(s.travelled) < float(s.effect.distance))
 
 func deal_visual(enemy: Dictionary, raw: float, damage_type: String, kind: String, effect: Dictionary, from: Vector2 = Vector2.INF) -> void:
 	var before = float(enemy.hp)

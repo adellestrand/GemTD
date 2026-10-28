@@ -106,7 +106,8 @@ def build():
         if key == 'tower_true_sight':
             return [dict(type='support',id=key,radius=900/128,properties={'true_sight':True})]
         if key == 'tower_chain_frost':
-            return [dict(type='slab_echo',id=key,radius=500/128,damage=12000,bounces=10,jump_radius=1000/128,interval=.2,duration=5,properties={'move_percent':-60},stun=.1)]
+            return [dict(type='slab_echo',id=key,radius=500/128,damage=12000,bounces=10,jump_radius=1000/128,interval=.2,duration=5,properties={'move_percent':-60},stun=.1,
+                         projectile_speed=number(abilities['chain_frost']['AbilityValues']['projectile_speed'],'chain_frost')/128)]
         if key == 'tower_shihua_new':
             return [dict(type='petrify',id=key,chance=.01,cooldown=5,count=5,duration=2.5,radius=9999/128)]
         if key == 'tower_ranjin':
@@ -176,10 +177,13 @@ def build():
         if mods:
             action['modifier_id']=next(iter(mods))
         if 'youbu' in key:
-            action.update(mode='stun',count=[1,8,64][stage-1],radius=[192,1024,9999][stage-1]/128,duration=6,magic_targets=True)
+            # Youbu1-3 delay each target by RandomInt(1,50)/100 s, then cast
+            # new_youbu_sub (3000 tracking projectile) from a dummy at the trap.
+            action.update(mode='stun',count=[1,8,64][stage-1],radius=[192,1024,9999][stage-1]/128,duration=6,magic_targets=True,
+                          target_delay=[1,50],projectile_speed=number(abilities['new_youbu_sub']['OnSpellStart']['TrackingProjectile']['MoveSpeed'],key)/128)
         elif 'venomous' in key:
             action.update(mode='line_slow',duration=v['duration'],radius=v['radius']/128,
-                          distance=v['distance']/128,properties={'move_percent':v['movement_slow']})
+                          distance=v['distance']/128,properties={'move_percent':v['movement_slow']},projectile_speed=v['speed']/128)
         elif 'torrent' in key:
             # DelayedAction damage is "%AbilityDamage / 2" (level 4: 300/2).
             action.update(mode='torrent',radius=v['radius']/128,duration=v['slow_duration'],
@@ -190,12 +194,16 @@ def build():
         elif 'acid' in key:
             action.update(mode='field',radius=v['radius']/128,duration=v['duration'],properties={'armor':v['armor_reduction']},magic_targets=True,modifier_id=abilities[key]['Modifiers']['modifier_acid_spray_thinker']['Aura'])
         elif 'cask' in key:
+            # Bronze casts new_cask directly; Cask2/Cask3 delay each target by
+            # RandomInt(1,50)/100 s before a new_cask_sub cast. All fly at 1800.
             action.update(mode='cask',count=[1,3,9][stage-1],duration=stage,radius=[0,512,1024][stage-1]/128,
-                          bounces=12,jump_radius=1000/128,interval=.2)
+                          bounces=12,jump_radius=1000/128,interval=.2,projectile_speed=number(abilities['new_cask_sub2']['AbilityValues']['speed'],key)/128)
+            if stage>1: action['target_delay']=[1,50]
         elif 'konghe' in key:
             mod=next(iter(abilities[key]['Modifiers'].values()))
             target=abilities[key]['OnProjectileHitUnit']['ApplyModifier']['Target']
-            action.update(mode='modifier',radius=number(target['Radius'],key,4)/128,duration=v['konghe_duration'],properties=modifiers(key,mod,4),magic_targets=True)
+            action.update(mode='modifier',radius=number(target['Radius'],key,4)/128,duration=v['konghe_duration'],properties=modifiers(key,mod,4),magic_targets=True,
+                          projectile_speed=number(abilities[key]['OnSpellStart']['TrackingProjectile']['MoveSpeed'],key)/128)
         elif 'xuwu' in key:
             mod=next(iter(abilities[key]['Modifiers'].values()))
             target=abilities[key]['OnSpellStart']['ApplyModifier']['Target']
@@ -287,8 +295,8 @@ def build():
         spells['pray_'+label]=dict(group='quality',tier=tier,source='gemtd_hero_'+name,cost=level_one('gemtd_hero_'+name,'cost'),chance=level_one('gemtd_hero_'+name,'gailv'))
     spells['heal']=dict(group='heal',source='gemtd_hero_huichun',cost=level_one('gemtd_hero_huichun','cost'),
                         min_heal=level_one('gemtd_hero_huichun','min_heal'),max_heal=level_one('gemtd_hero_huichun','max_heal'))
-    payload=dict(version=11,profile='full-solo-dev',gems=gems,specials=specials,recipes=recipes,random_models=random_models,
-                 mechanics=dict(tower_moves_per_run=5,stealable_abilities=stealable,downgrade_weights={'2':[100],'3':[34,66],'4':[20,30,50],'5':[10,15,25,50],'6':[20,20,20,20,20]},berserk_seconds=180,berserk_move_percent=100,trial_intermission_seconds=3),
+    payload=dict(version=12,profile='full-solo-dev',gems=gems,specials=specials,recipes=recipes,random_models=random_models,
+                 mechanics=dict(tower_moves_per_run=5,trap_cast_delay=.05,stealable_abilities=stealable,downgrade_weights={'2':[100],'3':[34,66],'4':[20,30,50],'5':[10,15,25,50],'6':[20,20,20,20,20]},berserk_seconds=180,berserk_move_percent=100,trial_intermission_seconds=3),
                  wave_alternatives=alternatives,
                  combat=dict(minimum_movement_speed=100,checkpoint_radius=64/128,detection_radius_fallback=900/128,default_aura_linger=.5,base_attack_speed=100,minimum_attack_speed=20,maximum_attack_speed=700,
                              attack_speed_reference='Valve gameplay update 7.20: total maximum attack speed 700; standalone adopts this documented default, not an in-match GemTD measurement.',

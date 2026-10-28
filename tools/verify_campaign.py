@@ -104,6 +104,18 @@ def verify():
     for key in ['new_torrent','new_torrent2','new_torrent3']:
         torrent=c['ability_effects'][key][0]
         equal(key+' impact damage',[torrent.get('damage'),torrent.get('damage_type')],[150.0,'magical'])
+    # Trap timing: InvisibleUnitCast casts 0.05 s after the trigger; projectile
+    # speeds come from the cast abilities; Youbu/Cask2/Cask3 add RandomInt(1,50)/100 s.
+    equal('trap cast delay',c['mechanics']['trap_cast_delay'],.05)
+    for i,key in enumerate(['new_venomous_gale','new_venomous_gale2','new_venomous_gale3']):
+        equal(key+' projectile speed',c['ability_effects'][key][0]['projectile_speed'],[600,400,200][i]/128)
+    for key in ['new_youbu1','new_youbu2','new_youbu3']:
+        equal(key+' timing',[c['ability_effects'][key][0]['projectile_speed'],c['ability_effects'][key][0]['target_delay']],[3000/128,[1,50]])
+    for i,key in enumerate(['new_cask','new_cask2','new_cask3']):
+        equal(key+' timing',[c['ability_effects'][key][0]['projectile_speed'],c['ability_effects'][key][0].get('target_delay')],[1800/128,None if i==0 else [1,50]])
+    for key in ['new_konghe','new_konghe2','new_konghe3']:
+        equal(key+' projectile speed',c['ability_effects'][key][0]['projectile_speed'],1500/128)
+    equal('chain frost projectile speed',c['ability_effects']['tower_chain_frost'][0]['projectile_speed'],3000/128)
     supported={'cosmetic','passive','support','enemy_aura','on_hit','slab','split','stun','crit','splash','burst','chain','shock','petrify','self_disarm','slab_echo'}
     for name,effects in c['ability_effects'].items():
         equal(name+' translated actions',bool(effects),True)

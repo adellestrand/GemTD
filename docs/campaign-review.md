@@ -4,6 +4,8 @@ Aktuell rättelse: **innehållsversion 11** (2026-10-28, paket 1 i [balansgransk
 
 Samma dag, paket 2 (motorregler, fortfarande innehållsversion 11 eftersom version 11 inte har distribuerats): magiskt motstånd staplas multiplikativt som i Dota (`1 − (1 − bas) · Π(1 − rᵢ)`) i stället för att summeras; Bloodstone/Sunstone-kedjan gör alltid fem träffar och studsar tillbaka på redan träffade mål när inga nya finns, som `chain.lua`; Emerald Golem förstenar 5 + floor(MVP/2) närmaste fiender i stället för fem i spawnordning.
 
+Samma dag, paket 3: **innehållsversion 12** och `run_campaign_v12.json`. Framgångsserien flyttar fiendeantalet ett steg per händelse (`WinStreakAdjust`). Flera Sea Jewels har chansen p, p/2, p/3 …. Chain frost ministunnar bara första målet och studsar även på magiimmuna. Venom-fällan är en rörlig projektil (600/400/200 enheter/s). Fällorna kastar 0,05 s efter utlösningen med projektilernas restid, och Entangle/Paralysis silver och guld får dessutom 0,01–0,5 s slumpad fördröjning per mål. Bloodstone/Sunstone-kedjan stoppar när föregående mål har dött (`ShanDian`).
+
 Senaste uppföljning: **1.4.1-dev**, innehållsversion **10**, lägger till [fem tornflyttar per omgång](tower-relocation.md). Alla 1.4-mekaniker nedan behålls.
 
 Aktuell uppföljning: **1.4.0-dev**, innehållsversion **9**. [Mekanikuppdateringen](mechanics-update-1.4.md) ersätter äldre beskrivningar av prövningarnas byggfaser, belöningar och Emeralds urval. Nedgradering, läckserie, kombinationer av äldre torn under strid, berserk och alternativa vågor/bossar ingår. Äldre leveranser bevaras.

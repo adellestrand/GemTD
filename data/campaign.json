@@ -1,5 +1,5 @@
 {
-  "version": 11,
+  "version": 12,
   "profile": "full-solo-dev",
   "gems": {
     "sapphire": {
@@ -2922,6 +2922,7 @@
   },
   "mechanics": {
     "tower_moves_per_run": 5,
+    "trap_cast_delay": 0.05,
     "stealable_abilities": [
       "tower_slow1",
       "tower_slow2",
@@ -3850,7 +3851,8 @@
         "properties": {
           "move_percent": -60
         },
-        "stun": 0.1
+        "stun": 0.1,
+        "projectile_speed": 23.4375
       }
     ],
     "tower_shechengguanghuan": [
@@ -4216,7 +4218,8 @@
           "incoming_percent": 80.0,
           "move_percent": 25.0
         },
-        "magic_targets": true
+        "magic_targets": true,
+        "projectile_speed": 11.71875
       }
     ],
     "new_konghe3": [
@@ -4234,7 +4237,8 @@
           "incoming_percent": 240.0,
           "move_percent": 25.0
         },
-        "magic_targets": true
+        "magic_targets": true,
+        "projectile_speed": 11.71875
       }
     ],
     "new_konghe2": [
@@ -4252,7 +4256,8 @@
           "incoming_percent": 160.0,
           "move_percent": 25.0
         },
-        "magic_targets": true
+        "magic_targets": true,
+        "projectile_speed": 11.71875
       }
     ],
     "tower_fenliejian": [
@@ -4275,7 +4280,8 @@
         "radius": 0.0,
         "bounces": 12,
         "jump_radius": 7.8125,
-        "interval": 0.2
+        "interval": 0.2,
+        "projectile_speed": 14.0625
       }
     ],
     "new_cask3": [
@@ -4291,7 +4297,12 @@
         "radius": 8.0,
         "bounces": 12,
         "jump_radius": 7.8125,
-        "interval": 0.2
+        "interval": 0.2,
+        "projectile_speed": 14.0625,
+        "target_delay": [
+          1,
+          50
+        ]
       }
     ],
     "new_cask2": [
@@ -4307,7 +4318,12 @@
         "radius": 4.0,
         "bounces": 12,
         "jump_radius": 7.8125,
-        "interval": 0.2
+        "interval": 0.2,
+        "projectile_speed": 14.0625,
+        "target_delay": [
+          1,
+          50
+        ]
       }
     ],
     "tower_attack5": [
@@ -4616,7 +4632,12 @@
         "count": 1,
         "radius": 1.5,
         "duration": 6,
-        "magic_targets": true
+        "magic_targets": true,
+        "target_delay": [
+          1,
+          50
+        ],
+        "projectile_speed": 23.4375
       }
     ],
     "new_youbu3": [
@@ -4630,7 +4651,12 @@
         "count": 64,
         "radius": 78.1171875,
         "duration": 6,
-        "magic_targets": true
+        "magic_targets": true,
+        "target_delay": [
+          1,
+          50
+        ],
+        "projectile_speed": 23.4375
       }
     ],
     "new_youbu2": [
@@ -4644,7 +4670,12 @@
         "count": 8,
         "radius": 8.0,
         "duration": 6,
-        "magic_targets": true
+        "magic_targets": true,
+        "target_delay": [
+          1,
+          50
+        ],
+        "projectile_speed": 23.4375
       }
     ],
     "tower_du4": [
@@ -4675,7 +4706,8 @@
         "distance": 9.375,
         "properties": {
           "move_percent": -50.0
-        }
+        },
+        "projectile_speed": 4.6875
       }
     ],
     "new_venomous_gale3": [
@@ -4692,7 +4724,8 @@
         "distance": 15.625,
         "properties": {
           "move_percent": -99.0
-        }
+        },
+        "projectile_speed": 1.5625
       }
     ],
     "new_venomous_gale2": [
@@ -4709,7 +4742,8 @@
         "distance": 12.5,
         "properties": {
           "move_percent": -80.0
-        }
+        },
+        "projectile_speed": 3.125
       }
     ],
     "tower_slow1": [

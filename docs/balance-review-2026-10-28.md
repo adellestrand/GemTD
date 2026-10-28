@@ -1,6 +1,6 @@
 # Balansgranskning av kampanjprofilen mot Dota 2 GemTD (2026-10-28)
 
-> **Uppföljning 2026-10-28:** användaren godkände paket 1. #2 (läckband) och #5 (Torrent-skada) är rättade i innehållsversion 11. Därefter godkändes paket 2: #1, #3 och #4 är rättade. Proben visar nu 1 kvarvarande uppmätt avvikelse (#6). Se slutet av filen.
+> **Uppföljning 2026-10-28:** användaren godkände paket 1. #2 (läckband) och #5 (Torrent-skada) är rättade i innehållsversion 11. Därefter godkändes paket 2 (#1, #3, #4) och paket 3 (#6–#10 och kedjestoppet). Innehållsversion 12. Proben visar 0 uppmätta avvikelser; kvar är bara de osäkra punkter som inte kan avgöras från lokal källa. Se slutet av filen.
 
 Uppdrag: fullständig review av kampanjens balans (1.4.1-dev, innehållsversion 10) mot förlagan. **Inga regler, data eller balansvärden har ändrats.** Allt nedan är förslag som kräver användarens godkännande. Inget är committat.
 
@@ -178,3 +178,23 @@ Efter godkända ändringar: kör `python tools/redesign_guard.py --baseline` (ba
 ### Ny iakttagelse vid genomförandet (inte åtgärdad)
 
 `chain.lua` stoppar kedjan om det *föregående* målet har dött (`ShanDian` kräver `old:IsAlive()`). Vår kedja hoppar vidare från ett dödat mål. Det gör källans kedja svagare mot svaga fiender. Föreslås som en del av paket 3.
+
+## Genomfört: paket 3 (2026-10-28, godkänt av användaren)
+
+Innehållsversion 11 → **12** (`run_campaign_v12.json`, ny leaderboardidentitet), eftersom fälldata fick nya källvärden.
+
+- **#6 Serie:** `adjust_streak` tar högst ett steg upp eller ned per händelse. Överskottet ligger kvar och verkställs vid nästa kill, kontrollpunkt eller läcka, som `WinStreakAdjust`. Sparvalideringen tillåter därför ett seriesaldo utanför ±50. Testerna i `check_campaign.gd` och `check_mechanics_parity.gd` är uppdaterade till källans beteende.
+- **#7 Sea Jewel:** det n:te Sea Jewel-tornet inom 500 har chansen `RandomInt(1,100·n) ≤ p`. Uppmätt med två torn och bronsfälla: 0,228 (förväntat 0,214).
+- **#8 Chain frost:** ministun 0,1 s bara på första målet. Studsar även på magiimmuna fiender (slow fastnar, magisk skada blir 0). Startar 0,05 s efter utlösningen plus restid med 3000 enheter/s från tornet.
+- **#9 Venom:** `LinearProjectile` från fällan mot den utlösande fienden med 600/400/200 enheter/s över 1200/1600/2000. Varje fiende som cirkeln (radie 125) passerar träffas en gång.
+- **#10 Fällornas tidsföljd:** alla fällor kastar 0,05 s efter utlösningen (`InvisibleUnitCast`). Entangle, Paralysis silver och guld: per mål `RandomInt(1,50)/100` s + 0,05 s + restid (3000 resp. 1800). Paralysis brons: restid 1800. Dread: restid 1500 och verkan där målet är vid träff. Torrent: 1,6 s från kastet. Ethereal, Acid och Howl: vid kastet.
+- **Kedjestopp:** Bloodstone/Sunstone-kedjan avbryts när föregående träffade mål har dött (`ShanDian` kräver `old:IsAlive()`).
+- Nya källvärden i data och `verify_campaign.py`: `trap_cast_delay`, `projectile_speed` för Venom, Entangle, Paralysis, Dread och chain frost samt `target_delay` (2066 kontroller, 0 fel).
+- Kontroller: `python tools/check.py` → `CHECKS_OK`. Separata `check_ability_clips`, `check_trap_art` och `check_recipe_lines` passerar. Proben → `BALANCE_REVIEW_CHECK_OK checks=25 failures=0 deviations=0`. 20 naturliga botomgångar (`output/campaign-v12`) förlorar vid boss 10 med samma ticks som tidigare och återspelas oberoende 20/20 (`output/campaign-v12-replays.json`).
+
+### Kvar som inte kan avgöras lokalt
+
+- Om splash/burst (`jianshe*`, `ranjin`) ska använda crit-skadan (`%attack_damage`). Kräver mätning i en riktig Dota-match.
+- `DAMAGEOUTGOING_PERCENTAGE` på multiskott (`GetAverageTrueAttackDamage`).
+- Skript som saknas lokalt: Lichs `chain_frost.lua` (studsmål, restid mellan studsar, om första träffen räknas i 10 studsar), Witch Doctors `paralyzing_cask.lua` (studsregler), `venomous_gale.lua` (exakt modifierare) och `refraction.lua`.
+- **Balanseffekten är inte speltestad.** Boten når inte våg 20+ och använder inte de berörda tornen eller fällorna. Prövningarna har nu klart högre läckskada, magiska torn har förändrad skada, och fällorna verkar något senare. Mänskligt speltest behövs, framför allt för våg 30–50 och prövningarna.

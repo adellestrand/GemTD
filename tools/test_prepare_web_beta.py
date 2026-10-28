@@ -30,7 +30,7 @@ class PublicBetaChecks(unittest.TestCase):
         self.assertIn("if (!betaURL.searchParams.has('profile'))", text)
         self.assertIn("betaURL.searchParams.set('profile', 'campaign')", text)
         self.assertEqual(original, (self.source/'index.html').read_bytes())
-        self.assertEqual(metadata['content_version'], 11)
+        self.assertEqual(metadata['content_version'], 12)
         self.assertEqual(metadata['commit'], 'a'*40)
         self.assertEqual(len(metadata['files']), len(FILES))
         self.assertEqual(json.loads((self.destination/'build.json').read_text())['profile'], 'campaign')

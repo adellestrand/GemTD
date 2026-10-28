@@ -34,7 +34,7 @@ func run_checks() -> void:
 	state.enemy_count = 5
 	state.streak = -49
 	state.leaked(25,false)
-	check(state.enemy_count == 5 and state.streak == -24,"multiple negative thresholds retain minimum encounter count")
+	check(state.enemy_count == 5 and state.streak == -74,"one threshold step per adjustment retains minimum encounter count")
 	var recipe = "standard:gemtd_tianranzumulv"
 	state = material_run(recipe)
 	state.board.cells[AT+Vector2i(0,1)] = gem("opal")

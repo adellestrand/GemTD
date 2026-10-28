@@ -31,6 +31,18 @@ func extra_enemies(combat: GemCampaignCombat, count: int) -> void:
 		e.magic_immune = false
 		e.abilities = []
 
+# Advance delayed events and trap projectiles without moving enemies.
+func step(combat: GemCampaignCombat, seconds: float) -> void:
+	for i in range(int(round(seconds*30))):
+		combat.elapsed += 1.0/30.0
+		for e in combat.enemies: combat.update_enemy(e,1.0/30.0)
+		var pending: Array[Dictionary] = combat.delayed.duplicate()
+		combat.delayed.clear()
+		for event in pending:
+			if float(event.at) <= combat.elapsed+.000001: combat.execute_delayed(event)
+			else: combat.delayed.append(event)
+		combat.advance_sweeps(1.0/30.0)
+
 func effect_of(kind: String, type: String) -> Dictionary:
 	for effect in GemCampaignRules.actions({"kind":kind,"tier":1}):
 		if effect.type == type: return effect.duplicate(true)
@@ -154,10 +166,73 @@ func run_checks() -> void:
 	var state = GemRun.new(1)
 	state.adjust_streak(-177.0)
 	if state.enemy_count != 9: deviation("enemy count right after a -177 streak leak (from 10)",state.enemy_count,9)
+	else: check(true,"streak moves the encounter size one step per adjustment")
 
 	# 7. Several Sea Jewels: TriggerShiban rolls RandomInt(1,100*count) <= p, so
-	#    the n-th nearby Sea Jewel has p/n chance; the engine gives each p.
-	print("NOTE: Sea Jewel chain-frost multi-tower decay (p/n) is not measured here; see report.")
+	#    with two Sea Jewels and a bronze trap: 15% + 85% * 15/200 = 21.375%.
+	combat = lone_enemy("haibao")
+	combat.run.board.cells[at+Vector2i(0,1)] = gem("haibao")
+	combat.sync_towers()
+	var slab = at+Vector2i(1,0)
+	combat.run.board.slabs[slab] = "youbushiban"
+	combat.enemies[0].pos = Vector2(slab)+Vector2(.5,.5)
+	var echoes = 0
+	for i in range(4000):
+		combat.aura_clocks.erase("slab/"+str(slab))
+		combat.delayed.clear()
+		combat.process_slab(slab,"youbushiban")
+		for event in combat.delayed:
+			if event.type == "chain" and event.effect.type == "slab_echo": echoes += 1
+	var rate = echoes/4000.0
+	if absf(rate-.21375) > .03: deviation("chain frost rate with two Sea Jewels and a bronze trap",rate,.21375)
+	else: check(true,"two Sea Jewels: p then p/2 (measured %.3f)" % rate)
+
+	# 8. Chain frost mini-stun only on the first target; bounces reach magic-immune enemies.
+	combat = lone_enemy("haibao")
+	extra_enemies(combat,1)
+	combat.enemies[1].magic_immune = true
+	var frost = effect_of("haibao","slab_echo")
+	combat.delayed.append({"at":combat.elapsed,"type":"chain","source":at,"target":combat.enemies[0],"effect":frost,"left":2,"visited":[]})
+	step(combat,.5)
+	check(not combat.enemies[1].mods.has("tower_chain_frost_stun") and combat.enemies[1].mods.has("tower_chain_frost"),"chain frost bounce slows a magic-immune enemy without a second mini-stun")
+
+	# 9. Venom is a moving LinearProjectile: an enemy ahead on the line is hit
+	#    when the projectile arrives, not at the trigger.
+	combat = lone_enemy("diamond")
+	combat.run.board.cells.erase(at)
+	combat.sync_towers()
+	combat.run.board.slabs[slab] = "zhangqishiban_jin"
+	combat.enemies[0].pos = Vector2(slab)+Vector2(1.0,.5)
+	combat.process_slab(slab,"zhangqishiban_jin")
+	extra_enemies(combat,1)
+	combat.enemies[1].pos = Vector2(slab)+Vector2(6.5,.5)
+	step(combat,1.0)
+	var early = combat.enemies[1].mods.has("modifier_venomous_gale_debuff_datadriven")
+	step(combat,3.0)
+	check(not early and combat.enemies[1].mods.has("modifier_venomous_gale_debuff_datadriven"),"Gold Venom reaches an enemy 6 cells ahead after about 3.9 s")
+
+	# 10. Entangle: dummy cast after 0.05 s plus RandomInt(1,50)/100 s per target.
+	combat = lone_enemy("diamond")
+	combat.run.board.cells.erase(at)
+	combat.sync_towers()
+	combat.run.board.slabs[slab] = "youbushiban"
+	combat.enemies[0].pos = Vector2(slab)+Vector2(.5,.5)
+	combat.process_slab(slab,"youbushiban")
+	step(combat,.08)
+	var stunned_early = combat.enemies[0].mods.has("new_youbu1")
+	step(combat,.6)
+	check(not stunned_early and combat.enemies[0].mods.has("new_youbu1"),"Entangle stun lands after the source cast and timer delays")
+
+	# 11. chain.lua stops when the previous target died.
+	combat = lone_enemy("jixueshi")
+	extra_enemies(combat,1)
+	combat.enemies[0].hp = 1.0
+	var bolt = effect_of("jixueshi","chain")
+	bolt.erase("chance")
+	var survivor = float(combat.enemies[1].hp)
+	combat.on_hit(at,bolt,combat.enemies[0],10.0)
+	step(combat,1.5)
+	check(combat.enemies[0].dead and float(combat.enemies[1].hp) == survivor,"a kill ends the Bloodstone chain like ShanDian")
 
 	print("BALANCE_REVIEW_CHECK_%s checks=%d failures=%d deviations=%d" % ["OK" if failures == 0 else "FAILED",checks,failures,deviations])
 	quit(1 if failures else 0)

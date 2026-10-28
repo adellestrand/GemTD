@@ -462,11 +462,13 @@ func serialize_slabs() -> Array:
 	return result
 
 func adjust_streak(amount: float) -> void:
+	# WinStreakAdjust moves the encounter size one step per call; any surplus
+	# stays in the streak and is applied by the next kill/checkpoint/leak.
 	streak += amount
-	while streak >= 50:
+	if streak >= 50:
 		streak -= 50
 		enemy_count += 1
-	while streak <= -50:
+	if streak <= -50:
 		streak += 50
 		enemy_count = maxi(5,enemy_count-1)
 
@@ -541,7 +543,7 @@ func restore(data: Dictionary) -> bool:
 			var ids: Array = [GemCatalog.wave(int(key)).source_id]
 			for alternate in GemCatalog.DATA.wave_alternatives.get(str(key),[]): ids.append(alternate.source_id)
 			if data.wave_choices[key] not in ids: return false
-		if not (data.get("streak",0) is int or data.get("streak",0) is float) or not is_finite(float(data.get("streak",0))) or absf(float(data.get("streak",0))) >= 50: return false
+		if not (data.get("streak",0) is int or data.get("streak",0) is float) or not is_finite(float(data.get("streak",0))) or absf(float(data.get("streak",0))) >= 100000: return false
 		if int(data.get("enemy_count",10)) < 5 or int(data.get("enemy_count",10)) > 1000: return false
 		if not data.get("slabs",[]) is Array: return false
 		for row in data.get("slabs",[]):

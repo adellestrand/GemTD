@@ -293,7 +293,7 @@ func refresh_defenses(e: Dictionary) -> void:
 	var properties = enemy_properties(e)
 	e.current_properties = properties
 	e.armor = float(e.base_armor)+float(properties.get("armor",0))
-	e.magic_resist = float(e.base_magic)+float(properties.get("magic_resist",0))/100.0
+	e.magic_resist = 1.0-(1.0-float(e.base_magic))*float(properties.get("magic_factor",1.0))
 	e.armor_debuff = 0.0
 	e.incoming_multiplier = maxf(0,1.0+float(properties.get("incoming_percent",0))/100.0)
 	e.stone_gaze = properties.get("stone_gaze",false)
@@ -465,11 +465,13 @@ func on_hit(p: Vector2i, effect: Dictionary, enemy: Dictionary, raw: float) -> v
 			var key = str(p)+"/gaze"
 			if elapsed >= float(aura_clocks.get(key,0)):
 				aura_clocks[key] = elapsed+float(effect.cooldown)
-				var count = 0
-				for other in area(Vector2(p)+Vector2(.5,.5),float(effect.radius)):
+				# gazeNew: 5 + floor(MVP level / 2) snakes, closest enemies first.
+				var center = Vector2(p)+Vector2(.5,.5)
+				var limit = int(effect.count)+floori(int(run.board.cells[p].get("mvp",0))/2.0) if run.board.cells.has(p) else int(effect.count)
+				var targets = area(center,float(effect.radius))
+				targets.sort_custom(func(a,b): return a.pos.distance_squared_to(center) < b.pos.distance_squared_to(center))
+				for other in targets.slice(0,limit):
 					add_modifier(other,{"id":effect.id,"duration":effect.duration,"properties":{"stone_gaze":true}},p)
-					count += 1
-					if count >= int(effect.count): break
 
 func area(center: Vector2, radius: float, primary: Dictionary = {}) -> Array[Dictionary]:
 	var result: Array[Dictionary] = []
@@ -491,10 +493,16 @@ func add_modifier(e: Dictionary, effect: Dictionary, p: Vector2i) -> void:
 func execute_delayed(event: Dictionary) -> void:
 	attacker = event.source
 	if event.type == "modifier":
+		# Torrent's one-off impact damage is not a damage-over-time modifier.
+		var applied: Dictionary = event.effect
+		if applied.get("mode","") == "torrent" and applied.has("damage"):
+			applied = applied.duplicate()
+			applied.erase("damage")
 		for e in area(event.pos,float(event.effect.radius)):
 			if not e.magic_immune or event.effect.get("magic_targets",false):
-				add_modifier(e,event.effect,event.source)
+				add_modifier(e,applied,event.source)
 				if event.effect.has("stun"): add_modifier(e,{"id":event.effect.id+"_stun","duration":event.effect.stun,"properties":{"stunned":true}},event.source)
+				if event.effect.get("mode","") == "torrent" and event.effect.has("damage"): deal_visual(e,float(event.effect.damage),event.effect.damage_type,"impact",event.effect)
 		return
 	if event.type != "chain": return
 	var target: Dictionary = event.target
@@ -510,7 +518,14 @@ func execute_delayed(event: Dictionary) -> void:
 	if int(event.left) <= 0: return
 	var candidates = area(target.pos,float(effect.get("jump_radius",effect.get("radius",0))))
 	var repeating = effect.type == "slab_echo" or effect.get("mode","") == "cask"
-	candidates = candidates.filter(func(e): return (e.id != target.id if repeating else e.id not in event.visited) and not e.magic_immune and (not e.invisible or detected(e)))
+	var group = candidates.filter(func(e): return not e.magic_immune)
+	candidates = group.filter(func(e): return (e.id != target.id if repeating else e.id not in event.visited) and (not e.invisible or detected(e)))
+	if candidates.is_empty() and effect.type == "chain" and not group.is_empty():
+		# chain.lua's repeat loop keeps the last unit it popped (the farthest of
+		# its closest-first search, the current target included) when no unhit
+		# visible unit remains, so the source chain always lands Count hits.
+		group.sort_custom(func(a,b): return a.pos.distance_squared_to(target.pos) < b.pos.distance_squared_to(target.pos))
+		candidates = [group.back()]
 	if candidates.is_empty(): return
 	candidates.sort_custom(func(a,b): return a.pos.distance_squared_to(target.pos) < b.pos.distance_squared_to(target.pos))
 	event.target = candidates[0]

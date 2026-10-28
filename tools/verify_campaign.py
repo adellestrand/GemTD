@@ -71,6 +71,9 @@ def verify():
         equal(f'wave {i} boss flag',w['boss'],i%10==0)
         equal(f'wave {i} abilities',w['abilities'],list(dict.fromkeys(original['abilities']+original['added_abilities'])))
         equal(f'wave {i} reward',w['reward'],5 if i>50 else 150 if i%10==0 else 5+5*((i-1)//10))
+        # Source spawn code: u.damage = 1+RandomInt(0,n), bosses 100.
+        source_leak_max={0:3,1:7,2:11,3:15,4:19,5:27,6:35,7:43,8:51,9:59}[(i-1)//10]
+        equal(f'wave {i} leak range',[w['leak'],w['leak_max']],[100,100] if i%10==0 else [1,source_leak_max])
     for fact in f['alternate_waves']:
         index=fact['index']-100
         alternate=c['wave_alternatives'][str(index)][0]
@@ -97,6 +100,10 @@ def verify():
     for effects in c['ability_effects'].values():
         for effect in effects:
             if effect['type'] in ['support','enemy_aura'] and effect['id'] != 'tower_true_sight': equal(effect['id']+' aura linger',effect['linger'],.5)
+    # Torrent DelayedAction: "%AbilityDamage / 2" magical at solo trap level 4.
+    for key in ['new_torrent','new_torrent2','new_torrent3']:
+        torrent=c['ability_effects'][key][0]
+        equal(key+' impact damage',[torrent.get('damage'),torrent.get('damage_type')],[150.0,'magical'])
     supported={'cosmetic','passive','support','enemy_aura','on_hit','slab','split','stun','crit','splash','burst','chain','shock','petrify','self_disarm','slab_echo'}
     for name,effects in c['ability_effects'].items():
         equal(name+' translated actions',bool(effects),True)

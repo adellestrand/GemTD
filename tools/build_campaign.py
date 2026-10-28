@@ -181,8 +181,10 @@ def build():
             action.update(mode='line_slow',duration=v['duration'],radius=v['radius']/128,
                           distance=v['distance']/128,properties={'move_percent':v['movement_slow']})
         elif 'torrent' in key:
+            # DelayedAction damage is "%AbilityDamage / 2" (level 4: 300/2).
             action.update(mode='torrent',radius=v['radius']/128,duration=v['slow_duration'],
-                          delay=v['delay'],stun=v['stun_duration'],properties={'move_percent':v['movespeed_bonus']})
+                          delay=v['delay'],stun=v['stun_duration'],properties={'move_percent':v['movespeed_bonus']},
+                          damage=number(abilities[key]['AbilityDamage'],key,4)/2,damage_type='magical')
         elif 'haojiao' in key:
             action.update(mode='support',radius=v['aura_radius']/128,duration=v['howl_duration'],properties={'outgoing_percent':v['unit_bonus_damage']})
         elif 'acid' in key:
@@ -241,6 +243,11 @@ def build():
         recipes[r['id']]=dict(result=names[r['result']],family=r['family'],
                               ingredients=[basics[i] if i in basics else [names[i],1] for i in r['ingredients']])
     waves=[]
+    def leak_max(index):
+        # Source spawn bands: +4 per ten waves up to 41-49 (1-19), then +8
+        # per band in the trials (51-59: 1-27 ... 91-99: 1-59).
+        band=(index-1)//10
+        return 3+4*band if band<5 else 27+8*(band-5)
     def enemy(fact,index):
         v=fact['values']; base=index if index<=50 else index-50
         return dict(name=english.get(fact['source_id'],fact['source_id'].removeprefix('gemtd_').replace('_',' ').title()),
@@ -248,7 +255,7 @@ def build():
                     armor=v['ArmorPhysical'],magic_resist=v['MagicalResistance']/100,
                     air='FLY' in fact['movement'],boss=base%10==0,ancient=fact['ancient'],
                     count=1 if base%10==0 else 10,leak=100 if base%10==0 else 1,
-                    leak_max=100 if base%10==0 else 3+4*((index-1)//10),
+                    leak_max=100 if base%10==0 else leak_max(index),
                     reward=5 if index>50 else 150 if base%10==0 else 5+5*((base-1)//10),
                     completion=0,spawn_interval=1.0,evasion=0,
                     abilities=list(dict.fromkeys(fact['abilities']+fact.get('added_abilities',[]))),variants=[],trial=index>50)
@@ -280,7 +287,7 @@ def build():
         spells['pray_'+label]=dict(group='quality',tier=tier,source='gemtd_hero_'+name,cost=level_one('gemtd_hero_'+name,'cost'),chance=level_one('gemtd_hero_'+name,'gailv'))
     spells['heal']=dict(group='heal',source='gemtd_hero_huichun',cost=level_one('gemtd_hero_huichun','cost'),
                         min_heal=level_one('gemtd_hero_huichun','min_heal'),max_heal=level_one('gemtd_hero_huichun','max_heal'))
-    payload=dict(version=10,profile='full-solo-dev',gems=gems,specials=specials,recipes=recipes,random_models=random_models,
+    payload=dict(version=11,profile='full-solo-dev',gems=gems,specials=specials,recipes=recipes,random_models=random_models,
                  mechanics=dict(tower_moves_per_run=5,stealable_abilities=stealable,downgrade_weights={'2':[100],'3':[34,66],'4':[20,30,50],'5':[10,15,25,50],'6':[20,20,20,20,20]},berserk_seconds=180,berserk_move_percent=100,trial_intermission_seconds=3),
                  wave_alternatives=alternatives,
                  combat=dict(minimum_movement_speed=100,checkpoint_radius=64/128,detection_radius_fallback=900/128,default_aura_linger=.5,base_attack_speed=100,minimum_attack_speed=20,maximum_attack_speed=700,

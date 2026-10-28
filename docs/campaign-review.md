@@ -1,5 +1,9 @@
 # Kampanj 1.3.0-dev – lokal granskning
 
+Aktuell rättelse: **innehållsversion 11** (2026-10-28, paket 1 i [balansgranskningen](balance-review-2026-10-28.md)). Prövningarnas läckskada följer källans band 1–27/35/43/51/59 för våg 51–99 i stället för 1–23…39, och Torrent-fällan gör källans 150 magiska skada vid nedslaget. Sparning använder `run_campaign_v11.json`; äldre sparfiler migreras inte. Våg 1–50 påverkas inte av läckrättelsen.
+
+Samma dag, paket 2 (motorregler, fortfarande innehållsversion 11 eftersom version 11 inte har distribuerats): magiskt motstånd staplas multiplikativt som i Dota (`1 − (1 − bas) · Π(1 − rᵢ)`) i stället för att summeras; Bloodstone/Sunstone-kedjan gör alltid fem träffar och studsar tillbaka på redan träffade mål när inga nya finns, som `chain.lua`; Emerald Golem förstenar 5 + floor(MVP/2) närmaste fiender i stället för fem i spawnordning.
+
 Senaste uppföljning: **1.4.1-dev**, innehållsversion **10**, lägger till [fem tornflyttar per omgång](tower-relocation.md). Alla 1.4-mekaniker nedan behålls.
 
 Aktuell uppföljning: **1.4.0-dev**, innehållsversion **9**. [Mekanikuppdateringen](mechanics-update-1.4.md) ersätter äldre beskrivningar av prövningarnas byggfaser, belöningar och Emeralds urval. Nedgradering, läckserie, kombinationer av äldre torn under strid, berserk och alternativa vågor/bossar ingår. Äldre leveranser bevaras.

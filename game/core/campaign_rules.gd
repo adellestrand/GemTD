@@ -44,6 +44,8 @@ static func merge_properties(into: Dictionary, properties: Dictionary) -> void:
 			into[key] = into.get(key,false) or properties[key]
 		else:
 			into[key] = float(into.get(key,0))+float(properties[key])
+			# Dota stacks magic resistance sources multiplicatively: 1 - prod(1 - r).
+			if key == "magic_resist": into.magic_factor = float(into.get("magic_factor",1.0))*(1.0-float(properties[key])/100.0)
 
 static func passive(gem: Dictionary) -> Dictionary:
 	var result: Dictionary = {}
@@ -91,7 +93,7 @@ static func describe(gem: Dictionary) -> String:
 			"splash": lines.append("%.0f%% pure splash within %.2f cells." % [effect.fraction*100,effect.radius])
 			"stun": lines.append("%.0f%% chance to stun for %.1fs." % [effect.chance*100,effect.duration])
 			"chain","shock": lines.append("%.0f%% chance: %.0f magic damage to up to %d targets within %.2f cells." % [effect.chance*100,effect.damage,effect.count,effect.radius])
-			"petrify": lines.append("%.0f%% chance to petrify up to %d enemies for %.1fs; %.0fs cooldown." % [effect.chance*100,effect.count,effect.duration,effect.cooldown])
+			"petrify": lines.append("%.0f%% chance to petrify the %d closest enemies (+1 per 2 MVP levels) for %.1fs; %.0fs cooldown." % [effect.chance*100,effect.count,effect.duration,effect.cooldown])
 			"self_disarm": lines.append("%.0f%% average self-disarm rate with smoothed streaks; %.1fs duration." % [effect.chance*100,effect.duration])
 			"burst": lines.append("%.0f%% chance of %.0f× magic burst within %.2f cells." % [effect.chance*100,effect.multiplier,effect.radius])
 			"on_hit":

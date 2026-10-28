@@ -335,6 +335,7 @@ func _draw() -> void:
 		draw_rect(Rect2(board_to_screen(Vector2(hovered)),Vector2.ONE*cell_size),tint,false,1.5)
 	if run.board.inside(selected):
 		draw_rect(Rect2(board_to_screen(Vector2(selected)),Vector2.ONE*cell_size).grow(2),GemArt.color("selection"),false,2)
+	GemFreshGems.draw(self,run,origin,cell_size)
 	effects.draw(self,origin,cell_size,font)
 	if combat is GemCampaignCombat and run.phase == "combat":
 		effects.draw_projectiles(self,(combat as GemCampaignCombat).projectiles,origin,cell_size)

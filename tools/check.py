@@ -55,6 +55,7 @@ if __name__ == '__main__':
     logs.append(checked([str(ENGINE),'--headless','--path','.','--script','res://tests/check_presentation.gd'], 'PRESENTATION_CHECK_OK'))
     logs.append(checked([str(ENGINE),'--headless','--path','.','--script','res://tests/check_build_guide.gd'], 'BUILD_GUIDE_CHECK_OK'))
     logs.append(checked([str(ENGINE),'--headless','--path','.','--script','res://tests/check_build_ui.gd','--','--smoke'], 'BUILD_UI_CHECK_OK'))
+    logs.append(checked([str(ENGINE),'--headless','--path','.','--script','res://tests/check_sidebar.gd','--','--campaign','--smoke'], 'SIDEBAR_CHECK_OK'))
     logs.append(checked([str(ENGINE),'--headless','--path','.','--script','res://tests/check_recipe_guide.gd'], 'RECIPE_GUIDE_CHECK_OK'))
     logs.append(checked([str(ENGINE),'--headless','--path','.','--script','res://tests/check_recipe_ui.gd','--','--smoke'], 'RECIPE_UI_CHECK_OK'))
     logs.append(checked([str(ENGINE),'--headless','--path','.','--script','res://tests/check_tower_info.gd'], 'TOWER_INFO_CHECK_OK'))

@@ -207,6 +207,12 @@ var action_panel: Control
 var spells_card: Control
 var spell_buttons: Dictionary = {}
 var spell_status: Label
+var sidebar: VBoxContainer
+var sidebar_tabs: TabContainer
+var recipe_choice: OptionButton
+var chosen_recipe = ""
+var tower_effects_button: Button
+var tower_effects_hint: Label
 
 func glyph(rows: Array, color: Color, scale: int = 2) -> ImageTexture:
 	var img = Image.create(rows[0].length()*scale,rows.size()*scale,false,Image.FORMAT_RGBA8)
@@ -455,6 +461,16 @@ func build_ui() -> void:
 		)
 		round_slots.append(slot)
 		tray_column.add_child(slot)
+		var number = Label.new()
+		number.name = "RoundNumber"
+		number.text = str(i+1)
+		number.position = Vector2(4,2)
+		number.mouse_filter = Control.MOUSE_FILTER_IGNORE
+		number.add_theme_font_size_override("font_size",12)
+		number.add_theme_color_override("font_color",Color("ffd76a"))
+		number.add_theme_color_override("font_outline_color",Color("15272b"))
+		number.add_theme_constant_override("outline_size",4)
+		slot.add_child(number)
 	round_tray.visibility_changed.connect(func():
 		tray_panel.visible = round_tray.visible
 		left_dock.visible = round_tray.visible
@@ -529,15 +545,11 @@ func build_ui() -> void:
 	var fit_button = styled(button_in(map_tools,"Fit  F",func(): board_view.fit_board()),"ToolButton") as Button
 	fit_button.tooltip_text = "Centre the map at the closest zoom-out. Wheel zooms; right- or middle-drag, arrow keys or WASD pan."
 	# --- sidebar: wave, selection, decisions, odds, settings
-	var sidebar = ScrollContainer.new()
+	sidebar = VBoxContainer.new()
 	sidebar.custom_minimum_size.x = 372
-	sidebar.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
+	sidebar.add_theme_constant_override("separation",6)
 	body.add_child(sidebar)
-	var info = VBoxContainer.new()
-	info.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-	info.add_theme_constant_override("separation",8)
-	sidebar.add_child(info)
-	result_box = card_in(info)
+	result_box = card_in(sidebar)
 	result_title = styled(label_in(result_box,"",24),"TitleLabel") as Label
 	result_stats = label_in(result_box,"",14)
 	result_stats.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
@@ -545,8 +557,18 @@ func build_ui() -> void:
 	button_in(result_box,"New run",func(): new_run(int(Time.get_unix_time_from_system()*1000.0)))
 	button_in(result_box,"Run summary & test report",show_summary)
 	result_box.visibility_changed.connect(func(): result_box.get_parent().visible = result_box.visible)
+	sidebar_tabs = TabContainer.new()
+	sidebar_tabs.size_flags_vertical = Control.SIZE_EXPAND_FILL
+	sidebar.add_child(sidebar_tabs)
+	var pages: Dictionary = {}
+	for page_name in ["Tower","Wave","Upgrades","Effects"]:
+		var page = VBoxContainer.new()
+		page.name = page_name
+		page.add_theme_constant_override("separation",6)
+		sidebar_tabs.add_child(page)
+		pages[page_name] = page
 	# wave card: portrait, name, property chips, rewards
-	var wave_card = card_in(info)
+	var wave_card = card_in(pages.Wave)
 	wave_card.add_theme_constant_override("separation",6)
 	wave_heading = styled(label_in(wave_card,"THE NEXT WAVE",15),"SectionLabel") as Label
 	wave_heading.remove_theme_font_size_override("font_size")
@@ -583,7 +605,7 @@ func build_ui() -> void:
 	boss_health.custom_minimum_size.y = 14
 	wave_card.add_child(boss_health)
 	# selected gem card: portrait + identity, four stat tiles, effect text, targeting
-	var gem_card = card_in(info)
+	var gem_card = card_in(pages.Tower)
 	gem_card.add_theme_constant_override("separation",8)
 	var selected_card = HBoxContainer.new()
 	selected_card.add_theme_constant_override("separation",12)
@@ -614,12 +636,16 @@ func build_ui() -> void:
 	gem_effect.max_lines_visible = 4
 	gem_effect.text_overrun_behavior = TextServer.OVERRUN_TRIM_ELLIPSIS
 	affecting_effects = RichTextLabel.new()
-	affecting_effects.custom_minimum_size = Vector2(0,100)
+	affecting_effects.size_flags_vertical = Control.SIZE_EXPAND_FILL
 	affecting_effects.add_theme_font_size_override("normal_font_size",12)
 	affecting_effects.scroll_active = true
 	affecting_effects.selection_enabled = true
 	affecting_effects.visible = false
-	gem_card.add_child(affecting_effects)
+	var effects_title = label_in(pages.Effects,"AFFECTING THIS TOWER",14)
+	effects_title.add_theme_color_override("font_color",GemArt.color("ui_accent"))
+	pages.Effects.add_child(affecting_effects)
+	tower_effects_hint = label_in(pages.Effects,"Select a tower to inspect its active effects.",14)
+	tower_effects_hint.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	# The full text stays available (tooltips, accessibility, tests); the tiles show the same values.
 	detail_label = GemTooltips.InfoLabel.new()
 	detail_label.add_theme_font_size_override("font_size",13)
@@ -634,8 +660,9 @@ func build_ui() -> void:
 		run.set_priority(selection,GemCatalog.PRIORITIES[index])
 	)
 	gem_card.add_child(priority)
+	tower_effects_button = button_in(gem_card,"Effects & support →",func(): sidebar_tabs.current_tab = 3)
 	# decisions: one clear primary action, combinations beneath it
-	var action_card = card_in(info)
+	var action_card = card_in(sidebar)
 	action_panel = action_card.get_parent()
 	action_card.add_theme_constant_override("separation",6)
 	styled(label_in(action_card,"YOUR TOWER CHOICE",11),"MutedLabel")
@@ -656,6 +683,12 @@ func build_ui() -> void:
 	recipes_box = VBoxContainer.new()
 	recipes_box.add_theme_constant_override("separation",6)
 	action_card.add_child(recipes_box)
+	recipe_choice = OptionButton.new()
+	recipe_choice.item_selected.connect(func(index):
+		chosen_recipe = recipe_choice.get_item_metadata(index)
+		refresh_ui()
+	)
+	recipes_box.add_child(recipe_choice)
 	for recipe in GemCatalog.recipes():
 		var old_button = styled(button_in(recipes_box,"Create "+GemCatalog.recipe_title(recipe)+" · old only",func(): run.combine(recipe,selection,true)),"AccentButton") as Button
 		var is_trap = GemCatalog.stats({"kind":GemCatalog.recipe_result(recipe),"tier":1}).get("slab",false)
@@ -677,7 +710,7 @@ func build_ui() -> void:
 		refresh_ui()
 	)
 	move_trap_button.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-	move_tower_button = styled(button_in(action_card,"Move tower",func():
+	move_tower_button = styled(button_in(minor_actions,"Move tower",func():
 		if board_view.guide.moving_tower != Vector2i(-1,-1):
 			cancel_tower_move()
 			run.message = "Tower move cancelled. No move used."
@@ -688,12 +721,13 @@ func build_ui() -> void:
 			run.message = "Click an empty cell or a stone. Stone swaps to the old cell. Escape or click this tower to cancel."
 		refresh_ui()
 	),"AccentButton") as Button
+	move_tower_button.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	wire_preview(keep_button,{"type":"keep"})
 	wire_preview(upgrade_two,{"type":"upgrade","count":2})
 	wire_preview(upgrade_four,{"type":"upgrade","count":4})
 	wire_preview(demolish_button,{"type":"demolish"})
 	# quality odds as a stacked bar with a legend
-	var odds_card = card_in(info)
+	var odds_card = card_in(pages.Upgrades)
 	odds_card.add_theme_constant_override("separation",6)
 	styled(label_in(odds_card,"Gem quality odds",15),"SectionLabel").remove_theme_font_size_override("font_size")
 	odds_bar = HBoxContainer.new()
@@ -710,7 +744,7 @@ func build_ui() -> void:
 	odds_discount.visible = false
 	quality_button = styled(button_in(odds_card,"",func(): run.buy_quality()),"AccentButton") as Button
 	# gold spells: source hero prays (next gem) and castle heal, campaign only
-	var spell_box = card_in(info)
+	var spell_box = card_in(pages.Upgrades)
 	spells_card = spell_box.get_parent()
 	spell_box.add_theme_constant_override("separation",6)
 	styled(label_in(spell_box,"Gold spells",15),"SectionLabel").remove_theme_font_size_override("font_size")
@@ -741,14 +775,18 @@ func build_ui() -> void:
 	spell_status.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	var settings_panel = PanelContainer.new()
 	settings_panel.theme_type_variation = "Log"
-	info.add_child(settings_panel)
+	sidebar.add_child(settings_panel)
 	var settings = VBoxContainer.new()
 	settings.add_theme_constant_override("separation",2)
 	settings_panel.add_child(settings)
 	save_label = styled(label_in(settings,"",11),"MutedLabel") as Label
 	save_label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	save_label.max_lines_visible = 1
+	save_label.text_overrun_behavior = TextServer.OVERRUN_TRIM_ELLIPSIS
 	footer_label = styled(label_in(settings,"",11),"MutedLabel") as Label
 	footer_label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	footer_label.max_lines_visible = 1
+	footer_label.text_overrun_behavior = TextServer.OVERRUN_TRIM_ELLIPSIS
 	footer_label.add_theme_color_override("font_color",Color("5d6a73"))
 	dim = ColorRect.new()
 	dim.color = Color(0.03,0.05,0.07,0.62)
@@ -834,6 +872,8 @@ func new_run(seed_value: int, restore_data: Dictionary = {}) -> void:
 	started_wave = {}
 	last_wave_report = ""
 	score_prompt_run_id = ""
+	chosen_recipe = ""
+	sidebar_tabs.current_tab = 0
 	run = GemRun.new(seed_value)
 	var did_restore = not restore_data.is_empty() and run.restore(restore_data)
 	if not restore_data.is_empty() and not did_restore:
@@ -877,6 +917,7 @@ func new_run(seed_value: int, restore_data: Dictionary = {}) -> void:
 	refresh_ui()
 
 func on_cell_clicked(p: Vector2i) -> void:
+	if sidebar_tabs.current_tab != 3: sidebar_tabs.current_tab = 0
 	var from = board_view.guide.moving_tower
 	if from != Vector2i(-1,-1):
 		if p == from:
@@ -1079,6 +1120,7 @@ func refresh_ui() -> void:
 		slot.disabled = i >= round_cells.size()
 		slot.icon = null
 		slot.text = str(i+1) if slot.disabled else ""
+		slot.get_node("RoundNumber").visible = not slot.disabled
 		slot.set_pressed_no_signal(not slot.disabled and round_cells[i] == selection)
 		slot.tooltip_text = "Not placed yet. Click an empty board cell."
 		if not slot.disabled:
@@ -1093,9 +1135,33 @@ func refresh_ui() -> void:
 		update_action_button(actions.old,{"type":"recipe","recipe":recipe,"old_only":true})
 		actions.final.visible = not any_materials.is_empty() and any_materials != old_materials
 		update_action_button(actions.final,{"type":"recipe","recipe":recipe,"old_only":false})
+	refresh_recipe_choices()
+	save_label.tooltip_text = save_label.text
+	footer_label.tooltip_text = footer_label.text
 	refresh_hover_hint()
 	refresh_action_preview()
 	board_view.queue_redraw()
+
+func refresh_recipe_choices() -> void:
+	var available: Array[String] = []
+	for recipe in GemCatalog.recipes():
+		var actions: Dictionary = recipe_buttons[recipe]
+		if actions.old.visible or actions.final.visible: available.append(recipe)
+	if chosen_recipe not in available: chosen_recipe = "" if available.is_empty() else available[0]
+	# Bound the action panel even when a late-game inventory offers many recipes.
+	var previous: Array[String] = []
+	for index in range(recipe_choice.item_count): previous.append(str(recipe_choice.get_item_metadata(index)))
+	if previous != available:
+		recipe_choice.clear()
+		for recipe in available:
+			recipe_choice.add_item("Recipe: "+GemCatalog.recipe_title(recipe))
+			recipe_choice.set_item_metadata(recipe_choice.item_count-1,recipe)
+	if not available.is_empty(): recipe_choice.select(available.find(chosen_recipe))
+	recipe_choice.visible = available.size() > 1
+	for recipe in available:
+		if recipe != chosen_recipe:
+			recipe_buttons[recipe].old.visible = false
+			recipe_buttons[recipe].final.visible = false
 
 func spell_summary(id: String) -> String:
 	var data = GemRun.spell(id)
@@ -1166,6 +1232,8 @@ func refresh_odds(odds: Array) -> void:
 func refresh_gem_card(gem: Dictionary, terminal: bool) -> void:
 	var is_stone = gem.is_empty() or gem.get("kind","stone") == "stone" or run.board.slabs.has(selection)
 	affecting_effects.visible = not is_stone
+	tower_effects_button.visible = not is_stone
+	tower_effects_hint.visible = is_stone
 	gem_effect.tooltip_text = ""
 	if not is_stone:
 		var effects_text = GemTowerEffects.text(gem,selection,run.board.cells,combat)

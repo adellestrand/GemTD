@@ -39,6 +39,10 @@ Resultat märks **unverified**. Se [leaderboard: användning och drift](docs/lea
   **AFFECTING THIS TOWER** för MVP, stödkällor och tillfälliga effekter.
 - MVP 10 med guldkrona, räckviddsring och markering av berörda torn.
 
+Högerpanelen använder flikarna **Tower / Wave / Upgrades / Effects**, med fasta
+byggkontroller utan menyskroll. Rundans nya gems markeras med gula hörn och
+nummer 1–5 på både kartan och bildknapparna. Se [panel och gemmarkeringar](docs/sidebar-and-fresh-gems.md).
+
 ## Starta från källkod
 
 Kräver Windows x64, Python 3.10+ och PowerShell. Kör från repots rot:
